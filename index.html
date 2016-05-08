@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
     <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://gc.kis.scr.kaspersky-labs.com/1B74BD89-2A22-4B93-B451-1C9E1052A0EC/main.js" charset="UTF-8"></script><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 
     <!-- Latest compiled JavaScript -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -18,21 +18,22 @@
 </head>
 <body>
 
-
 <div class="container-fluid" id="content">
     <div class="row" id="header">
-        <img src="pictures/logo_fdu1.jpg" id="logo">
-        <h1 id="naslov_header">Fakultet Dramskih Umetnosti </h1>
-    </div>
 
-    <div class="row" id="navigation">
-        <div class="col-md-8" id="naslov">
-            <h1>Pretraga fimova:</h1>
+        <div class="col-md-3">
+            <img src="pictures/logo_fdu1.jpg" id="logo">
         </div>
 
-        <div class="col-md-4" >
+        <div class="col-md-7" >
+            <h1 id="naslov_header">Fakultet Dramskih Umetnosti </h1>
+        </div>
 
-            <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal" id = "administrator">Administrator</button>
+        <div class="col-md-2" id="admin">
+            <div id = "glupi_div">
+                <span class="glyphicon glyphicon-user glyphicon" id="admin_ikonica"></span>
+                <button type="button" class="btn btn-default btn-lg" id="admin_dugme" data-toggle="modal" data-target="#myModal">Administrator</button>
+            </div>
             <div id="myModal" class="modal fade" role="dialog">
                 <div class="modal-dialog modal-sm">
 
@@ -72,7 +73,15 @@
                     </div>
                 </div>
             </div>
+        </div>
 
+    </div> <!--header-->
+
+
+
+    <div class="row" id="navigation">
+        <div class="col-md-8" id="naslov">
+            <h1>Pretraga fimova:</h1>
         </div>
     </div><!-- div navigacija -->
 
@@ -95,7 +104,7 @@
                     <label class="col-md-1" for="predmet">Predmet: </label>
                     <div class="col-md-4">
                         <input type="text" class="form-control" name="predmet" id="predmet"/>
-                     </div>
+                    </div>
                 </div>
 
                 <div class="form-group">
