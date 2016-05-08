@@ -1,0 +1,51 @@
+#header{
+    text-align: center;
+    background-color: rgb(104,16,34);
+    font-family: Goudy Old Style;
+    font-style: italic;
+    height: 130px;
+    color: bisque;
+}
+
+#naslov_header{
+    padding-top: 1.5%;
+    font-size: 400%;
+}
+
+#logo{
+    float:left;
+}
+
+#content{
+    background-color: bisque;
+}
+
+footer{
+    background-color: bisque;
+    text-align: center;
+    clear: both;
+}
+
+#administrator{
+    float: right;
+    margin-top: 18px;
+    color: rgb(104,16,34);
+}
+
+#dialog{
+    background-color: bisque;
+}
+
+#odustani {
+    float:left;
+}
+
+#naslov{
+    font-family: Goudy Old Style;
+    font-style: italic;
+    color: rgb(104,16,34);
+}
+
+#forma{
+    padding-left: 70px;
+}
