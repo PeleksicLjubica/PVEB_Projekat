@@ -1,6 +1,6 @@
 #header{
     text-align: center;
-    background-color: rgb(104,16,34);
+    background-color: rgb(42,1,5);
     height: 130px;
 }
 
@@ -20,9 +20,10 @@
     background-color: bisque;
 }
 
-footer{
-    background-color: bisque;
+#footer{
+    background-color: rgb(42,1,5);
     text-align: center;
+    align-content: center;
     clear: both;
 }
 
@@ -33,13 +34,13 @@ footer{
 
 #admin_ikonica{
     color:bisque;
-    background-color: rgb(104,16,34);
+    background-color: rgb(42,1,5);
 }
 
 
 #admin_dugme{
     color:bisque;
-    background-color: rgb(104,16,34);
+    background-color: rgb(42,1,5);
     padding: 0;
     border: none;
 }
@@ -51,7 +52,7 @@ footer{
 #naslov{
     font-family: Goudy Old Style;
     font-style: italic;
-    color: rgb(104,16,34);
+    color: rgb(42,1,5);
 }
 
 #forma{
