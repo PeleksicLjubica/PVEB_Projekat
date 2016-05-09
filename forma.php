@@ -21,16 +21,9 @@
 
 <div class="container-fluid" id="content">
 
-    <div class="row" id="header">
-        <div class="col-md-3">
-            <img src="pictures/logo_fdu1.jpg" id="logo">
-        </div>
-
-        <div class="col-md-7" >
-            <h1 id="naslov_header">Fakultet Dramskih Umetnosti </h1>
-        </div>
-
-    </div> <!--kraj header-a-->
+    <?php
+        include 'header.php';
+    ?>
 
 
     <div class="container" align="center">
@@ -335,9 +328,9 @@
     </div>
 
 
-    <footer>
-        Copyright © FDU
-    </footer>
+    <?php
+        include 'footer.php';
+    ?>
 
 </body>
 </html>
