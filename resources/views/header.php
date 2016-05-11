@@ -1,3 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FDU</title>
+    <link rel="shortcut icon" href="img/logo_fdu1.jpg"/>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script type="text/javascript" src="https://gc.kis.scr.kaspersky-labs.com/1B74BD89-2A22-4B93-B451-1C9E1052A0EC/main.js" charset="UTF-8"></script><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+<div class="container-fluid" id="content">
+
 <div class="row" id="header">
 
     <div class="col-md-2">
@@ -21,21 +44,24 @@
 
                     <form class="form-vertical" role="form">
 
-                        <div class="row" style="padding:40px;">
+                        <div class="row">
                             <div class="col-md-1"></div>
-                            <div class="col-md-10">
+                            <div class="col-md-10" id="forma_za_logovanje_sa_ikonicom">
 
-                                <div class="form-group">
-                                    <label for="korisnicko_ime">Korisničko ime: </label>
-                                    <input type="text" class="form-control" name="korisnicko_ime" id="korisnicko_ime">
+                                <!-- ikonica u prozoru za logovanje -->
+                                <span class="glyphicon glyphicon-user glyphicon" id="admin_ikonica1"></span>
 
-                                </div>
+                                <div id="forma_za_logovanje">
+                                    <div class="form-group">
+                                        <label for="korisnicko_ime">Korisničko ime: </label>
+                                        <input type="text" class="form-control" name="korisnicko_ime" id="korisnicko_ime">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="šifra">Šifra: </label>
-                                    <input type="text" class="form-control" name="šifra" id="šifra"><br>
-
-                                </div>
+                                    <div class="form-group">
+                                        <label for="šifra">Šifra: </label>
+                                        <input type="text" class="form-control" name="šifra" id="šifra"><br>
+                                    </div>
+                                </div><!--forma za logovanje-->
 
                             </div>
                             <div class="col-md-1"></div>
