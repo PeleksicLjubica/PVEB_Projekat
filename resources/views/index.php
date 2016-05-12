@@ -1,9 +1,8 @@
+<?php
+include 'header.php';
+?>
 
-    <?php
-        include 'header.php';
-    ?>
-
-    <div class="container">
+<div class="container">
 
     <div class="row" id="navigation">
         <div class="col-md-8" id="naslov">
@@ -50,10 +49,9 @@
             </form>
         </div>
     </div><!-- div red-->
-    </div>
 
-    <?php
-        include 'footer.php';
-    ?>
+</div>
 
-
+<?php
+include 'footer.php';
+?>
