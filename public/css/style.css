@@ -60,7 +60,7 @@
     margin-bottom: 20px;
 }
 
-#glupi_div {
+#div_admin {
     margin-top:55px;
 }
 
@@ -72,4 +72,12 @@
 
 #forma_za_logovanje_sa_ikonicom{
     margin-top: 20px;
+}
+
+.form-control {
+    border: 1px solid darkred;
+}
+
+.btn-default {
+    border: 1px solid darkred;
 }

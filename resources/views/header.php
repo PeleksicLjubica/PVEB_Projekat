@@ -32,7 +32,7 @@
     </div>
 
     <div class="col-md-2" id="admin">
-        <div id = "glupi_div">
+        <div id = "div_admin">
             <span class="glyphicon glyphicon-user glyphicon" id="admin_ikonica"></span>
             <button type="button" class="btn btn-default btn-lg" id="admin_dugme" data-toggle="modal" data-target="#myModal">Administrator</button>
         </div>
