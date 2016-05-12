@@ -215,92 +215,91 @@
             </div>
 
             <div id="forma2">
-                <h3>Tehnička specifikacija: </h3>
+                <h3>Tehnička specifikacija: </h3> <br/>
+
 
                 <div class="form-group">
-                    <label class="control-label col-md-2" for="osnovni_format">Osnovni format</label>
-                    <div class="radio-inline">
-                        <label><input type="radio" name="osnovni_format" id="osnovni_format">VIDEO</label>
-                    </div>
-                    <div class="radio-inline">
-                        <label><input type="radio" name="osnovni_format">FILM</label>
-                    </div>
+                    <label class="control-label col-sm-2" for="osnovni_format">
+                        Osnovni format:
+                    </label>
+
+                    <label class="radio-inline col-sm-2">
+                        <input type="radio" name="osnovni_format" id="osnovni_format">VIDEO
+                    </label>
+                    <label class="radio-inline col-md-2"">
+                        <input type="radio" name="osnovni_format" id="osnovni_format">FILM
+                    </label>
                 </div>
+
 
                 <div class="form-group">
                     <label class="control-label col-md-2" for="filmski_format">Filmski format</label>
-                    <div class="radio-inline">
-                        <label><input type="radio" name="filmski_format" id="filmski_format">8 mm</label>
-                    </div>
-                    <div class="radio-inline">
-                        <label><input type="radio" name="filmski_format">16 mm</label>
-                    </div>
-                    <div class="radio-inline">
-                        <label><input type="radio" name="filmski_format">35 mm</label>
-                    </div>
+                        <label class="radio-inline">
+                            <input type="radio" name="filmski_format" id="filmski_format">8 mm
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="filmski_format">16 mm
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="filmski_format">35 mm
+                        </label>
                 </div>
 
-                <div class="form-group">
-                    <label class="control-label col-md-2" for="video_format">Filmski format</label>
-                    <div class="radio-inline">
-                        <label><input type="radio" name="video_format" id="video_format">SD</label>
-                    </div>
-                    <div class="radio-inline">
-                        <label><input type="radio" name="video_format">HD</label>
-                    </div>
-                    <div class="radio-inline">
-                        <label><input type="radio" name="video_format">2K</label>
-                    </div>
-                    <div class="radio-inline">
-                        <label><input type="radio" name="video_format">4K</label>
-                    </div>
-                </div>
 
                 <div class="form-group">
                     <label class="control-label col-md-2" for="tel_standard">Televizijski standard</label>
-                    <div class="radio-inline">
-                        <label><input type="radio" name="tel_standard" id="tel_standard">PAL</label>
-                    </div>
-                    <div class="radio-inline">
-                        <label><input type="radio" name="tel_standard">NTSC</label>
-                    </div>
+                        <label class="radio-inline"><input type="radio" name="tel_standard" id="tel_standard">PAL</label>
+                        <label class="radio-inline"><input type="radio" name="tel_standard">NTSC</label>
+
                 </div>
 
                 <div class="form-group">
                     <label class="control-label col-md-2" for="an_slike">Analiza slike</label>
-                    <div class="radio-inline">
-                        <label><input type="radio" name="an_slike" id="an_slike">Sa proredom</label>
-                    </div>
-                    <div class="radio-inline">
-                        <label><input type="radio" name="an_slike">Progresivna</label>
-                    </div>
+                        <label class="radio-inline"><input type="radio" name="an_slike" id="an_slike">Sa proredom</label>
+                        <label class="radio-inline"><input type="radio" name="an_slike">Progresivna</label>
                 </div>
 
-                <!-- TODO poravnati dugmice i dodati ostale delove forme -->
+
+
                 <div class="form-group">
-                    <label class="control-label col-md-2" for="format_slicice">Format slicice</label>
-                        <div class="radio">
-                            <label><input type="radio" name="format_slicice" id="format_slicice">4:3</label>
-                        </div>
-                        <div class="radio">
-                            <label><input type="radio" name="format_slicice">4:3 Letterbox</label>
-                        </div>
-                        <div class="radio">
-                            <label><input type="radio" name="format_slicice">16:9</label>
-                        </div>
-                        <div class="radio">
-                            <label><input type="radio" name="format_slicice">16:9 Letterbox</label>
-                        </div>
+                    <label class="control-label col-md-2" for="formаt_slike">Format sličice</label>
 
+                    <div>
+                    <label class="radio-inline">
+                        <input type="radio" name="format_slike" id="formаt_slike">4:3
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio"  name="format_slike" id="formаt_slike">4:3 Letterbox
+                    </label>
+                        <label class="radio-inline">
+                            <input type="radio"  name="format_slike" id="formаt_slike">16:9
+                        </label>
+
+                    </div>
+
+
+                    <div>
+                        <label class="radio-inline">
+                            <input type="radio"  name="format_slike" id="formаt_slike">16:9 Letterbox
+                        </label>
+                    <label class="radio-inline">
+                        <input type="radio"  name="format_slike" id="formаt_slike"> 1:1,66
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio"  name="format_slike" id="formаt_slike">1:1,85
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio"  name="format_slike" id="formаt_slike">Scope
+                    </label>
+                    </div>
+
+                    </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-7">
+                        <button type="submit" class="btn btn-default">Potvrdi</button>
+                    </div>
                 </div>
-
-            </div>
-
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-7">
-                    <button type="submit" class="btn btn-default">Potvrdi</button>
-                </div>
-            </div>
 
 
         </form>
