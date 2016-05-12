@@ -3,6 +3,8 @@
         include 'header.php';
     ?>
 
+    <div class="container">
+
     <div class="row" id="navigation">
         <div class="col-md-8" id="naslov">
             <h1>Pretraga fimova:</h1>
@@ -48,12 +50,10 @@
             </form>
         </div>
     </div><!-- div red-->
+    </div>
 
     <?php
         include 'footer.php';
     ?>
 
-</div>
 
-</body>
-</html>

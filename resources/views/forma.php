@@ -169,9 +169,9 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label col-md-2" for="mdinker">Šminker:</label>
+                    <label class="control-label col-md-2" for="sminker">Šminker:</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="mdinker">
+                        <input type="text" class="form-control" id="sminker">
                     </div>
                 </div>
 
@@ -275,7 +275,7 @@
                     <label class="control-label col-md-2" for="tel_standard">Televizijski standard:</label>
                     <div class="col-md-9">
                         <label class="radio-inline col-md-3"><input type="radio" name="tel_standard" id="tel_standard">PAL</label>
-                        <label class="radio-inline col-md-3"><input type="radio" name="tel_standard">NTSC</label>
+                        <label class="radio-inline col-md-3"><input type="radio" name="tel_standard" id="tel_standard">NTSC</label>
                     </div>
                 </div>
 
@@ -284,12 +284,12 @@
                     <div class="col-md-9">
                         <div class="radio">
                             <label>
-                                <input type="radio" name="format_slike" id="formаt_slike">Sa proredom
+                                <input type="radio" name="an_slike" id="an_slike">Sa proredom
                             </label>
                         </div>
                         <div class="radio">
                             <label>
-                                <input type="radio" name="format_slike" id="formаt_slike">Progresivna
+                                <input type="radio" name="an_slike" id="an_slike">Progresivna
                             </label>
                         </div>
                     </div>
@@ -355,7 +355,7 @@
                             <input type="radio" name="sl_sekund" id="sl_sekund">23,976
                         </label>
                         <label class="radio-inline col-md-3">
-                            <input type="radio" name="id="sl_sekund"" id="sl_sekund">24
+                            <input type="radio" name="sl_sekund"  id="sl_sekund">24
                         </label>
                     </div>
                 </div>
@@ -377,9 +377,9 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label col-md-2" for="video_nosac">Vrsta fajla: </label>
+                    <label class="control-label col-md-2" for="vr_fajla">Vrsta fajla: </label>
                     <div class="col-md-9">
-                        <select class="form-control" id="sel1">
+                        <select class="form-control" id="vr_fajla">
                             <option>A</option>
                             <option>B</option>
                             <option>C</option>
@@ -411,7 +411,7 @@
                             <input type="radio" name="br_kanala" id="br_kanala">Stereo
                         </label>
                         <label class="radio-inline col-md-3">
-                            <input type="radio" name="zvuk" name="br_kanala" id="br_kanala">5.1
+                            <input type="radio" name="br_kanala" id="br_kanala">5.1
                         </label>
                     </div>
                 </div>
@@ -448,30 +448,30 @@
                         <label class="control-label col-md-2" for="dodatno">Uz karton filma predajem i sledeće: </label>
                         <div class="col-md-9">
                             <div class="checkbox">
-                                <label><input type="checkbox" value="">DVD</label>
+                                <label><input type="checkbox" value="" id="dodatno">DVD</label>
                             </div>
                             <div class="checkbox">
-                                <label><input type="checkbox" value="">Blu-ray</label>
+                                <label><input type="checkbox" value="" id="dodatno">Blu-ray</label>
                             </div>
                             <div class="checkbox">
-                                <label><input type="checkbox" value="">fajl</label>
+                                <label><input type="checkbox" value="" id="dodatno">fajl</label>
                             </div>
                             <div class="checkbox">
-                                <label><input type="checkbox" value="">rolnu filma</label>
-                            </div>
-
-                            <div class="checkbox">
-                                <label><input type="checkbox" value="">verziju sa i bez engleskog titla</label>
+                                <label><input type="checkbox" value="" id="dodatno">rolnu filma</label>
                             </div>
 
                             <div class="checkbox">
-                                <label><input type="checkbox" value="">srpsku i englesku dijalog listu</label>
+                                <label><input type="checkbox" value="" id="dodatno">verziju sa i bez engleskog titla</label>
+                            </div>
+
+                            <div class="checkbox">
+                                <label><input type="checkbox" value="" id="dodatno">srpsku i englesku dijalog listu</label>
                             </div>
                             <div class="checkbox">
-                                <label><input type="checkbox" value="">fotografiju student (jpg - 300 dpi)</label>
+                                <label><input type="checkbox" value="" id="dodatno">fotografiju student (jpg - 300 dpi)</label>
                             </div>
                             <div class="checkbox">
-                                <label><input type="checkbox" value="">fotografije iz filma (3 komada)</label>
+                                <label><input type="checkbox" value="" id="dodatno">fotografije iz filma (3 komada)</label>
                             </div>
                         </div>
                     </div>
