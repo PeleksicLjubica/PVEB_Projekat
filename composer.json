@@ -28,7 +28,8 @@
     },
     "scripts": {
         "post-update-cmd": [
-            "ln -sfr vendor/twbs/bootstrap/dist public/vendor/bootstrap"
+            "cp -R vendor/twbs/bootstrap/dist public/vendor/bootstrap",
+            "cp -R vendor/components/jquery public/vendor/jquery"
         ]
     }
 }

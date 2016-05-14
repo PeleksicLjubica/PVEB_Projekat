@@ -53,3 +53,5 @@ fabric.properties
 # modules.xml
 
 /vendor
+.env
+/public/vendor
