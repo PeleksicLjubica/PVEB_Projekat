@@ -11,6 +11,9 @@
 |
 */
 
+
+use App\Models\Vezba;
+
 $app->get('/', function () use ($app) {
     return $app->version();
 });
@@ -24,3 +27,11 @@ $app->get('/karton', function () use ($app) {
 });
 
 
+$app->get('/vezba', function() use ($app) {
+    $vezbe = Vezba::all();
+    echo "Sve vezbe u bazi: " . PHP_EOL;
+    foreach ($vezbe as $vezba) {
+        echo $vezba->id_vezbe . ": Naziv: " . $vezba->naziv . " Tip vezbe: " . $vezba->tip . PHP_EOL;
+    }
+    echo "------------------------------" . PHP_EOL;
+});
