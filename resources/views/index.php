@@ -3,6 +3,9 @@ include 'header.php';
 ?>
 
 <div class="container">
+    <div id="floating_button">
+        <button type="button" class="btn btn-default btn-lg" id="dodaj_film" onclick="idiNaKarton()">Dodaj film</button>
+    </div>
 
     <div class="row" id="navigation">
         <div class="col-md-8" id="naslov">
@@ -11,6 +14,7 @@ include 'header.php';
     </div><!-- div navigacija -->
 
     <div class="row">
+
         <div class="col-md-12" id="forma">
             <form class="form-horizontal" role="form">
                 <div class="form-group">
@@ -48,6 +52,7 @@ include 'header.php';
 
             </form>
         </div>
+
     </div><!-- div red-->
 
 </div>
@@ -55,3 +60,6 @@ include 'header.php';
 <?php
 include 'footer.php';
 ?>
+
+<script src="js/index.js"></script>
+

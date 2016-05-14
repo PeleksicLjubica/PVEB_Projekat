@@ -52,13 +52,16 @@ body {
 
 #admin_ikonica{
     color:bisque;
-    background-color: rgb(42,1,5);
+    background-color: transparent;
 }
 
+#admin_ikonica1 {
+    text-align: center;
+}
 
 #admin_dugme{
     color:bisque;
-    background-color: rgb(42,1,5);
+    background-color: transparent;
     padding: 0;
     border: none;
 }
@@ -79,7 +82,8 @@ body {
 }
 
 #div_admin {
-    margin-top:55px;
+    margin-top: 13px;
+    margin-right: 30px;
 }
 
 #forma_za_logovanje{
@@ -100,3 +104,28 @@ body {
     border: 1px solid darkred;
 }
 
+#navbar {
+    margin-left: -15px;
+    margin-right: -15px;
+    border-radius: 0px;
+    color: rgb(42,1,5);
+}
+
+.navbar-inverse{
+    background-color: rgba(4, 0, 0, 0.96);
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: bisque;
+}
+
+.navbar-inverse .navbar-nav>.active>a {
+    font-size: 18px;
+    background-color: rgb(42, 1, 5);
+    color: bisque;
+}
+
+#floating_button {
+    position: absolute;
+    right: 30px;
+}
