@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 final class Vezba extends Model
 {
-    protected $table='vezba';
+    protected $table='Vezba';
 }
