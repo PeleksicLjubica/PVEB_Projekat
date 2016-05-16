@@ -54,4 +54,4 @@ fabric.properties
 
 /vendor
 .env
-/public/vendor
+/public/components

@@ -9,7 +9,8 @@
         "laravel/lumen-framework": "5.2.*",
         "vlucas/phpdotenv": "~2.2",
         "components/jquery": "^2.2",
-        "twbs/bootstrap": "^3.3"
+        "robloach/component-installer": "^0.2.3",
+        "components/bootstrap": "^3.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -26,10 +27,7 @@
             "database/"
         ]
     },
-    "scripts": {
-        "post-update-cmd": [
-            "cp -R vendor/twbs/bootstrap/ public/vendor/bootstrap",
-            "cp -R vendor/components/jquery public/vendor/jquery"
-        ]
+    "config": {
+        "component-dir": "public/components"
     }
 }

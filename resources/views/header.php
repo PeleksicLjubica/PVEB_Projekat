@@ -7,13 +7,13 @@
     <link rel="shortcut icon" href="img/logo_fdu1.jpg"/>
 
     <!-- jQuery library -->
-    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="components/jquery/jquery.min.js"></script>
 
     <!-- Latest compiled and minified Bootstrap CSS -->
-    <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="components/bootstrap/css/bootstrap.min.css">
 
     <!-- Latest compiled Bootstrap JavaScript -->
-    <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="components/bootstrap/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="css/style.css">
 
