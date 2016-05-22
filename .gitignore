@@ -55,4 +55,4 @@ fabric.properties
 /vendor
 .env
 /public/components
-/public/node_modules
+/node_modules
