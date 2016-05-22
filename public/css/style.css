@@ -97,12 +97,13 @@ body {
 }
 
 .form-control {
-    border: 1px solid darkred;
+    border: 1px solid rgba(4, 0, 0, 0.96);
 }
 
 .btn-default {
     border: 1px solid darkred;
 }
+
 
 #navbar {
     margin-left: -15px;
@@ -128,4 +129,50 @@ body {
 #floating_button {
     position: absolute;
     right: 30px;
+}
+
+#sekcija1, #flip{
+    padding-top: 25px;
+    text-align: center;
+    background-color: bisque;
+    color:rgb(42, 1, 5);
+}
+
+#sekcija1 {
+    display: none;
+}
+
+#napredna_pretraga {
+    background-color: rgb(42, 1, 5);
+    color:bisque;
+    height: 30px;
+    width: 180px;
+    padding: 6px;
+    border: 1px solid rgb(42, 1, 5);
+    border-radius: 5px;
+}
+
+#pretrazi {
+    background-color: rgb(42, 1, 5);
+    color:bisque;
+}
+
+
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    width: 85%;
+    height: 400px;
+    margin: auto;
+}
+
+.pasusi {
+    background-color: rgb(42, 1, 5);
+    color:bisque;
+    border: 1px solid rgb(42, 1, 5);
+    border-radius: 5px;
+    padding: 2px;
+}
+
+#osnovno {
+    display:none;
 }
