@@ -15,7 +15,34 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
-    $("#pasusi").click(function(){
+    $("#pasusi1").click(function(){
         $("#osnovno").slideToggle("slow");
     });
+});
+
+$(document).ready(function(){
+    $("#pasusi2").click(function(){
+        $("#tehnicka").slideToggle("slow");
+    });
+});
+
+var data = [{ id: 0, text: '' }, { id: 1, text: 'Amelija Pulen Haj' }, { id: 2, text: 'duplicate' }, { id: 3, text: 'invalid' }, { id: 4, text: 'wontfix' }];
+
+$(".js-example-data-array").select2({
+    data: data
+});
+
+
+$(".js-example-responsive").select2({
+    data: data
+});
+
+$(".js-data-example-ajax").select2({
+   data: data
+});
+
+
+$(".js-example-basic-hide-search").select2({
+    minimumResultsForSearch: 0,
+    data: data
 });
