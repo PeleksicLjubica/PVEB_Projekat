@@ -45,7 +45,7 @@
 
         <ul class="nav navbar-nav">
             <li class="active"><a href="home ">Filmovi</a></li>
-            <li><a href="#">Katedre</a></li>
+            <li><a href="katedra">Katedre</a></li>
             <li><a href="vezba">Vezbe</a></li>
             <li><a href="karton">Dodaj film</a></li>
         </ul>

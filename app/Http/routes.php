@@ -28,3 +28,5 @@ $app->get('/karton', function () use ($app) {
 });
 
 $app->get('/vezba', 'VezbaController@getAll');
+
+$app->get('/katedra', 'KatedraController@getAll');
