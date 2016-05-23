@@ -7,8 +7,10 @@ body {
 
 #header{
     text-align: center;
-    background-color: rgb(42,1,5);
     min-height: 130px;
+
+    background: rgb(42,1,5); /* For browsers that do not support gradients */
+
 }
 
 #naslov_header{
@@ -27,6 +29,7 @@ body {
     background-color: bisque;
 	min-height:100%;
 	position:relative;
+
 }
 
 .container {
@@ -35,7 +38,7 @@ body {
 }
 
 #footer{
-    background-color: rgb(42,1,5);
+    background-color: rgb(1,1,1);
     text-align: center;
     align-content: center;
     clear: both;
@@ -133,7 +136,7 @@ body {
 
 #sekcija1, #flip{
     padding-top: 25px;
-    text-align: center;
+    /*text-align: center;*/
     background-color: bisque;
     color:rgb(42, 1, 5);
 }
@@ -148,10 +151,11 @@ body {
     color:bisque;
     height: 30px;
     width: 180px;
-    padding: 6px;
+    padding-bottom: 5px;
+    padding-top: 3px;
     border: 1px solid rgb(42, 1, 5);
     border-radius: 5px;
-
+    text-align: center;
 }
 
 #pretrazi {
@@ -170,9 +174,10 @@ body {
 .pasusi {
     background-color: rgb(42, 1, 5);
     color:bisque;
-    padding: 0px;
+    padding: 2px;
     border: 1px solid rgb(42, 1, 5);
     border-radius: 5px;
+    text-align: center;
 }
 
 
@@ -192,4 +197,12 @@ body {
 #potvrdi, #odustani {
     background-color: rgb(42, 1, 5);
     color:bisque;
+}
+
+#levi_div {
+    margin-bottom: 100px;
+}
+
+#vrteska {
+    margin-bottom: 50px;
 }

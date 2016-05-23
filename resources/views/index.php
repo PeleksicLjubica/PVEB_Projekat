@@ -9,10 +9,10 @@ include 'header.php';
 
     <div class="row">
 
-        <div class="col-md-6">
+        <div class="col-md-6" id="levi_div">
                 <form class="form-horizontal" role="form">
 
-                    <div class="col-md-6" id="naslov">
+                    <div id="naslov">
                         <h1>Pretraga fimova:</h1>
                     </div>
 
@@ -20,14 +20,11 @@ include 'header.php';
                         <div id="flip" class="col-md-12">
                             <div class="form-group row">
                                 <label class="col-md-3" for="naziv_filma">Naziv filma: </label>
-                                <div class="col-md-7">
+                                <div class="col-md-9">
                                     <select class="js-example-basic-hide-search col-md-12">
                                     </select>
                                 </div>
 
-                                <div class="col-md-2">
-                                      <button type="button" class="btn btn-default btn-sm" id="pretrazi">Pretraži</button>
-                                </div>
                             </div>
                             <div id="napredna_pretraga">
                                 Napredna pretraga <span class="glyphicon glyphicon-triangle-bottom glyphicon"></span>
@@ -369,6 +366,12 @@ include 'header.php';
 
                         </div> <!--sekcija1-->
                     </div> <!--kraj row-a sekcija1-->
+
+                    <div class="row redovi_u_pretrazi"> <!--dugme-->
+                        <div class="col-md-2">
+                            <button type="button" class="btn btn-default btn-sm" id="pretrazi">Pretraži</button>
+                        </div>
+                        </div>
 
                 </form>
         </div> <!--najveci div-->
