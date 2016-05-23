@@ -55,5 +55,5 @@ fabric.properties
 /vendor
 .env
 /public/components
-public/node_modules
+/public/node_modules
 /typings
