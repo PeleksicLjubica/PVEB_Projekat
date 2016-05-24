@@ -343,8 +343,8 @@ include 'header.php';
                             </div>
                         </div>
                     </div>
-
-
+				</div>
+				
                 <div class="form-group">
                     <label class="control-label col-md-2" for="sl_sekund">Sličice u sekundi:</label>
                     <div class="col-md-9">

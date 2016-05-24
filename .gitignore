@@ -56,4 +56,5 @@ fabric.properties
 .env
 /public/components
 /public/node_modules
+/public/typings
 /typings
