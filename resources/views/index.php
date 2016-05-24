@@ -10,7 +10,7 @@ include 'header.php';
     <div class="row">
 
         <div class="col-md-6" id="levi_div">
-                <form class="form-horizontal" role="form">
+                <form class="form-horizontal">
 
                     <div id="naslov">
                         <h1>Pretraga fimova:</h1>
@@ -19,7 +19,7 @@ include 'header.php';
                     <div class="row">
                         <div id="flip" class="col-md-12">
                             <div class="form-group row">
-                                <label class="col-md-3" for="naziv_filma">Naziv filma: </label>
+                                <label class="col-md-3">Naziv filma: </label>
                                 <div class="col-md-9">
                                     <select class="js-example-basic-hide-search col-md-12">
                                     </select>
@@ -38,7 +38,7 @@ include 'header.php';
                             <div class="row">
                             <div id="osnovno" class="col-md-12">
                                     <div class="row redovi_u_pretrazi">
-                                                <label class="col-md-2" for="sel1">Godina proizvodnje:</label>
+                                                <label class="col-md-2">Godina proizvodnje:</label>
                                                 <div class="col-md-4">
                                                     <div class="row">
                                                         <div class="col-md-12">
@@ -48,7 +48,7 @@ include 'header.php';
                                                     </div>
                                                 </div>
 
-                                                <label class="col-md-2" for="predmet">Katedra:</label>
+                                                <label class="col-md-2">Katedra:</label>
                                                 <div class="col-md-4">
                                                     <select class="js-example-responsive col-md-12" style="width: 100%">
                                                     </select>
@@ -57,7 +57,7 @@ include 'header.php';
                                     </div><!-- row-->
 
                                     <div class="row redovi_u_pretrazi">
-                                        <label class="col-md-2" for="sel1">Naziv vežbe:</label>
+                                        <label class="col-md-2">Naziv vežbe:</label>
                                         <div class="col-md-4">
                                             <div class="row">
                                                 <div class="col-md-12">
@@ -67,7 +67,7 @@ include 'header.php';
                                             </div>
                                         </div>
 
-                                        <label class="col-md-2" for="predmet">Godina studija:</label>
+                                        <label class="col-md-2">Godina studija:</label>
                                         <div class="col-md-4">
                                             <select class="js-example-responsive col-md-12" style="width: 100%">
                                             </select>
@@ -76,7 +76,7 @@ include 'header.php';
                                     </div><!-- row-->
 
                                     <div class="row redovi_u_pretrazi">
-                                        <label class="col-md-2" for="sel1">Profesor:</label>
+                                        <label class="col-md-2">Profesor:</label>
                                         <div class="col-md-4">
                                             <div class="row">
                                                 <div class="col-md-12">
@@ -86,7 +86,7 @@ include 'header.php';
                                             </div>
                                         </div>
 
-                                        <label class="col-md-2" for="predmet">Predmet:</label>
+                                        <label class="col-md-2">Predmet:</label>
                                         <div class="col-md-4">
                                             <select class="js-example-responsive col-md-12" style="width: 100%">
                                             </select>
@@ -95,7 +95,7 @@ include 'header.php';
                                     </div><!-- row-->
 
                                     <div class="row redovi_u_pretrazi">
-                                        <label class="col-md-2" for="sel1">Trajanje:</label>
+                                        <label class="col-md-2">Trajanje:</label>
                                         <div class="col-md-4">
                                             <div class="row">
                                                 <div class="col-md-12">
@@ -105,7 +105,7 @@ include 'header.php';
                                             </div>
                                         </div>
 
-                                        <label class="col-md-2" for="predmet">Režiser:</label>
+                                        <label class="col-md-2">Režiser:</label>
                                         <div class="col-md-4">
                                             <select class="js-example-responsive col-md-12" style="width: 100%">
                                             </select>
@@ -114,7 +114,7 @@ include 'header.php';
                                     </div><!-- row-->
 
                                     <div class="row redovi_u_pretrazi">
-                                        <label class="col-md-2" for="sel1">Producent:</label>
+                                        <label class="col-md-2">Producent:</label>
                                         <div class="col-md-4">
                                             <div class="row">
                                                 <div class="col-md-12">
@@ -124,7 +124,7 @@ include 'header.php';
                                             </div>
                                         </div>
 
-                                        <label class="col-md-2" for="predmet">Scenarista:</label>
+                                        <label class="col-md-2">Scenarista:</label>
                                         <div class="col-md-4">
                                             <select class="js-example-responsive col-md-12" style="width: 100%">
                                             </select>
@@ -133,7 +133,7 @@ include 'header.php';
                                     </div><!-- row-->
 
                                     <div class="row redovi_u_pretrazi">
-                                        <label class="col-md-2" for="sel1">Snimatelj:</label>
+                                        <label class="col-md-2">Snimatelj:</label>
                                         <div class="col-md-4">
                                             <div class="row">
                                                 <div class="col-md-12">
@@ -143,7 +143,7 @@ include 'header.php';
                                             </div>
                                         </div>
 
-                                        <label class="col-md-2" for="predmet">Montažer:</label>
+                                        <label class="col-md-2">Montažer:</label>
                                         <div class="col-md-4">
                                             <select class="js-example-responsive col-md-12" style="width: 100%">
                                             </select>
@@ -152,7 +152,7 @@ include 'header.php';
                                     </div><!-- row-->
 
                                     <div class="row redovi_u_pretrazi">
-                                        <label class="col-md-2" for="sel1">Glumci:</label>
+                                        <label class="col-md-2">Glumci:</label>
                                         <div class="col-md-4">
                                             <div class="row">
                                                 <div class="col-md-12">
@@ -162,7 +162,7 @@ include 'header.php';
                                             </div>
                                         </div>
 
-                                        <label class="col-md-2" for="predmet">Kompozitor:</label>
+                                        <label class="col-md-2">Kompozitor:</label>
                                         <div class="col-md-4">
                                             <select class="js-example-responsive col-md-12" style="width: 100%">
                                             </select>
@@ -171,7 +171,7 @@ include 'header.php';
                                     </div><!-- row-->
 
                                     <div class="row redovi_u_pretrazi">
-                                        <label class="col-md-2" for="sel1">Dizajner zvuka:</label>
+                                        <label class="col-md-2">Dizajner zvuka:</label>
                                         <div class="col-md-4">
                                             <div class="row">
                                                 <div class="col-md-12">
@@ -181,7 +181,7 @@ include 'header.php';
                                             </div>
                                         </div>
 
-                                        <label class="col-md-2" for="predmet">Snimatelj zvuka:</label>
+                                        <label class="col-md-2">Snimatelj zvuka:</label>
                                         <div class="col-md-4">
                                             <select class="js-example-responsive col-md-12" style="width: 100%">
                                             </select>
@@ -190,7 +190,7 @@ include 'header.php';
                                     </div><!-- row-->
 
                                     <div class="row redovi_u_pretrazi">
-                                        <label class="col-md-2" for="sel1">Scenograf:</label>
+                                        <label class="col-md-2">Scenograf:</label>
                                         <div class="col-md-4">
                                             <div class="row">
                                                 <div class="col-md-12">
@@ -200,7 +200,7 @@ include 'header.php';
                                             </div>
                                         </div>
 
-                                        <label class="col-md-2" for="predmet">Kostimograf:</label>
+                                        <label class="col-md-2">Kostimograf:</label>
                                         <div class="col-md-4">
                                             <select class="js-example-responsive col-md-12" style="width: 100%">
                                             </select>
@@ -209,7 +209,7 @@ include 'header.php';
                                     </div><!-- row-->
 
                                     <div class="row redovi_u_pretrazi">
-                                        <label class="col-md-2" for="sel1">Animacija:</label>
+                                        <label class="col-md-2">Animacija:</label>
                                         <div class="col-md-4">
                                             <div class="row">
                                                 <div class="col-md-12">
@@ -219,7 +219,7 @@ include 'header.php';
                                             </div>
                                         </div>
 
-                                        <label class="col-md-2" for="predmet">Šminker:</label>
+                                        <label class="col-md-2">Šminker:</label>
                                         <div class="col-md-4">
                                             <select class="js-example-responsive col-md-12" style="width: 100%">
                                             </select>
@@ -228,7 +228,7 @@ include 'header.php';
                                     </div><!-- row-->
 
                                     <div class="row redovi_u_pretrazi">
-                                        <label class="col-md-2" for="sel1">Specijalni efekti:</label>
+                                        <label class="col-md-2">Specijalni efekti:</label>
                                         <div class="col-md-4">
                                             <div class="row">
                                                 <div class="col-md-12">
@@ -246,7 +246,7 @@ include 'header.php';
                             <div class="row">
                                 <div id="tehnicka" class="col-md-12">
                                     <div class="row redovi_u_pretrazi">
-                                        <label class="col-md-2" for="sel1">Osnovni format:</label>
+                                        <label class="col-md-2">Osnovni format:</label>
                                         <div class="col-md-4">
                                             <div class="row">
                                                 <div class="col-md-12">
@@ -256,7 +256,7 @@ include 'header.php';
                                             </div>
                                         </div>
 
-                                        <label class="col-md-2" for="predmet">Filmski format:</label>
+                                        <label class="col-md-2">Filmski format:</label>
                                         <div class="col-md-4">
                                             <select class="js-example-responsive col-md-12" style="width: 100%">
                                             </select>
@@ -265,7 +265,7 @@ include 'header.php';
                                     </div><!-- row-->
 
                                     <div class="row redovi_u_pretrazi">
-                                        <label class="col-md-2" for="sel1">Video format:</label>
+                                        <label class="col-md-2">Video format:</label>
                                         <div class="col-md-4">
                                             <div class="row">
                                                 <div class="col-md-12">
@@ -275,7 +275,7 @@ include 'header.php';
                                             </div>
                                         </div>
 
-                                        <label class="col-md-2" for="predmet">Televizijski standard:</label>
+                                        <label class="col-md-2">Televizijski standard:</label>
                                         <div class="col-md-4">
                                             <select class="js-example-responsive col-md-12" style="width: 100%">
                                             </select>
@@ -284,7 +284,7 @@ include 'header.php';
                                     </div><!-- row-->
 
                                     <div class="row redovi_u_pretrazi">
-                                        <label class="col-md-2" for="sel1">Analiza slike:</label>
+                                        <label class="col-md-2">Analiza slike:</label>
                                         <div class="col-md-4">
                                             <div class="row">
                                                 <div class="col-md-12">
@@ -294,7 +294,7 @@ include 'header.php';
                                             </div>
                                         </div>
 
-                                        <label class="col-md-2" for="predmet">Format sličice:</label>
+                                        <label class="col-md-2">Format sličice:</label>
                                         <div class="col-md-4">
                                             <select class="js-example-responsive col-md-12" style="width: 100%">
                                             </select>
@@ -303,7 +303,7 @@ include 'header.php';
                                     </div><!-- row-->
 
                                     <div class="row redovi_u_pretrazi">
-                                        <label class="col-md-2" for="sel1">Sličice u sekundi:</label>
+                                        <label class="col-md-2">Sličice u sekundi:</label>
                                         <div class="col-md-4">
                                             <div class="row">
                                                 <div class="col-md-12">
@@ -313,7 +313,7 @@ include 'header.php';
                                             </div>
                                         </div>
 
-                                        <label class="col-md-2" for="predmet">Video nosač:</label>
+                                        <label class="col-md-2">Video nosač:</label>
                                         <div class="col-md-4">
                                             <select class="js-example-responsive col-md-12" style="width: 100%">
                                             </select>
@@ -322,7 +322,7 @@ include 'header.php';
                                     </div><!-- row-->
 
                                     <div class="row redovi_u_pretrazi">
-                                        <label class="col-md-2" for="sel1">Vrsta fajla:</label>
+                                        <label class="col-md-2">Vrsta fajla:</label>
                                         <div class="col-md-4">
                                             <div class="row">
                                                 <div class="col-md-12">
@@ -332,7 +332,7 @@ include 'header.php';
                                             </div>
                                         </div>
 
-                                        <label class="col-md-2" for="predmet">Zvuk:</label>
+                                        <label class="col-md-2">Zvuk:</label>
                                         <div class="col-md-4">
                                             <select class="js-example-responsive col-md-12" style="width: 100%">
                                             </select>
@@ -341,7 +341,7 @@ include 'header.php';
                                     </div><!-- row-->
 
                                     <div class="row redovi_u_pretrazi">
-                                        <label class="col-md-2" for="sel1">Broj kanala:</label>
+                                        <label class="col-md-2">Broj kanala:</label>
                                         <div class="col-md-4">
                                             <div class="row">
                                                 <div class="col-md-12">
@@ -351,7 +351,7 @@ include 'header.php';
                                             </div>
                                         </div>
 
-                                        <label class="col-md-2" for="predmet">Redukcija šuma:</label>
+                                        <label class="col-md-2">Redukcija šuma:</label>
                                         <div class="col-md-4">
                                             <select class="js-example-responsive col-md-12" style="width: 100%">
                                             </select>
@@ -422,9 +422,9 @@ include 'header.php';
 
 </div> <!--container-->
 
+<script src="js/index.js"></script>
+
 <?php
 include 'footer.php';
 ?>
-
-<script src="js/index.js"></script>
 

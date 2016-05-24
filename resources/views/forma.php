@@ -7,12 +7,12 @@ include 'header.php';
 <div class="container">
 
     <div class="row">
-        <h1 align="center">Karton filma</h1>
+        <h1 class="centriran_naslov">Karton filma</h1>
 
         <div class="col-md-2"></div>
 
         <div class="col-md-8">
-            <form class="form-horizontal" role="form">
+            <form class="form-horizontal">
                 <div id="forma1">
 
                     <div class="form-group">
@@ -169,9 +169,9 @@ include 'header.php';
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label col-md-2" for="mdinker">Šminker:</label>
+                        <label class="control-label col-md-2" for="sminker">Šminker:</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" id="mdinker">
+                            <input type="text" class="form-control" id="sminker">
                         </div>
                     </div>
 
@@ -201,7 +201,7 @@ include 'header.php';
                         <div class = "form-horizontal">
                             <label class="control-label col-md-2" for="nagrade">Nagrade:</label>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" id="nagrade"></textarea>
+                                <input type="text" class="form-control" id="nagrade">
                             </div>
                             <div class="col-md-1">
                                 <button type="button" class="btn btn-default">+</button>
@@ -220,102 +220,102 @@ include 'header.php';
                 <!--Tehnicka specifikacija-->
 
                 <div id="forma2">
-                    <h4 align="center">Tehnička specifikacija: </h4> <br/>
+                    <h3 class="centriran_naslov">Tehnička specifikacija: </h3> <br/>
 
                     <div class="form-group" >
-                        <label class="control-label col-md-2" for="osnovni_format">
+                        <label class="control-label col-md-2" for="osnovni_format1">
                             Osnovni format:
                         </label>
                         <div class="col-md-9">
                             <label class="radio-inline col-md-3">
-                                <input type="radio" name="osnovni_format" id="osnovni_format"> VIDEO
+                                <input type="radio" name="osnovni_format" id="osnovni_format1"> VIDEO
                             </label>
                             <label class="radio-inline col-md-3">
-                                <input type="radio" name="osnovni_format" id="osnovni_format">FILM
+                                <input type="radio" name="osnovni_format" id="osnovni_format2">FILM
                             </label>
                         </div>
                     </div>
 
 
                     <div class="form-group">
-                        <label class="control-label col-md-2" for="filmski_format">Filmski format:</label>
+                        <label class="control-label col-md-2" for="filmski_format1">Filmski format:</label>
                         <div class="col-md-9">
                             <label class="radio-inline col-md-3">
-                                <input type="radio" name="filmski_format" id="filmski_format">8 mm
+                                <input type="radio" name="filmski_format" id="filmski_format1">8 mm
                             </label>
                             <label class="radio-inline col-md-3">
-                                <input type="radio" name="filmski_format">16 mm
+                                <input type="radio" name="filmski_format" id="filmski_format2">16 mm
                             </label>
                             <label class="radio-inline col-md-3">
-                                <input type="radio" name="filmski_format">35 mm
+                                <input type="radio" name="filmski_format" id="filmski_format3">35 mm
                             </label>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label col-md-2" for="video_format">Video format:</label>
+                        <label class="control-label col-md-2" for="video_format1">Video format:</label>
                         <div class="col-md-9">
                             <label class="radio-inline col-md-3">
-                                <input type="radio" name="video_format" id="video_format">SD
+                                <input type="radio" name="video_format" id="video_format1">SD
                             </label>
                             <label class="radio-inline col-md-3">
-                                <input type="radio" name="video_format" id="video_format">HD
+                                <input type="radio" name="video_format" id="video_format2">HD
                             </label>
                             <label class="radio-inline col-md-3">
-                                <input type="radio" name="video_format" id="video_format">2K
+                                <input type="radio" name="video_format" id="video_format3">2K
                             </label>
                             <label class="radio-inline col-md-2">
-                                <input type="radio" name="video_format" id="video_format">4K
+                                <input type="radio" name="video_format" id="video_format4">4K
                             </label>
                         </div>
                     </div>
 
 
                     <div class="form-group">
-                        <label class="control-label col-md-2" for="tel_standard">Televizijski standard:</label>
+                        <label class="control-label col-md-2" for="tel_standard1">Televizijski standard:</label>
                         <div class="col-md-9">
-                            <label class="radio-inline col-md-3"><input type="radio" name="tel_standard" id="tel_standard">PAL</label>
-                            <label class="radio-inline col-md-3"><input type="radio" name="tel_standard">NTSC</label>
+                            <label class="radio-inline col-md-3"><input type="radio" name="tel_standard" id="tel_standard1">PAL</label>
+                            <label class="radio-inline col-md-3"><input type="radio" name="tel_standard" id="tel_standard2">NTSC</label>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label col-md-2" for="an_slike">Analiza slike:</label>
+                        <label class="control-label col-md-2" for="an_slike1">Analiza slike:</label>
                         <div class="col-md-9">
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="format_slike" id="formаt_slike">Sa proredom
+                                    <input type="radio" name="an_slike" id="an_slike1">Sa proredom
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="format_slike" id="formаt_slike">Progresivna
+                                    <input type="radio" name="an_slike" id="an_slike2">Progresivna
                                 </label>
                             </div>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label col-md-2" for="formаt_slike">Format sličice:</label>
+                        <label class="control-label col-md-2" for="formаt_slike1">Format sličice:</label>
                         <div class="col-md-3">
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="format_slike" id="formаt_slike">4:3
+                                    <input type="radio" name="format_slike" id="formаt_slike1">4:3
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="format_slike" id="formаt_slike">16:9
+                                    <input type="radio" name="format_slike" id="formаt_slike2">16:9
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="format_slike" id="formаt_slike">1:1,66
+                                    <input type="radio" name="format_slike" id="formаt_slike3">1:1,66
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio"  name="format_slike" id="formаt_slike"> Scope
+                                    <input type="radio"  name="format_slike" id="formаt_slike4"> Scope
                                 </label>
                             </div>
                         </div>
@@ -323,22 +323,22 @@ include 'header.php';
                         <div class="col-md-4">
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="format_slike" id="formаt_slike">4:3 Letterbox
+                                    <input type="radio" name="format_slike" id="formаt_slike5">4:3 Letterbox
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="format_slike" id="formаt_slike">16:9 Letterbox
+                                    <input type="radio" name="format_slike" id="formаt_slike6">16:9 Letterbox
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="format_slike" id="formаt_slike">1:1,85
+                                    <input type="radio" name="format_slike" id="formаt_slike7">1:1,85
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio"  name="format_slike" id="formаt_slike"> Scope
+                                    <input type="radio"  name="format_slike" id="formаt_slike8"> Scope
                                 </label>
                             </div>
                         </div>
@@ -346,40 +346,40 @@ include 'header.php';
 				</div>
 				
                 <div class="form-group">
-                    <label class="control-label col-md-2" for="sl_sekund">Sličice u sekundi:</label>
+                    <label class="control-label col-md-2" for="sl_sekund1">Sličice u sekundi:</label>
                     <div class="col-md-9">
                         <label class="radio-inline col-md-3">
-                            <input type="radio" name="sl_sekund" id="sl_sekund">18
+                            <input type="radio" name="sl_sekund" id="sl_sekund1">18
                         </label>
                         <label class="radio-inline col-md-3">
-                            <input type="radio" name="sl_sekund" id="sl_sekund">23,976
+                            <input type="radio" name="sl_sekund" id="sl_sekund2">23,976
                         </label>
                         <label class="radio-inline col-md-3">
-                            <input type="radio" name="id="sl_sekund"" id="sl_sekund">24
+                            <input type="radio" name="sl_sekund" id="sl_sekund3">24
                         </label>
                     </div>
                 </div>
 
 
                 <div class="form-group">
-                    <label class="control-label col-md-2" for="video_nosac">Video nosač:</label>
+                    <label class="control-label col-md-2" for="video_nosac1">Video nosač:</label>
                     <div class="col-md-9">
                         <label class="radio-inline col-md-3">
-                            <input type="radio" name="video_nosac" id="video_nosac">Blu-ray
+                            <input type="radio" name="video_nosac" id="video_nosac1">Blu-ray
                         </label>
                         <label class="radio-inline col-md-3">
-                            <input type="radio" name="video_nosac" id="video_nosac">DVD
+                            <input type="radio" name="video_nosac" id="video_nosac2">DVD
                         </label>
                         <label class="radio-inline col-md-3">
-                            <input type="radio" name="video_nosac" id="video_nosac">Fajl / File
+                            <input type="radio" name="video_nosac" id="video_nosac3">Fajl / File
                         </label>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label col-md-2" for="video_nosac">Vrsta fajla: </label>
+                    <label class="control-label col-md-2" for="vrsta_fajla">Vrsta fajla: </label>
                     <div class="col-md-9">
-                        <select class="form-control" id="sel1">
+                        <select class="form-control" id="vrsta_fajla">
                             <option>A</option>
                             <option>B</option>
                             <option>C</option>
@@ -390,40 +390,40 @@ include 'header.php';
 
 
                 <div class="form-group">
-                    <label class="control-label col-md-2" for="zvuk">Zvuk: </label>
+                    <label class="control-label col-md-2" for="zvuk1">Zvuk: </label>
                     <div class="col-md-9">
                         <label class="radio-inline col-md-3">
-                            <input type="radio" name="zvuk" id="zvuk">Zvučni
+                            <input type="radio" name="zvuk" id="zvuk1">Zvučni
                         </label>
                         <label class="radio-inline col-md-3">
-                            <input type="radio" name="zvuk" id="zvuk">Nemi
+                            <input type="radio" name="zvuk" id="zvuk2">Nemi
                         </label>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label col-md-2" for="br_kanala">Broj kanala: </label>
+                    <label class="control-label col-md-2" for="br_kanala1">Broj kanala: </label>
                     <div class="col-md-9">
                         <label class="radio-inline col-md-3">
-                            <input type="radio" name="br_kanala" id="br_kanala">Mono
+                            <input type="radio" name="br_kanala" id="br_kanala1">Mono
                         </label>
                         <label class="radio-inline col-md-3">
-                            <input type="radio" name="br_kanala" id="br_kanala">Stereo
+                            <input type="radio" name="br_kanala" id="br_kanala2">Stereo
                         </label>
                         <label class="radio-inline col-md-3">
-                            <input type="radio" name="zvuk" name="br_kanala" id="br_kanala">5.1
+                            <input type="radio" name="br_kanala" id="br_kanala3">5.1
                         </label>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label col-md-2" for="redukcije">Redukcija šuma: </label>
+                    <label class="control-label col-md-2" for="redukcije1">Redukcija šuma: </label>
                     <div class="col-md-9">
                         <label class="radio-inline col-md-3">
-                            <input type="radio" name="redukcje" id="redukcije">Bez
+                            <input type="radio" name="redukcje" id="redukcije1">Bez
                         </label>
                         <label class="radio-inline col-md-3">
-                            <input type="radio" name="redukcije" id="redukcije">Dolby
+                            <input type="radio" name="redukcije" id="redukcije2">Dolby
                         </label>
                     </div>
                 </div>
@@ -445,33 +445,33 @@ include 'header.php';
 
 
                 <div class="form-group">
-                    <label class="control-label col-md-2" for="dodatno">Uz karton filma predajem i sledeće: </label>
+                    <label class="control-label col-md-2" for="dodatno1">Uz karton filma predajem i sledeće: </label>
                     <div class="col-md-9">
                         <div class="checkbox">
-                            <label><input type="checkbox" value="">DVD</label>
+                            <label><input type="checkbox" value="" id="dodatno1">DVD</label>
                         </div>
                         <div class="checkbox">
-                            <label><input type="checkbox" value="">Blu-ray</label>
+                            <label><input type="checkbox" value="" id="dodatno2">Blu-ray</label>
                         </div>
                         <div class="checkbox">
-                            <label><input type="checkbox" value="">fajl</label>
+                            <label><input type="checkbox" value="" id="dodatno3">fajl</label>
                         </div>
                         <div class="checkbox">
-                            <label><input type="checkbox" value="">rolnu filma</label>
-                        </div>
-
-                        <div class="checkbox">
-                            <label><input type="checkbox" value="">verziju sa i bez engleskog titla</label>
+                            <label><input type="checkbox" value="" id="dodatno4">rolnu filma</label>
                         </div>
 
                         <div class="checkbox">
-                            <label><input type="checkbox" value="">srpsku i englesku dijalog listu</label>
+                            <label><input type="checkbox" value="" id="dodatno5">verziju sa i bez engleskog titla</label>
+                        </div>
+
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="" id="dodatno6">srpsku i englesku dijalog listu</label>
                         </div>
                         <div class="checkbox">
-                            <label><input type="checkbox" value="">fotografiju student (jpg - 300 dpi)</label>
+                            <label><input type="checkbox" value="" id="dodatno7">fotografiju student (jpg - 300 dpi)</label>
                         </div>
                         <div class="checkbox">
-                            <label><input type="checkbox" value="">fotografije iz filma (3 komada)</label>
+                            <label><input type="checkbox" value="" id="dodatno8">fotografije iz filma (3 komada)</label>
                         </div>
                     </div>
                 </div>

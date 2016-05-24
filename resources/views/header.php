@@ -45,7 +45,7 @@
 <div class="row" id="header">
 
     <div class="col-md-2">
-        <img src="img/logo_fdu1.jpg" id="logo">
+        <img src="img/logo_fdu1.jpg" id="logo" alt = "logo FDU header">
     </div>
 
     <div class="col-md-8" >
@@ -67,7 +67,7 @@
             <li><a href="vezba">Vezbe</a></li>
             <li><a href="karton">Dodaj film</a></li>
         </ul>
-        <ul class="nav navbar-nav navbar-right">
+        <div class="nav navbar-nav navbar-right">
             <div id = "div_admin">
                 <span class="glyphicon glyphicon-user glyphicon" id="admin_ikonica"></span>
                 <button type="button" class="btn btn-default btn-lg" id="admin_dugme" data-toggle="modal" data-target="#myModal">Administrator</button>
@@ -78,7 +78,7 @@
                     <!-- Modal content-->
                     <div class="modal-content" id="dialog">
 
-                        <form class="form-vertical" role="form">
+                        <form class="form-vertical">
 
                             <div class="row">
                                 <div class="col-md-1"></div>
@@ -114,7 +114,7 @@
                     </div>
                 </div>
             </div>
-        </ul>
+        </div>
 
     </div>
 </nav>
