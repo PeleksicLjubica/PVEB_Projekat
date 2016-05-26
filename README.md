@@ -7,4 +7,4 @@ Projekat u okviru kursa Programiranje za veb
 - U /public folderu projekta izvrsiti `npm install`
 - Izvrsiti *baza.sql* skriptu za kreiranje baze 
 - Preimenovati .env.example fajl u .env i po potrebi prilagoditi konfiguraciju baze u .env fajlu (username, password itd)
-- Pristupiti home strani aplikacije preko URL-a: localhost/VASA_PUTANJA_DO_PROJEKTA/public/home
+- Pristupiti home strani aplikacije preko URL-a: localhost/VASA_PUTANJA_DO_PROJEKTA/PVEB_Projekat/public/home
