@@ -114,7 +114,7 @@ include 'header.php';
                                 <input type="text" class="form-control" id="glumci">
                             </div>
                             <div class="col-md-1">
-                                <button type="button" class="btn btn-default">+</button>
+                                <dugme_plus></dugme_plus>
                             </div>
                         </div>
                     </div>

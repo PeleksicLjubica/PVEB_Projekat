@@ -40,8 +40,6 @@
 
 <div class="container-fluid" id="content">
 
-    <my-app>Loading...</my-app>
-
 <div class="row" id="header">
 
     <div class="col-md-2">
