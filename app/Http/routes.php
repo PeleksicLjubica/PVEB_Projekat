@@ -23,9 +23,13 @@ $app->get('/home', function () use ($app) {
     return view('index');
 });
 
-$app->get('/karton', ['middleware' => 'auth', function () use ($app) {
+//$app->get('/karton', ['middleware' => 'auth', function () use ($app) {
+//    return view('forma');
+//}]);
+
+$app->get('/karton', function () use ($app) {
     return view('forma');
-}]);
+});
 
 $app->get('/vezba', 'VezbaController@getAll');
 
