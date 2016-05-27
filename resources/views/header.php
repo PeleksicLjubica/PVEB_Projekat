@@ -102,7 +102,7 @@
                             </div>
 
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal" id="potvrdi">Potvrdi</button>
+                                <button type="button" class="btn btn-default"  id="potvrdi" >Potvrdi</button>
                                 <button type="button" class="btn btn-default" data-dismiss="modal" id="odustani">Odustani</button>
 
                             </div>
