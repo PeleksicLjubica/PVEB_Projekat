@@ -30,3 +30,14 @@ $app->get('/karton', function () use ($app) {
 $app->get('/vezba', 'VezbaController@getAll');
 
 $app->get('/katedra', 'KatedraController@getAll');
+
+$app->post('/auth/login', 'AuthController@postLogin');
+
+$app->group(['middleware' => 'auth:api'], function($app)
+{
+    $app->get('/test', function() {
+        return response()->json([
+            'message' => 'Hello World!',
+        ]);
+    });
+});
