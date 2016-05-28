@@ -26,6 +26,28 @@ $(document).ready(function(){
     });
 });
 
+$(document).ready(function(){
+    $("#potvrdi").click(function(){
+
+            $.ajax({
+                url:'Administrator.php',
+                data: {functionname: 'verify', arguments: [$("#korisnicko_ime").val(), $("#šifra").val() ]},
+                success:function(data) {
+                    if(data == true)
+                    {
+                        location.href='karton';
+                    }
+                    else
+                    {
+                        location.href = 'home';
+                    }
+                }
+            });
+            return false;
+
+    });
+});
+
 var data = [{ id: 0, text: '' }, { id: 1, text: 'Amelija Pulen Haj' }, { id: 2, text: 'duplicate' }, { id: 3, text: 'invalid' }, { id: 4, text: 'wontfix' }];
 
 $(".js-example-data-array").select2({
