@@ -63,14 +63,20 @@
 
         <ul class="nav navbar-nav">
             <li class="active"><a href="home ">Filmovi</a></li>
-            <li><a href="katedra">Katedre</a></li>
-            <li><a href="vezba">Vezbe</a></li>
-            <li><a href="karton">Dodaj film</a></li>
+            <?php
+            if ($admin == 1) {
+                echo '<li><a href="katedra">Katedre</a></li>
+                        <li><a href="vezba">Vezbe</a></li>
+                        <li><a href="karton">Dodaj film</a></li>';
+            }
+            ?>
+            
         </ul>
         <div class="nav navbar-nav navbar-right">
             <div id = "div_admin">
                 <span class="glyphicon glyphicon-user glyphicon" id="admin_ikonica"></span>
-                <button type="button" class="btn btn-default btn-lg" id="admin_dugme" data-toggle="modal" data-target="#myModal">Administrator</button>
+                <button type="button" class="btn btn-default btn-lg" id="admin_dugme" data-toggle="modal" data-target="#myModal"><?php if($admin == 1)
+                    echo 'Logout'; else echo 'Administrator'; ?></button>
             </div>
             <div id="myModal" class="modal fade" role="dialog">
                 <div class="modal-dialog modal-sm">

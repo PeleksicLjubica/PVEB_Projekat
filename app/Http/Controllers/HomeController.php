@@ -30,7 +30,7 @@ class HomeController extends Controller
             if ($user = $this->jwt->parseToken()->authenticate()) {
                 return view('index', ['admin' => 1]);
             } else {
-                return view('index', ['admin' => 0]);
+                return view('index', ['admin' => 2]);
             }
         } else {
             return view('index', ['admin' => 0]);
