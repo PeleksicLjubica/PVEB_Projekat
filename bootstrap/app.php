@@ -27,6 +27,8 @@ $app->withFacades();
 
 $app->withEloquent();
 
+class_alias('Tymon\JWTAuth\Facades\JWTAuth', 'JWTAuth');
+
 /*
 |--------------------------------------------------------------------------
 | Register Container Bindings

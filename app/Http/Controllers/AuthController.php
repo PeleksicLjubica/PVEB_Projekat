@@ -26,6 +26,7 @@ class AuthController extends Controller
 
     public function postLogin(Request $request)
     {
+        
         $this->validate($request, [
             'email'    => 'required|email|max:255',
             'password' => 'required',
@@ -50,7 +51,7 @@ class AuthController extends Controller
             return response()->json(['token_absent' => $e->getMessage()], 500);
 
         }
-
-        return response()->json(compact('token'));
+        return redirect('karton')->header('Authorization', 'Bearer ' . $token);
+//        return response()->json(compact('token'));
     }
 }

@@ -27,9 +27,6 @@ $app->get('/home', function () use ($app) {
 //    return view('forma');
 //}]);
 
-$app->get('/karton', function () use ($app) {
-    return view('forma');
-});
 
 $app->get('/vezba', 'VezbaController@getAll');
 
@@ -44,4 +41,9 @@ $app->group(['middleware' => 'auth:api'], function($app)
             'message' => 'Hello World!',
         ]);
     });
+
+    $app->get('/karton', function () use ($app) {
+        return view('forma');
+    });
+
 });

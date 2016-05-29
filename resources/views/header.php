@@ -94,8 +94,8 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="šifra">Šifra: </label>
-                                            <input type="text" class="form-control" name="šifra" id="šifra"><br>
+                                            <label for="sifra">Šifra: </label>
+                                            <input type="text" class="form-control" name="sifra" id="sifra"><br>
                                         </div>
                                     </div><!--forma za logovanje-->
 

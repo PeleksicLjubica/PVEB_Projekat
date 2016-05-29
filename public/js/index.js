@@ -29,21 +29,32 @@ $(document).ready(function(){
 $(document).ready(function(){
     $("#potvrdi").click(function(){
 
-            $.ajax({
-                url:'Administrator.php',
-                data: {functionname: 'verify', arguments: [$("#korisnicko_ime").val(), $("#šifra").val() ]},
-                success:function(data) {
-                    if(data == true)
-                    {
-                        location.href='karton';
-                    }
-                    else
-                    {
-                        location.href = 'home';
-                    }
-                }
-            });
-            return false;
+            $.post('auth/login',
+                {email: $("#korisnicko_ime").val(), password: $("#sifra").val()} ,
+                function(result) {
+                    localStorage.setItem('token', result.token);
+                    // $.get({
+                    //     url: "karton",
+                    //     headers: {
+                    //         "Authorization" : "Bearer " + result.token
+                    //     },
+                    //     success: function () {
+                    //         console.log("hehe");
+                    //     }
+                    // });
+                });
+                // success:function(data) {
+                //     if(data == true)
+                //     {
+                //         location.href='karton';
+                //     }
+                //     else
+                //     {
+                //         location.href = 'home';
+                //     }
+                // }
+            // });
+             return false;
 
     });
 });
