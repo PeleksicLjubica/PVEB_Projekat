@@ -12,6 +12,7 @@ use App\Models\Katedra;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+
 class KatedraController extends Controller{
 
     //funkcija koja uzima sve katedre iz baze a zatim se redirektuje na katedra.php gde se one prikazuju

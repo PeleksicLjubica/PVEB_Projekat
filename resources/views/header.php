@@ -8,6 +8,9 @@
 
     <!-- jQuery library -->
     <script src="components/jquery/jquery.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/additional-methods.js"></script>
+
 
     <!-- Latest compiled and minified Bootstrap CSS -->
     <link rel="stylesheet" href="components/bootstrap/css/bootstrap.min.css">
@@ -31,6 +34,42 @@
     <script src="systemjs.config.js"></script>
     <script>
         System.import('app').catch(function(err){ console.error(err); });
+    </script>
+
+
+    <script>
+
+        $.validator.addMethod(
+            "regex",
+            function(value, element, regexp) {
+                var re = new RegExp(regexp);
+                return this.optional(element) || re.test(value);
+            },
+            "Ispravan format je broj sati:broj minuta:broj sekundi"
+        );
+
+        $(function() {
+            $("#karton_filma").validate({
+                rules: {
+                    godina: {required: true, number: true},
+                    //trajanje: {required: true, regex: "^(?:(?:([01]?\d|2[0-3]):)?([0-5]?\d):)?([0-5]?\d)$"},
+                    naziv: {required: true}
+
+                },
+                messages: {
+                    godina: {
+                        required: "Upišite godinu proizvodnje",
+                        number: "Morate da upišete broj"
+                    },
+                    trajanje: {
+                        required: "Upišite trajanje filma"
+                    },
+                    naziv: {
+                        required: "Upišite naziv filma"
+                    }
+                }
+            });
+        });
     </script>
 
 

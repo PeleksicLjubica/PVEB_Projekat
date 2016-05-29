@@ -12,7 +12,6 @@ include 'header.php';
     </p>
 </div>
 
-
 <?php
 include 'footer.php';
 ?>

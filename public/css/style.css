@@ -226,4 +226,9 @@ body {
 
 .centriran_naslov {
     text-align: center;
+    font-style: italic;
+}
+
+.control-label {
+    font-style: italic;
 }
