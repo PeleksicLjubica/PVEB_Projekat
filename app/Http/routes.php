@@ -19,13 +19,11 @@ $app->get('/', function () use ($app) {
     return $app->version();
 });
 
-$app->get('/home', function () use ($app) {
-    return view('index');
-});
+$app->get('/home', 'HomeController@getHome');
 
-//$app->get('/karton', ['middleware' => 'auth', function () use ($app) {
-//    return view('forma');
-//}]);
+$app->get('/karton', ['middleware' => 'auth', function () use ($app) {
+    return view('forma');
+}]);
 
 
 $app->get('/vezba', 'VezbaController@getAll');

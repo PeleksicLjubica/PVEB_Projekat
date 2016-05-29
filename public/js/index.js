@@ -33,27 +33,9 @@ $(document).ready(function(){
                 {email: $("#korisnicko_ime").val(), password: $("#sifra").val()} ,
                 function(result) {
                     localStorage.setItem('token', result.token);
-                    // $.get({
-                    //     url: "karton",
-                    //     headers: {
-                    //         "Authorization" : "Bearer " + result.token
-                    //     },
-                    //     success: function () {
-                    //         console.log("hehe");
-                    //     }
-                    // });
+                    location.href = 'home?token=' + result.token;
                 });
-                // success:function(data) {
-                //     if(data == true)
-                //     {
-                //         location.href='karton';
-                //     }
-                //     else
-                //     {
-                //         location.href = 'home';
-                //     }
-                // }
-            // });
+
              return false;
 
     });
