@@ -73,7 +73,7 @@ body {
     float:left;
 }
 
-#naslov{
+.naslov{
     font-family: Goudy Old Style;
     font-style: italic;
     color: rgb(42,1,5);

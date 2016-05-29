@@ -12,7 +12,7 @@ include 'header.php';
         <div class="col-md-6" id="levi_div">
                 <form class="form-horizontal">
 
-                    <div id="naslov">
+                    <div class="naslov">
                         <h1>Pretraga fimova:</h1>
                     </div>
 
