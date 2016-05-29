@@ -1,14 +1,14 @@
-
 import { Component } from '@angular/core';
-
+import { KatedraComponent } from './katedra.component';
+import { KatedraService } from './katedra.service';
 
 @Component({
-    selector: 'dugme_plus',
-    template: '<button type="button" class="btn btn-default" (click)="onClick()">+</button>'
+    selector: 'my-app',
+    template: `<katedre></katedre>`,
+    providers: [KatedraService],
+    directives: [KatedraComponent]
 })
 
-export class Dugme {
-    onClick(){
-        console.log("BLA BLA");
-    }
+export class AppComponent {
+
 }

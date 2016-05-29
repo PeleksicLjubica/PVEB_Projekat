@@ -14,11 +14,10 @@ use Illuminate\Http\Request;
 
 class KatedraController extends Controller{
 
-    //funkcija koja uzima sve katedre iz baze a zatim se redirektuje na katedra.php gde se one prikazuju
-    public function getAll(){
 
-        $katedre = Katedra::all();
-        return view('katedre',['katedra' => $katedre[0]]);
+    public function getView() {
+
+        return view('katedre');
 
     }
 

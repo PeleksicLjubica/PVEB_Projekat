@@ -9,20 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var Dugme = (function () {
-    function Dugme() {
+var katedra_component_1 = require('./katedra.component');
+var katedra_service_1 = require('./katedra.service');
+var AppComponent = (function () {
+    function AppComponent() {
     }
-    Dugme.prototype.onClick = function () {
-        console.log("BLA BLA");
-    };
-    Dugme = __decorate([
+    AppComponent = __decorate([
         core_1.Component({
-            selector: 'dugme_plus',
-            template: '<button type="button" class="btn btn-default" (click)="onClick()">+</button>'
+            selector: 'my-app',
+            template: "<katedre></katedre>",
+            providers: [katedra_service_1.KatedraService],
+            directives: [katedra_component_1.KatedraComponent]
         }), 
         __metadata('design:paramtypes', [])
-    ], Dugme);
-    return Dugme;
+    ], AppComponent);
+    return AppComponent;
 }());
-exports.Dugme = Dugme;
+exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map

@@ -33,4 +33,5 @@ $app->get('/karton', function () use ($app) {
 
 $app->get('/vezba', 'VezbaController@getAll');
 
-$app->get('/katedra', 'KatedraController@getAll');
+$app->get('/katedra', 'KatedraController@getView');
+$app->get('/katedraPodaci', 'KatedraPodaciController@getAll');
