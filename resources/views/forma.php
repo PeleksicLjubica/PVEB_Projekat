@@ -452,7 +452,7 @@ include 'header.php';
 
 </div> <!--kraj container-a-->
 
-<script src="js/forma_validacija.js"></script>
+<script src="js/karton.js"></script>
 
 
 <?php
