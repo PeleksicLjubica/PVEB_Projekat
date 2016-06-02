@@ -28,17 +28,28 @@ $(document).ready(function(){
 
 $(document).ready(function(){
     $("#potvrdi").click(function(){
+            
+                $.post('auth/login',
+                    {email: $("#korisnicko_ime").val(), password: $("#sifra").val()},
+                    function (result) {
 
-            $.post('auth/login',
-                {email: $("#korisnicko_ime").val(), password: $("#sifra").val()} ,
-                function(result) {
-                    localStorage.setItem('token', result.token);
-                    location.href = 'home?token=' + result.token;
-                });
+                            localStorage.setItem('token', result.token);
+                            location.href = 'home?token=' + result.token;
+                        
+                    });
+            
 
              return false;
 
     });
+});
+
+$(document).ready(function(){
+    $("#admin_dugme1").click(function(){
+        $admin = 0;
+        location.href = 'home';
+    });
+
 });
 
 var data = [{ id: 0, text: '' }, { id: 1, text: 'Amelija Pulen Haj' }, { id: 2, text: 'duplicate' }, { id: 3, text: 'invalid' }, { id: 4, text: 'wontfix' }];
