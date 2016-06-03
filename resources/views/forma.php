@@ -32,7 +32,7 @@ include 'header.php';
                 <div class="form-group">
                     <label class="control-label col-md-2" for="reziser">Režiser:</label>
                     <div class="col-md-9">
-                        <select class="js-example-data-array col-md-12 reziser" name="reziser"></select>
+                        <select class="js-example-data-array col-md-12 studenti" name="reziser"></select>
                     </div>
                     <div class="col-md-1">
                         <button type="button" class="btn btn-default" (click)="onClick()">+</button>
@@ -41,7 +41,7 @@ include 'header.php';
                 <div class="form-group">
                     <label class="control-label col-md-2" for="scenarista">Scenarista:</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="scenarista" name="scenarista">
+                        <select class="js-example-data-array col-md-12 studenti" name="scenarista"></select>
                     </div>
                     <div class="col-md-1">
                         <button type="button" class="btn btn-default" (click)="onClick()">+</button>
@@ -50,7 +50,7 @@ include 'header.php';
                 <div class="form-group">
                     <label class="control-label col-md-2" for="montazer">Montažer:</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="montazer" name="montazer">
+                        <select class="js-example-data-array col-md-12 studenti" name="montazer"></select>
                     </div>
                     <div class="col-md-1">
                         <button type="button" class="btn btn-default" (click)="onClick()">+</button>
@@ -59,7 +59,7 @@ include 'header.php';
                 <div class="form-group">
                     <label class="control-label col-md-2" for="dizajner_zvuka">Dizajner zvuka:</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="dizajner_zvuka" name="dizajner_zvuka">
+                        <select class="js-example-data-array col-md-12 studenti" name="dizajner_zvuka"></select>
                     </div>
                     <div class="col-md-1">
                         <button type="button" class="btn btn-default" (click)="onClick()">+</button>
@@ -68,7 +68,7 @@ include 'header.php';
                 <div class="form-group">
                     <label class="control-label col-md-2" for="snimatelj_zvuka">Snimatelj zvuka:</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="snimatelj_zvuka" name="snimatelj_zvuka">
+                        <select class="js-example-data-array col-md-12 studenti" name="snimatelj_zvuka"></select>
                     </div>
                     <div class="col-md-1">
                         <button type="button" class="btn btn-default" (click)="onClick()">+</button>
@@ -77,7 +77,7 @@ include 'header.php';
                 <div class="form-group">
                     <label class="control-label col-md-2" for="specijalni_efekti">Specijalni efekti:</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="specijalni_efekti" name="specijalni_efekti">
+                        <select class="js-example-data-array col-md-12 studenti" name="specijalni_efekti"></select>
                     </div>
                     <div class="col-md-1">
                         <button type="button" class="btn btn-default" (click)="onClick()">+</button>
@@ -86,7 +86,7 @@ include 'header.php';
                 <div class="form-group">
                     <label class="control-label col-md-2" for="animacija">Animacija:</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="animacija" name="animacija">
+                        <select class="js-example-data-array col-md-12 studenti" name="animacija"></select>
                     </div>
                     <div class="col-md-1">
                         <button type="button" class="btn btn-default" (click)="onClick()">+</button>
@@ -111,7 +111,7 @@ include 'header.php';
                 <div class="form-group">
                     <label class="control-label col-md-2" for="producent">Producent:</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="producent" name="producent">
+                        <select class="js-example-data-array col-md-12 studenti" name="producent"></select>
                     </div>
                     <div class="col-md-1">
                         <button type="button" class="btn btn-default" (click)="onClick()">+</button>
@@ -120,7 +120,7 @@ include 'header.php';
                 <div class="form-group">
                     <label class="control-label col-md-2" for="snimatelj">Snimatelj:</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="snimatelj" name="snimatelj">
+                        <select class="js-example-data-array col-md-12 studenti" name="snimatelj"></select>
                     </div>
                     <div class="col-md-1">
                         <button type="button" class="btn btn-default" (click)="onClick()">+</button>
@@ -129,7 +129,7 @@ include 'header.php';
                 <div class="form-group">
                     <label class="control-label col-md-2" for="kompozitor">Kompozitor:</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="kompozitor" name="kompozitor">
+                        <select class="js-example-data-array col-md-12 studenti" name="kompozitor"></select>
                     </div>
                     <div class="col-md-1">
                         <button type="button" class="btn btn-default" (click)="onClick()">+</button>
@@ -138,7 +138,7 @@ include 'header.php';
                 <div class="form-group">
                     <label class="control-label col-md-2" for="scenograf">Scenograf:</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="scenograf" name="scenograf">
+                        <select class="js-example-data-array col-md-12 studenti" name="scenograf"></select>
                     </div>
                     <div class="col-md-1">
                         <button type="button" class="btn btn-default" (click)="onClick()">+</button>
@@ -147,7 +147,7 @@ include 'header.php';
                 <div class="form-group">
                     <label class="control-label col-md-2" for="kostimograf">Kostimograf:</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="kostimograf" name="kostimograf">
+                        <select class="js-example-data-array col-md-12 studenti" name="kostimograf"></select>
                     </div>
                     <div class="col-md-1">
                         <button type="button" class="btn btn-default" (click)="onClick()">+</button>
@@ -156,7 +156,7 @@ include 'header.php';
                 <div class="form-group">
                     <label class="control-label col-md-2" for="sminker">Šminker:</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="sminker" name="sminker">
+                        <select class="js-example-data-array col-md-12 studenti" name="sminker"></select>
                     </div>
                     <div class="col-md-1">
                         <button type="button" class="btn btn-default" (click)="onClick()">+</button>
@@ -177,7 +177,7 @@ include 'header.php';
                     <div class = "form-horizontal">
                         <label class="control-label col-md-2" for="glumci">Glumci:</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" id="glumci" name="glumci">
+                            <select class="js-example-data-array col-md-12 studenti" name="glumci"></select>
                         </div>
                         <div class="col-md-1">
                             <button type="button" class="btn btn-default" (click)="onClick()">+</button>

@@ -26,7 +26,7 @@
     <script src="js/simplePagingGrid-0.6.0.0.js" type="text/javascript"></script>
 
 
-    <link rel="stylesheet" href="css/style.css">
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.min.js"></script>
 
@@ -46,6 +46,7 @@
         System.import('app').catch(function(err){ console.error(err); });
     </script>
 
+    <link rel="stylesheet" href="css/style.css">
 
     <script>
 

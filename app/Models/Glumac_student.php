@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 final class Glumac_student extends Model
 {
     protected $table='Glumac_student';
+    public $timestamps=false;
+
 }

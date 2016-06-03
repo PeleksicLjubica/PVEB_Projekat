@@ -7,6 +7,31 @@
  */
 
 $(document).ready(function(){
+
+
+
+    $.get("studenti", function(data){
+        var studenti = [];
+
+        studenti.push({ id: 0, text: '' });
+
+        for (var i = 0; i < data.data.length; i++) {
+            var a = {};
+            a.id = data.data[i].indeks;
+            a.text = data.data[i].ime + " " +  data.data[i].prezime + " , indeks: " + data.data[i].indeks;
+
+            studenti.push(a);
+        }
+
+        $(".js-example-data-array.studenti").select2({
+            data: studenti,
+            tags:true
+        });
+
+    });
+
+
+
     var dataOF = [{ id: 0, text: '' }, { id: 'VIDEO', text: 'VIDEO' }, { id: 'FILM', text: 'FILM' }];
     var dataFF = [{ id: 0, text: '' }, { id: '8 mm', text: '8mm' }, { id: '16 mm', text: '16mm' },{ id: '35 mm', text: '35mm' }];
     var dataVIF = [{ id: 0, text: '' }, { id: 'SD', text: 'SD' }, { id: 'HD', text: 'HD' },{ id: '2K', text: '2K' }
@@ -80,17 +105,8 @@ $(document).ready(function(){
         data: dataRS,
         tags:true
     });
-    $(".js-example-data-array.reziser").select2({
-        data: dataRS,
-        tags:true
-    });
-
-    $.get("studenti", function(data){
-
-        data.data.forEach(console.log("BLA"));
 
 
-    });
 });
 
 

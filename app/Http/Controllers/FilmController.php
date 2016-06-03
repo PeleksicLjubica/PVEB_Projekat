@@ -14,6 +14,8 @@ use App\Models\Osnovne_informacije;
 use App\Models\Vezba;
 use App\Models\Tehnicka_spacifikacija;
 use App\Models\Reziser;
+use App\Models\Student;
+use App\Models\
 
 class FilmController extends Controller{
 
@@ -25,6 +27,7 @@ class FilmController extends Controller{
         $reziser = new Reziser;
 
         $scenarista = $request->input('scenarista');
+
         $montazer = $request->input('montazer');
         $dizajner_zvuka = $request->input('dizajner_zvuka');
         $snimatelj_zvuka = $request->input('snimatelj_zvuka');
@@ -79,7 +82,20 @@ class FilmController extends Controller{
         $tehnicka_spacifikacija->napomene = $request->input('napomene');
         $tehnicka_spacifikacija->save();
 
-        $reziser = $request->input('reziser');
+
+        //uzimanje id_studenta za studenta kog smo izabrali za rezisera
+        $reziser_indeks = $request->input('reziser');
+        $studenti = Student::where('indeks', $reziser_indeks)
+            ->take(1)
+            ->get();
+
+        $id_studenta = $studenti[0]->id_studenta;
+        $reziser->Student_id_studenta = $id_studenta;
+        $reziser->Film_id_filma = $film->id;
+        $reziser->save();
+
+
+
 
 
         return view('forma');

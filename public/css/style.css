@@ -8,7 +8,6 @@ body {
 #header_nas{
     text-align: center;
     min-height: 130px;
-
     background: rgb(42,1,5); /* For browsers that do not support gradients */
 
 }
@@ -100,11 +99,11 @@ body {
 }
 
 .form-control {
-    border: 1px solid rgba(4, 0, 0, 0.96);
+    border: 1px solid #0D0908;
 }
 
 .btn-default {
-    border: 1px solid darkred;
+    border: 1px solid #0D0908;
 
 }
 
@@ -250,4 +249,35 @@ element.style {
 }
 table {
     background-color: white;
+}
+
+.pagination>li>a, .pagination>li>span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: white;
+    text-decoration: none;
+    background-color:rgb(42, 1, 5);
+    border: 1px solid #ddd;
+}
+
+
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    z-index: 3;
+    color: white;
+    cursor: default;
+    background-color: rgb(42, 1, 5);
+    border-color: #337ab7;
+}
+
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+.select2-container--default .select2-selection--single{
+    border: 1px solid #0D0908;
 }
