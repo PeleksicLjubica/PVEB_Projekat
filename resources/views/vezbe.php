@@ -3,45 +3,55 @@
 include 'header.php';
 ?>
 
-
 <div class="container">
+    <!-- Le styles -->
 
-    <div class="row">
-        <div col-md-2></div>
-        <div col-md-8>
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Naziv</th>
-                    <th>Opis</th>
-                    <th>Tip</th>
-                    <th>Predmet</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>John</td>
-                    <td>Doe</td>
-                    <td>john@example.com</td>
-                </tr>
-                <tr>
-                    <td>Mary</td>
-                    <td>Moe</td>
-                    <td>mary@example.com</td>
-                </tr>
-                <tr>
-                    <td>July</td>
-                    <td>Dooley</td>
-                    <td>july@example.com</td>
-                </tr>
-                </tbody>
-            </table>
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+        var request = new XMLHttpRequest();
+
+        request.open('GET', 'vezbePodaci');
+
+        request.onload = function() {
+
+
+            if (request.status == 200) {
+                $("#exampleGrid").simplePagingGrid({
+                    columnNames: ["ID vežbe", "Naziv", "Opis", "Tip", "ID predmeta"],
+                    columnKeys: ["id_vezbe", "naziv", "opis", "tip", "Predmet_id_predmeta"],
+                    columnWidths: ["10%", "30%", "30%","20", "10"],
+                    data: JSON.parse(request.response).data
+                });
+            } else
+            {
+                console.log(Error(request.statusText));
+            }
+        };
+
+        request.onerror = function() {
+            console.log(Error('Problem prilikom slanja zahteva'));
+        };
+
+        request.send();
+
+        });
+
+    </script>
+
+<div class="page">
+
+    <section id="main">
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <p> Sve vežbe: </p>
+                <div id="exampleGrid"></div>
+            </div>
         </div>
-        <div col-md-2></div>
-    </div>
+    </section>
 </div>
 
+</div>
 
 <?php
 include 'footer.php';

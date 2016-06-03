@@ -18,9 +18,19 @@
     <!-- Latest compiled Bootstrap JavaScript -->
     <script src="components/bootstrap/js/bootstrap.min.js"></script>
 
+    <!-- Latest compiled and minified Bootstrap CSS -->
+
+    <link href="css/simplePagingGrid-0.6.0.0.css" rel="stylesheet">
+
+    <script src="js/handlebars-v4.0.5.js" type="text/javascript"></script>
+    <script src="js/simplePagingGrid-0.6.0.0.js" type="text/javascript"></script>
+
+
     <link rel="stylesheet" href="css/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.min.js"></script>
+
+
 
     <!-- 1. Load libraries -->
     <!-- Polyfill(s) for older browsers -->
@@ -79,7 +89,7 @@
 
 <div class="container-fluid" id="content">
 
-<div class="row" id="header">
+<div class="row" id="header_nas">
 
     <div class="col-md-2">
         <img src="img/logo_fdu1.jpg" id="logo" alt = "logo FDU header">

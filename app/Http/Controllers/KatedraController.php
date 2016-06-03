@@ -17,9 +17,13 @@ class KatedraController extends Controller{
 
 
     public function getView() {
-
         return view('katedre');
-
     }
+
+    public function getAll() {
+        $katedre = Katedra::all();
+        return response()->json(['data'=>$katedre]);
+    }
+
 
 }

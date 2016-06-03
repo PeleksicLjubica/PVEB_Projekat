@@ -33,9 +33,9 @@ $app->get('/karton', function () use ($app) {
 
 $app->post('/karton', 'FilmController@obradi');
 
-$app->get('/vezba', 'VezbaController@getAll');
+$app->get('/vezba', 'VezbaController@getView');
+$app->get('/vezbePodaci', 'VezbaController@getAll');
 
-$app->get('/katedra', 'KatedaController@getView');
-$app->get('/katedraPodaci', 'KatedraPodaciController@getAll');
-
+$app->get('/katedra', 'KatedraController@getView');
+$app->get('/katedraPodaci', 'KatedraController@getAll');
 $app->get('/studenti', 'StudentController@getAll');

@@ -3,45 +3,57 @@
 include 'header.php';
 ?>
 
+
 <div class="container">
-    <my-app></my-app>
+    <!-- Le styles -->
 
-    <div class="row">
-    </div>
-    <div class="row">
-        <div col-md-2></div>
-        <div col-md-8>
+    <script type="text/javascript">
+        $(document).ready(function() {
 
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th>Firstname</th>
-                    <th>Lastname</th>
-                    <th>Email</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>John</td>
-                    <td>Doe</td>
-                    <td>john@example.com</td>
-                </tr>
-                <tr>
-                    <td>Mary</td>
-                    <td>Moe</td>
-                    <td>mary@example.com</td>
-                </tr>
-                <tr>
-                    <td>July</td>
-                    <td>Dooley</td>
-                    <td>july@example.com</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        <div col-md-2></div>
+            var request = new XMLHttpRequest();
+
+            request.open('GET', 'katedraPodaci');
+
+            request.onload = function() {
+
+
+                if (request.status == 200) {
+                    $("#exampleGrid").simplePagingGrid({
+                        columnNames: ["Godina studija", "Skolska godina", "Naziv", "ID Profesora"],
+                        columnKeys: ["godina_studija", "skolska_godina", "naziv", "Profesor_id_profesora"],
+                        columnWidths: ["30%", "20%", "40%","10"],
+                        data: JSON.parse(request.response).data
+                    });
+                } else
+                {
+                    console.log(Error(request.statusText));
+                }
+            };
+
+            request.onerror = function() {
+                console.log(Error('Problem prilikom slanja zahteva'));
+            };
+
+            request.send();
+
+        });
+
+    </script>
+
+    <div class="page">
+
+        <section id="main">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <p> Sve katedre: </p>
+                    <div id="exampleGrid"></div>
+                </div>
+            </div>
+        </section>
     </div>
+
 </div>
+
 
 <?php
 include 'footer.php';
