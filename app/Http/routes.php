@@ -31,9 +31,11 @@ $app->get('/karton', function () use ($app) {
     return view('forma');
 });
 
-$app->post('/karton', 'KartonController@obradi');
+$app->post('/karton', 'FilmController@obradi');
 
 $app->get('/vezba', 'VezbaController@getAll');
 
-$app->get('/katedra', 'KatedraController@getView');
+$app->get('/katedra', 'KatedaController@getView');
 $app->get('/katedraPodaci', 'KatedraPodaciController@getAll');
+
+$app->get('/studenti', 'StudentController@getAll');
