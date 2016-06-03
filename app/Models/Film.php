@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 final class Film extends Model
 {
     protected $table='Film';
-
+    public $timestamps=false;
 
 }
 

@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 final class Tehnicka_spacifikacija extends Model
 {
     protected $table='Tehnicka_specifikacija';
+    public $timestamps=false;
 }

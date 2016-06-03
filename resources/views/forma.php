@@ -6,7 +6,7 @@ include 'header.php';
 
 <div class="container">
 
-    <form id="karton_filma" class="form-horizontal" method="post" enctype="multipart/form-data" action="">
+    <form id="karton_filma" class="form-horizontal" method="post" enctype="multipart/form-data" action="karton">
 
     <div class="row">
         <div class="naslov">
@@ -18,21 +18,21 @@ include 'header.php';
         <div class="col-md-6">
 
                 <div class="form-group">
-                    <label class="control-label col-md-2" for="naziv">Naziv filma:</label>
+                    <label class="control-label col-md-2" for="naziv_filma">Naziv filma:</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="naziv" name="naziv">
+                        <input type="text" class="form-control" id="naziv_filma" name="naziv_filma">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-2" for="naziv_vezbe">Naziv vežbe:</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="naziv_vezbe">
+                        <input type="text" class="form-control" id="naziv_vezbe" name="naziv_vezbe">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-2" for="reziser">Režiser:</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="reziser">
+                        <select class="js-example-data-array col-md-12 reziser" name="reziser"></select>
                     </div>
                     <div class="col-md-1">
                         <button type="button" class="btn btn-default" (click)="onClick()">+</button>
@@ -41,7 +41,7 @@ include 'header.php';
                 <div class="form-group">
                     <label class="control-label col-md-2" for="scenarista">Scenarista:</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="scenarista">
+                        <input type="text" class="form-control" id="scenarista" name="scenarista">
                     </div>
                     <div class="col-md-1">
                         <button type="button" class="btn btn-default" (click)="onClick()">+</button>
@@ -50,7 +50,7 @@ include 'header.php';
                 <div class="form-group">
                     <label class="control-label col-md-2" for="montazer">Montažer:</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="montazer">
+                        <input type="text" class="form-control" id="montazer" name="montazer">
                     </div>
                     <div class="col-md-1">
                         <button type="button" class="btn btn-default" (click)="onClick()">+</button>
@@ -59,7 +59,7 @@ include 'header.php';
                 <div class="form-group">
                     <label class="control-label col-md-2" for="dizajner_zvuka">Dizajner zvuka:</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="dizajner_zvuka">
+                        <input type="text" class="form-control" id="dizajner_zvuka" name="dizajner_zvuka">
                     </div>
                     <div class="col-md-1">
                         <button type="button" class="btn btn-default" (click)="onClick()">+</button>
@@ -68,7 +68,7 @@ include 'header.php';
                 <div class="form-group">
                     <label class="control-label col-md-2" for="snimatelj_zvuka">Snimatelj zvuka:</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="snimatelj_zvuka">
+                        <input type="text" class="form-control" id="snimatelj_zvuka" name="snimatelj_zvuka">
                     </div>
                     <div class="col-md-1">
                         <button type="button" class="btn btn-default" (click)="onClick()">+</button>
@@ -77,7 +77,7 @@ include 'header.php';
                 <div class="form-group">
                     <label class="control-label col-md-2" for="specijalni_efekti">Specijalni efekti:</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="specijalni_efekti">
+                        <input type="text" class="form-control" id="specijalni_efekti" name="specijalni_efekti">
                     </div>
                     <div class="col-md-1">
                         <button type="button" class="btn btn-default" (click)="onClick()">+</button>
@@ -86,7 +86,7 @@ include 'header.php';
                 <div class="form-group">
                     <label class="control-label col-md-2" for="animacija">Animacija:</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="animacija">
+                        <input type="text" class="form-control" id="animacija" name="animacija">
                     </div>
                     <div class="col-md-1">
                         <button type="button" class="btn btn-default" (click)="onClick()">+</button>
@@ -111,7 +111,7 @@ include 'header.php';
                 <div class="form-group">
                     <label class="control-label col-md-2" for="producent">Producent:</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="producent">
+                        <input type="text" class="form-control" id="producent" name="producent">
                     </div>
                     <div class="col-md-1">
                         <button type="button" class="btn btn-default" (click)="onClick()">+</button>
@@ -120,7 +120,7 @@ include 'header.php';
                 <div class="form-group">
                     <label class="control-label col-md-2" for="snimatelj">Snimatelj:</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="snimatelj">
+                        <input type="text" class="form-control" id="snimatelj" name="snimatelj">
                     </div>
                     <div class="col-md-1">
                         <button type="button" class="btn btn-default" (click)="onClick()">+</button>
@@ -129,7 +129,7 @@ include 'header.php';
                 <div class="form-group">
                     <label class="control-label col-md-2" for="kompozitor">Kompozitor:</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="kompozitor">
+                        <input type="text" class="form-control" id="kompozitor" name="kompozitor">
                     </div>
                     <div class="col-md-1">
                         <button type="button" class="btn btn-default" (click)="onClick()">+</button>
@@ -138,7 +138,7 @@ include 'header.php';
                 <div class="form-group">
                     <label class="control-label col-md-2" for="scenograf">Scenograf:</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="scenograf">
+                        <input type="text" class="form-control" id="scenograf" name="scenograf">
                     </div>
                     <div class="col-md-1">
                         <button type="button" class="btn btn-default" (click)="onClick()">+</button>
@@ -147,7 +147,7 @@ include 'header.php';
                 <div class="form-group">
                     <label class="control-label col-md-2" for="kostimograf">Kostimograf:</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="kostimograf">
+                        <input type="text" class="form-control" id="kostimograf" name="kostimograf">
                     </div>
                     <div class="col-md-1">
                         <button type="button" class="btn btn-default" (click)="onClick()">+</button>
@@ -156,7 +156,7 @@ include 'header.php';
                 <div class="form-group">
                     <label class="control-label col-md-2" for="sminker">Šminker:</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="sminker">
+                        <input type="text" class="form-control" id="sminker" name="sminker">
                     </div>
                     <div class="col-md-1">
                         <button type="button" class="btn btn-default" (click)="onClick()">+</button>
@@ -166,7 +166,7 @@ include 'header.php';
                     <div class = "form-horizontal">
                         <label class="control-label col-md-2" for="nagrade">Nagrade:</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" id="nagrade">
+                            <input type="text" class="form-control" id="nagrade" name="nagrade">
                         </div>
                         <div class="col-md-1">
                             <button type="button" class="btn btn-default" (click)="onClick()">+</button>
@@ -177,7 +177,7 @@ include 'header.php';
                     <div class = "form-horizontal">
                         <label class="control-label col-md-2" for="glumci">Glumci:</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" id="glumci">
+                            <input type="text" class="form-control" id="glumci" name="glumci">
                         </div>
                         <div class="col-md-1">
                             <button type="button" class="btn btn-default" (click)="onClick()">+</button>
@@ -200,107 +200,107 @@ include 'header.php';
         <div class="form-group">
             <label class="control-label col-md-2" for="arhivska_muzika">Arhivska muzika:</label>
             <div class="col-md-9">
-                <textarea rows="5" cols="5" class="form-control" id="arhivska_muzika"></textarea>
+                <textarea rows="5" cols="5" class="form-control" id="arhivska_muzika" name="arhivska_muzika"></textarea>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2" for="sinopsis">Sinopsis:</label>
+            <label class="control-label col-md-2" for="sinopsis"> Sinopsis: </label>
             <div class="col-md-9">
-                <textarea rows="7" cols="5" class="form-control" id="sinopsis"></textarea>
+                <textarea rows="7" cols="5" class="form-control" id="sinopsis" name="sinopsis"></textarea>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2" for="bio_rezisera">Kratka biografija rezisera:</label>
+            <label class="control-label col-md-2" for="bio_rezisera"> Kratka biografija rezisera: </label>
             <div class="col-md-9">
-                <textarea rows="7" cols="5" class="form-control" id="bio_rezisera"></textarea>
+                <textarea rows="7" cols="5" class="form-control" id="bio_rezisera" name="bio_rezisera"></textarea>
             </div>
         </div>
 
 
         <div class="form-group">
-            <label class="control-label col-md-2" for="napomene">Napomene:</label>
+            <label class="control-label col-md-2" for="napomene"> Napomene: </label>
             <div class="col-md-9">
-                <textarea rows="7" cols="5" class="form-control" id="napomene"></textarea>
+                <textarea rows="7" cols="5" class="form-control" id="napomene" name="napomene"></textarea>
             </div>
         </div>
 
 
         <div class="form-group">
-            <label class="control-label col-md-2" for="dodatno1">Uz karton filma predajem i sledeće: </label>
+            <label class="control-label col-md-2" for="dodatno1"> Uz karton filma predajem i sledeće: </label>
             <div class="col-md-10">
 
                 <div class="row">
                     <div class="checkbox col-md-4">
-                        <label><input type="checkbox" value="" id="dodatno1">DVD</label>
+                        <label><input type="checkbox" value="" id="dodatno1" name="dodatno1"> DVD </label>
                     </div>
                     <div class="col-md-8">
-                        <input type="file" name="fileToUpload" id="fileToUpload">
+                        <input type="file" name="fileToUpload1" id="fileToUpload1">
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="checkbox col-md-4">
-                        <label><input type="checkbox" value="" id="dodatno1">Blu-ray</label>
+                        <label><input type="checkbox" value="" id="dodatno2" name="dodatno2"> Blu-ray </label>
                     </div>
                     <div class="col-md-8">
-                        <input type="file" name="fileToUpload" id="fileToUpload">
+                        <input type="file" name="fileToUpload2" id="fileToUpload2">
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="checkbox col-md-4">
-                        <label><input type="checkbox" value="" id="dodatno1">fajl</label>
+                        <label><input type="checkbox" value="" id="dodatno3"  name="dodatno3"> fajl </label>
                     </div>
                     <div class="col-md-8">
-                        <input type="file" name="fileToUpload" id="fileToUpload">
+                        <input type="file" name="fileToUpload3" id="fileToUpload3">
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="checkbox col-md-4">
-                        <label><input type="checkbox" value="" id="dodatno1">rolnu filma</label>
+                        <label><input type="checkbox" value=""  id="dodatno4" name="dodatno4"> rolnu filma </label>
                     </div>
                     <div class="col-md-8">
-                        <input type="file" name="fileToUpload" id="fileToUpload">
+                        <input type="file" name="fileToUpload4" id="fileToUpload4">
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="checkbox col-md-4">
-                        <label><input type="checkbox" value="" id="dodatno1">verziju sa i bez engleskog titla</label>
+                        <label><input type="checkbox" value="" id="dodatno5" name="dodatno5"> verziju sa i bez engleskog titla </label>
                     </div>
                     <div class="col-md-8">
-                        <input type="file" name="fileToUpload" id="fileToUpload">
+                        <input type="file" name="fileToUpload5" id="fileToUpload5">
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="checkbox col-md-4">
-                        <label><input type="checkbox" value="" id="dodatno1">srpsku i englesku dijalog listu</label>
+                        <label><input type="checkbox" value="" id="dodatno6" name="dodatno6"> srpsku i englesku dijalog listu </label>
                     </div>
                     <div class="col-md-8">
-                        <input type="file" name="fileToUpload" id="fileToUpload">
+                        <input type="file" name="fileToUpload6" id="fileToUpload6">
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="checkbox col-md-4">
-                        <label><input type="checkbox" value="" id="dodatno1">fotografiju student (jpg - 300 dpi)</label>
+                        <label><input type="checkbox" value="" id="dodatno7" name="dodatno7"> fotografiju student (jpg - 300 dpi) </label>
                     </div>
                     <div class="col-md-8">
-                        <input type="file" name="fileToUpload" id="fileToUpload">
+                        <input type="file" name="fileToUpload7" id="fileToUpload7">
                     </div>
                 </div>
 
 
                 <div class="row">
                     <div class="checkbox col-md-4">
-                        <label><input type="checkbox" value="" id="dodatno1">fotografije iz filma (3 komada)</label>
+                        <label><input type="checkbox" value="" id="dodatno8" name="dodatno8"> fotografije iz filma (3 komada) </label>
                     </div>
                     <div class="col-md-8">
-                        <input type="file" name="fileToUpload" id="fileToUpload">
+                        <input type="file" name="fileToUpload8" id="fileToUpload8">
                     </div>
                 </div>
 
@@ -313,37 +313,26 @@ include 'header.php';
 
         <h3 class="centriran_naslov">Tehnička specifikacija: </h3> <br/>
 
-
         <div class="form-group">
-            <label class="control-label col-md-2" for="scenarista"> Osnovni format: </label>
+            <label class="control-label col-md-2" for="osnovni_format"> Osnovni format: </label>
             <div class="col-md-9">
-                <select class="js-example-data-array col-md-12">
+                <select class="js-example-data-array col-md-12 osnovni_format" name="osnovni_format">
                 </select>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2" for="scenarista">   Filmski format: </label>
+            <label class="control-label col-md-2" for="filmski_format"> Filmski format: </label>
             <div class="col-md-9">
-                <select class="js-example-data-array col-md-12">
+                <select class="js-example-data-array col-md-12 filmski_format" name="filmski_format">
                 </select>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2" for="scenarista">  Video format: </label>
+            <label class="control-label col-md-2" for="video_format"> Video format: </label>
             <div class="col-md-9">
-                <select class="js-example-data-array col-md-12">
-                </select>
-            </div>
-        </div>
-
-
-
-        <div class="form-group">
-            <label class="control-label col-md-2" for="scenarista"> Televizijski standard: </label>
-            <div class="col-md-9">
-                <select class="js-example-data-array col-md-12">
+                <select class="js-example-data-array col-md-12 video_format" name="video_format">
                 </select>
             </div>
         </div>
@@ -351,60 +340,9 @@ include 'header.php';
 
 
         <div class="form-group">
-            <label class="control-label col-md-2" for="scenarista"> Analiza slike: </label>
+            <label class="control-label col-md-2" for="tel_standard"> Televizijski standard: </label>
             <div class="col-md-9">
-                <select class="js-example-data-array col-md-12">
-                </select>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-md-2" for="scenarista"> Format sličice: </label>
-            <div class="col-md-9">
-                <select class="js-example-data-array col-md-12">
-                </select>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-md-2" for="scenarista"> Sličice u sekundi: </label>
-            <div class="col-md-9">
-                <select class="js-example-data-array col-md-12">
-                </select>
-            </div>
-        </div>
-
-
-        <div class="form-group">
-            <label class="control-label col-md-2" for="scenarista">   Video nosač:  </label>
-            <div class="col-md-9">
-                <select class="js-example-data-array col-md-12">
-                </select>
-            </div>
-        </div>
-
-
-        <div class="form-group">
-            <label class="control-label col-md-2" for="scenarista">  Vrsta fajla: </label>
-            <div class="col-md-9">
-                <select class="js-example-data-array col-md-12">
-                </select>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-md-2" for="scenarista"> Vrsta zvuka: </label>
-            <div class="col-md-9">
-                <select class="js-example-data-array col-md-12">
-                </select>
-            </div>
-        </div>
-
-
-        <div class="form-group">
-            <label class="control-label col-md-2" for="scenarista"> Broj kanala:</label>
-            <div class="col-md-9">
-                <select class="js-example-data-array col-md-12">
+                <select class="js-example-data-array col-md-12 tel_standard" name="tel_standard">
                 </select>
             </div>
         </div>
@@ -412,30 +350,90 @@ include 'header.php';
 
 
         <div class="form-group">
-            <label class="control-label col-md-2" for="scenarista">Redukcija šuma:</label>
+            <label class="control-label col-md-2" for="analiza_slike"> Analiza slike: </label>
             <div class="col-md-9">
-                <select class="js-example-data-array col-md-12">
+                <select class="js-example-data-array col-md-12 analiza_slike" name="analiza_slike">
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="format_slike"> Format sličice: </label>
+            <div class="col-md-9">
+                <select class="js-example-data-array col-md-12 format_slike" name="format_slike">
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="slicice_sekund"> Sličice u sekundi: </label>
+            <div class="col-md-9">
+                <select class="js-example-data-array col-md-12 slicice_sekund" name="slicice_sekund">
                 </select>
             </div>
         </div>
 
 
         <div class="form-group">
-            <label class="control-label col-md-2" for="scenarista">Varijacije zvuka:</label>
+            <label class="control-label col-md-2" for="video_nosac"> Video nosač: </label>
             <div class="col-md-9">
-                <select class="js-example-data-array col-md-12">
+                <select class="js-example-data-array col-md-12 video_nosac" name="video_nosac">
+                </select>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="vrsta_fajla"> Vrsta fajla: </label>
+            <div class="col-md-9">
+                <select class="js-example-data-array col-md-12 vrsta_fajla" name="vrsta_fajla">
                 </select>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2" for="arhivska_muzika">Napomene:</label>
+            <label class="control-label col-md-2" for="vrsta_zvukaS"> Zvuka: </label>
             <div class="col-md-9">
-                <textarea rows="5" cols="5" class="form-control" id="arhivska_muzika"></textarea>
+                <select class="js-example-data-array col-md-12 vrsta_zvuka" name="vrsta_zvuka">
+                </select>
             </div>
         </div>
 
-        <button type="submit" class="btn btn-default btn-md col-md-offset-9" id="forma_potvrdi">Potvrdi</button>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="broj_kanala"> Broj kanala: </label>
+            <div class="col-md-9">
+                <select class="js-example-data-array col-md-12 broj_kanala" name="broj_kanala">
+                </select>
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="redukcija_suma"> Redukcija šuma: </label>
+            <div class="col-md-9">
+                <select class="js-example-data-array col-md-12 redukcija_suma" name="redukcija_suma">
+                </select>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="varijacije_zvuka"> Varijacije zvuka: </label>
+            <div class="col-md-9">
+                <textarea rows="5" cols="5" class="form-control" id="varijacije_zvuka" name="varijacije_zvuka"></textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="arhivska_muzika"> Napomene: </label>
+            <div class="col-md-9">
+                <textarea rows="5" cols="5" class="form-control" id="arhivska_muzika" name="arhivska_muzika"></textarea>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-default btn-md col-md-offset-9" id="forma_potvrdi" name="forma_potvrdi">Potvrdi</button>
 
 
 
