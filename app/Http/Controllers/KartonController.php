@@ -15,8 +15,6 @@ class ObradaKartonController extends Controller{
 
     public function obradi(Request $request){
 
-
-
         return view('forma');
 
     }
