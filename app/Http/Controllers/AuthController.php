@@ -35,8 +35,10 @@ class AuthController extends Controller
         try {
             
             if (! $token = $this->jwt->attempt($request->only('email', 'password'))) {
+                //if($this->jwt->)
                 return response()->json(['user_not_found'], 404);
             }
+            
 
         } catch (\Tymon\JWTAuth\Exceptions\TokenExpiredException $e) {
 
@@ -51,6 +53,8 @@ class AuthController extends Controller
             return response()->json(['token_absent' => $e->getMessage()], 500);
 
         }
+       
         return response()->json(compact('token'));
+
     }
 }

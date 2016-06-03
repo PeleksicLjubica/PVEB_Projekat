@@ -28,13 +28,24 @@ $(document).ready(function(){
 
 $(document).ready(function(){
     $("#potvrdi").click(function(){
-            
+        //firsttime = 1;
                 $.post('auth/login',
                     {email: $("#korisnicko_ime").val(), password: $("#sifra").val()},
                     function (result) {
 
                             localStorage.setItem('token', result.token);
-                            location.href = 'home?token=' + result.token;
+                            localStorage.setItem('firstime', 1);
+
+                           location.href = 'home?token=' + result.token;//+'&'+firsttime;
+
+                        
+                        //
+                        // if (!isset($_COOKIE['firsttime']))
+                        // {
+                        //     setcookie("firsttime", "no");
+                        //
+                        // }
+
                         
                     });
             
@@ -47,6 +58,8 @@ $(document).ready(function(){
 $(document).ready(function(){
     $("#admin_dugme1").click(function(){
         $admin = 0;
+        //firsttime = 0;
+        // setcookie("firsttime", "", time()-3600);
         location.href = 'home';
     });
 

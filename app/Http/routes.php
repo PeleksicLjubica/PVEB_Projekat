@@ -30,7 +30,7 @@ $app->get('/vezba', 'VezbaController@getAll');
 
 $app->get('/katedra', 'KatedraController@getAll');
 
-$app->post('/auth/login', 'AuthController@postLogin');
+$app->post('/auth/login',  'AuthController@postLogin');
 
 $app->group(['middleware' => 'auth:api'], function($app)
 {
