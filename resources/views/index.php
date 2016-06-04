@@ -13,7 +13,7 @@ include 'header.php';
                 <form class="form-horizontal">
 
                     <div id="naslov">
-                        <h1>Pretraga fimova <?php echo $admin; ?> </h1>
+                        <h1>Pretraga fimova</h1>
                     </div>
 
                     <div class="row">

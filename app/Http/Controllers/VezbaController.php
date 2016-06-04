@@ -18,7 +18,7 @@ class VezbaController extends Controller{
     //funkcija koja uzima sve vezbe iz baze a zatim se redirektuje na vezbe.php gde se one prikazuju
     public function getAll(){
         $vezbe = Vezba::all();
-        return view('vezbe',['vezba' => $vezbe[0]]);
+        return view('vezbe',['vezba' => $vezbe[0], 'admin' => 1]);
 
     }
 

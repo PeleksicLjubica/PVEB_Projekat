@@ -16,6 +16,8 @@
     <script src="components/bootstrap/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/shared.js"></script>
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.min.js"></script>
 
@@ -62,12 +64,21 @@
     <div class="container-fluid">
 
         <ul class="nav navbar-nav">
-            <li class="active"><a href="home ">Filmovi</a></li>
+            <li class="active">
+                <?php
+                if ($admin == 0) {
+                    echo '<a href="home">Filmovi</a>';
+                } else if ($admin == 1) {
+                    echo '<a onclick="goToPageWithToken(\'homeAdmin\')">Filmovi</a>';
+                }
+                ?>
+
+            </li>
             <?php
             if ($admin == 1) {
-                echo '<li><a href="katedra">Katedre</a></li>
-                        <li><a href="vezba">Vezbe</a></li>
-                        <li><a href="karton">Dodaj film</a></li>';
+                echo '<li><a onclick="goToPageWithToken(\'katedra\')">Katedre</a></li>
+                        <li><a onclick="goToPageWithToken(\'vezba\')">Vezbe</a></li>
+                        <li><a onclick="goToPageWithToken(\'karton\')">Dodaj film</a></li>';
             }
             ?>
             
@@ -77,11 +88,11 @@
                 <span class="glyphicon glyphicon-user glyphicon" id="admin_ikonica"></span>
                 <?php
                 if($admin == 1){
-                echo '<button type="button" class="btn btn-default btn-lg" id="admin_dugme1" data-toggle="modal" data-target="#myModal">
+                echo '<button type="button" class="btn btn-default btn-lg" id="logout_dugme" data-toggle="modal">
                     Logout</button>';
                 }
                 else
-                    echo '<button type="button" class="btn btn-default btn-lg" id="admin_dugme0" data-toggle="modal" data-target="#myModal">
+                    echo '<button type="button" class="btn btn-default btn-lg" id="admin_dugme" data-toggle="modal" data-target="#myModal">
                     Administrator</button>';
                 ?>
             </div>
@@ -103,12 +114,16 @@
                                     <div id="forma_za_logovanje">
                                         <div class="form-group">
                                             <label for="korisnicko_ime">Korisničko ime: </label>
-                                            <input type="text" class="form-control" name="korisnicko_ime" id="korisnicko_ime">
+                                            <input type="text" class="form-control" name="korisnicko_ime" id="korisnicko_ime" value="wade@example.com">
                                         </div>
 
                                         <div class="form-group">
                                             <label for="sifra">Šifra: </label>
-                                            <input type="text" class="form-control" name="sifra" id="sifra"><br>
+                                            <input type="password" class="form-control" name="sifra" id="sifra" value="12345"><br>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label id="labela_greska">Pogrešno koriscničko ime ili šifra!</label>
                                         </div>
                                     </div><!--forma za logovanje-->
 

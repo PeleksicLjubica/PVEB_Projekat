@@ -18,7 +18,7 @@ class KatedraController extends Controller{
     public function getAll(){
 
         $katedre = Katedra::all();
-        return view('katedre',['katedra' => $katedre[0]]);
+        return view('katedre',['katedra' => $katedre[0], 'admin' => 1]);
 
     }
 

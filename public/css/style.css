@@ -69,6 +69,13 @@ body {
     border: none;
 }
 
+#logout_dugme{
+    color:bisque;
+    background-color: transparent;
+    padding: 0;
+    border: none;
+}
+
 #odustani {
     float:left;
 }
@@ -226,4 +233,13 @@ body {
 
 .centriran_naslov {
     text-align: center;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+#labela_greska {
+    color: rgb(208, 22, 40);
+    display: none;
 }

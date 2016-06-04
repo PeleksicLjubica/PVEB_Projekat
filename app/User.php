@@ -13,6 +13,8 @@ class User extends Model implements JWTSubject, AuthenticatableContract, Authori
 {
     use Authenticatable, Authorizable;
 
+    protected $table = 'Administrator';
+
     /**
      * The attributes that are mass assignable.
      *

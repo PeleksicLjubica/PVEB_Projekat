@@ -21,18 +21,9 @@ $app->get('/', function () use ($app) {
 
 $app->get('/home', 'HomeController@getHome');
 
-$app->get('/karton', ['middleware' => 'auth', function () use ($app) {
-    return view('forma');
-}]);
-
-
-$app->get('/vezba', 'VezbaController@getAll');
-
-$app->get('/katedra', 'KatedraController@getAll');
-
 $app->post('/auth/login',  'AuthController@postLogin');
 
-$app->group(['middleware' => 'auth:api'], function($app)
+$app->group(['middleware' => 'jwt.auth'], function($app)
 {
     $app->get('/test', function() {
         return response()->json([
@@ -41,7 +32,15 @@ $app->group(['middleware' => 'auth:api'], function($app)
     });
 
     $app->get('/karton', function () use ($app) {
-        return view('forma');
+        return view('forma', ['admin' => 1]);
     });
+    
+    $app->get('/homeAdmin', 'App\Http\Controllers\HomeController@getHomeAdmin');
+
+    $app->get('/katedra', 'App\Http\Controllers\KatedraController@getAll');
+
+    $app->get('/vezba', 'App\Http\Controllers\VezbaController@getAll');
+
+    $app->get('/logout', 'App\Http\Controllers\AuthController@logout');
 
 });
