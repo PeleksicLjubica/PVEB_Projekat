@@ -182,6 +182,7 @@ include 'header.php';
                         <div class="col-md-1">
                             <button type="button" class="btn btn-default" (click)="onClick()">+</button>
                         </div>
+
                     </div>
                 </div>
 
@@ -433,11 +434,11 @@ include 'header.php';
             </div>
         </div>
 
-        <button type="submit" class="btn btn-default btn-md col-md-offset-9" id="forma_potvrdi" name="forma_potvrdi">Potvrdi</button>
-
-
-
-
+        <div id="dugme_potvrdi">
+        <button type="submit" class="btn btn-default btn-md col-md-offset-9" id="forma_potvrdi" name="forma_potvrdi">
+            Potvrdi
+        </button>
+        </div>
 
     </div> <!--kraj drugog diva-->
 

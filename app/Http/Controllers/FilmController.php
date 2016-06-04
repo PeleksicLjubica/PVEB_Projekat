@@ -15,32 +15,36 @@ use App\Models\Vezba;
 use App\Models\Tehnicka_spacifikacija;
 use App\Models\Reziser;
 use App\Models\Student;
-use App\Models\
+use App\Models\Scenarista;
+use App\Models\Montazer;
+use App\Models\Producent;
+use App\Models\Snimatelj;
+use App\Models\Nagrada;
+use App\Models\Glumac;
+use App\Models\Glumac_student;
+use App\Models\Podrska;
+use App\Models\Podrska_student;
 
 class FilmController extends Controller{
 
     public function obradi(Request $request){
 
+        $greska = "";
+
+        //instanciranje modela u koje smestamo podatke za unos u bazu
         $film = new Film;
         $osnovne_informacije= new Osnovne_informacije;
         $tehnicka_spacifikacija = new Tehnicka_spacifikacija;
         $reziser = new Reziser;
-
-        $scenarista = $request->input('scenarista');
-
-        $montazer = $request->input('montazer');
-        $dizajner_zvuka = $request->input('dizajner_zvuka');
-        $snimatelj_zvuka = $request->input('snimatelj_zvuka');
-        $specijalni_efekti = $request->input('specijalni_efekti');
-        $animacija = $request->input('animacija');
-        $producent = $request->input('producent');
-        $snimatelj = $request->input('snimatelj');
-        $kompozitor = $request->input('kompozitor');
-        $scenograf = $request->input('scenograf');
-        $kostimograf = $request->input('kostimograf');
-        $sminker = $request->input('sminker');
-        $nagrade = $request->input('nagrade');
-        $glumci = $request->input('glumci');
+        $scenarista = new Scenarista;
+        $montazer = new Montazer;
+        $producent = new Producent;
+        $snimatelj= new Snimatelj;
+        $nagrada = new Nagrada;
+        $glumac = new Glumac;
+        $glumac_student = new Glumac_student;
+        $podrska = new Podrska;
+        $podrska_student = new Podrska_student;
 
 
         //trazenje id_vezbe preko naziva vezbe koji je korisnik uneo
@@ -83,20 +87,148 @@ class FilmController extends Controller{
         $tehnicka_spacifikacija->save();
 
 
-        //uzimanje id_studenta za studenta kog smo izabrali za rezisera
+        //uzimanje id_studenta za studenta kog smo izabrali za rezisera i unos u tabelu REZISER
         $reziser_indeks = $request->input('reziser');
-        $studenti = Student::where('indeks', $reziser_indeks)
-            ->take(1)
-            ->get();
+        if($reziser_indeks != '0'){
+            $studenti = Student::where('indeks', $reziser_indeks)
+                ->take(1)
+                ->get();
 
-        $id_studenta = $studenti[0]->id_studenta;
-        $reziser->Student_id_studenta = $id_studenta;
-        $reziser->Film_id_filma = $film->id;
-        $reziser->save();
+            if(!$studenti->first()){
+                $greska.= " Ovaj reziser nije student";
+            }
+            else{
+                $id_studenta = $studenti[0]->id_studenta;
+                $reziser->Student_id_studenta = $id_studenta;
+                $reziser->Film_id_filma = $film->id;
+                $reziser->save();
+            }
+        }
 
 
+        //uzimanje id_studenta za studenta kog smo izabrali za scenaristu i unos u tabelu SECNARISTA
+        $scenarista_indeks = $request->input('scenarista');
+        if($scenarista_indeks != '0'){
+            $studenti = Student::where('indeks', $scenarista_indeks)
+                ->take(1)
+                ->get();
+
+            if($studenti->first()){
+                $id_studenta = $studenti[0]->id_studenta;
+                $scenarista->Student_id_studenta = $id_studenta;
+                $scenarista->Film_id_filma = $film->id;
+                $scenarista->save();
+            }
+            else{
+                $greska+= " Ovaj scenarista nije student";
+
+            }
+
+        }
+
+        //uzimanje id_studenta za studenta kog smo izabrali za montazera i unos u tabelu MONTAZER
+        $montazer_indeks = $request->input('montazer');
+        if($montazer_indeks != '0'){
+            $studenti = Student::where('indeks', $montazer_indeks)
+                ->take(1)
+                ->get();
+
+            if($studenti->first()){
+                $id_studenta = $studenti[0]->id_studenta;
+                $montazer->Student_id_studenta = $id_studenta;
+                $montazer->Film_id_filma = $film->id;
+                $montazer->save();
+            }
+            else{
+                $greska+= " Ovaj montazer nije student";
+
+            }
+
+        }
+
+        //uzimanje id_studenta za studenta kog smo izabrali za producenta i unos u tabelu PRODUCENT
+        $producent_indeks = $request->input('producent');
+        if($producent_indeks != '0'){
+            $studenti = Student::where('indeks', $producent_indeks)
+                ->take(1)
+                ->get();
+
+            if($studenti->first()){
+                $id_studenta = $studenti[0]->id_studenta;
+                $producent->Student_id_studenta = $id_studenta;
+                $producent->Film_id_filma = $film->id;
+                $producent->save();
+            }
+            else{
+                $greska+= " Ovaj producent nije student";
+            }
 
 
+        }
+
+        //uzimanje id_studenta za studenta kog smo izabrali za snimatelja i unos u tabelu SNIMATELJ
+        $snimatelj_indeks = $request->input('snimatelj');
+        if($snimatelj_indeks != '0'){
+            $studenti = Student::where('indeks', $snimatelj_indeks)
+                ->take(1)
+                ->get();
+
+            if($studenti->first()){
+                $id_studenta = $studenti[0]->id_studenta;
+                $snimatelj->Student_id_studenta = $id_studenta;
+                $snimatelj->Film_id_filma = $film->id;
+                $snimatelj->save();
+            }
+            else{
+                $greska+= " Ovaj snimatelj nije student";
+            }
+
+
+        }
+
+        //unos informacija u tabelu NAGRADE koje je korisnik uneo
+        $nagrada->Film_id_filma = $film->id;
+        $nagrada->naziv = $request->input('nagrade');
+        $nagrada->save();
+
+        //unos GLUMACA - ako se pronadje indeks,ubacuje se u tabelu GLUMAC_STUDENT,inace u GLUMAC
+        $glumac_indeks = $request->input('glumci');
+        //ako je upisan glumac,upisujemo ga u bazu
+        if($glumac_indeks != '0'){
+            //trazimo studenta sa upisanim indeksom
+            $studenti = Student::where('indeks', $glumac_indeks)
+                ->get();
+
+            //ako takav student ne postoji,to znaci da je to glumac koji nije student i upisuje se u tabelu GLUMAC
+            if(!$studenti->first()){
+                $glumac->Film_id_filma = $film->id;
+                $array = explode(" ",$glumac_indeks);
+
+                $duzina_niza = count($glumac);
+
+                echo $duzina_niza;
+
+                if($duzina_niza == 2){
+                    $glumac->ime = $array[0];
+                    $glumac->prezime = $array[1];
+                    $glumac->save();
+                }
+                else if($duzina_niza == 1){
+                    $glumac->ime = $array[0];
+                    $glumac->save();
+                }
+
+            }
+            //ako smo nasli indeks,to znaci da je taj glumac student i upisujemo ga u tabelu GLUMAC_STUDENT
+            else{
+                $id_studenta = $studenti[0]->id_studenta;
+                $glumac_student->Student_id_studenta = $id_studenta;
+                $glumac_student->Film_id_filma = $film->id;
+                $glumac_student->save();
+            }
+        }
+
+        echo $greska;
 
         return view('forma');
 
