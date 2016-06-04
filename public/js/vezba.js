@@ -1,10 +1,34 @@
-/**
- * Created by Ljubica on 3.6.2016.
- */
-$(document).ready(function() {
-    $("#exampleGrid").simplePagingGrid({
-        data: [
-            { "Name": "Pineapple", "Price": 1.50, "Quantity": 2 },
-            { "Name": "Banana", "Price": 0.30, "Quantity": 5 }]
+
+
+$(document).ready(function(){
+
+    $("#unos_vezbe").click(function(){
+        $("#vezbe_forma").slideToggle("slow");
     });
+
+
+
+    $.get("katedraPodaci", function(data){
+
+        var katedre = [];
+
+        katedre.push({ id: 0, text: '' });
+
+        for (var i = 0; i < data.data.length; i++) {
+            var a = {};
+            a.id = i;
+            a.text=data.data[i].naziv;
+
+            katedre.push(a);
+        }
+
+        $(".js-example-data-array.katedre").select2({
+            data: katedre,
+            tags:true,
+            multiple:true
+        });
+
+    });
+
+
 });

@@ -5,6 +5,7 @@
  * Date: 22.5.2016
  * Time: 22:19
  * kontroler koji se odnosi na uzimanje podataka o vežbama iz baze
+
  */
 
 namespace App\Http\Controllers;
@@ -24,5 +25,19 @@ class VezbaController extends Controller{
     public function getView() {
         return view('vezbe');
     }
+
+    public function obradi(Request $request){
+
+        $vezba = new Vezba;
+        $vezba->naziv = $request->input('naziv');
+        $vezba->opis = $request->input('opis');
+        $vezba->tip = $request->input('tip');
+        $vezba->Predmet_id_predmeta=15;
+        $vezba->save();
+
+        return view('vezbe');
+
+    }
+
 
 }

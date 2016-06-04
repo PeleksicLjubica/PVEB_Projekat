@@ -35,7 +35,10 @@ $app->post('/karton', 'FilmController@obradi');
 
 $app->get('/vezba', 'VezbaController@getView');
 $app->get('/vezbePodaci', 'VezbaController@getAll');
+$app->post('/vezbeUnos', 'VezbaController@obradi');
+
 
 $app->get('/katedra', 'KatedraController@getView');
 $app->get('/katedraPodaci', 'KatedraController@getAll');
 $app->get('/studenti', 'StudentController@getAll');
+

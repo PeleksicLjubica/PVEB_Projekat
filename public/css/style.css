@@ -72,8 +72,7 @@ body {
 }
 
 .naslov{
-    font-family: Goudy Old Style;
-    font-style: italic;
+
     color: rgb(42,1,5);
 }
 
@@ -224,12 +223,9 @@ body {
 
 .centriran_naslov {
     text-align: center;
-    font-style: italic;
+    /*font-style: italic;*/
 }
 
-.control-label {
-    font-style: italic;
-}
 
 .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
     padding: 8px;
@@ -238,9 +234,6 @@ body {
     border-top: 1px solid #ddd;
 }
 
-
-element.style {
-}
 .table {
     width: 100%;
     max-width: 100%;
@@ -281,4 +274,26 @@ a {
 
 #dugme_potvrdi{
     margin-bottom: 20px;
+}
+
+#vezbe_forma {
+    display: none;
+}
+
+#unos_vezbe {
+    height: 50px;
+    margin-top: 55px;
+    padding: 10px;
+}
+
+#dugme_vezbe {
+    margin-top: 3px;
+    background-color: rgb(42, 1, 5);
+    color:bisque; !important;
+    border: 1px solid bisque;
+    border-radius: 5px;
+}
+
+#dugme_vezbe:hover {
+    background-color: rgba(42, 1, 5, 0.4);
 }

@@ -369,7 +369,7 @@ include 'header.php';
 
                     <div class="row redovi_u_pretrazi"> <!--dugme-->
                         <div class="col-md-2">
-                            <button type="button" class="btn btn-default btn-sm" id="pretrazi">Pretraži</button>
+                            <button type="submit" class="btn btn-default btn-sm" id="pretrazi">Pretraži</button>
                         </div>
                         </div>
 
