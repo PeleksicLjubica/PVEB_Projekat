@@ -30,61 +30,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.min.js"></script>
 
-
-
-    <!-- 1. Load libraries -->
-    <!-- Polyfill(s) for older browsers -->
-<!--    <script src="node_modules/es6-shim/es6-shim.min.js"></script>-->
-<!---->
-<!--    <script src="node_modules/zone.js/dist/zone.js"></script>-->
-<!--    <script src="node_modules/reflect-metadata/Reflect.js"></script>-->
-<!--    <script src="node_modules/systemjs/dist/system.src.js"></script>-->
-
-    <!-- 2. Configure SystemJS -->
-<!--    <script src="systemjs.config.js"></script>-->
-<!--    <script>-->
-<!--        System.import('app').catch(function(err){ console.error(err); });-->
-<!--    </script>-->
-
     <link rel="stylesheet" href="css/style.css">
 	<script src="js/shared.js"></script>
-
-    <script>
-
-        $.validator.addMethod(
-            "regex",
-            function(value, element, regexp) {
-                var re = new RegExp(regexp);
-                return this.optional(element) || re.test(value);
-            },
-            "Ispravan format je broj sati:broj minuta:broj sekundi"
-        );
-
-        $(function() {
-            $("#karton_filma").validate({
-                rules: {
-                    godina: {required: true, number: true},
-                    //trajanje: {required: true, regex: "^(?:(?:([01]?\d|2[0-3]):)?([0-5]?\d):)?([0-5]?\d)$"},
-                    naziv: {required: true}
-
-                },
-                messages: {
-                    godina: {
-                        required: "Upišite godinu proizvodnje",
-                        number: "Morate da upišete broj"
-                    },
-                    trajanje: {
-                        required: "Upišite trajanje filma"
-                    },
-                    naziv: {
-                        required: "Upišite naziv filma"
-                    }
-                }
-            });
-        });
-    </script>
-
-
 
 </head>
 <body>

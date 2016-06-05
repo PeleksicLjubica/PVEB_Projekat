@@ -30,6 +30,51 @@ $(document).ready(function(){
 
     });
 
+    $.validator.addMethod(
+        "regex",
+        function(value, element, regexp) {
+            var check = false;
+            return this.optional(element) || regexp.test(value);
+        },
+        "Ispravan format je brojsati:brojminuta:brojsekundi"
+    );
+
+
+
+    $(function() {
+        $("#karton_filma").validate({
+            errorClass: "my-error-class",
+
+            rules: {
+                godina: {required: true, number: true},
+                naziv_filma: {required: true},
+                naziv_vezbe: {required: true},
+                trajanje:{
+                    required: true,
+                    regex: /([0-1]?\d|2[0-3]):([0-5]?\d):([0-5]?\d)/,
+                    minlength: 5
+                }
+            },
+            messages: {
+                godina: {
+                    required: "Upišite godinu proizvodnje",
+                    number: "Upišete broj"
+                },
+                naziv_filma: {
+                    required: "Upišite naziv filma"
+                },
+                naziv_vezbe: {
+                    required: "Upišite naziv vežbe"
+                },
+                trajanje:{
+                    required: "Upišete trajanje filma"
+                }
+
+            }
+        });
+
+
+    });
 
 
     var dataOF = [{ id: 0, text: '' }, { id: 'VIDEO', text: 'VIDEO' }, { id: 'FILM', text: 'FILM' }];
