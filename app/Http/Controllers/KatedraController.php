@@ -12,14 +12,18 @@ use App\Models\Katedra;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+
 class KatedraController extends Controller{
 
-    //funkcija koja uzima sve katedre iz baze a zatim se redirektuje na katedra.php gde se one prikazuju
-    public function getAll(){
 
-        $katedre = Katedra::all();
-        return view('katedre',['katedra' => $katedre[0], 'admin' => 1]);
-
+    public function getView() {
+        return view('katedre',['admin' => 1]);
     }
+
+    public function getAll() {
+        $katedre = Katedra::all();
+        return response()->json(['data'=>$katedre]);
+    }
+
 
 }

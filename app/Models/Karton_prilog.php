@@ -5,10 +5,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-final class Film extends Model
+final class Karton_prilog extends Model
 {
-    protected $table='Film';
+    protected $table='Karton_prilog';
     public $timestamps=false;
 
 }
-

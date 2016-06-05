@@ -5,10 +5,9 @@ body {
    height:100%;
 }
 
-#header{
+#header_nas{
     text-align: center;
     min-height: 130px;
-
     background: rgb(42,1,5); /* For browsers that do not support gradients */
 
 }
@@ -42,7 +41,6 @@ body {
     text-align: center;
     align-content: center;
     clear: both;
-	
 	position:absolute;
 	bottom:0;
 	width:100%;
@@ -80,9 +78,8 @@ body {
     float:left;
 }
 
-#naslov{
-    font-family: Goudy Old Style;
-    font-style: italic;
+.naslov{
+
     color: rgb(42,1,5);
 }
 
@@ -107,11 +104,11 @@ body {
 }
 
 .form-control {
-    border: 1px solid rgba(4, 0, 0, 0.96);
+    border: 1px solid #0D0908;
 }
 
 .btn-default {
-    border: 1px solid darkred;
+    border: 1px solid #0D0908;
 
 }
 
@@ -233,6 +230,79 @@ body {
 
 .centriran_naslov {
     text-align: center;
+    /*font-style: italic;*/
+}
+
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+}
+
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+table {
+    background-color: white;
+}
+
+.pagination>li>a, .pagination>li>span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: white;
+    text-decoration: none;
+    background-color:rgb(42, 1, 5);
+    border: 1px solid #ddd;
+}
+
+
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    z-index: 3;
+    color: white;
+    cursor: default;
+    background-color: rgb(42, 1, 5);
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+.select2-container--default .select2-selection--single{
+    border: 1px solid #0D0908;
+}
+
+#dugme_potvrdi{
+    margin-bottom: 20px;
+}
+
+#vezbe_forma {
+    display: none;
+}
+
+#unos_vezbe {
+    height: 50px;
+    margin-top: 55px;
+    padding: 10px;
+}
+
+#dugme_vezbe {
+    margin-top: 3px;
+    background-color: rgb(42, 1, 5);
+    color:bisque; !important;
+    border: 1px solid bisque;
+    border-radius: 5px;
+}
+
+#dugme_vezbe:hover {
+    background-color: rgba(42, 1, 5, 0.4);
 }
 
 a:hover {

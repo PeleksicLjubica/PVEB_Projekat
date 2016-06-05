@@ -5,10 +5,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-final class Film extends Model
+final class Reziser extends Model
 {
-    protected $table='Film';
+    protected $table='Reziser';
     public $timestamps=false;
 
 }
-

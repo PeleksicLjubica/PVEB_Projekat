@@ -8,6 +8,9 @@
 
     <!-- jQuery library -->
     <script src="components/jquery/jquery.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/additional-methods.js"></script>
+
 
     <!-- Latest compiled and minified Bootstrap CSS -->
     <link rel="stylesheet" href="components/bootstrap/css/bootstrap.min.css">
@@ -15,24 +18,70 @@
     <!-- Latest compiled Bootstrap JavaScript -->
     <script src="components/bootstrap/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/shared.js"></script>
+    <!-- Simple Paging Grid -->
+
+    <link href="css/simplePagingGrid-0.6.0.0.css" rel="stylesheet">
+
+    <script src="js/handlebars-v4.0.5.js" type="text/javascript"></script>
+    <script src="js/simplePagingGrid-0.6.0.0.js" type="text/javascript"></script>
+
+
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.min.js"></script>
 
+
+
     <!-- 1. Load libraries -->
     <!-- Polyfill(s) for older browsers -->
-    <script src="node_modules/es6-shim/es6-shim.min.js"></script>
-
-    <script src="node_modules/zone.js/dist/zone.js"></script>
-    <script src="node_modules/reflect-metadata/Reflect.js"></script>
-    <script src="node_modules/systemjs/dist/system.src.js"></script>
+<!--    <script src="node_modules/es6-shim/es6-shim.min.js"></script>-->
+<!---->
+<!--    <script src="node_modules/zone.js/dist/zone.js"></script>-->
+<!--    <script src="node_modules/reflect-metadata/Reflect.js"></script>-->
+<!--    <script src="node_modules/systemjs/dist/system.src.js"></script>-->
 
     <!-- 2. Configure SystemJS -->
-    <script src="systemjs.config.js"></script>
+<!--    <script src="systemjs.config.js"></script>-->
+<!--    <script>-->
+<!--        System.import('app').catch(function(err){ console.error(err); });-->
+<!--    </script>-->
+
+    <link rel="stylesheet" href="css/style.css">
+	<script src="js/shared.js"></script>
+
     <script>
-        System.import('app').catch(function(err){ console.error(err); });
+
+        $.validator.addMethod(
+            "regex",
+            function(value, element, regexp) {
+                var re = new RegExp(regexp);
+                return this.optional(element) || re.test(value);
+            },
+            "Ispravan format je broj sati:broj minuta:broj sekundi"
+        );
+
+        $(function() {
+            $("#karton_filma").validate({
+                rules: {
+                    godina: {required: true, number: true},
+                    //trajanje: {required: true, regex: "^(?:(?:([01]?\d|2[0-3]):)?([0-5]?\d):)?([0-5]?\d)$"},
+                    naziv: {required: true}
+
+                },
+                messages: {
+                    godina: {
+                        required: "Upišite godinu proizvodnje",
+                        number: "Morate da upišete broj"
+                    },
+                    trajanje: {
+                        required: "Upišite trajanje filma"
+                    },
+                    naziv: {
+                        required: "Upišite naziv filma"
+                    }
+                }
+            });
+        });
     </script>
 
 
@@ -42,9 +91,7 @@
 
 <div class="container-fluid" id="content">
 
-    <my-app>Loading...</my-app>
-
-<div class="row" id="header">
+<div class="row" id="header_nas">
 
     <div class="col-md-2">
         <img src="img/logo_fdu1.jpg" id="logo" alt = "logo FDU header">
@@ -88,7 +135,7 @@
                 <span class="glyphicon glyphicon-user glyphicon" id="admin_ikonica"></span>
                 <?php
                 if($admin == 1){
-                echo '<button type="button" class="btn btn-default btn-lg" id="logout_dugme" data-toggle="modal">
+                echo '<button type="button" class="btn btn-default btn-lg" id="logout_dugme">
                     Logout</button>';
                 }
                 else
@@ -132,7 +179,7 @@
                             </div>
 
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-default"  id="potvrdi" >Potvrdi</button>
+                                <button type="button" class="btn btn-default"  id="potvrdi">Potvrdi</button>
                                 <button type="button" class="btn btn-default" data-dismiss="modal" id="odustani">Odustani</button>
 
                             </div>

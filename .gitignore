@@ -58,3 +58,4 @@ fabric.properties
 /public/node_modules
 /public/typings
 /typings
+/public/npm-debug.log

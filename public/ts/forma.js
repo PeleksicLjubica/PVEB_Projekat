@@ -8,29 +8,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-/*
-    Angular ima nekoliko vaznih biblioteka modula; sve pocinju prefiksom @
-    @angular/core je glavna biblioteka
-
-    moduli se ukljucuju import direktivom
-    u slucaju ukljucivanja korisnicki definisanih modula treba koristiti relativne putanje
+/**
+ * Created by Ljubica on 22.5.2016.
  */
-var core_1 = require('@angular/core');
-/*
-    @Component dekorator je funkcija koja pridruzuje metapodatke klasi i ukazuje Angularu
-    da je u pitanju komponenta
- */
-var AppComponent = (function () {
-    function AppComponent() {
+var browser_1 = require("../node_modules/angular2/platform/browser");
+var core_1 = require("../node_modules/angular2/core");
+var App = (function () {
+    function App() {
     }
-    AppComponent = __decorate([
+    App = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            template: '<h1>My First Angular 2 App :) </h1>'
+            selector: 'app',
+            template: '<div>Cao svete</div>'
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], App);
+    return App;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+browser_1.bootstrap(App);
+//# sourceMappingURL=forma.js.map
