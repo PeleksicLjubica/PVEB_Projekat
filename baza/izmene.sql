@@ -30,3 +30,6 @@ CREATE TABLE `mydb`.`Administrator` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `mydb`.`Administrator` VALUES (1,'Milutin Milankovic','wade@example.com','$2y$10$zTsVE8wovqKpHAWnBF/kU.KXRjP34dv/aD4gykg7t1YK9S2mxcVhm',NULL,NULL,NULL);
+
+
+ALTER TABLE film modify COLUMN naziv_filma varchar(255);

@@ -8,7 +8,7 @@ include 'header.php';
 
     <form id="karton_filma" class="form-horizontal" method="post" enctype="multipart/form-data" action="#" onsubmit="pathWithToken('karton')">
 
-    <div class="row">
+        <div class="row">
         <div class="naslov">
             <h1>Karton filma</h1>
         </div>

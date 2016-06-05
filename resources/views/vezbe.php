@@ -6,38 +6,6 @@ include 'header.php';
 <div class="container">
     <!-- Le styles -->
 
-    <script type="text/javascript">
-        $(document).ready(function() {
-
-        var request = new XMLHttpRequest();
-
-        request.open('GET', pathWithToken('vezbePodaci'));
-
-        request.onload = function() {
-
-
-            if (request.status == 200) {
-                $("#exampleGrid").simplePagingGrid({
-                    columnNames: ["ID vežbe", "Naziv", "Opis", "Tip", "ID predmeta"],
-                    columnKeys: ["id_vezbe", "naziv", "opis", "tip", "Predmet_id_predmeta"],
-                    columnWidths: ["10%", "30%", "30%","20", "10"],
-                    data: JSON.parse(request.response).data
-                });
-            } else
-            {
-                console.log(Error(request.statusText));
-            }
-        };
-
-        request.onerror = function() {
-            console.log(Error('Problem prilikom slanja zahteva'));
-        };
-
-        request.send();
-
-        });
-
-    </script>
 
 <div class="page">
 
@@ -55,7 +23,7 @@ include 'header.php';
                         </div>
 
                         <div id="vezbe_forma">
-                            <form role="form" method="post" enctype="multipart/form-data" action="vezbeUnos">
+                            <form role="form" method="post" enctype="multipart/form-data" action="#" onsubmit="pathWithToken('vezba')">
                                 <div class="form-group">
                                     <label for="naziv">Naziv vežbe:</label>
                                     <input type="text" class="form-control" id="naziv" name="naziv">
@@ -66,15 +34,23 @@ include 'header.php';
                                 </div>
                                 <div class="form-group">
                                     <label for="tip">Tip vežbe:</label>
-                                    <input type="text" class="form-control" id="tip" name="tip">
+                                    <select class="js-example-data-array tip" name="tip" style="width: 100%">
+                                    </select>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Katedre kojima vežba pripada:</label>
-                                    <select class="js-example-data-array katedre" style="width: 100%">
+                                    <select class="js-example-data-array katedre" name="katedre" style="width: 100%">
                                     </select>
                                 </div>
-                                    <button type="submit" class="btn btn-default" id="dugme_vezbe">Potvrdi</button>
+
+                                <div class="form-group">
+                                    <label>Predmet kojem vežba pripada:</label>
+                                    <select class="js-example-data-array predmet" name="predmet" style="width: 100%">
+                                    </select>
+                                </div>
+
+                                <button type="submit" class="btn btn-default" id="dugme_vezbe">Potvrdi</button>
 
                             </form>
                         </div>
