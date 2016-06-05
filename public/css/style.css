@@ -313,3 +313,20 @@ a:hover {
     color: rgb(208, 22, 40);
     display: none;
 }
+
+.my-error-class {
+    color: rgb(208, 22, 40);
+}
+
+#forma_potvrdi {
+    margin-top: 3px;
+    margin-left: 440px;
+    background-color: rgb(42, 1, 5);
+    color:bisque; !important;
+    border: 1px solid bisque;
+    border-radius: 5px;
+}
+
+#forma_potvrdi:hover{
+    background-color: rgba(42, 1, 5, 0.4);
+}
