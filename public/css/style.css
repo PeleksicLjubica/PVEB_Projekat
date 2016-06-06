@@ -330,3 +330,7 @@ a:hover {
 #forma_potvrdi:hover{
     background-color: rgba(42, 1, 5, 0.4);
 }
+
+#praviCSV{
+    margin-bottom: 20px;
+}
