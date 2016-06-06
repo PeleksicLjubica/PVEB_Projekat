@@ -61,7 +61,7 @@
             <li class="active">
                 <?php
                 if ($admin == 0) {
-//                    echo '<a href="home">Filmovi</a>';
+             //       echo '<a href="home">Filmovi</a>';
                 } else if ($admin == 1) {
                     echo '<a onclick="goToPageWithToken(\'homeAdmin\')">Filmovi</a>';
                 }

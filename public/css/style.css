@@ -238,7 +238,7 @@ body {
     padding: 8px;
     line-height: 1.42857143;
     vertical-align: top;
-    border-top: 1px solid #ddd;
+    border-top: 2px solid bisque;
 }
 
 .table {
@@ -248,6 +248,7 @@ body {
 }
 table {
     background-color: white;
+    border: 3px solid rgb(42, 1, 5);
 }
 
 .pagination>li>a, .pagination>li>span {
@@ -259,13 +260,13 @@ table {
     color: white;
     text-decoration: none;
     background-color:rgb(42, 1, 5);
-    border: 1px solid #ddd;
+    border: 1px solid bisque;
 }
 
 
 .pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
     z-index: 3;
-    color: white;
+    color: bisque;
     cursor: default;
     background-color: rgb(42, 1, 5);
 }
@@ -279,6 +280,11 @@ a {
     border: 1px solid #0D0908;
 }
 
+.select2-container--default .select2-selection--multiple{
+    border: 1px solid #0D0908;
+}
+
+
 #dugme_potvrdi{
     margin-bottom: 20px;
 }
@@ -290,7 +296,7 @@ a {
 #unos_vezbe {
     height: 50px;
     margin-top: 55px;
-    padding: 10px;
+    padding: 13px;
 }
 
 #dugme_vezbe {
@@ -299,6 +305,8 @@ a {
     color:bisque; !important;
     border: 1px solid bisque;
     border-radius: 5px;
+    margin-left: 188px;
+    margin-bottom:10px;;
 }
 
 #dugme_vezbe:hover {
@@ -312,8 +320,6 @@ a:hover {
 #labela_greska {
     color: rgb(208, 22, 40);
     display: none;
-}
-
 .my-error-class {
     color: rgb(208, 22, 40);
 }
@@ -331,6 +337,26 @@ a:hover {
     background-color: rgba(42, 1, 5, 0.4);
 }
 
+.table>thead>tr>th {
+    vertical-align: bottom;
+    border-bottom: 1px solid bisque;
+}
+
+.my-error-class {
+    color: rgb(208, 22, 40);
+}
+
+#forma_potvrdi {
+    margin-top: 3px;
+    margin-left: 440px;
+    background-color: rgb(42, 1, 5);
+    color:bisque; !important;
+    border: 1px solid bisque;
+    border-radius: 5px;
+}
+
+#forma_potvrdi:hover{
+    background-color: rgba(42, 1, 5, 0.4);
 #praviCSV{
     margin-bottom: 20px;
 }

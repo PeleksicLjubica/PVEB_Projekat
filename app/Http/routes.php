@@ -40,10 +40,13 @@ $app->group(['middleware' => 'jwt.auth'], function($app)
 
 	$app->get('/vezba', 'App\Http\Controllers\VezbaController@getView');
 	$app->get('/vezbePodaci', 'App\Http\Controllers\VezbaController@getAll');
-	$app->post('/vezbeUnos', 'App\Http\Controllers\VezbaController@obradi');
+	$app->post('/vezba', 'App\Http\Controllers\VezbaController@obradi');
 
 	$app->get('/katedra', 'App\Http\Controllers\KatedraController@getView');
 	$app->get('/katedraPodaci', 'App\Http\Controllers\KatedraController@getAll');
 	$app->get('/studenti', 'App\Http\Controllers\StudentController@getAll');
+
+
+	$app->get('/predmetPodaci', 'App\Http\Controllers\PredmetController@getAll');
 
 });

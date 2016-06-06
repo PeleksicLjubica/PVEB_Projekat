@@ -22,22 +22,25 @@ class VezbaController extends Controller{
         return response()->json(['data'=>$vezbe]);
     }
 
-    public function getView() {
-        return view('vezbe',['admin' => 1]);
-    }
-
     public function obradi(Request $request){
 
+        echo "Ljubica";
+
         $vezba = new Vezba;
+
         $vezba->naziv = $request->input('naziv');
         $vezba->opis = $request->input('opis');
         $vezba->tip = $request->input('tip');
-        $vezba->Predmet_id_predmeta=15;
+        $vezba->Predmet_id_predmeta = $request->input('predmet');
+
+
         $vezba->save();
 
         return view('vezbe',['admin' => 1]);
-
     }
 
+    public function getView() {
+        return view('vezbe',['admin' => 1]);
+    }
 
 }

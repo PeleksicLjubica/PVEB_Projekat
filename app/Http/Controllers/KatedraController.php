@@ -21,8 +21,11 @@ class KatedraController extends Controller{
     }
 
     public function getAll() {
-        $katedre = Katedra::all();
+
+        $year=date('Y');
+        $katedre = Katedra::where('skolska_godina', $year)->get();
         return response()->json(['data'=>$katedre]);
+
     }
 
 
