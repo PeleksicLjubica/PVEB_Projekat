@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Student` (
   `indeks` MEDIUMTEXT NULL,
   `ime` VARCHAR(255) NULL,
   `prezime` VARCHAR(255) NULL,
-  `e-mail` VARCHAR(255) NULL,
+  `e_mail` VARCHAR(255) NULL,
   `godina_studija` INT NULL,
   `Katedra_id_katedre` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id_studenta`))
