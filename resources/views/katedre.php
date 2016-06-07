@@ -16,7 +16,7 @@ include 'header.php';
                     <div id="exampleGrid"></div>
                 </div>
 
-                <button class="btn btn-default" id="praviCSV">Export vezbi</button>
+                <button class="btn btn-default" id="praviKatedreCSV">Export katedri u CSV</button>
 
             </div>
         </section>
