@@ -57,8 +57,8 @@
 <nav class="navbar navbar-inverse" id="navbar">
     <div class="container-fluid">
 
-        <ul class="nav navbar-nav">
-            <li class="active">
+        <ul id="navbar-lista" class="nav navbar-nav">
+            <li>
                 <?php
                 if ($admin == 0) {
              //       echo '<a href="home">Filmovi</a>';

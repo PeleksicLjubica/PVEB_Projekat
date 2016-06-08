@@ -1,4 +1,6 @@
 $(document).ready(function(){
+    $($('#navbar-lista').children()[4]).addClass('active');
+
     $("#unos_studenta").click(function(){
         $("#studenti_forma").slideToggle("slow");
     });

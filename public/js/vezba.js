@@ -1,5 +1,8 @@
 $(document).ready(function(){
 
+    $($('#navbar-lista').children()[2]).addClass('active');
+
+
     $("#unos_vezbe").click(function(){
         $("#vezbe_forma").slideToggle("slow");
     });
