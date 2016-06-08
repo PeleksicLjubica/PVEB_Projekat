@@ -33,3 +33,4 @@ INSERT INTO `mydb`.`Administrator` VALUES (1,'Milutin Milankovic','wade@example.
 
 
 ALTER TABLE film modify COLUMN naziv_filma varchar(255);
+ALTER TABLE film modify COLUMN trajanje varchar(255);
