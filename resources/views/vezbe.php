@@ -57,6 +57,8 @@ include 'header.php';
 
                 </div> <!--kraj drugog diva-->
             </div>
+
+            <button class="btn btn-default" id="praviVezbeCSV">Export vezbi u CSV</button>
         </div>
     </section>
 </div>

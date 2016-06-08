@@ -28,21 +28,18 @@ $(document).ready(function(){
 
 var data = [{ id: 0, text: '' }, { id: 1, text: 'Amelija Pulen Haj' }, { id: 2, text: 'duplicate' }, { id: 3, text: 'invalid' }, { id: 4, text: 'wontfix' }];
 
+
+
 $(".js-example-data-array").select2({
-    data: data
+    data: data,
+    theme:'classic'
 });
 
-
-$(".js-example-responsive").select2({
-    data: data
-});
-
-$(".js-data-example-ajax").select2({
-   data: data
-});
 
 
 $(".js-example-basic-hide-search").select2({
     minimumResultsForSearch: 0,
-    data: data
+    data: data,
+    multiple:true,
+    theme:'classic'
 });
