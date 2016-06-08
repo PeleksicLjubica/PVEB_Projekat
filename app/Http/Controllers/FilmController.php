@@ -8,6 +8,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Assetic\Cache\ArrayCache;
 use Illuminate\Http\Request;
 use App\Models\Film;
 use App\Models\Osnovne_informacije;
@@ -35,16 +36,6 @@ class FilmController extends Controller{
         $film = new Film;
         $osnovne_informacije= new Osnovne_informacije;
         $tehnicka_spacifikacija = new Tehnicka_spacifikacija;
-        $reziser = new Reziser;
-        $scenarista = new Scenarista;
-        $montazer = new Montazer;
-        $producent = new Producent;
-        $snimatelj= new Snimatelj;
-        $nagrada = new Nagrada;
-        $glumac = new Glumac;
-        $glumac_student = new Glumac_student;
-        $podrska = new Podrska;
-        $podrska_student = new Podrska_student;
 
 
         //trazenje id_vezbe preko naziva vezbe koji je korisnik uneo
@@ -89,440 +80,249 @@ class FilmController extends Controller{
 
 
 
-            //uzimanje id_studenta za studenta kog smo izabrali za rezisera i unos u tabelu REZISER
+            //uzimanje id_studenta za studenata iz forme
             $reziser_indeks = $request->input('reziser');
 
+            //koliko studenata smo uneli
             $duzina = count($reziser_indeks);
 
             if($duzina > 0){
+                //ako smo uneli neke studnte pravimo niz objekata reziser koji ce da se unose u bazu
+                $arr = array();
+                $i = 0;
 
+                for (; $i < $duzina; $i++){
+                    array_push($arr,new Reziser());
+                }
+
+                $i = 0;
+                //za svakog unetog rezisera nalazi njegov id_studenta i unosi u tabelu Reziser u bazi
                 foreach ($reziser_indeks as $value){
                     $studenti = Student::where('indeks', $value)
                         ->take(1)
                         ->get();
 
-                    echo $studenti[0] . " ";
-
                     $id_studenta = $studenti[0]->id_studenta;
-                    $reziser->Student_id_studenta = $id_studenta;
-                    $reziser->Film_id_filma = $film->id;
-                    //$reziser->save();
+
+                    $arr[$i]->Student_id_studenta = $id_studenta;
+                    $arr[$i]->Film_id_filma = $film->id;
+
+                    $arr[$i]->save();
+
+                    $i++;
                 }
             }
 
 
-
-            //uzimanje id_studenta za studenta kog smo izabrali za scenaristu i unos u tabelu SECNARISTA
+            //uzimanje id_studenta za studenta kog smo izabrali za scenaristu
             $scenarista_indeks = $request->input('scenarista');
+            $duzina = count($scenarista_indeks);
 
-            /*
-            foreach ($scenarista_indeks as $value)
-                echo $value."\n";
-            */
+            if($duzina > 0){
+                //ako smo uneli neke studnte pravimo niz objekata scenarista koji ce da se unose u bazu
+                $arr = array();
+                $i = 0;
 
-            if($scenarista_indeks != '0'){
-                $studenti = Student::where('indeks', $scenarista_indeks)
-                    ->take(1)
-                    ->get();
+                for (; $i < $duzina; $i++){
+                    array_push($arr,new Scenarista());
+                }
 
-                if($studenti->first()){
+                $i = 0;
+                //za svakog unetog rezisera nalazi njegov id_studenta i unosi u tabelu Reziser u bazi
+                foreach ($scenarista_indeks as $value){
+                    $studenti = Student::where('indeks', $value)
+                        ->take(1)
+                        ->get();
+
                     $id_studenta = $studenti[0]->id_studenta;
-                    $scenarista->Student_id_studenta = $id_studenta;
-                    $scenarista->Film_id_filma = $film->id;
-                    //$scenarista->save();
-                }
-                else{
-                    $greska.= " Ovaj scenarista nije student";
 
-                }
+                    $arr[$i]->Student_id_studenta = $id_studenta;
+                    $arr[$i]->Film_id_filma = $film->id;
 
+                    $arr[$i]->save();
+
+                    $i++;
+                }
             }
+
 
             //uzimanje id_studenta za studenta kog smo izabrali za montazera i unos u tabelu MONTAZER
             $montazer_indeks = $request->input('montazer');
-            if($montazer_indeks != '0'){
-                $studenti = Student::where('indeks', $montazer_indeks)
-                    ->take(1)
-                    ->get();
+            $duzina = count($montazer_indeks);
 
-                if($studenti->first()){
+            if($duzina > 0){
+                //ako smo uneli neke studnte pravimo niz objekata scenarista koji ce da se unose u bazu
+                $arr = array();
+                $i = 0;
+
+                for (; $i < $duzina; $i++){
+                    array_push($arr,new Montazer());
+                }
+
+                $i = 0;
+                //za svakog unetog rezisera nalazi njegov id_studenta i unosi u tabelu Montazer u bazi
+                foreach ($montazer_indeks as $value){
+                    $studenti = Student::where('indeks', $value)
+                        ->take(1)
+                        ->get();
+
                     $id_studenta = $studenti[0]->id_studenta;
-                    $montazer->Student_id_studenta = $id_studenta;
-                    $montazer->Film_id_filma = $film->id;
-                    //$montazer->save();
-                }
-                else{
-                    $greska.= " Ovaj montazer nije student";
 
-                }
+                    $arr[$i]->Student_id_studenta = $id_studenta;
+                    $arr[$i]->Film_id_filma = $film->id;
 
+                    $arr[$i]->save();
+
+                    $i++;
+                }
             }
+
 
             //uzimanje id_studenta za studenta kog smo izabrali za producenta i unos u tabelu PRODUCENT
             $producent_indeks = $request->input('producent');
-            if($producent_indeks != '0'){
-                $studenti = Student::where('indeks', $producent_indeks)
-                    ->take(1)
-                    ->get();
+            $duzina = count($producent_indeks);
 
-                if($studenti->first()){
+            if($duzina > 0){
+                //ako smo uneli neke studnte pravimo niz objekata scenarista koji ce da se unose u bazu
+                $arr = array();
+                $i = 0;
+
+                for (; $i < $duzina; $i++){
+                    array_push($arr,new Producent());
+                }
+
+                $i = 0;
+                //za svakog unetog rezisera nalazi njegov id_studenta i unosi u tabelu Montazer u bazi
+                foreach ($producent_indeks as $value){
+                    $studenti = Student::where('indeks', $value)
+                        ->take(1)
+                        ->get();
+
                     $id_studenta = $studenti[0]->id_studenta;
-                    $producent->Student_id_studenta = $id_studenta;
-                    $producent->Film_id_filma = $film->id;
-                    //$producent->save();
-                }
-                else{
-                    $greska.= " Ovaj producent nije student";
-                }
 
+                    $arr[$i]->Student_id_studenta = $id_studenta;
+                    $arr[$i]->Film_id_filma = $film->id;
 
+                    $arr[$i]->save();
+
+                    $i++;
+                }
             }
 
             //uzimanje id_studenta za studenta kog smo izabrali za snimatelja i unos u tabelu SNIMATELJ
             $snimatelj_indeks = $request->input('snimatelj');
-            if($snimatelj_indeks != '0'){
-                $studenti = Student::where('indeks', $snimatelj_indeks)
-                    ->take(1)
-                    ->get();
+            $duzina = count($snimatelj_indeks);
 
-                if($studenti->first()){
+            if($duzina > 0){
+                //ako smo uneli neke studnte pravimo niz objekata scenarista koji ce da se unose u bazu
+                $arr = array();
+                $i = 0;
+
+                for (; $i < $duzina; $i++){
+                    array_push($arr,new Snimatelj());
+                }
+
+                $i = 0;
+                //za svakog unetog rezisera nalazi njegov id_studenta i unosi u tabelu Montazer u bazi
+                foreach ($snimatelj_indeks as $value){
+                    $studenti = Student::where('indeks', $value)
+                        ->take(1)
+                        ->get();
+
                     $id_studenta = $studenti[0]->id_studenta;
-                    $snimatelj->Student_id_studenta = $id_studenta;
-                    $snimatelj->Film_id_filma = $film->id;
-                    //$snimatelj->save();
-                }
-                else{
-                    $greska.= " Ovaj snimatelj nije student";
-                }
 
+                    $arr[$i]->Student_id_studenta = $id_studenta;
+                    $arr[$i]->Film_id_filma = $film->id;
 
+                    $arr[$i]->save();
+
+                    $i++;
+                }
             }
 
+
             //unos informacija u tabelu NAGRADE koje je korisnik uneo
-            $nagrada->Film_id_filma = $film->id;
-            $nagrada->naziv = $request->input('nagrade');
-           // $nagrada->save();
+
+            $nagrada_naziv = $request->input('nagrade');
+            $duzina = count($nagrada_naziv);
+
+            if($duzina > 0){
+                //ako smo uneli neke studnte pravimo niz objekata scenarista koji ce da se unose u bazu
+                $arr = array();
+                $i = 0;
+
+                for (; $i < $duzina; $i++){
+                    array_push($arr,new Nagrada());
+                }
+
+                $i = 0;
+                //za svakog unetog rezisera nalazi njegov id_studenta i unosi u tabelu Montazer u bazi
+                foreach ($nagrada_naziv as $value){
+
+                    $arr[$i]->naziv = $value;
+                    $arr[$i]->Film_id_filma = $film->id;
+                    $arr[$i]->save();
+
+                    $i++;
+                }
+            }
+
 
             //unos GLUMACA - ako se pronadje indeks,ubacuje se u tabelu GLUMAC_STUDENT,inace u GLUMAC
             $glumac_indeks = $request->input('glumci');
-            //ako je upisan glumac,upisujemo ga u bazu
-            if($glumac_indeks != '0'){
-                //trazimo studenta sa upisanim indeksom
-                $studenti = Student::where('indeks', $glumac_indeks)
-                    ->get();
+            $duzina = count($glumac_indeks);
 
-                //ako takav student ne postoji,to znaci da je to glumac koji nije student i upisuje se u tabelu GLUMAC
-                if(!$studenti->first()){
-                    $glumac->Film_id_filma = $film->id;
-                    $array = explode(" ",$glumac_indeks);
+            if($duzina > 0){
+                //ako smo uneli neke studnte pravimo niz objekata scenarista koji ce da se unose u bazu
 
-                    $duzina_niza = count($array);
+                foreach ($glumac_indeks as $value){
+                    //trazimo studenta sa upisanim indeksom
+                    $studenti = Student::where('indeks', $value)
+                        ->get();
 
-                    if($duzina_niza == 2){
-                        $glumac->ime = $array[0];
-                        $glumac->prezime = $array[1];
+                    if(!$studenti->first()){
+                        $glumac = new Glumac();
+                        $glumac->Film_id_filma = $film->id;
+                        $glumac->ime_prezime = $value;
+                        $glumac->save();
+
                     }
-                    else if($duzina_niza == 1){
-                        $glumac->ime = $array[0];
+                    //ako smo nasli indeks,to znaci da je taj glumac student i upisujemo ga u tabelu GLUMAC_STUDENT
+                    else{
+                        $glumac_student = new Glumac_student();
+
+                        $glumac_student->Film_id_filma = $film->id;
+                        $glumac_student->Student_id_studenta = $studenti[0]->id_studenta;
+                        $glumac_student->save();
+
                     }
-
-                    //$glumac->save();
-
-                }
-                //ako smo nasli indeks,to znaci da je taj glumac student i upisujemo ga u tabelu GLUMAC_STUDENT
-                else{
-                    $id_studenta = $studenti[0]->id_studenta;
-                    $glumac_student->Student_id_studenta = $id_studenta;
-                    $glumac_student->Film_id_filma = $film->id;
-                   // $glumac_student->save();
                 }
             }
+
 
             $dizajner_zvuka_indeks = $request->input('dizajner_zvuka');
-            //ako je upisan dizajner zvuka,upisujemo ga u bazu
-            if($dizajner_zvuka_indeks != '0'){
-                //trazimo studenta sa upisanim indeksom
-                $studenti = Student::where('indeks', $dizajner_zvuka_indeks)
-                    ->get();
-
-                //ako takav student ne postoji,to znaci da je to podrska koji nije student i upisuje se u tabelu PODRSKA
-                if(!$studenti->first()){
-                    $podrska->Film_id_filma = $film->id;
-                    $array = explode(" ",$dizajner_zvuka_indeks);
-
-                    $duzina_niza = count($array);
-                    if($duzina_niza == 2){
-                        $podrska->ime = $array[0];
-                        $podrska->prezime = $array[1];
-                        $podrska->tip_podrske = "dizajner_zvuka";
-                    }
-                    elseif($duzina_niza == 1){
-                        $podrska->ime = $array[0];
-                        $podrska->tip_podrske = "dizajner_zvuka";
-                    }
-
-                    //$podrska->save();
-                }
-                //ako smo nasli indeks,to znaci da je ta podrska student i upisujemo ga u tabelu PODRSKA_STUDENT
-                else{
-                    $id_studenta = $studenti[0]->id_studenta;
-                    $podrska_student->Student_id_studenta = $id_studenta;
-                    $podrska_student->Film_id_filma = $film->id;
-                    //$podrska_student->save();
-                }
-            }
+            $this->obradiPodrsku($dizajner_zvuka_indeks,"dizajner zvuka",$film);
 
             $specijalni_efekti_indeks = $request->input('specijalni_efekti');
-            //ako je upisan  specijani efekti,upisujemo ga u bazu
-            if($specijalni_efekti_indeks != '0'){
-                //trazimo studenta sa upisanim indeksom
-
-                $studenti = Student::where('indeks', $specijalni_efekti_indeks)
-                    ->get();
-
-                //ako takav student ne postoji,to znaci da je to podrska koji nije student i upisuje se u tabelu PODRSKA
-                if(!$studenti->first()){
-                    echo "OVO NIJE STUDENT";
-                    $podrska->Film_id_filma = $film->id;
-                    $array = explode(" ",$specijalni_efekti_indeks);
-
-                    $duzina_niza = count($array);
-
-                    if($duzina_niza == 2){
-                        $podrska->ime = $array[0];
-                        $podrska->prezime = $array[1];
-                        $podrska->tip_podrske = "specijalni_efekti";
-                    }
-
-                    elseif($duzina_niza == 1){
-                        $podrska->ime = $array[0];
-                        $podrska->tip_podrske = "specijalni_efekti";
-                    }
-
-                    //$podrska->save();
-                }
-                //ako smo nasli indeks,to znaci da je ta podrska student i upisujemo ga u tabelu PODRSKA_STUDENT
-                else{
-                    $id_studenta = $studenti[0]->id_studenta;
-                    $podrska_student->Student_id_studenta = $id_studenta;
-                    $podrska_student->Film_id_filma = $film->id;
-                    //$podrska_student->save();
-                }
-
-            }
+            $this->obradiPodrsku($specijalni_efekti_indeks,"specijalni efeti",$film);
 
             $snimatelj_zvuka_indeks = $request->input('snimatelj_zvuka');
-            //ako je upisan snimatelj zvuka,upisujemo ga u bazu
-            if($snimatelj_zvuka_indeks != '0'){
-                //trazimo studenta sa upisanim indeksom
-                $studenti = Student::where('indeks', $snimatelj_zvuka_indeks)
-                    ->get();
-
-                echo $snimatelj_zvuka_indeks;
-
-                //ako takav student ne postoji,to znaci da je to podrska koji nije student i upisuje se u tabelu PODRSKA
-                if(!$studenti->first()){
-                    $podrska->Film_id_filma = $film->id;
-                    $array = explode(" ",$snimatelj_zvuka_indeks);
-
-                    $duzina_niza = count($array);
-
-                    if($duzina_niza == 2){
-                        $podrska->ime = $array[0];
-                        $podrska->prezime = $array[1];
-                        $podrska->tip_podrske = "snimatelj_zvuka";
-                    }
-                    elseif($duzina_niza == 1){
-                        $podrska->ime = $array[0];
-                        $podrska->tip_podrske = "snimatelj_zvuka";
-                    }
-
-                   // $podrska->save();
-                }
-                //ako smo nasli indeks,to znaci da je ta podrska student i upisujemo ga u tabelu PODRSKA_STUDENT
-                else{
-                    $id_studenta = $studenti[0]->id_studenta;
-                    $podrska_student->Student_id_studenta = $id_studenta;
-                    $podrska_student->Film_id_filma = $film->id;
-                    //$podrska_student->save();
-                }
-            }
+            $this->obradiPodrsku($snimatelj_zvuka_indeks,"snimatelj zvuka",$film);
 
             $animacija_indeks = $request->input('animacija');
-            //ako je upisan animacija,upisujemo ga u bazu
-            if($animacija_indeks!= '0'){
-                //trazimo studenta sa upisanim indeksom
-                $studenti = Student::where('indeks', $animacija_indeks)
-                    ->get();
-
-                //ako takav student ne postoji,to znaci da je to podrska koji nije student i upisuje se u tabelu PODRSKA
-                if(!$studenti->first()){
-                    $podrska->Film_id_filma = $film->id;
-                    $array = explode(" ",$animacija_indeks);
-
-                    $duzina_niza = count($array);
-
-                    if($duzina_niza == 2){
-                        $podrska->ime = $array[0];
-                        $podrska->prezime = $array[1];
-                        $podrska->tip_podrske = "animacija";
-                    }
-                    elseif($duzina_niza == 1){
-                        $podrska->ime = $array[0];
-                        $podrska->tip_podrske = "animacija";
-                    }
-
-                    //$podrska->save();
-                }
-                //ako smo nasli indeks,to znaci da je ta podrska student i upisujemo ga u tabelu PODRSKA_STUDENT
-                else{
-                    $id_studenta = $studenti[0]->id_studenta;
-                    $podrska_student->Student_id_studenta = $id_studenta;
-                    $podrska_student->Film_id_filma = $film->id;
-                   // $podrska_student->save();
-                }
-            }
+            $this->obradiPodrsku($animacija_indeks,"animacija",$film);
 
             $kompozitor_indeks = $request->input('kompozitor');
-            //ako je upisan kompozitor,upisujemo ga u bazu
-            if($kompozitor_indeks != '0'){
-                //trazimo studenta sa upisanim indeksom
-                $studenti = Student::where('indeks', $kompozitor_indeks)
-                    ->get();
-
-                //ako takav student ne postoji,to znaci da je to podrska koji nije student i upisuje se u tabelu PODRSKA
-                if(!$studenti->first()){
-                    $podrska->Film_id_filma = $film->id;
-                    $array = explode(" ",$kompozitor_indeks);
-
-                    $duzina_niza = count($array);
-
-                    if($duzina_niza == 2){
-                        $podrska->ime = $array[0];
-                        $podrska->prezime = $array[1];
-                        $podrska->tip_podrske = "kompozitor";
-                    }
-                    elseif($duzina_niza == 1){
-                        $podrska->ime = $array[0];
-                        $podrska->tip_podrske = "kompozitor";
-                    }
-
-                   // $podrska->save();
-                }
-                //ako smo nasli indeks,to znaci da je ta podrska student i upisujemo ga u tabelu PODRSKA_STUDENT
-                else{
-                    $id_studenta = $studenti[0]->id_studenta;
-                    $podrska_student->Student_id_studenta = $id_studenta;
-                    $podrska_student->Film_id_filma = $film->id;
-                  //  $podrska_student->save();
-                }
-            }
+            $this->obradiPodrsku($kompozitor_indeks,"kompozitor",$film);
 
             $scenograf_indeks = $request->input('scenograf');
-            //ako je upisan scenograf,upisujemo ga u bazu
-            if($scenograf_indeks != '0'){
-                //trazimo studenta sa upisanim indeksom
-                $studenti = Student::where('indeks', $scenograf_indeks)
-                    ->get();
-
-                //ako takav student ne postoji,to znaci da je to podrska koji nije student i upisuje se u tabelu PODRSKA
-                if(!$studenti->first()){
-                    $podrska->Film_id_filma = $film->id;
-                    $array = explode(" ",$scenograf_indeks);
-
-                    $duzina_niza = count($array);
-
-                    if($duzina_niza == 2){
-                        $podrska->ime = $array[0];
-                        $podrska->prezime = $array[1];
-                        $podrska->tip_podrske = "scenograf";
-                    }
-                    elseif($duzina_niza == 1){
-                        $podrska->ime = $array[0];
-                        $podrska->tip_podrske = "scenograf";
-                    }
-
-                   // $podrska->save();
-                }
-                //ako smo nasli indeks,to znaci da je ta podrska student i upisujemo ga u tabelu PODRSKA_STUDENT
-                else{
-                    $id_studenta = $studenti[0]->id_studenta;
-                    $podrska_student->Student_id_studenta = $id_studenta;
-                    $podrska_student->Film_id_filma = $film->id;
-                    //$podrska_student->save();
-                }
-            }
+            $this->obradiPodrsku($scenograf_indeks,"scenograf",$film);
 
             $kostimograf_indeks = $request->input('kostimograf');
-            //ako je upisan kostimograf,upisujemo ga u bazu
-            if($kostimograf_indeks != '0'){
-                //trazimo studenta sa upisanim indeksom
-                $studenti = Student::where('indeks', $kostimograf_indeks)
-                    ->get();
-
-                //ako takav student ne postoji,to znaci da je to podrska koji nije student i upisuje se u tabelu PODRSKA
-                if(!$studenti->first()){
-                    $podrska->Film_id_filma = $film->id;
-                    $array = explode(" ",$kostimograf_indeks);
-
-                    $duzina_niza = count($array);
-
-                    if($duzina_niza == 2){
-                        $podrska->ime = $array[0];
-                        $podrska->prezime = $array[1];
-                        $podrska->tip_podrske = "kostimograf";
-                    }
-                    elseif($duzina_niza == 1){
-                        $podrska->ime = $array[0];
-                        $podrska->tip_podrske = "kostimograf";
-                    }
-
-                   // $podrska->save();
-                }
-                //ako smo nasli indeks,to znaci da je ta podrska student i upisujemo ga u tabelu PODRSKA_STUDENT
-                else{
-                    $id_studenta = $studenti[0]->id_studenta;
-                    $podrska_student->Student_id_studenta = $id_studenta;
-                    $podrska_student->Film_id_filma = $film->id;
-                   // $podrska_student->save();
-                }
-            }
+            $this->obradiPodrsku($kostimograf_indeks,"kostimograf",$film);
 
             $sminker_indeks = $request->input('sminker');
-            //ako je upisan kompozitor,upisujemo ga u bazu
-            if($sminker_indeks != '0'){
-                //trazimo studenta sa upisanim indeksom
-                $studenti = Student::where('indeks', $sminker_indeks)
-                    ->get();
-
-                //ako takav student ne postoji,to znaci da je to podrska koji nije student i upisuje se u tabelu PODRSKA
-                if(!$studenti->first()){
-                    $podrska->Film_id_filma = $film->id;
-                    $array = explode(" ",$sminker_indeks);
-
-                    $duzina_niza = count($array);
-
-                    if($duzina_niza == 2){
-                        $podrska->ime = $array[0];
-                        $podrska->prezime = $array[1];
-                        $podrska->tip_podrske = "sminker";
-                    }
-                    elseif($duzina_niza == 1){
-                        $podrska->ime = $array[0];
-                        $podrska->tip_podrske = "sminker";
-                    }
-
-
-                   // $podrska->save();
-                }
-                //ako smo nasli indeks,to znaci da je ta podrska student i upisujemo ga u tabelu PODRSKA_STUDENT
-                else{
-                    $id_studenta = $studenti[0]->id_studenta;
-                    $podrska_student->Student_id_studenta = $id_studenta;
-                    $podrska_student->Film_id_filma = $film->id;
-                  //  $podrska_student->save();
-                }
-            }
+            $this->obradiPodrsku($sminker_indeks,"sminker",$film);
 
         }
         else{
@@ -534,10 +334,44 @@ class FilmController extends Controller{
         return view('forma', ['admin' => 1]);
 
     }
-    
+
     public function getKartonView(Request $request) {
         return view('forma', ['admin' => 1]);
-    } 
+    }
+
+    public function obradiPodrsku($input,$uloga,$film){
+        $duzina = count($input);
+        //ako je upisan dizajner zvuka,upisujemo ga u bazu
+
+        if($duzina > 0){
+            //ako smo uneli neke studnte pravimo niz objekata scenarista koji ce da se unose u bazu
+
+            foreach ($input as $value){
+                //trazimo studenta sa upisanim indeksom
+                $studenti = Student::where('indeks', $value)
+                    ->get();
+
+                if(!$studenti->first()){
+
+                    $podrska = new Podrska();
+                    $podrska->Film_id_filma = $film->id;
+                    $podrska->tip_podrske = $uloga;
+                    $podrska->ime_prezime = $value;
+                    $podrska->save();
+
+                }
+                //ako smo nasli indeks,to znaci da je taj glumac student i upisujemo ga u tabelu GLUMAC_STUDENT
+                else{
+                    $podrska_student = new Podrska_student();
+                    $podrska_student->Film_id_filma = $film->id;
+                    $podrska_student->tip_podrske = $uloga;;
+                    $podrska_student->Student_id_studenta = $studenti[0]->id_studenta;
+                    $podrska_student->save();
+                }
+            }
+        }
+
+    }
 
 
 }

@@ -15,7 +15,7 @@ $(document).ready(function(){
         for (var i = 0; i < data.data.length; i++) {
             var a = {};
             a.id = data.data[i].indeks;
-            a.text = data.data[i].ime + " " +  data.data[i].prezime + " , indeks: " + data.data[i].indeks;
+            a.text = data.data[i].ime_prezime + " , indeks: " + data.data[i].indeks;
 
             studenti.push(a);
         }
@@ -108,6 +108,7 @@ $(document).ready(function(){
     var dataBK = [{ id: 0, text: '' }, { id: 'Mono', text: 'Mono' }, { id: 'Stereo', text: 'Stereo' },
         { id: '5.1', text: '5.1' }];
     var dataRS = [{ id: 0, text: '' }, { id: 'Bez / None', text: 'Bez / None' }, { id: 'Dolby', text: 'Dolby' }];
+    var nagrade = [{ id: 0, text: ''}];
 
 
     $(".js-example-data-array.osnovni_format").select2({
@@ -157,6 +158,11 @@ $(document).ready(function(){
     $(".js-example-data-array.redukcija_suma").select2({
         data: dataRS,
         tags:true
+    });
+    $(".js-example-data-array.nagrade").select2({
+        data: nagrade,
+        tags:true,
+        multiple:true
     });
 
 
