@@ -31,7 +31,7 @@ $(document).ready(function(){
             katedre.push(a);
         }
 
-        $(".js-example-data-array.katedra").select2({
+        $(".js-example-data-array.katedre").select2({
             data: katedre,
             tags:true,
             multiple:true

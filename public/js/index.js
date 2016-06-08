@@ -36,7 +36,6 @@ $(".js-example-data-array").select2({
 });
 
 
-//OVO JE PRIMER KOJI TRAZIMO MICI
 $(".js-example-basic-hide-search").select2({
     minimumResultsForSearch: 0,
 	multiple:true,

@@ -284,6 +284,10 @@ a {
     border: 1px solid #0D0908;
 }
 
+.select2-container--classic .select2-selection--multiple{
+    border: 1px solid #0D0908;
+}
+
 
 #dugme_potvrdi{
     margin-bottom: 20px;

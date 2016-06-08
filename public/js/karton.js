@@ -20,16 +20,22 @@ $(document).ready(function(){
             studenti.push(a);
         }
 
-
-        $(".js-example-data-array.studenti").select2({
-            data: studenti,
-            tags:true,
-            multiple:true
+        //SELECT2 za selectove koji su sigurno studenti
+        $(".js-example-basic-hide-search.studenti").select2({
+            minimumResultsForSearch: 0,
+            multiple:true,
+            data: studenti
         });
 
+        //SELECT 2 za selectove koji nisu nuzno studenti
+        $(".js-example-data-array.studenti").select2({
+            minimumResultsForSearch: 0,
+            multiple:true,
+            data: studenti,
+            tags: true
+        });
 
     });
-
 
 
     $.validator.addMethod(
@@ -106,63 +112,51 @@ $(document).ready(function(){
 
     $(".js-example-data-array.osnovni_format").select2({
         data: dataOF,
-        tags:true,
-        theme: "classic"
+        tags:true
     });
     $(".js-example-data-array.filmski_format").select2({
         data: dataFF,
-        tags:true,
-        theme: "classic"
+        tags:true
     });
     $(".js-example-data-array.video_format").select2({
         data: dataVIF,
-        tags:true,
-        theme: "classic"
+        tags:true
     });
     $(".js-example-data-array.tel_standard").select2({
         data: dataTS,
-        tags:true,
-        theme: "classic"
+        tags:true
     });
     $(".js-example-data-array.analiza_slike").select2({
         data: dataAS,
-        tags:true,
-        theme: "classic"
+        tags:true
     });
     $(".js-example-data-array.format_slike").select2({
         data: dataFS,
-        tags:true,
-        theme: "classic"
+        tags:true
     });
     $(".js-example-data-array.slicice_sekund").select2({
         data: dataSS,
-        tags:true,
-        theme: "classic"
+        tags:true
     });
     $(".js-example-data-array.video_nosac").select2({
         data: dataVN,
-        tags:true,
-        theme: "classic"
+        tags:true
     });
     $(".js-example-data-array.vrsta_fajla").select2({
         data: dataVF,
-        tags:true,
-        theme: "classic"
+        tags:true
     });
     $(".js-example-data-array.broj_kanala").select2({
         data: dataBK,
-        tags:true,
-        theme: "classic"
+        tags:true
     });
     $(".js-example-data-array.vrsta_zvuka").select2({
         data: dataVZ,
-        tags:true,
-        theme: "classic"
+        tags:true
     });
     $(".js-example-data-array.redukcija_suma").select2({
         data: dataRS,
-        tags:true,
-        theme: "classic"
+        tags:true
     });
 
 

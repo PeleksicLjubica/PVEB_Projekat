@@ -32,19 +32,19 @@ include 'header.php';
                 <div class="form-group">
                     <label class="control-label col-md-2" for="reziser">Režiser:</label>
                     <div class="col-md-9">
-                        <select class="js-example-data-array col-md-12 studenti" name="reziser" id="reziser"></select>
+                        <select class="js-example-basic-hide-search col-md-12 studenti" name="reziser[]" id="reziser"></select>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-2" for="scenarista">Scenarista:</label>
                     <div class="col-md-9">
-                        <select class="js-example-data-array col-md-12 studenti" name="scenarista[]" id="scenarista"></select>
+                        <select class="js-example-basic-hide-search col-md-12 studenti" name="scenarista[]" id="scenarista"></select>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-2" for="montazer">Montažer:</label>
                     <div class="col-md-9">
-                        <select class="js-example-data-array col-md-12 studenti" name="montazer"></select>
+                        <select class="js-example-basic-hide-search col-md-12 studenti" name="montazer"></select>
                     </div>
 
                 </div>
@@ -95,14 +95,14 @@ include 'header.php';
                 <div class="form-group">
                     <label class="control-label col-md-2" for="producent">Producent:</label>
                     <div class="col-md-9">
-                        <select class="js-example-data-array col-md-12 studenti" name="producent"></select>
+                        <select class="js-example-basic-hide-search col-md-12 studenti" name="producent"></select>
                     </div>
 
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-2" for="snimatelj">Snimatelj:</label>
                     <div class="col-md-9">
-                        <select class="js-example-data-array col-md-12 studenti" name="snimatelj"></select>
+                        <select class="js-example-basic-hide-search col-md-12 studenti" name="snimatelj"></select>
                     </div>
 
                 </div>

@@ -59,7 +59,7 @@ class FilmController extends Controller{
             $film->godina_proizvodnje = $request->input('godina');
             $film->trajanje = $request->input('trajanje');
             $film->Vezba_id_vezbe = $id_vezbi[0]->id_vezbe;;
-           // $film->save();
+            $film->save();
 
             //unos informacija u tabelu OSNOVNE_INFORMACIJE koje je korisnik uneo
             $osnovne_informacije->Film_id_filma = $film->id;
@@ -67,7 +67,7 @@ class FilmController extends Controller{
             $osnovne_informacije->arhivska_muzika = $request->input('arhivska_muzika');
             $osnovne_informacije->biografija_rezisera = $request->input('bio_rezisera');
             $osnovne_informacije->napomene = $request->input('napomene');
-           // $osnovne_informacije->save();
+            $osnovne_informacije->save();
 
             //unos informacija u tabelu TEHNICKA_SPECIFIKACIJA koje je korisnik uneo
             $tehnicka_spacifikacija->Film_id_filma = $film->id;
@@ -85,34 +85,40 @@ class FilmController extends Controller{
             $tehnicka_spacifikacija->redukcija_suma = $request->input('redukcija_suma');
             $tehnicka_spacifikacija->varijacije_zvuka = $request->input('varijacije_zvuka');
             $tehnicka_spacifikacija->napomene = $request->input('napomene');
-            //$tehnicka_spacifikacija->save();
+            $tehnicka_spacifikacija->save();
 
 
 
             //uzimanje id_studenta za studenta kog smo izabrali za rezisera i unos u tabelu REZISER
             $reziser_indeks = $request->input('reziser');
-            if($reziser_indeks != '0'){
-                $studenti = Student::where('indeks', $reziser_indeks)
-                    ->take(1)
-                    ->get();
 
-                if(!$studenti->first()){
-                    $greska.= " Ovaj reziser nije student";
-                }
-                else{
+            $duzina = count($reziser_indeks);
+
+            if($duzina > 0){
+
+                foreach ($reziser_indeks as $value){
+                    $studenti = Student::where('indeks', $value)
+                        ->take(1)
+                        ->get();
+
+                    echo $studenti[0] . " ";
+
                     $id_studenta = $studenti[0]->id_studenta;
                     $reziser->Student_id_studenta = $id_studenta;
                     $reziser->Film_id_filma = $film->id;
-                  //  $reziser->save();
+                    //$reziser->save();
                 }
             }
+
 
 
             //uzimanje id_studenta za studenta kog smo izabrali za scenaristu i unos u tabelu SECNARISTA
             $scenarista_indeks = $request->input('scenarista');
 
+            /*
             foreach ($scenarista_indeks as $value)
                 echo $value."\n";
+            */
 
             if($scenarista_indeks != '0'){
                 $studenti = Student::where('indeks', $scenarista_indeks)
