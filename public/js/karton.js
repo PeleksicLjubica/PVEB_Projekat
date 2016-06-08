@@ -5,7 +5,7 @@
 
 $(document).ready(function(){
 
-
+    $($('#navbar-lista').children()[3]).addClass('active');
 
     $.get(pathWithToken("studentiPodaci"), function(data){
         var studenti = [];
@@ -15,21 +15,27 @@ $(document).ready(function(){
         for (var i = 0; i < data.data.length; i++) {
             var a = {};
             a.id = data.data[i].indeks;
-            a.text = data.data[i].ime + " " +  data.data[i].prezime + " , indeks: " + data.data[i].indeks;
+            a.text = data.data[i].ime_prezime + " , indeks: " + data.data[i].indeks;
 
             studenti.push(a);
         }
 
-
-        $(".js-example-data-array.studenti").select2({
-            data: studenti,
-            tags:true,
-            multiple:true
+        //SELECT2 za selectove koji su sigurno studenti
+        $(".js-example-basic-hide-search.studenti").select2({
+            minimumResultsForSearch: 0,
+            multiple:true,
+            data: studenti
         });
 
+        //SELECT 2 za selectove koji nisu nuzno studenti
+        $(".js-example-data-array.studenti").select2({
+            minimumResultsForSearch: 0,
+            multiple:true,
+            data: studenti,
+            tags: true
+        });
 
     });
-
 
 
     $.validator.addMethod(
@@ -102,67 +108,61 @@ $(document).ready(function(){
     var dataBK = [{ id: 0, text: '' }, { id: 'Mono', text: 'Mono' }, { id: 'Stereo', text: 'Stereo' },
         { id: '5.1', text: '5.1' }];
     var dataRS = [{ id: 0, text: '' }, { id: 'Bez / None', text: 'Bez / None' }, { id: 'Dolby', text: 'Dolby' }];
+    var nagrade = [{ id: 0, text: ''}];
 
 
     $(".js-example-data-array.osnovni_format").select2({
         data: dataOF,
-        tags:true,
-        theme: "classic"
+        tags:true
     });
     $(".js-example-data-array.filmski_format").select2({
         data: dataFF,
-        tags:true,
-        theme: "classic"
+        tags:true
     });
     $(".js-example-data-array.video_format").select2({
         data: dataVIF,
-        tags:true,
-        theme: "classic"
+        tags:true
     });
     $(".js-example-data-array.tel_standard").select2({
         data: dataTS,
-        tags:true,
-        theme: "classic"
+        tags:true
     });
     $(".js-example-data-array.analiza_slike").select2({
         data: dataAS,
-        tags:true,
-        theme: "classic"
+        tags:true
     });
     $(".js-example-data-array.format_slike").select2({
         data: dataFS,
-        tags:true,
-        theme: "classic"
+        tags:true
     });
     $(".js-example-data-array.slicice_sekund").select2({
         data: dataSS,
-        tags:true,
-        theme: "classic"
+        tags:true
     });
     $(".js-example-data-array.video_nosac").select2({
         data: dataVN,
-        tags:true,
-        theme: "classic"
+        tags:true
     });
     $(".js-example-data-array.vrsta_fajla").select2({
         data: dataVF,
-        tags:true,
-        theme: "classic"
+        tags:true
     });
     $(".js-example-data-array.broj_kanala").select2({
         data: dataBK,
-        tags:true,
-        theme: "classic"
+        tags:true
     });
     $(".js-example-data-array.vrsta_zvuka").select2({
         data: dataVZ,
-        tags:true,
-        theme: "classic"
+        tags:true
     });
     $(".js-example-data-array.redukcija_suma").select2({
         data: dataRS,
+        tags:true
+    });
+    $(".js-example-data-array.nagrade").select2({
+        data: nagrade,
         tags:true,
-        theme: "classic"
+        multiple:true
     });
 
 

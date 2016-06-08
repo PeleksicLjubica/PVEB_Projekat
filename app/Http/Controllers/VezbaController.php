@@ -24,8 +24,6 @@ class VezbaController extends Controller{
 
     public function obradi(Request $request){
 
-        echo "Ljubica";
-
         $vezba = new Vezba;
 
         $vezba->naziv = $request->input('naziv');

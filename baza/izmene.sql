@@ -33,3 +33,8 @@ INSERT INTO `mydb`.`Administrator` VALUES (1,'Milutin Milankovic','wade@example.
 
 
 ALTER TABLE film modify COLUMN naziv_filma varchar(255);
+ALTER TABLE film modify COLUMN trajanje varchar(255);
+ALTER TABLE `student` DROP `Katedra_id_katedre`;
+
+--IZMENITI IME DA BUDE ime_prezime a PREZIME OBRISATI u studentu,glumcu i podrsci
+ALTER TABLE `podrska_student` DROP PRIMARY KEY, ADD PRIMARY KEY(`Student_id_studenta`,`Film_id_filma`,`tip_podrske`)

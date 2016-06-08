@@ -1,4 +1,6 @@
 $(document).ready(function(){
+    $($('#navbar-lista').children()[4]).addClass('active');
+
     $("#unos_studenta").click(function(){
         $("#studenti_forma").slideToggle("slow");
     });
@@ -31,7 +33,7 @@ $(document).ready(function(){
             katedre.push(a);
         }
 
-        $(".js-example-data-array.katedra").select2({
+        $(".js-example-data-array.katedre").select2({
             data: katedre,
             tags:true,
             multiple:true

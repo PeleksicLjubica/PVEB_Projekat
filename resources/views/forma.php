@@ -32,47 +32,47 @@ include 'header.php';
                 <div class="form-group">
                     <label class="control-label col-md-2" for="reziser">Režiser:</label>
                     <div class="col-md-9">
-                        <select class="js-example-data-array col-md-12 studenti" name="reziser" id="reziser"></select>
+                        <select class="js-example-basic-hide-search col-md-12 studenti" name="reziser[]" id="reziser"></select>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-2" for="scenarista">Scenarista:</label>
                     <div class="col-md-9">
-                        <select class="js-example-data-array col-md-12 studenti" name="scenarista[]" id="scenarista"></select>
+                        <select class="js-example-basic-hide-search col-md-12 studenti" name="scenarista[]" id="scenarista"></select>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-2" for="montazer">Montažer:</label>
                     <div class="col-md-9">
-                        <select class="js-example-data-array col-md-12 studenti" name="montazer"></select>
+                        <select class="js-example-basic-hide-search col-md-12 studenti" name="montazer[]"></select>
                     </div>
 
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-2" for="dizajner_zvuka">Dizajner zvuka:</label>
                     <div class="col-md-9">
-                        <select class="js-example-data-array col-md-12 studenti" name="dizajner_zvuka"></select>
+                        <select class="js-example-data-array col-md-12 studenti" name="dizajner_zvuka[]"></select>
                     </div>
 
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-2" for="snimatelj_zvuka">Snimatelj zvuka:</label>
                     <div class="col-md-9">
-                        <select class="js-example-data-array col-md-12 studenti" name="snimatelj_zvuka"></select>
+                        <select class="js-example-data-array col-md-12 studenti" name="snimatelj_zvuka[]"></select>
                     </div>
 
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-2" for="specijalni_efekti">Specijalni efekti:</label>
                     <div class="col-md-9">
-                        <select class="js-example-data-array col-md-12 studenti" name="specijalni_efekti"></select>
+                        <select class="js-example-data-array col-md-12 studenti" name="specijalni_efekti[]"></select>
                     </div>
 
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-2" for="animacija">Animacija:</label>
                     <div class="col-md-9">
-                        <select class="js-example-data-array col-md-12 studenti" name="animacija"></select>
+                        <select class="js-example-data-array col-md-12 studenti" name="animacija[]"></select>
                     </div>
 
                 </div>
@@ -95,42 +95,42 @@ include 'header.php';
                 <div class="form-group">
                     <label class="control-label col-md-2" for="producent">Producent:</label>
                     <div class="col-md-9">
-                        <select class="js-example-data-array col-md-12 studenti" name="producent"></select>
+                        <select class="js-example-basic-hide-search col-md-12 studenti" name="producent[]"></select>
                     </div>
 
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-2" for="snimatelj">Snimatelj:</label>
                     <div class="col-md-9">
-                        <select class="js-example-data-array col-md-12 studenti" name="snimatelj"></select>
+                        <select class="js-example-basic-hide-search col-md-12 studenti" name="snimatelj[]"></select>
                     </div>
 
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-2" for="kompozitor">Kompozitor:</label>
                     <div class="col-md-9">
-                        <select class="js-example-data-array col-md-12 studenti" name="kompozitor"></select>
+                        <select class="js-example-data-array col-md-12 studenti" name="kompozitor[]"></select>
                     </div>
 
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-2" for="scenograf">Scenograf:</label>
                     <div class="col-md-9">
-                        <select class="js-example-data-array col-md-12 studenti" name="scenograf"></select>
+                        <select class="js-example-data-array col-md-12 studenti" name="scenograf[]"></select>
                     </div>
 
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-2" for="kostimograf">Kostimograf:</label>
                     <div class="col-md-9">
-                        <select class="js-example-data-array col-md-12 studenti" name="kostimograf"></select>
+                        <select class="js-example-data-array col-md-12 studenti" name="kostimograf[]"></select>
                     </div>
 
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-2" for="sminker">Šminker:</label>
                     <div class="col-md-9">
-                        <select class="js-example-data-array col-md-12 studenti" name="sminker"></select>
+                        <select class="js-example-data-array col-md-12 studenti" name="sminker[]"></select>
                     </div>
 
                 </div>
@@ -138,7 +138,7 @@ include 'header.php';
                     <div class = "form-horizontal">
                         <label class="control-label col-md-2" for="nagrade">Nagrade:</label>
                         <div class="col-md-9">
-                            <textarea rows="5" cols="5" class="form-control" id="nagrade" name="nagrade"></textarea>
+                            <select class="js-example-data-array col-md-12 nagrade" name="nagrade[]"></select>
 
                         </div>
 
@@ -148,7 +148,7 @@ include 'header.php';
                     <div class = "form-horizontal">
                         <label class="control-label col-md-2" for="glumci">Glumci:</label>
                         <div class="col-md-9">
-                            <select class="js-example-data-array col-md-12 studenti" name="glumci"></select>
+                            <select class="js-example-data-array col-md-12 studenti" name="glumci[]"></select>
                         </div>
 
                     </div>

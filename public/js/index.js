@@ -4,6 +4,7 @@ function idiNaKarton(){
 
 //ovo se odnosi na formu
 $(document).ready(function(){
+    $($('#navbar-lista').children()[0]).addClass('active');
     $("#napredna_pretraga").click(function(){
         $("#sekcija1").slideToggle("slow");
     });
@@ -365,7 +366,7 @@ $(document).ready(function(){
                 animacija.push(f);
             }
 
-            else if(data.data[i].tip_podrske == "Å¡minker") {
+            else if(data.data[i].tip_podrske == "šminker") {
                 g.id = data.data[i];
                 g.text = data.data[i].ime_prezime;
                 sminker.push(g);
