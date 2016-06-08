@@ -26,7 +26,8 @@ class ProducentController
             ->leftjoin('student as st','st.id_studenta', '=', 'producent.Student_id_studenta')
             ->distinct()
             ->get([
-                'st.ime_prezime as ime_prezime'
+                'st.ime_prezime as ime_prezime',
+                'st.id_studenta as id_studenta'
             ]);
 
         return response()->json(['data'=>$results]);
