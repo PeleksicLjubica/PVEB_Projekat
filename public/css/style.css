@@ -350,7 +350,7 @@ a:hover {
 
 #forma_potvrdi {
     margin-top: 3px;
-    margin-left: 440px;
+    margin-left: 422px;
     background-color: rgb(42, 1, 5);
     color:bisque; !important;
     border: 1px solid bisque;
@@ -359,8 +359,25 @@ a:hover {
 
 #forma_potvrdi:hover {
     background-color: rgba(42, 1, 5, 0.4);
+#praviKatedreCSV{
+    margin-bottom: 50px;
+    margin-left: 805px;
+    background-color: rgb(42, 1, 5);
+    color:bisque; !important;
 }
 
-#praviCSV{
-    margin-bottom: 20px;
+#praviKatedreCSV:hover {
+    background-color: rgba(42, 1, 5, 0.4);
+}
+
+
+#praviVezbeCSV {
+    margin-bottom: 50px;
+    margin-left: 690px;
+    background-color: rgb(42, 1, 5);
+    color:bisque; !important;
+}
+
+#praviVezbeCSV:hover {
+    background-color: rgba(42, 1, 5, 0.4);
 }

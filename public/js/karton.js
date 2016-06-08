@@ -23,13 +23,31 @@ $(document).ready(function(){
             studenti.push(a);
         }
 
+<<<<<<< .mine
         $(".js-example-data-array.studenti").select2({
             data: studenti,
             tags:true,
             multiple:true
         });
+=======
+
+
+
+
+
+>>>>>>> .theirs
+
 
     });
+
+
+ /*uzela sam neke druge podatke za studente, definitivno je greska u rutama, jer ovako radi */
+    var dataS = [{ id: 0, text: '' }, { id: 'VIDEO', text: 'VIDEO' }, { id: 'FILM', text: 'FILM' }];
+    $(".js-example-data-array.studenti").select2({
+        data: dataS,
+        theme: 'classic'
+    });
+
 
     $.validator.addMethod(
         "regex",
@@ -105,51 +123,63 @@ $(document).ready(function(){
 
     $(".js-example-data-array.osnovni_format").select2({
         data: dataOF,
-        tags:true
+        tags:true,
+        theme: "classic"
     });
     $(".js-example-data-array.filmski_format").select2({
         data: dataFF,
-        tags:true
+        tags:true,
+        theme: "classic"
     });
     $(".js-example-data-array.video_format").select2({
         data: dataVIF,
-        tags:true
+        tags:true,
+        theme: "classic"
     });
     $(".js-example-data-array.tel_standard").select2({
         data: dataTS,
-        tags:true
+        tags:true,
+        theme: "classic"
     });
     $(".js-example-data-array.analiza_slike").select2({
         data: dataAS,
-        tags:true
+        tags:true,
+        theme: "classic"
     });
     $(".js-example-data-array.format_slike").select2({
         data: dataFS,
-        tags:true
+        tags:true,
+        theme: "classic"
     });
     $(".js-example-data-array.slicice_sekund").select2({
         data: dataSS,
-        tags:true
+        tags:true,
+        theme: "classic"
     });
     $(".js-example-data-array.video_nosac").select2({
         data: dataVN,
-        tags:true
+        tags:true,
+        theme: "classic"
     });
     $(".js-example-data-array.vrsta_fajla").select2({
         data: dataVF,
-        tags:true
+        tags:true,
+        theme: "classic"
     });
     $(".js-example-data-array.broj_kanala").select2({
         data: dataBK,
-        tags:true
+        tags:true,
+        theme: "classic"
     });
     $(".js-example-data-array.vrsta_zvuka").select2({
         data: dataVZ,
-        tags:true
+        tags:true,
+        theme: "classic"
     });
     $(".js-example-data-array.redukcija_suma").select2({
         data: dataRS,
-        tags:true
+        tags:true,
+        theme: "classic"
     });
 
 

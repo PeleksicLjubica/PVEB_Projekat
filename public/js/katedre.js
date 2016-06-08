@@ -9,7 +9,6 @@ $(document).ready(function() {
         var podaciProfesor;
 
 
-
     $.get(pathWithToken("profesorPodaci"), function(data){
 
         podaciProfesor = data.data;
@@ -30,7 +29,7 @@ $(document).ready(function() {
         });
 
 
-    $("#praviCSV").click(function(){
+    $("#praviKatedreCSV").click(function(){
         var csvRows = [];
         var csvRowCol = [];
         csvRowCol.push(colNames.toString());

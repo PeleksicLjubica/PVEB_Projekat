@@ -21,5 +21,26 @@ class StudentController extends Controller{
         return response()->json(['data'=>$studenti]);
 
     }
+    
+    public function obradi(Request $request){
+
+        $student = new Student();
+
+        $student->indeks= $request->input('indeks');
+        $student->ime = $request->input('ime');
+        $student->prezime = $request->input('prezime');
+        $student->e_mail = $request->input('email');
+        $student->godina_studija = $request->input('godina_studija');
+        $student->Katedra_naziv = $request->input('katedra');
+
+        $student->save();
+
+        return view('studenti',['admin' => 1]);
+    }
+
+    public function getView() {
+        return view('studenti',['admin' => 1]);
+    }
+
 
 }

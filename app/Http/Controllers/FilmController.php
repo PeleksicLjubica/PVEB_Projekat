@@ -59,7 +59,7 @@ class FilmController extends Controller{
             $film->godina_proizvodnje = $request->input('godina');
             $film->trajanje = $request->input('trajanje');
             $film->Vezba_id_vezbe = $id_vezbi[0]->id_vezbe;;
-            $film->save();
+           // $film->save();
 
             //unos informacija u tabelu OSNOVNE_INFORMACIJE koje je korisnik uneo
             $osnovne_informacije->Film_id_filma = $film->id;
@@ -67,7 +67,7 @@ class FilmController extends Controller{
             $osnovne_informacije->arhivska_muzika = $request->input('arhivska_muzika');
             $osnovne_informacije->biografija_rezisera = $request->input('bio_rezisera');
             $osnovne_informacije->napomene = $request->input('napomene');
-            $osnovne_informacije->save();
+           // $osnovne_informacije->save();
 
             //unos informacija u tabelu TEHNICKA_SPECIFIKACIJA koje je korisnik uneo
             $tehnicka_spacifikacija->Film_id_filma = $film->id;
@@ -85,7 +85,7 @@ class FilmController extends Controller{
             $tehnicka_spacifikacija->redukcija_suma = $request->input('redukcija_suma');
             $tehnicka_spacifikacija->varijacije_zvuka = $request->input('varijacije_zvuka');
             $tehnicka_spacifikacija->napomene = $request->input('napomene');
-            $tehnicka_spacifikacija->save();
+            //$tehnicka_spacifikacija->save();
 
 
 
@@ -103,13 +103,17 @@ class FilmController extends Controller{
                     $id_studenta = $studenti[0]->id_studenta;
                     $reziser->Student_id_studenta = $id_studenta;
                     $reziser->Film_id_filma = $film->id;
-                    $reziser->save();
+                  //  $reziser->save();
                 }
             }
 
 
             //uzimanje id_studenta za studenta kog smo izabrali za scenaristu i unos u tabelu SECNARISTA
             $scenarista_indeks = $request->input('scenarista');
+
+            foreach ($scenarista_indeks as $value)
+                echo $value."\n";
+
             if($scenarista_indeks != '0'){
                 $studenti = Student::where('indeks', $scenarista_indeks)
                     ->take(1)
@@ -119,7 +123,7 @@ class FilmController extends Controller{
                     $id_studenta = $studenti[0]->id_studenta;
                     $scenarista->Student_id_studenta = $id_studenta;
                     $scenarista->Film_id_filma = $film->id;
-                    $scenarista->save();
+                    //$scenarista->save();
                 }
                 else{
                     $greska.= " Ovaj scenarista nije student";
@@ -139,7 +143,7 @@ class FilmController extends Controller{
                     $id_studenta = $studenti[0]->id_studenta;
                     $montazer->Student_id_studenta = $id_studenta;
                     $montazer->Film_id_filma = $film->id;
-                    $montazer->save();
+                    //$montazer->save();
                 }
                 else{
                     $greska.= " Ovaj montazer nije student";
@@ -159,7 +163,7 @@ class FilmController extends Controller{
                     $id_studenta = $studenti[0]->id_studenta;
                     $producent->Student_id_studenta = $id_studenta;
                     $producent->Film_id_filma = $film->id;
-                    $producent->save();
+                    //$producent->save();
                 }
                 else{
                     $greska.= " Ovaj producent nije student";
@@ -179,7 +183,7 @@ class FilmController extends Controller{
                     $id_studenta = $studenti[0]->id_studenta;
                     $snimatelj->Student_id_studenta = $id_studenta;
                     $snimatelj->Film_id_filma = $film->id;
-                    $snimatelj->save();
+                    //$snimatelj->save();
                 }
                 else{
                     $greska.= " Ovaj snimatelj nije student";
@@ -191,7 +195,7 @@ class FilmController extends Controller{
             //unos informacija u tabelu NAGRADE koje je korisnik uneo
             $nagrada->Film_id_filma = $film->id;
             $nagrada->naziv = $request->input('nagrade');
-            $nagrada->save();
+           // $nagrada->save();
 
             //unos GLUMACA - ako se pronadje indeks,ubacuje se u tabelu GLUMAC_STUDENT,inace u GLUMAC
             $glumac_indeks = $request->input('glumci');
@@ -216,7 +220,7 @@ class FilmController extends Controller{
                         $glumac->ime = $array[0];
                     }
 
-                    $glumac->save();
+                    //$glumac->save();
 
                 }
                 //ako smo nasli indeks,to znaci da je taj glumac student i upisujemo ga u tabelu GLUMAC_STUDENT
@@ -224,7 +228,7 @@ class FilmController extends Controller{
                     $id_studenta = $studenti[0]->id_studenta;
                     $glumac_student->Student_id_studenta = $id_studenta;
                     $glumac_student->Film_id_filma = $film->id;
-                    $glumac_student->save();
+                   // $glumac_student->save();
                 }
             }
 
@@ -251,14 +255,14 @@ class FilmController extends Controller{
                         $podrska->tip_podrske = "dizajner_zvuka";
                     }
 
-                    $podrska->save();
+                    //$podrska->save();
                 }
                 //ako smo nasli indeks,to znaci da je ta podrska student i upisujemo ga u tabelu PODRSKA_STUDENT
                 else{
                     $id_studenta = $studenti[0]->id_studenta;
                     $podrska_student->Student_id_studenta = $id_studenta;
                     $podrska_student->Film_id_filma = $film->id;
-                    $podrska_student->save();
+                    //$podrska_student->save();
                 }
             }
 
@@ -289,14 +293,14 @@ class FilmController extends Controller{
                         $podrska->tip_podrske = "specijalni_efekti";
                     }
 
-                    $podrska->save();
+                    //$podrska->save();
                 }
                 //ako smo nasli indeks,to znaci da je ta podrska student i upisujemo ga u tabelu PODRSKA_STUDENT
                 else{
                     $id_studenta = $studenti[0]->id_studenta;
                     $podrska_student->Student_id_studenta = $id_studenta;
                     $podrska_student->Film_id_filma = $film->id;
-                    $podrska_student->save();
+                    //$podrska_student->save();
                 }
 
             }
@@ -327,14 +331,14 @@ class FilmController extends Controller{
                         $podrska->tip_podrske = "snimatelj_zvuka";
                     }
 
-                    $podrska->save();
+                   // $podrska->save();
                 }
                 //ako smo nasli indeks,to znaci da je ta podrska student i upisujemo ga u tabelu PODRSKA_STUDENT
                 else{
                     $id_studenta = $studenti[0]->id_studenta;
                     $podrska_student->Student_id_studenta = $id_studenta;
                     $podrska_student->Film_id_filma = $film->id;
-                    $podrska_student->save();
+                    //$podrska_student->save();
                 }
             }
 
@@ -362,14 +366,14 @@ class FilmController extends Controller{
                         $podrska->tip_podrske = "animacija";
                     }
 
-                    $podrska->save();
+                    //$podrska->save();
                 }
                 //ako smo nasli indeks,to znaci da je ta podrska student i upisujemo ga u tabelu PODRSKA_STUDENT
                 else{
                     $id_studenta = $studenti[0]->id_studenta;
                     $podrska_student->Student_id_studenta = $id_studenta;
                     $podrska_student->Film_id_filma = $film->id;
-                    $podrska_student->save();
+                   // $podrska_student->save();
                 }
             }
 
@@ -397,14 +401,14 @@ class FilmController extends Controller{
                         $podrska->tip_podrske = "kompozitor";
                     }
 
-                    $podrska->save();
+                   // $podrska->save();
                 }
                 //ako smo nasli indeks,to znaci da je ta podrska student i upisujemo ga u tabelu PODRSKA_STUDENT
                 else{
                     $id_studenta = $studenti[0]->id_studenta;
                     $podrska_student->Student_id_studenta = $id_studenta;
                     $podrska_student->Film_id_filma = $film->id;
-                    $podrska_student->save();
+                  //  $podrska_student->save();
                 }
             }
 
@@ -432,14 +436,14 @@ class FilmController extends Controller{
                         $podrska->tip_podrske = "scenograf";
                     }
 
-                    $podrska->save();
+                   // $podrska->save();
                 }
                 //ako smo nasli indeks,to znaci da je ta podrska student i upisujemo ga u tabelu PODRSKA_STUDENT
                 else{
                     $id_studenta = $studenti[0]->id_studenta;
                     $podrska_student->Student_id_studenta = $id_studenta;
                     $podrska_student->Film_id_filma = $film->id;
-                    $podrska_student->save();
+                    //$podrska_student->save();
                 }
             }
 
@@ -467,14 +471,14 @@ class FilmController extends Controller{
                         $podrska->tip_podrske = "kostimograf";
                     }
 
-                    $podrska->save();
+                   // $podrska->save();
                 }
                 //ako smo nasli indeks,to znaci da je ta podrska student i upisujemo ga u tabelu PODRSKA_STUDENT
                 else{
                     $id_studenta = $studenti[0]->id_studenta;
                     $podrska_student->Student_id_studenta = $id_studenta;
                     $podrska_student->Film_id_filma = $film->id;
-                    $podrska_student->save();
+                   // $podrska_student->save();
                 }
             }
 
@@ -503,14 +507,14 @@ class FilmController extends Controller{
                     }
 
 
-                    $podrska->save();
+                   // $podrska->save();
                 }
                 //ako smo nasli indeks,to znaci da je ta podrska student i upisujemo ga u tabelu PODRSKA_STUDENT
                 else{
                     $id_studenta = $studenti[0]->id_studenta;
                     $podrska_student->Student_id_studenta = $id_studenta;
                     $podrska_student->Film_id_filma = $film->id;
-                    $podrska_student->save();
+                  //  $podrska_student->save();
                 }
             }
 

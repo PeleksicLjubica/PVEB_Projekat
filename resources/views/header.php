@@ -72,7 +72,8 @@
             if ($admin == 1) {
                 echo '<li><a onclick="goToPageWithToken(\'katedra\')">Katedre</a></li>
                         <li><a onclick="goToPageWithToken(\'vezba\')">Vezbe</a></li>
-                        <li><a onclick="goToPageWithToken(\'karton\')">Dodaj film</a></li>';
+                        <li><a onclick="goToPageWithToken(\'karton\')">Dodaj film</a></li>
+                        <li><a onclick="goToPageWithToken(\'studenti\')">Studenti</a></li>';
             }
             ?>
             

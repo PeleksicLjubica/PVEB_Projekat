@@ -38,7 +38,7 @@ include 'header.php';
                 <div class="form-group">
                     <label class="control-label col-md-2" for="scenarista">Scenarista:</label>
                     <div class="col-md-9">
-                        <select class="js-example-data-array col-md-12 studenti" name="scenarista" id="scenarista"></select>
+                        <select class="js-example-data-array col-md-12 studenti" name="scenarista[]" id="scenarista"></select>
                     </div>
                 </div>
                 <div class="form-group">
@@ -138,7 +138,8 @@ include 'header.php';
                     <div class = "form-horizontal">
                         <label class="control-label col-md-2" for="nagrade">Nagrade:</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" id="nagrade" name="nagrade">
+                            <textarea rows="5" cols="5" class="form-control" id="nagrade" name="nagrade"></textarea>
+
                         </div>
 
                     </div>
@@ -149,7 +150,6 @@ include 'header.php';
                         <div class="col-md-9">
                             <select class="js-example-data-array col-md-12 studenti" name="glumci"></select>
                         </div>
-
 
                     </div>
                 </div>
@@ -403,7 +403,7 @@ include 'header.php';
         </div>
 
         <div id="dugme_potvrdi">
-        <button type="submit" class="btn btn-default btn-md" id="forma_potvrdi" name="forma_potvrdi">
+        <button type="submit" class="btn btn-default btn-lg" id="forma_potvrdi" name="forma_potvrdi">
             Potvrdi
         </button>
         </div>
