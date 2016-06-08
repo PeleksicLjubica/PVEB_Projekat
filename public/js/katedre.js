@@ -19,7 +19,7 @@ $(document).ready(function() {
 
     $.get(pathWithToken("katedraPodaci"), function(data){
             podaci = data.data;
-        
+
            $("#exampleGrid").simplePagingGrid({
                columnNames: colNames,
                columnKeys: ["godina_studija", "skolska_godina", "naziv", "Profesor_id_profesora"],

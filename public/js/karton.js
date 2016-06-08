@@ -25,7 +25,8 @@ $(document).ready(function(){
 
         $(".js-example-data-array.studenti").select2({
             data: studenti,
-            tags:true
+            tags:true,
+            multiple:true
         });
 
     });

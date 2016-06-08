@@ -41,8 +41,9 @@ $(".js-data-example-ajax").select2({
    data: data
 });
 
-
+//OVO JE PRIMER KOJI TRAZIMO MICI
 $(".js-example-basic-hide-search").select2({
     minimumResultsForSearch: 0,
-    data: data
+    data: data,
+    multiple:true
 });
