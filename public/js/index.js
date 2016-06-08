@@ -40,5 +40,5 @@ $(".js-example-data-array").select2({
 $(".js-example-basic-hide-search").select2({
     minimumResultsForSearch: 0,
 	multiple:true,
-    theme:'classic
+    theme: 'classic'
 });

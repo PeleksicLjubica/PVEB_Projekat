@@ -1,6 +1,3 @@
-/**
- * Created by milica on 5/29/2016.
- */
 
 /**
  * Created by Ljubica on 14.5.2016.
@@ -10,7 +7,7 @@ $(document).ready(function(){
 
 
 
-    $.get(pathWithToken("studenti"), function(data){
+    $.get(pathWithToken("studentiPodaci"), function(data){
         var studenti = [];
 
         studenti.push({ id: 0, text: '' });
@@ -23,30 +20,16 @@ $(document).ready(function(){
             studenti.push(a);
         }
 
-<<<<<<< .mine
+
         $(".js-example-data-array.studenti").select2({
             data: studenti,
             tags:true,
             multiple:true
         });
-=======
-
-
-
-
-
->>>>>>> .theirs
 
 
     });
 
-
- /*uzela sam neke druge podatke za studente, definitivno je greska u rutama, jer ovako radi */
-    var dataS = [{ id: 0, text: '' }, { id: 'VIDEO', text: 'VIDEO' }, { id: 'FILM', text: 'FILM' }];
-    $(".js-example-data-array.studenti").select2({
-        data: dataS,
-        theme: 'classic'
-    });
 
 
     $.validator.addMethod(
