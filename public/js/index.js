@@ -9,6 +9,7 @@ function idiNaKarton(){
 
 //ovo se odnosi na formu
 $(document).ready(function(){
+    $($('#navbar-lista').children()[0]).addClass('active');
     $("#napredna_pretraga").click(function(){
         $("#sekcija1").slideToggle("slow");
     });

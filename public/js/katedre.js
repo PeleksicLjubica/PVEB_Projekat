@@ -4,7 +4,9 @@
 
 $(document).ready(function() {
 
-        var colNames = ["Godina studija", "Skolska godina", "Naziv", "ID Profesora"];
+    $($('#navbar-lista').children()[1]).addClass('active');
+
+    var colNames = ["Godina studija", "Skolska godina", "Naziv", "ID Profesora"];
         var podaci;
         var podaciProfesor;
 

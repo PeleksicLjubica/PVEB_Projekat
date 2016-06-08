@@ -26,9 +26,9 @@ use App\Models\Glumac_student;
 use App\Models\Podrska;
 use App\Models\Podrska_student;
 
-class FilmController extends Controller{
+class FilmController extends Controller {
 
-    public function obradi(Request $request){
+    public function obradi(Request $request) {
 
         $greska = "";
 
@@ -324,6 +324,7 @@ class FilmController extends Controller{
             $sminker_indeks = $request->input('sminker');
             $this->obradiPodrsku($sminker_indeks,"sminker",$film);
 
+            $this->premestiFajlove($request, $film->id);
         }
         else{
             $greska = "NIJE DOBRA VEZBA";
@@ -369,9 +370,27 @@ class FilmController extends Controller{
                     $podrska_student->save();
                 }
             }
+
         }
 
     }
 
+    private function premestiFajlove(Request $request, $id_filma) {
 
+        for ($i = 1; $i <= 7; $i++) {
+            if ($request->hasFile('fileToUpload' . $i)) {
+                $file = $request->file('fileToUpload' . $i);
+                if ($file->isValid()) {
+                    $filename = $file->getClientOriginalName();
+                    try {
+                        $destinationPath = 'filmovi/' . $request->input('naziv_filma') . '_' . $id_filma;
+                        $file->move($destinationPath, $filename);
+                    } catch (FileException $e) {
+                        echo $e->getMessage();
+                    }
+                }
+            }
+        }
+
+    }
 }

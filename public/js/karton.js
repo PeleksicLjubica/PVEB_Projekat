@@ -5,7 +5,7 @@
 
 $(document).ready(function(){
 
-
+    $($('#navbar-lista').children()[3]).addClass('active');
 
     $.get(pathWithToken("studentiPodaci"), function(data){
         var studenti = [];
