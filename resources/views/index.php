@@ -3,25 +3,23 @@ include 'header.php';
 ?>
 
 <div class="container">
-    <!--<div id="floating_button">
-        <button type="button" class="btn btn-default btn-lg" id="dodaj_film" onclick="idiNaKarton()">Dodaj film</button>
-    </div>-->
 
     <div class="row">
 
         <div class="col-md-6" id="levi_div">
-                <form class="form-horizontal">
+            <form id="pretragaForma" role="form" method="post">
 
-                    <div class="naslov">
+
+            <div class="naslov">
                         <h1>Pretraga fimova:</h1>
                     </div>
 
                     <div class="row">
                         <div id="flip" class="col-md-12">
                             <div class="form-group row">
-                                <label class="col-md-3">Naziv filma: </label>
+                                <label class="col-md-3" for="naziv_filma">Naziv filma: </label>
                                 <div class="col-md-9">
-                                    <select class="js-example-basic-hide-search col-md-12">
+                                    <select class="js-example-data-array naziv_filma col-md-12" name="naziv_filma">
                                     </select>
                                 </div>
 
@@ -42,7 +40,7 @@ include 'header.php';
                                                 <div class="col-md-4">
                                                     <div class="row">
                                                         <div class="col-md-12">
-                                                        <select class="js-example-data-array col-md-12" style="width: 100%">
+                                                        <select class="js-example-data-array godina_proizvodnje col-md-12" name="godina_proizvodnje" style="width: 100%">
                                                         </select>
                                                         </div>
                                                     </div>
@@ -50,7 +48,7 @@ include 'header.php';
 
                                                 <label class="col-md-2">Katedra:</label>
                                                 <div class="col-md-4">
-                                                    <select class="js-example-data-array col-md-12" style="width: 100%">
+                                                    <select class="js-example-data-array katedra col-md-12" name="katedra" style="width: 100%">
                                                     </select>
                                                 </div>
 
@@ -61,7 +59,7 @@ include 'header.php';
                                         <div class="col-md-4">
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <select class="js-example-data-array col-md-12" style="width: 100%">
+                                                    <select class="js-example-data-array vezbe col-md-12" name="vezbe" style="width: 100%">
                                                     </select>
                                                 </div>
                                             </div>
@@ -69,7 +67,7 @@ include 'header.php';
 
                                         <label class="col-md-2">Godina studija:</label>
                                         <div class="col-md-4">
-                                            <select class="js-example-data-array col-md-12" style="width: 100%">
+                                            <select class="js-example-data-array godina_studija col-md-12" name="godina_studija" style="width: 100%">
                                             </select>
                                         </div>
 
@@ -80,7 +78,7 @@ include 'header.php';
                                         <div class="col-md-4">
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <select class="js-example-data-array col-md-12" style="width: 100%">
+                                                    <select class="js-example-data-array profesor col-md-12"  name="profesor" style="width: 100%">
                                                     </select>
                                                 </div>
                                             </div>
@@ -88,7 +86,7 @@ include 'header.php';
 
                                         <label class="col-md-2">Predmet:</label>
                                         <div class="col-md-4">
-                                            <select class="js-example-data-array col-md-12" style="width: 100%">
+                                            <select class="js-example-data-array predmet col-md-12" name="predmet" style="width: 100%">
                                             </select>
                                         </div>
 
@@ -99,7 +97,7 @@ include 'header.php';
                                         <div class="col-md-4">
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <select class="js-example-data-array col-md-12" style="width: 100%">
+                                                    <select class="js-example-data-array trajanje col-md-12" name="trajanje" style="width: 100%">
                                                     </select>
                                                 </div>
                                             </div>
@@ -107,7 +105,7 @@ include 'header.php';
 
                                         <label class="col-md-2">Režiser:</label>
                                         <div class="col-md-4">
-                                            <select class="js-example-data-array col-md-12" style="width: 100%">
+                                            <select class="js-example-data-array reziser col-md-12" name="reziser" style="width: 100%">
                                             </select>
                                         </div>
 
@@ -118,7 +116,7 @@ include 'header.php';
                                         <div class="col-md-4">
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <select class="js-example-data-array col-md-12" style="width: 100%">
+                                                    <select class="js-example-data-array producenti col-md-12" name="producent" style="width: 100%">
                                                     </select>
                                                 </div>
                                             </div>
@@ -126,7 +124,7 @@ include 'header.php';
 
                                         <label class="col-md-2">Scenarista:</label>
                                         <div class="col-md-4">
-                                            <select class="js-example-data-array col-md-12" style="width: 100%">
+                                            <select class="js-example-data-array col-md-12 scenaristi" name="scenarista" style="width: 100%">
                                             </select>
                                         </div>
 
@@ -137,7 +135,7 @@ include 'header.php';
                                         <div class="col-md-4">
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <select class="js-example-data-array col-md-12" style="width: 100%">
+                                                    <select class="js-example-data-array snimatelj col-md-12" name="snimatelj" style="width: 100%">
                                                     </select>
                                                 </div>
                                             </div>
@@ -145,7 +143,7 @@ include 'header.php';
 
                                         <label class="col-md-2">Montažer:</label>
                                         <div class="col-md-4">
-                                            <select class="js-example-data-array col-md-12" style="width: 100%">
+                                            <select class="js-example-data-array montazer col-md-12" name="montazer" style="width: 100%">
                                             </select>
                                         </div>
 
@@ -156,7 +154,7 @@ include 'header.php';
                                         <div class="col-md-4">
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <select class="js-example-data-array col-md-12" style="width: 100%">
+                                                    <select class="js-example-data-array glumci col-md-12" name="glumci" style="width: 100%">
                                                     </select>
                                                 </div>
                                             </div>
@@ -164,7 +162,7 @@ include 'header.php';
 
                                         <label class="col-md-2">Kompozitor:</label>
                                         <div class="col-md-4">
-                                            <select class="js-example-data-array col-md-12" style="width: 100%">
+                                            <select class="js-example-data-array kompozitori col-md-12" name="kompozitor" style="width: 100%">
                                             </select>
                                         </div>
 
@@ -175,7 +173,7 @@ include 'header.php';
                                         <div class="col-md-4">
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <select class="js-example-data-array col-md-12" style="width: 100%">
+                                                    <select class="js-example-data-array dizajner_zvuka col-md-12" style="width: 100%">
                                                     </select>
                                                 </div>
                                             </div>
@@ -183,7 +181,7 @@ include 'header.php';
 
                                         <label class="col-md-2">Snimatelj zvuka:</label>
                                         <div class="col-md-4">
-                                            <select class="js-example-data-array col-md-12" style="width: 100%">
+                                            <select class="js-example-data-array snimatelj_zvuka col-md-12" style="width: 100%">
                                             </select>
                                         </div>
 
@@ -194,7 +192,7 @@ include 'header.php';
                                         <div class="col-md-4">
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <select class="js-example-data-array col-md-12" style="width: 100%">
+                                                    <select class="js-example-data-array scenograf col-md-12" style="width: 100%">
                                                     </select>
                                                 </div>
                                             </div>
@@ -202,7 +200,7 @@ include 'header.php';
 
                                         <label class="col-md-2">Kostimograf:</label>
                                         <div class="col-md-4">
-                                            <select class="js-example-data-array col-md-12" style="width: 100%">
+                                            <select class="js-example-data-array kostimograf col-md-12" style="width: 100%">
                                             </select>
                                         </div>
 
@@ -213,7 +211,7 @@ include 'header.php';
                                         <div class="col-md-4">
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <select class="js-example-data-array col-md-12" style="width: 100%">
+                                                    <select class="js-example-data-array animacija col-md-12" style="width: 100%">
                                                     </select>
                                                 </div>
                                             </div>
@@ -221,7 +219,7 @@ include 'header.php';
 
                                         <label class="col-md-2">Šminker:</label>
                                         <div class="col-md-4">
-                                            <select class="js-example-data-array col-md-12" style="width: 100%">
+                                            <select class="js-example-data-array sminker col-md-12" style="width: 100%">
                                             </select>
                                         </div>
 
@@ -232,7 +230,7 @@ include 'header.php';
                                         <div class="col-md-4">
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <select class="js-example-data-array col-md-12" style="width: 100%">
+                                                    <select class="js-example-data-array spec_efekti col-md-12" style="width: 100%">
                                                     </select>
                                                 </div>
                                             </div>

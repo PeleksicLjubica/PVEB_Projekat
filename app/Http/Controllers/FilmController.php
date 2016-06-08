@@ -531,7 +531,30 @@ class FilmController extends Controller{
     
     public function getKartonView(Request $request) {
         return view('forma', ['admin' => 1]);
-    } 
+    }
+
+
+    public function pretrazi(Request $request) {
+
+
+
+
+
+
+        if ($request->query('token')) {
+            return view('index', ['admin' => 1]);
+        } else {
+            return view('index', ['admin' => 0]);
+        }
+    }
+
+
+    /*kupi sve filmove*/
+    public function getAll() {
+        $film = Film::all();
+        return response()->json(['data'=>$film]);
+    }
+
 
 
 }

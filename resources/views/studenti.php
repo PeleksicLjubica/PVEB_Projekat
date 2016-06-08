@@ -57,7 +57,7 @@ include 'header.php';
 
                                 <div class="form-group">
                                     <label>Katedra na kojoj je student:</label>
-                                    <select class="js-example-data-array katedre" name="katedra" style="width: 100%">
+                                    <select class="js-example-data-array katedra" name="katedra" style="width: 100%">
                                     </select>
                                 </div>
 

@@ -39,19 +39,37 @@ $app->group(['middleware' => 'jwt.auth'], function($app)
 	$app->post('/karton', 'App\Http\Controllers\FilmController@obradi');
 
 	$app->get('/vezba', 'App\Http\Controllers\VezbaController@getView');
-	$app->get('/vezbePodaci', 'App\Http\Controllers\VezbaController@getAll');
 	$app->post('/vezba', 'App\Http\Controllers\VezbaController@obradi');
 
 	$app->get('/katedra', 'App\Http\Controllers\KatedraController@getView');
-	$app->get('/katedraPodaci', 'App\Http\Controllers\KatedraController@getAll');
 
 	$app->get('/studentiPodaci', 'App\Http\Controllers\StudentController@getAll');
 	$app->get('/studenti', 'App\Http\Controllers\StudentController@getView');
 	$app->post('/student', 'App\Http\Controllers\StudentController@obradi');
 
-	$app->get('/predmetPodaci', 'App\Http\Controllers\PredmetController@getAll');
-
-	$app->get('/profesorPodaci', 'App\Http\Controllers\ProfesorController@getAll');
-
 
 });
+
+$app->post('/filmPretraga', 'FilmController@pretrazi');
+$app->get('/filmPodaci', 'FilmController@getAll');
+
+$app->get('/katedraPodaci', 'KatedraController@getAll');
+$app->get('/vezbePodaci', 'VezbaController@getAll');
+$app->get('/predmetPodaci', 'PredmetController@getAll');
+$app->get('/profesorPodaci', 'ProfesorController@getAll');
+$app->get('/producentPodaci', 'ProducentController@getAll');
+$app->get('/scenaristaPodaci', 'ScenaristaController@getAll');
+$app->get('/snimateljPodaci', 'SnimateljController@getAll');
+$app->get('/reziserPodaci', 'ReziserController@getAll');
+$app->get('/montazerPodaci', 'MontazerController@getAll');
+$app->get('/glumacPodaci', 'GlumacController@getAll');
+$app->get('/podrskaPodaci', 'PodrskaController@getAll');
+
+
+
+
+
+
+
+
+

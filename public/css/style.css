@@ -284,7 +284,6 @@ a {
     border: 1px solid #0D0908;
 }
 
-
 #dugme_potvrdi{
     margin-bottom: 20px;
 }
@@ -359,6 +358,8 @@ a:hover {
 
 #forma_potvrdi:hover {
     background-color: rgba(42, 1, 5, 0.4);
+}
+
 #praviKatedreCSV{
     margin-bottom: 50px;
     margin-left: 805px;
