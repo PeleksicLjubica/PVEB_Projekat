@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+    var colNames = ["ID vežbe", "Naziv", "Opis", "Tip", "ID predmeta"];
+
     $($('#navbar-lista').children()[2]).addClass('active');
 
 
@@ -9,7 +11,7 @@ $(document).ready(function(){
 
     $.get(pathWithToken("vezbePodaci"), function(data){
         $("#exampleGrid").simplePagingGrid({
-            columnNames: ["ID vežbe", "Naziv", "Opis", "Tip", "ID predmeta"],
+            columnNames: colNames,
             columnKeys: ["id_vezbe", "naziv", "opis", "tip", "Predmet_id_predmeta"],
             columnWidths: ["10%", "30%", "30%","20", "10"],
             data: data.data
@@ -67,5 +69,39 @@ $(document).ready(function(){
         data: dataTIP,
         tags:true
     });
+
+    $("#praviVezbeCSV").click(function(){
+        var csvRows = [];
+        var csvRowCol = [];
+        csvRowCol.push(colNames.toString());
+        csvRows.push(csvRowCol);
+
+
+        for (var i = 0; i < podaci.length; i++) {
+            var rowCSV = podaci[i];
+
+            var a = [];
+            a.push(rowCSV.godina_studija);
+            a.push(rowCSV.skolska_godina);
+            a.push(rowCSV.naziv);
+            a.push(rowCSV.Profesor_id_profesora);
+
+            var row = [];
+            row.push(a.toString());
+            csvRows.push(row);
+        }
+
+        var csvString = csvRows.join("\r\n");
+        var a         = document.createElement('a');
+        a.href        = 'data:attachment/csv,' +  encodeURIComponent(csvString);
+        a.target      = '_blank';
+        a.download    = 'myFile.csv';
+
+        document.body.appendChild(a);
+        a.click();
+
+    });
+
+
 
 });

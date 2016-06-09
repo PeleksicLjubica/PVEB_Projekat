@@ -26,7 +26,7 @@ include 'header.php';
                 <div class="form-group">
                     <label class="control-label col-md-2" for="naziv_vezbe">Naziv vežbe:</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="naziv_vezbe" name="naziv_vezbe">
+                        <select class="js-example-basic-hide-search col-md-12 naziv_vezbe" name="naziv_vezbe" id="naziv_vezbe"></select>
                     </div>
                 </div>
                 <div class="form-group">

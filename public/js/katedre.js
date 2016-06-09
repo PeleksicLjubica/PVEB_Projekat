@@ -7,8 +7,8 @@ $(document).ready(function() {
     $($('#navbar-lista').children()[1]).addClass('active');
 
     var colNames = ["Godina studija", "Skolska godina", "Naziv", "ID Profesora"];
-        var podaci;
-        var podaciProfesor;
+    var podaci;
+    var podaciProfesor;
 
 
     $.get(pathWithToken("profesorPodaci"), function(data){

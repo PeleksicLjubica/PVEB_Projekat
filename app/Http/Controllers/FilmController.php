@@ -39,17 +39,14 @@ class FilmController extends Controller {
 
 
         //trazenje id_vezbe preko naziva vezbe koji je korisnik uneo
-        $naziv_vezbe = $request->input('naziv_vezbe');
-        $id_vezbi = Vezba::where('naziv', $naziv_vezbe)
-            ->take(1)
-            ->get();
 
-        if($id_vezbi->first()) {
+        $id_vezbe =  $request->input('naziv_vezbe');
+
             //unos informacija u tabelu FILM koje je korisnik uneo
             $film->naziv_filma = $request->input('naziv_filma');
             $film->godina_proizvodnje = $request->input('godina');
             $film->trajanje = $request->input('trajanje');
-            $film->Vezba_id_vezbe = $id_vezbi[0]->id_vezbe;;
+            $film->Vezba_id_vezbe = $id_vezbe;
             $film->save();
 
             //unos informacija u tabelu OSNOVNE_INFORMACIJE koje je korisnik uneo
@@ -325,12 +322,7 @@ class FilmController extends Controller {
             $this->obradiPodrsku($sminker_indeks,"sminker",$film);
 
             $this->premestiFajlove($request, $film->id);
-        }
-        else{
-            $greska = "NIJE DOBRA VEZBA";
-        }
 
-        echo $greska;
 
         return view('forma', ['admin' => 1]);
 

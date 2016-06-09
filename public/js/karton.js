@@ -38,6 +38,27 @@ $(document).ready(function(){
     });
 
 
+    $.get(pathWithToken("vezbePodaci"), function(data){
+        var vezbe = [];
+
+        vezbe.push({ id: 0, text: '' });
+
+        for (var i = 0; i < data.data.length; i++) {
+            var a = {};
+            a.id = data.data[i].id_vezbe;
+            a.text = data.data[i].naziv;
+
+            vezbe.push(a);
+        }
+
+        $(".js-example-basic-hide-search.naziv_vezbe").select2({
+            minimumResultsForSearch: 0,
+            data: vezbe
+        });
+
+    });
+
+
     $.validator.addMethod(
         "regex",
         function(value, element, regexp) {
