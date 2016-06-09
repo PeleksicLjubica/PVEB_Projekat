@@ -3,7 +3,11 @@
  */
 
 function pathWithToken(path) {
-    return path + '?token=' + localStorage.getItem('token');
+    if (!localStorage.getItem('token')) {
+        return path;
+    } else {
+        return path + '?token=' + localStorage.getItem('token');
+    }
 }
 
 function goToPageWithToken(path) {

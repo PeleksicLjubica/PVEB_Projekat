@@ -23,7 +23,7 @@ include 'header.php';
                         </div>
 
                         <div id="vezbe_forma">
-                            <form role="form" method="post" enctype="multipart/form-data" action="#" onsubmit="pathWithToken('vezba')">
+                            <form role="form" method="post" enctype="multipart/form-data" action="" onsubmit="pathWithToken('vezba')">
                                 <div class="form-group">
                                     <label for="naziv">Naziv vežbe:</label>
                                     <input type="text" class="form-control" id="naziv" name="naziv">
