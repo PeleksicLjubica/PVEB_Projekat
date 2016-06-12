@@ -65,6 +65,8 @@ $app->get('/montazerPodaci', 'MontazerController@getAll');
 $app->get('/glumacPodaci', 'GlumacController@getAll');
 $app->get('/podrskaPodaci', 'PodrskaController@getAll');
 
+$app->get('/film/{id}', 'FilmController@getFilm');
+
 
 
 

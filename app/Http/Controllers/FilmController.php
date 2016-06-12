@@ -8,6 +8,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Karton_prilog;
 use Assetic\Cache\ArrayCache;
 use Illuminate\Http\Request;
 use App\Models\Film;
@@ -439,6 +440,67 @@ class FilmController extends Controller {
         return response()->json(['data'=>$film]);
     }
 
+    public function getFilm (Request $request, $id) {
+        $film = new \stdClass();
 
+        $film->informacije = Film::query()
+            ->leftjoin('tehnicka_specifikacija', 'tehnicka_specifikacija.Film_id_filma', '=', 'film.id_filma')
+            ->leftjoin('osnovne_informacije', 'osnovne_informacije.Film_id_filma', '=', 'film.id_filma')
+            ->where('id_filma', $id)
+            ->get();
+
+        $film->glumci = Glumac::query()
+            ->where('Film_id_filma', $id)
+            ->get();
+
+        $film->glumci_studenti = Glumac_student::query()
+            ->join('student', 'student.id_studenta', '=', 'glumac_student.Student_id_studenta')
+            ->where('Film_id_filma', $id)
+            ->get();
+
+        $film->prilozi = Karton_prilog::query()
+            ->where('Film_id_filma', $id)
+            ->get();
+
+        $film->montazeri = Montazer::query()
+            ->join('student', 'student.id_studenta', '=', 'montazer.Student_id_studenta')
+            ->where('Film_id_filma', $id)
+            ->get();
+
+        $film->nagrade = Nagrada::query()
+            ->where('Film_id_filma', $id)
+            ->get();
+
+        $film->podrske = Podrska::query()
+            ->where('Film_id_filma', $id)
+            ->get();
+
+        $film->podrske_studenti = Podrska_student::query()
+            ->join('student', 'student.id_studenta', '=', 'podrska_student.Student_id_studenta')
+            ->where('Film_id_filma', $id)
+            ->get();
+
+        $film->producenti = Producent::query()
+            ->join('student', 'student.id_studenta', '=', 'producent.Student_id_studenta')
+            ->where('Film_id_filma', $id)
+            ->get();
+
+        $film->reziseri = Reziser::query()
+            ->join('student', 'student.id_studenta', '=', 'reziser.Student_id_studenta')
+            ->where('Film_id_filma', $id)
+            ->get();
+
+        $film->scenaristi = Scenarista::query()
+            ->join('student', 'student.id_studenta', '=', 'scenarista.Student_id_studenta')
+            ->where('Film_id_filma', $id)
+            ->get();
+
+        $film->snimatelji = Snimatelj::query()
+            ->join('student', 'student.id_studenta', '=', 'snimatelj.Student_id_studenta')
+            ->where('Film_id_filma', $id)
+            ->get();
+
+        return response()->json(['data' => $film]);
+    }
 
 }
