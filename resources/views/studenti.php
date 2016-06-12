@@ -42,7 +42,7 @@ include 'header.php';
                                         <input type="text" class="form-control" id="ime" name="ime">
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label for="indeks">Prezime:</label>
                                     <input type="text" class="form-control" id="prezime" name="prezime">

@@ -148,17 +148,17 @@ $(document).ready(function(){
 
                 vezbe.push({ id: 0, text: '' });
 
-                    for (var i = 0; i < data.data.length; i++) {
-                        var a = {}; //naziv vezbe
+                for (var i = 0; i < data.data.length; i++) {
+                    var a = {}; //naziv vezbe
 
 
-                        a.id = data.data[i].id_vezbe;
-                        a.text = data.data[i].naziv;
+                    a.id = data.data[i].id_vezbe;
+                    a.text = data.data[i].naziv;
 
 
-                        vezbe.push(a);
-                    }
+                    vezbe.push(a);
                 }
+            }
         }),
 
         $.ajax({
@@ -370,7 +370,7 @@ $(document).ready(function(){
         })
 
 
-).done( function() {
+    ).done( function() {
 
         $(".js-example-data-array.naziv_filma").select2({
             data: film,
@@ -608,4 +608,3 @@ $(document).ready(function(){
         $("#tehnicka").slideToggle("slow");
     });
 });
-

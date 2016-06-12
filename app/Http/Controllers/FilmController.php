@@ -26,6 +26,7 @@ use App\Models\Glumac_student;
 use App\Models\Podrska;
 use App\Models\Podrska_student;
 
+
 class FilmController extends Controller {
 
     public function obradi(Request $request) {
@@ -385,31 +386,52 @@ class FilmController extends Controller {
         }
 
     }
-
     public function pretrazi(Request $request) {
 
+        $film=Film::query();
+
+        $naziv = $request->input('naziv_filma');
 
 
+        if (strcmp('0',$naziv) != 0) {
 
+            $naziv = $request->input('naziv_filma');
 
+           $film = $film->where('id_filma', $naziv)->get();
 
-        if ($request->query('token')) {
-            return view('index', ['admin' => 1]);
-        } else {
-            return view('index', ['admin' => 0]);
+            print_r(json_encode($film));
+
+            if ($request->query('token')) {
+                return view('index', ['admin' => 1, 'result' => json_encode($film)]);
+            } else {
+                return view('index', ['admin' => 0, 'result' => json_encode($film)]);
+            }
+
         }
-    }
 
-    public function prikaziFilm(Request $request){
+        else  {
+
+            $godina_proizvodnje = $request->input('godina_proizvodnje');
+            if(strcmp('0',$godina_proizvodnje) != 0) {
+                $film = $film->where('godina_proizvodnje', $godina_proizvodnje)->get();
+                print_r(json_encode($film));
+            }
+
+            $trajanje = $request->input('trajanje');
+            if(strcmp('0',$trajanje) != 0) {
+                $film = $film->where('trajanje', $trajanje)->get();
+                print_r(json_encode($film));
+            }
 
 
-        if ($request->query('token')) {
-            return view('film', ['admin' => 1]);
-        } else {
-            return view('film', ['admin' => 0]);
-        }
+            if ($request->query('token')) {
+                return view('index', ['admin' => 1, 'result' => json_encode($film)]);
+            } else {
+                return view('index', ['admin' => 0, 'result' => json_encode($film)]);
+            }
+        } //kraj else-a
 
-    }
+    } //kraj fje
 
     /*kupi sve filmove*/
     public function getAll() {
