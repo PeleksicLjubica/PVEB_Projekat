@@ -14,7 +14,25 @@ function goToPageWithToken(path) {
     location.href = pathWithToken(path);
 }
 
+function getURLParameter(sParam) {
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+
+    for (var i = 0; i < sURLVariables.length; i++) {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam) {
+            return sParameterName[1];
+        }
+    }
+}
+
 $(document).ready(function(){
+    if (!getURLParameter('token')) {
+        if (localStorage.getItem('token')) {
+            localStorage.removeItem('token');
+        }
+    }
+
     $("#potvrdi").click(function(){
         $("#labela_greska").hide();
         $.ajax({

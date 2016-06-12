@@ -60,7 +60,7 @@ $(document).ready(function(){
 
     $.when(
 
-    $.get(pathWithToken("filmPodaci"), function(data){
+    $.get("filmPodaci", function(data){
 
         film.push({ id: 0, text: '' });
         godina.push({ id: 0, text: '' });
@@ -88,7 +88,7 @@ $(document).ready(function(){
         }}),
 
 
-    $.get(pathWithToken("katedraPodaci"), function(data){
+    $.get("katedraPodaci", function(data){
 
         katedra.push({ id: 0, text: '' });
         godina.push({ id: 0, text: '' });
@@ -110,7 +110,7 @@ $(document).ready(function(){
 
     }),
 
-    $.get(pathWithToken("predmetPodaci"), function(data){
+    $.get("predmetPodaci", function(data){
 
 
         predmeti.push({ id: 0, text: '' });
@@ -125,7 +125,7 @@ $(document).ready(function(){
 
     }),
 
-    $.get(pathWithToken("vezbePodaci"), function(data){
+    $.get("vezbePodaci", function(data){
 
         vezbe.push({ id: 0, text: '' });
 
@@ -141,7 +141,7 @@ $(document).ready(function(){
         }
     }),
 
-    $.get(pathWithToken("profesorPodaci"), function(data){
+    $.get("profesorPodaci", function(data){
 
 
         profesori.push({ id: 0, text: '' });
@@ -158,7 +158,7 @@ $(document).ready(function(){
     }),
 
 
-    $.get(pathWithToken("producentPodaci"), function(data){
+    $.get("producentPodaci", function(data){
 
         producenti.push({ id: 0, text: '' });
 
@@ -172,7 +172,7 @@ $(document).ready(function(){
 
     }),
 
-    $.get(pathWithToken("scenaristaPodaci"), function(data){
+    $.get("scenaristaPodaci", function(data){
         scenaristi.push({ id: 0, text: '' });
 
         for (var i = 0; i < data.data.length; i++) {
@@ -184,7 +184,7 @@ $(document).ready(function(){
         }
     }),
 
-    $.get(pathWithToken("snimateljPodaci"), function(data){
+    $.get("snimateljPodaci", function(data){
         snimatelji.push({ id: 0, text: '' });
 
         for (var i = 0; i < data.data.length; i++) {
@@ -197,7 +197,7 @@ $(document).ready(function(){
     }),
 
 
-    $.get(pathWithToken("reziserPodaci"), function(data){
+    $.get("reziserPodaci", function(data){
 
         reziseri.push({ id: 0, text: '' });
 
@@ -210,7 +210,7 @@ $(document).ready(function(){
         }
     }),
 
-    $.get(pathWithToken("montazerPodaci"), function(data){
+    $.get("montazerPodaci", function(data){
         montazeri.push({ id: 0, text: '' });
 
         for (var i = 0; i < data.data.length; i++) {
@@ -222,7 +222,7 @@ $(document).ready(function(){
 
     }),
 
-    $.get(pathWithToken("glumacPodaci"), function(data){
+    $.get("glumacPodaci", function(data){
 
         glumci.push({ id: 0, text: '' });
 
@@ -235,7 +235,7 @@ $(document).ready(function(){
     }),
 
 
-    $.get(pathWithToken("podrskaPodaci"), function(data){
+    $.get("podrskaPodaci", function(data){
 
 
         kompozitori.push({ id: 0, text: '' });
