@@ -388,6 +388,74 @@ a:hover {
     background-color: rgba(42, 1, 5, 0.4);
 }
 
-#opcije{
-    display: none;
+
+#oi_naslov{
+    margin-bottom: 20px;
+}
+
+#ts_naslov{
+    margin-bottom: 20px;
+}
+
+#naziv_filma{
+    font-family: Goudy Old Style;
+    font-size: 35px;
+}
+
+#oi{
+    margin :10px;
+}
+
+#ts{
+    margin: 10px;
+}
+
+#pusti_film{
+    margin: 10px;
+}
+
+#proba{
+    margin-bottom: 20px;
+}
+
+#prikaz_filma{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.table.table-striped{
+    border: none;
+}
+
+#osn_informacije{
+    width: 575px;
+    height: 688px;
+}
+
+.table.table-striped td{
+    padding: 10px;
+   padding-left: 30px;
+}
+
+#unos_studenta{
+    height: 50px;
+    margin-top: 55px;
+    padding: 13px;
+}
+
+#studenti_forma{
+    margin-top: 20px;
+    display:none;
+}
+
+#god_studija_student{
+    padding-left: -15px;
+}
+
+.select2.select2-container.select2-container--default{
+    margin-left: -10px;
+}
+
+.select2-selection.select2-selection--multiple{
+    margin-left: -10px;
 }
