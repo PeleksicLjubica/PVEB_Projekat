@@ -548,12 +548,3 @@ $(document).ready(function(){
     });
 });
 
-
-
-
-
-//OVO JE PRIMER KOJI TRAZIMO MICI
-/*$(".js-example-basic-hide-search").select2({
- minimumResultsForSearch: 0,
- theme: 'classic'
- }); */

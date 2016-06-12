@@ -387,3 +387,7 @@ a:hover {
 #praviVezbeCSV:hover {
     background-color: rgba(42, 1, 5, 0.4);
 }
+
+#opcije{
+    display: none;
+}

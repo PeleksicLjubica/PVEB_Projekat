@@ -385,6 +385,7 @@ class FilmController extends Controller {
         }
 
     }
+
     public function pretrazi(Request $request) {
 
 
@@ -399,6 +400,16 @@ class FilmController extends Controller {
         }
     }
 
+    public function prikaziFilm(Request $request){
+
+
+        if ($request->query('token')) {
+            return view('film', ['admin' => 1]);
+        } else {
+            return view('film', ['admin' => 0]);
+        }
+
+    }
 
     /*kupi sve filmove*/
     public function getAll() {
