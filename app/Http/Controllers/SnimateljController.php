@@ -26,7 +26,6 @@ class SnimateljController
         $results = Snimatelj::query()
 
             ->leftjoin('student as st','st.id_studenta', '=', 'snimatelj.Student_id_studenta')
-            ->distinct()
             ->get([
                 'st.ime_prezime as ime_prezime',
                 'st.id_studenta as id_studenta'

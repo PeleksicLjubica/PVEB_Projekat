@@ -79,10 +79,10 @@ $(document).ready(function(){
                     a.id = data.data[i].id_filma;
                     a.text = data.data[i].naziv_filma;
 
-                    b.id = data.data[i].id_filma;
+                    b.id = data.data[i].godina_proizvodnje;
                     b.text = data.data[i].godina_proizvodnje;
 
-                    c.id = data.data[i].id_filma;
+                    c.id = data.data[i].trajanje;
                     c.text = data.data[i].trajanje;
 
                     film.push(a);
@@ -111,7 +111,7 @@ $(document).ready(function(){
                     a.id = data.data[i].naziv;
                     a.text = data.data[i].naziv;
 
-                    b.id = data.data[i].naziv;
+                    b.id = data.data[i].godina_studija;
                     b.text = data.data[i].godina_studija;
 
                     katedra.push(a);
@@ -151,10 +151,8 @@ $(document).ready(function(){
                 for (var i = 0; i < data.data.length; i++) {
                     var a = {}; //naziv vezbe
 
-
                     a.id = data.data[i].id_vezbe;
                     a.text = data.data[i].naziv;
-
 
                     vezbe.push(a);
                 }
