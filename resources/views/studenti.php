@@ -29,7 +29,7 @@ include 'header.php';
                         </div>
 
                         <div id="studenti_forma">
-                            <form role="form" method="post" enctype="multipart/form-data" action="#" onsubmit="pathWithToken('student')">
+                            <form role="form" method="post" enctype="multipart/form-data" action="#" onsubmit="pathWithToken('studenti')">
                                 <div class="form-group">
                                     <label for="indeks">Indeks studenta:</label>
                                     <input type="text" class="form-control" id="indeks" name="indeks">
@@ -72,7 +72,7 @@ include 'header.php';
                             Uvećaj godinu studentu <span class="glyphicon glyphicon-triangle-bottom glyphicon"></span>
                         </div>
                         <div id="studenti_forma1">
-                            <form role="form" method="post" enctype="multipart/form-data" action="#" onsubmit="pathWithToken('student')">
+                            <form role="form" method="post" enctype="multipart/form-data" action="#" onsubmit="pathWithToken('studenti')">
                                 <div class="form-group">
                                     <label for="indeks">Indeks studenta:</label>
                                     <input type="text" class="form-control" id="indeks" name="indeks">

@@ -10,7 +10,7 @@ $(document).ready(function(){
     $.get(pathWithToken("studentiPodaci"), function(data){
         $("#exampleGrid").simplePagingGrid({
             columnNames: ["ID studenta", "Indeks", "Ime", "Prezime", "Email", "Godina studija", "Naziv katedre"],
-            columnKeys: ["id_studenta", "indeks", "ime", "prezime", "e-mail","godina_studija","Katedra_naziv"],
+            columnKeys: ["id_studenta", "indeks", "ime", "prezime", "email","godina_studija","Katedra_naziv"],
             columnWidths: ["10%", "15%", "15%","15", "20", "10", "15"],
             data: data.data
         });
@@ -41,8 +41,8 @@ $(document).ready(function(){
 
     });
 
-    var dataGodSt = [{ id: 0, text: '1' }, { id: 1, text: '2' }, { id: 2, text: '3' },
-        { id: 3, text: '4' }, { id: 4, text: '5' }, { id: 5, text: '6' }];
+    var dataGodSt = [{ id: 1, text: '1' }, { id: 2, text: '2' }, { id: 3, text: '3' },
+        { id: 4, text: '4' }, { id: 5, text: '5' }, { id: 6, text: '6' }];
     $(".js-example-data-array.godina_studija").select2({
         data: dataGodSt,
         tags:true
