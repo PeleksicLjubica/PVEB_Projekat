@@ -500,7 +500,12 @@ class FilmController extends Controller {
             ->where('Film_id_filma', $id)
             ->get();
 
-        return response()->json(['data' => $film]);
+        if ($request->query('token')) {
+            return view('film', ['admin' => 1, 'film' => $film]);
+        } else {
+            return view('film', ['admin' => 0, 'film' => $film]);
+        }
+
     }
 
 }
