@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
     var colNames = ["ID vežbe", "Naziv", "Opis", "Tip", "ID predmeta"];
+    var podaci = [];
 
     $($('#navbar-lista').children()[2]).addClass('active');
 
@@ -17,7 +18,7 @@ $(document).ready(function(){
             data: data.data
         });
 
-        console.log(data.data[0]);
+        podaci = data.data;
 
     });
 
@@ -81,10 +82,11 @@ $(document).ready(function(){
             var rowCSV = podaci[i];
 
             var a = [];
-            a.push(rowCSV.godina_studija);
-            a.push(rowCSV.skolska_godina);
+            a.push(rowCSV.id_predmeta);
             a.push(rowCSV.naziv);
-            a.push(rowCSV.Profesor_id_profesora);
+            a.push(rowCSV.opis);
+            a.push(rowCSV.tip);
+            a.push(rowCSV.Predmet_id_predmeta);
 
             var row = [];
             row.push(a.toString());

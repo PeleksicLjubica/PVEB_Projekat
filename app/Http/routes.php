@@ -45,8 +45,8 @@ $app->group(['middleware' => 'jwt.auth'], function($app)
 
 	$app->get('/studentiPodaci', 'App\Http\Controllers\StudentController@getAll');
 	$app->get('/studenti', 'App\Http\Controllers\StudentController@getView');
-	$app->post('/student', 'App\Http\Controllers\StudentController@obradi');
-
+	$app->post('/studenti', 'App\Http\Controllers\StudentController@obradi');
+	$app->post('/studentInkrement', 'App\Http\Controllers\StudentController@inkrementGodine');
 
 });
 
