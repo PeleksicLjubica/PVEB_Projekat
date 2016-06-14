@@ -1,4 +1,6 @@
 $(document).ready(function(){
+    $("#student_forma").attr("action", pathWithToken('student'));
+
     $($('#navbar-lista').children()[4]).addClass('active');
 
     $("#unos_studenta").click(function(){
@@ -27,7 +29,7 @@ $(document).ready(function(){
 
         for (var i = 0; i < data.data.length; i++) {
             var a = {};
-            a.id = i;
+            a.id = data.data[i].id_katedre;
             a.text=data.data[i].naziv ;
 
             katedre.push(a);

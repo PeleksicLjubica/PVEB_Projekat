@@ -434,7 +434,7 @@ a:hover {
 
 .table.table-striped td{
     padding: 10px;
-   padding-left: 30px;
+    padding-left: 30px;
 }
 
 #unos_studenta{
@@ -448,14 +448,16 @@ a:hover {
     display:none;
 }
 
-#god_studija_student{
-    padding-left: -15px;
+#student_god_studija{
+    margin-bottom: 10px;
 }
 
-.select2.select2-container.select2-container--default{
-    margin-left: -10px;
-}
-
-.select2-selection.select2-selection--multiple{
-    margin-left: -10px;
+#dugme_studenti {
+    margin-top: 3px;
+    background-color: rgb(42, 1, 5);
+    color:bisque; !important;
+    border: 1px solid bisque;
+    border-radius: 5px;
+    margin-left: 188px;
+    margin-bottom:10px;;
 }

@@ -26,12 +26,14 @@ class StudentController extends Controller{
 
         $student = new Student();
 
+
+
         $student->indeks= $request->input('indeks');
-        $student->ime = $request->input('ime');
-        $student->prezime = $request->input('prezime');
+        $student->ime_prezime = $request->input('ime') . $request->input('prezime');
         $student->e_mail = $request->input('email');
         $student->godina_studija = $request->input('godina_studija');
-        $student->Katedra_naziv = $request->input('katedra');
+
+        $student->Katedra_id = $request->input('katedra');
 
         $student->save();
 
