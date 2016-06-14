@@ -60,256 +60,315 @@ $(document).ready(function(){
 
     $.when(
 
-    $.get(pathWithToken("filmPodaci"), function(data){
+        $.ajax({
+            url : "filmPodaci",
+            type : "get",
+            async: false,
+            success : function(data){
 
-        film.push({ id: 0, text: '' });
-        godina.push({ id: 0, text: '' });
-        trajanje.push({ id: 0, text: '' });
+                film.push({ id: 0, text: '' });
+                godina.push({ id: 0, text: '' });
+                trajanje.push({ id: 0, text: '' });
 
 
-        for (var i = 0; i < data.data.length; i++) {
-            var a = {}; //naziv filma
-            var b = {}; //godina
-            var c = {};
+                for (var i = 0; i < data.data.length; i++) {
+                    var a = {}; //naziv filma
+                    var b = {}; //godina
+                    var c = {};
 
-            a.id = data.data[i].id_filma;
-            a.text = data.data[i].naziv_filma;
+                    a.id = data.data[i].id_filma;
+                    a.text = data.data[i].naziv_filma;
 
-            b.id = data.data[i].id_filma;
-            b.text = data.data[i].godina_proizvodnje;
+                    b.id = data.data[i].godina_proizvodnje;
+                    b.text = data.data[i].godina_proizvodnje;
 
-            c.id = data.data[i].id_filma;
-            c.text = data.data[i].trajanje;
+                    c.id = data.data[i].trajanje;
+                    c.text = data.data[i].trajanje;
 
-            film.push(a);
-            godina.push(b);
-            trajanje.push(c);
+                    film.push(a);
+                    godina.push(b);
+                    trajanje.push(c);
 
-        }}),
-
-
-    $.get(pathWithToken("katedraPodaci"), function(data){
-
-        katedra.push({ id: 0, text: '' });
-        godina.push({ id: 0, text: '' });
-
-
-        for (var i = 0; i < data.data.length; i++) {
-            var a = {}; //naziv katedre
-            var b = {};
-
-            a.id = data.data[i].naziv;
-            a.text = data.data[i].naziv;
-
-            b.id = data.data[i].naziv;
-            b.text = data.data[i].godina_studija;
-
-            katedra.push(a);
-            godina.push(b);
-        }
-
-    }),
-
-    $.get(pathWithToken("predmetPodaci"), function(data){
-
-
-        predmeti.push({ id: 0, text: '' });
-
-        for (var i = 0; i < data.data.length; i++) {
-            var a = {};
-            a.id = data.data[i].id_predmeta;
-            a.text=data.data[i].naziv;
-
-            predmeti.push(a);
-        }
-
-    }),
-
-    $.get(pathWithToken("vezbePodaci"), function(data){
-
-        vezbe.push({ id: 0, text: '' });
-
-        for (var i = 0; i < data.data.length; i++) {
-            var a = {}; //naziv vezbe
-
-
-            a.id = data.data[i].id_vezbe;
-            a.text = data.data[i].naziv;
-
-
-            vezbe.push(a);
-        }
-    }),
-
-    $.get(pathWithToken("profesorPodaci"), function(data){
-
-
-        profesori.push({ id: 0, text: '' });
-
-        for (var i = 0; i < data.data.length; i++) {
-            var a = {}; //ime prof
-
-            a.id = data.data[i].id_profesora;
-            a.text = data.data[i].ime_prezime;
-
-            profesori.push(a);
-        }
-
-    }),
-
-
-    $.get(pathWithToken("producentPodaci"), function(data){
-
-        producenti.push({ id: 0, text: '' });
-
-        for (var i = 0; i < data.data.length; i++) {
-            var a = {};
-            a.id = data.data[i].id_studenta;
-            a.text=data.data[i].ime_prezime;
-
-            producenti.push(a);
-        }
-
-    }),
-
-    $.get(pathWithToken("scenaristaPodaci"), function(data){
-        scenaristi.push({ id: 0, text: '' });
-
-        for (var i = 0; i < data.data.length; i++) {
-            var a = {};
-            a.id = data.data[i].id_studenta;
-            a.text=data.data[i].ime_prezime;
-
-            scenaristi.push(a);
-        }
-    }),
-
-    $.get(pathWithToken("snimateljPodaci"), function(data){
-        snimatelji.push({ id: 0, text: '' });
-
-        for (var i = 0; i < data.data.length; i++) {
-            var a = {};
-            a.id = data.data[i].id_studenta;
-            a.text=data.data[i].ime_prezime;
-
-            snimatelji.push(a);
-        }
-    }),
-
-
-    $.get(pathWithToken("reziserPodaci"), function(data){
-
-        reziseri.push({ id: 0, text: '' });
-
-        for (var i = 0; i < data.data.length; i++) {
-            var a = {};
-            a.id = data.data[i].id_studenta;
-            a.text=data.data[i].ime_prezime;
-
-            reziseri.push(a);
-        }
-    }),
-
-    $.get(pathWithToken("montazerPodaci"), function(data){
-        montazeri.push({ id: 0, text: '' });
-
-        for (var i = 0; i < data.data.length; i++) {
-            var a = {};
-            a.id = data.data[i].id_studenta;
-            a.text=data.data[i].ime_prezime;
-            montazeri.push(a);
-        }
-
-    }),
-
-    $.get(pathWithToken("glumacPodaci"), function(data){
-
-        glumci.push({ id: 0, text: '' });
-
-        for (var i = 0; i < data.data.length; i++) {
-            var a = {};
-            a.id = data.data[i];
-            a.text=data.data[i].ime_prezime;
-            glumci.push(a);
-        }
-    }),
-
-
-    $.get(pathWithToken("podrskaPodaci"), function(data){
-
-
-        kompozitori.push({ id: 0, text: '' });
-        dizajner_zvuka.push({ id: 0, text: '' });
-        snimatelj_zvuka.push({ id: 0, text: '' });
-        scenograf.push({ id: 0, text: '' });
-        kostimograf.push({ id: 0, text: '' });
-        animacija.push({ id: 0, text: '' });
-        sminker.push({ id: 0, text: '' });
-        spec_efekti.push({ id: 0, text: '' });
-
-
-        for (var i = 0; i < data.data.length; i++) {
-            var a = {};
-            var b=  {};
-            var c = {};
-            var d = {};
-            var e = {};
-            var f = {};
-            var g = {};
-            var h = {};
-
-            if(data.data[i].tip_podrske == "kompozitor") {
-                a.id = data.data[i];
-                a.text = data.data[i].ime_prezime;
-                kompozitori.push(a);
+                }
             }
-            else if(data.data[i].tip_podrske == "dizajner zvuka") {
-                b.id = data.data[i];
-                b.text = data.data[i].ime_prezime;
-                dizajner_zvuka.push(b);
+        }),
+
+
+        $.ajax({
+            url : "katedraPodaci",
+            type : "get",
+            async: false,
+            success : function(data){
+
+                katedra.push({ id: 0, text: '' });
+                godina.push({ id: 0, text: '' });
+
+
+                for (var i = 0; i < data.data.length; i++) {
+                    var a = {}; //naziv katedre
+                    var b = {};
+
+                    a.id = data.data[i].naziv;
+                    a.text = data.data[i].naziv;
+
+                    b.id = data.data[i].godina_studija;
+                    b.text = data.data[i].godina_studija;
+
+                    katedra.push(a);
+                    godina.push(b);
+                }
+
             }
+        }),
 
-            else if(data.data[i].tip_podrske == "snimatelj zvuka") {
-                c.id = data.data[i];
-                c.text = data.data[i].ime_prezime;
-                snimatelj_zvuka.push(c);
+        $.ajax({
+            url : "predmetPodaci",
+            type : "get",
+            async: false,
+            success :  function(data){
+
+                predmeti.push({ id: 0, text: '' });
+
+                for (var i = 0; i < data.data.length; i++) {
+                    var a = {};
+                    a.id = data.data[i].id_predmeta;
+                    a.text=data.data[i].naziv;
+
+                    predmeti.push(a);
+                }
+
             }
+        }),
 
-            else if(data.data[i].tip_podrske == "scenograf") {
-                d.id = data.data[i];
-                d.text = data.data[i].ime_prezime;
-                scenograf.push(d);
+        $.ajax({
+            url : "vezbePodaci",
+            type : "get",
+            async: false,
+            success :  function(data){
+
+                vezbe.push({ id: 0, text: '' });
+
+                for (var i = 0; i < data.data.length; i++) {
+                    var a = {}; //naziv vezbe
+
+                    a.id = data.data[i].id_vezbe;
+                    a.text = data.data[i].naziv;
+
+                    vezbe.push(a);
+                }
             }
+        }),
 
-            else if(data.data[i].tip_podrske == "kostimograf") {
-                e.id = data.data[i];
-                e.text = data.data[i].ime_prezime;
-                kostimograf.push(e);
+        $.ajax({
+            url : "profesorPodaci",
+            type : "get",
+            async: false,
+            success :  function(data){
+
+                profesori.push({ id: 0, text: '' });
+
+                for (var i = 0; i < data.data.length; i++) {
+                    var a = {}; //ime prof
+
+                    a.id = data.data[i].id_profesora;
+                    a.text = data.data[i].ime_prezime;
+
+                    profesori.push(a);
+                }
+
             }
+        }),
 
-            else if(data.data[i].tip_podrske == "animacija") {
-                f.id = data.data[i];
-                f.text = data.data[i].ime_prezime;
-                animacija.push(f);
+
+        $.ajax({
+            url : "producentPodaci",
+            type : "get",
+            async: false,
+            success :  function(data){
+
+                producenti.push({ id: 0, text: '' });
+
+                for (var i = 0; i < data.data.length; i++) {
+                    var a = {};
+                    a.id = data.data[i].id_studenta;
+                    a.text=data.data[i].ime_prezime;
+
+                    producenti.push(a);
+                }
+
             }
+        }),
 
-            else if(data.data[i].tip_podrske == "�minker") {
-                g.id = data.data[i];
-                g.text = data.data[i].ime_prezime;
-                sminker.push(g);
+        $.ajax({
+            url : "scenaristaPodaci",
+            type : "get",
+            async: false,
+            success :  function(data){
+
+                scenaristi.push({ id: 0, text: '' });
+
+                for (var i = 0; i < data.data.length; i++) {
+                    var a = {};
+                    a.id = data.data[i].id_studenta;
+                    a.text=data.data[i].ime_prezime;
+
+                    scenaristi.push(a);
+                }
             }
+        }),
 
-            else {
-                h.id = data.data[i];
-                h.text = data.data[i].ime_prezime;
-                spec_efekti.push(h);
+        $.ajax({
+            url : "snimateljPodaci",
+            type : "get",
+            async: false,
+            success :  function(data){
+
+                snimatelji.push({ id: 0, text: '' });
+
+                for (var i = 0; i < data.data.length; i++) {
+                    var a = {};
+                    a.id = data.data[i].id_studenta;
+                    a.text=data.data[i].ime_prezime;
+
+                    snimatelji.push(a);
+                }
             }
-        }
-
-    })
+        }),
 
 
-).done( function() {
+        $.ajax({
+            url : "reziserPodaci",
+            type : "get",
+            async: false,
+            success :  function(data){
+
+                reziseri.push({ id: 0, text: '' });
+
+                for (var i = 0; i < data.data.length; i++) {
+                    var a = {};
+                    a.id = data.data[i].id_studenta;
+                    a.text=data.data[i].ime_prezime;
+
+                    reziseri.push(a);
+                }
+            }
+        }),
+
+        $.ajax({
+            url : "montazerPodaci",
+            type : "get",
+            async: false,
+            success :  function(data){
+
+                montazeri.push({ id: 0, text: '' });
+
+                for (var i = 0; i < data.data.length; i++) {
+                    var a = {};
+                    a.id = data.data[i].id_studenta;
+                    a.text=data.data[i].ime_prezime;
+                    montazeri.push(a);
+                }
+
+            }
+        }),
+
+        $.ajax({
+            url : "glumacPodaci",
+            type : "get",
+            async: false,
+            success :  function(data){
+
+                glumci.push({ id: 0, text: '' });
+
+                for (var i = 0; i < data.data.length; i++) {
+                    var a = {};
+                    a.id = data.data[i];
+                    a.text=data.data[i].ime_prezime;
+                    glumci.push(a);
+                }
+            }
+        }),
+
+
+        $.ajax({
+            url : "podrskaPodaci",
+            type : "get",
+            async: false,
+            success :  function(data){
+
+                kompozitori.push({ id: 0, text: '' });
+                dizajner_zvuka.push({ id: 0, text: '' });
+                snimatelj_zvuka.push({ id: 0, text: '' });
+                scenograf.push({ id: 0, text: '' });
+                kostimograf.push({ id: 0, text: '' });
+                animacija.push({ id: 0, text: '' });
+                sminker.push({ id: 0, text: '' });
+                spec_efekti.push({ id: 0, text: '' });
+
+
+                for (var i = 0; i < data.data.length; i++) {
+                    var a = {};
+                    var b=  {};
+                    var c = {};
+                    var d = {};
+                    var e = {};
+                    var f = {};
+                    var g = {};
+                    var h = {};
+
+                    if(data.data[i].tip_podrske == "kompozitor") {
+                        a.id = data.data[i];
+                        a.text = data.data[i].ime_prezime;
+                        kompozitori.push(a);
+                    }
+                    else if(data.data[i].tip_podrske == "dizajner zvuka") {
+                        b.id = data.data[i];
+                        b.text = data.data[i].ime_prezime;
+                        dizajner_zvuka.push(b);
+                    }
+
+                    else if(data.data[i].tip_podrske == "snimatelj zvuka") {
+                        c.id = data.data[i];
+                        c.text = data.data[i].ime_prezime;
+                        snimatelj_zvuka.push(c);
+                    }
+
+                    else if(data.data[i].tip_podrske == "scenograf") {
+                        d.id = data.data[i];
+                        d.text = data.data[i].ime_prezime;
+                        scenograf.push(d);
+                    }
+
+                    else if(data.data[i].tip_podrske == "kostimograf") {
+                        e.id = data.data[i];
+                        e.text = data.data[i].ime_prezime;
+                        kostimograf.push(e);
+                    }
+
+                    else if(data.data[i].tip_podrske == "animacija") {
+                        f.id = data.data[i];
+                        f.text = data.data[i].ime_prezime;
+                        animacija.push(f);
+                    }
+
+                    else if(data.data[i].tip_podrske == "�minker") {
+                        g.id = data.data[i];
+                        g.text = data.data[i].ime_prezime;
+                        sminker.push(g);
+                    }
+
+                    else {
+                        h.id = data.data[i];
+                        h.text = data.data[i].ime_prezime;
+                        spec_efekti.push(h);
+                    }
+                }
+
+            }
+        })
+
+
+    ).done( function() {
 
         $(".js-example-data-array.naziv_filma").select2({
             data: film,
@@ -547,13 +606,3 @@ $(document).ready(function(){
         $("#tehnicka").slideToggle("slow");
     });
 });
-
-
-
-
-
-//OVO JE PRIMER KOJI TRAZIMO MICI
-/*$(".js-example-basic-hide-search").select2({
- minimumResultsForSearch: 0,
- theme: 'classic'
- }); */

@@ -27,17 +27,20 @@ include 'header.php';
                         <div id="unos_studenta" class="pasusi">
                             Unos novog studenta <span class="glyphicon glyphicon-triangle-bottom glyphicon"></span>
                         </div>
-
+                        
                         <div id="studenti_forma">
                             <form role="form" method="post" enctype="multipart/form-data" action="#" onsubmit="pathWithToken('studenti')">
                                 <div class="form-group">
                                     <label for="indeks">Indeks studenta:</label>
                                     <input type="text" class="form-control" id="indeks" name="indeks">
                                 </div>
-                                <div class="form-group">
-                                    <label for="ime">Ime:</label>
-                                    <input type="text" class="form-control" id="ime" name="ime">
+                                <div class="row">
+                                    <div class="form-group>
+                                        <label for="ime">Ime:</label>
+                                        <input type="text" class="form-control" id="ime" name="ime">
+                                    </div>
                                 </div>
+
                                 <div class="form-group">
                                     <label for="indeks">Prezime:</label>
                                     <input type="text" class="form-control" id="prezime" name="prezime">
@@ -47,17 +50,15 @@ include 'header.php';
                                     <input type="text" class="form-control" id="email" name="email">
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group" >
                                     <label for="godina_studija"> Godina studija: </label>
-                                    <div class="col-md-9">
-                                        <select class="js-example-data-array col-md-12 godina_studija" name="godina_studija">
-                                        </select>
-                                    </div>
+                                    <select class="js-example-data-array col-md-12 godina_studija" name="godina_studija">
+                                    </select>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Katedra na kojoj je student:</label>
-                                    <select class="js-example-data-array katedre" name="katedra" style="width: 100%">
+                                    <select class="js-example-data-array katedre"  name="katedra" style="width: 100%">
                                     </select>
                                 </div>
 
@@ -65,14 +66,13 @@ include 'header.php';
 
                             </form>
                         </div>
-
                     </div> <!--kraj drugog diva-->
                     <div class="col-md-3">
                         <div id="inkrement_godine" class="pasusi">
                             Uvećaj godinu studentu <span class="glyphicon glyphicon-triangle-bottom glyphicon"></span>
                         </div>
                         <div id="studenti_forma1">
-                            <form role="form" method="post" enctype="multipart/form-data" action="#" onsubmit="pathWithToken('studenti')">
+                            <form role="form" method="post" enctype="multipart/form-data" action="#" onsubmit="pathWithToken('studentInkrement')">
                                 <div class="form-group">
                                     <label for="indeks">Indeks studenta:</label>
                                     <input type="text" class="form-control" id="indeks" name="indeks">

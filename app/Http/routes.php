@@ -46,7 +46,7 @@ $app->group(['middleware' => 'jwt.auth'], function($app)
 	$app->get('/studentiPodaci', 'App\Http\Controllers\StudentController@getAll');
 	$app->get('/studenti', 'App\Http\Controllers\StudentController@getView');
 	$app->post('/studenti', 'App\Http\Controllers\StudentController@obradi');
-	$app->post('/studenti', 'App\Http\Controllers\StudentController@inkrementGodine');
+	$app->post('/studentInkrement', 'App\Http\Controllers\StudentController@inkrementGodine');
 
 });
 
@@ -64,6 +64,8 @@ $app->get('/reziserPodaci', 'ReziserController@getAll');
 $app->get('/montazerPodaci', 'MontazerController@getAll');
 $app->get('/glumacPodaci', 'GlumacController@getAll');
 $app->get('/podrskaPodaci', 'PodrskaController@getAll');
+$app->get('/film','FilmController@prikaziFilm');
+
 
 
 
