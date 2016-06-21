@@ -1,7 +1,7 @@
 function uvecajGodinu(){
     // location.href='karton?'+$token;
     $token=localStorage.getItem('token');
-    location.href='karton?token='+$token;
+    //location.href='karton?token='+$token;
 }
 $(document).ready(function(){
     $("#student_forma").attr("action", pathWithToken('student'));
@@ -17,10 +17,10 @@ $(document).ready(function(){
     // "<input type='button' onclick='uvecajGodinu(${indeks})' value='Uvecaj godinu' />" ],
     $.get(pathWithToken("studentiPodaci"), function(data){
         $("#exampleGrid").simplePagingGrid({
-            columnNames: ["ID studenta", "Indeks", "Ime", "Prezime", "Email", "Godina studija", "Naziv katedre", "Uvecanje godine"],
-            columnKeys: ["id_studenta", "indeks", "ime", "prezime", "email","godina_studija","Katedra_naziv", "uvecanje"],
-            columnWidths: ["10%", "15%", "15%","15", "20", "10", "10", "5"],
-            cellTemplates: [null, null, null, null, null, null, null,
+            columnNames: ["ID studenta", "Indeks", "Ime_prezime", "Email", "Id katedre", "Uvecanje godine"],
+            columnKeys: ["id_studenta", "indeks", "ime_prezime", "e_mail","Katedra_id_katedre", "uvecanje"],
+            columnWidths: ["15%", "15%", "20%","20", "20", "10"],
+            cellTemplates: [null, null, null, null, null,
                 "<input type='button' onclick='uvecajGodinu()' value='Uvecaj' />" ],
         data: data.data
         });
@@ -38,7 +38,6 @@ $(document).ready(function(){
         for (var i = 0; i < data.data.length; i++) {
             var a = {};
             a.id = data.data[i].id_katedre;
-            a.text=data.data[i].naziv ;
 
             katedre.push(a);
         }

@@ -51,7 +51,6 @@ INSERT INTO `administrator` (`id`, `name`, `email`, `password`, `remember_token`
 --
 -- Table structure for table `film`
 --
-
 DROP TABLE IF EXISTS `film`;
 CREATE TABLE IF NOT EXISTS `film` (
   `id_filma` int(11) NOT NULL AUTO_INCREMENT,

@@ -26,11 +26,9 @@ class StudentController extends Controller{
 
         $student = new Student;
         $student->indeks= $request->input('indeks');
-        $student->ime = $request->input('ime');
-        $student->prezime = $request->input('prezime');
-        $student->email = $request->input('email');
-        $student->godina_studija = $request->input('godina_studija');
-        $student->Katedra_naziv = $request->input('katedra');
+        $student->ime_prezime = $request->input('ime_prezime');
+        $student->e_mail = $request->input('e_mail');
+        $student->Katedra_id_katedre = $request->input('katedra');
 
 
 
