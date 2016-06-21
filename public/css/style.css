@@ -27,8 +27,8 @@ body {
 #content{
     background-color: bisque;
 	min-height:100%;
+    /*min-height: 1000px; */
 	position:relative;
-
 }
 
 .container {
@@ -154,7 +154,7 @@ body {
     background-color: rgb(42, 1, 5);
     color:bisque;
     height: 30px;
-    width: 180px;
+    width: 280px;
     padding-bottom: 5px;
     padding-top: 3px;
     border: 1px solid bisque;
@@ -170,9 +170,21 @@ body {
 #pretrazi {
     background-color: rgb(42, 1, 5);
     color:bisque;
+    width:  160px;
 }
 
 #pretrazi:hover {
+    background-color: rgba(42, 1, 5, 0.4);
+}
+
+#pretrazi1 {
+    background-color: rgb(42, 1, 5);
+    color:bisque;
+    width: 100%;
+    margin-top: 100px;
+}
+
+#pretrazi1:hover {
     background-color: rgba(42, 1, 5, 0.4);
 }
 
@@ -186,7 +198,8 @@ body {
 .pasusi {
     background-color: rgb(42, 1, 5);
     color:bisque;
-    padding: 2px;
+    padding: 20px;
+    height: 60px;
     border: 1px solid bisque;
     border-radius: 5px;
     text-align: center;
@@ -198,13 +211,11 @@ body {
 
 
 #osnovno {
-    display:none;
     background-color: bisque;
     color:rgb(42, 1, 5);
 }
 
 #tehnicka {
-   display:none;
 }
 .row.redovi_u_pretrazi {
     padding-top: 5px;

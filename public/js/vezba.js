@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    var colNames = ["ID vežbe", "Naziv", "Opis", "Tip", "ID predmeta"];
+    var colNames = ["ID vežbe", "Naziv", "Opis", "Tip", "Naziv predmeta"];
     var podaci = [];
 
     $($('#navbar-lista').children()[2]).addClass('active');
@@ -13,7 +13,7 @@ $(document).ready(function(){
     $.get(pathWithToken("vezbePodaci"), function(data){
         $("#exampleGrid").simplePagingGrid({
             columnNames: colNames,
-            columnKeys: ["id_vezbe", "naziv", "opis", "tip", "Predmet_id_predmeta"],
+            columnKeys: ["id_vezbe", "naziv_vezbe", "opis", "tip", "predmet_naziv"],
             columnWidths: ["10%", "30%", "30%","20", "10"],
             data: data.data
         });
@@ -30,7 +30,7 @@ $(document).ready(function(){
 
         for (var i = 0; i < data.data.length; i++) {
             var a = {};
-            a.id = i;
+            a.id = data.data[i].id_katedre;
             a.text=data.data[i].naziv + " , godina studija: " + data.data[i].godina_studija;
 
             katedre.push(a);
@@ -65,11 +65,33 @@ $(document).ready(function(){
 
     });
 
+
     var dataTIP = [{ id: 0, text: '' }, { id: 'individualna', text: 'individualna' }, { id: 'zajednicka', text: 'zajednicka' }];
+
     $(".js-example-data-array.tip").select2({
         data: dataTIP,
-        tags:true
+        tags:false
     });
+
+
+    $('.js-example-data-array.tip').on('select2:select', function (evt) {
+        if($('.js-example-data-array.tip').val() === 'individualna') {
+
+            $(".js-example-data-array.katedre").select2({
+                multiple: false
+            });
+        }
+
+        else  if($('.js-example-data-array.tip').val() === 'zajednicka') {
+
+            $(".js-example-data-array.katedre").select2({
+                multiple: true
+            });
+        }
+
+    });
+
+
 
     $("#praviVezbeCSV").click(function(){
         var csvRows = [];

@@ -6,7 +6,7 @@ $(document).ready(function() {
 
     $($('#navbar-lista').children()[1]).addClass('active');
 
-    var colNames = ["Godina studija", "Skolska godina", "Naziv", "ID Profesora"];
+    var colNames = ["Godina studija", "Skolska godina", "Naziv", "Profesora"];
     var podaci;
     var podaciProfesor;
 
@@ -23,7 +23,7 @@ $(document).ready(function() {
 
            $("#exampleGrid").simplePagingGrid({
                columnNames: colNames,
-               columnKeys: ["godina_studija", "skolska_godina", "naziv", "Profesor_id_profesora"],
+               columnKeys: ["godina_studija", "skolska_godina", "naziv", "ime_prezime"],
                columnWidths: ["30%", "20%", "40%", "10"],
                data: podaci
            });
