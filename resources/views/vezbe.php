@@ -23,7 +23,7 @@ include 'header.php';
                         </div>
 
                         <div id="vezbe_forma">
-                            <form role="form" method="post" enctype="multipart/form-data" action="" onsubmit="pathWithToken('vezba')">
+                            <form id="forma_vezbe" role="form" method="post" enctype="multipart/form-data" action="" onsubmit="pathWithToken('vezba')">
                                 <div class="form-group">
                                     <label for="naziv">Naziv vežbe:</label>
                                     <input type="text" class="form-control" id="naziv" name="naziv">
@@ -34,19 +34,19 @@ include 'header.php';
                                 </div>
                                 <div class="form-group">
                                     <label for="tip">Tip vežbe:</label>
-                                    <select class="js-example-data-array tip" name="tip" style="width: 100%">
+                                    <select class="js-example-data-array tip" name="tip" id="tip" style="width: 100%">
                                     </select>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Katedre kojima vežba pripada:</label>
-                                    <select class="js-example-data-array katedre" name="katedre[]" style="width: 100%">
+                                    <select class="js-example-data-array katedre" name="katedre[]" id="katedre[]" style="width: 100%">
                                     </select>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Predmet kojem vežba pripada:</label>
-                                    <select class="js-example-data-array predmet" name="predmet" style="width: 100%">
+                                    <select class="js-example-data-array predmet" name="predmet" id="predmet" style="width: 100%">
                                     </select>
                                 </div>
 

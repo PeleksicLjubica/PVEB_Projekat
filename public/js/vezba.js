@@ -127,5 +127,41 @@ $(document).ready(function(){
     });
 
 
+    $(function() {
+        $("#forma_vezbe").validate({
+            errorClass: "my-error-class",
+
+            rules: {
+                tip: {required: true},
+                opis: {required: true},
+                naziv: {required: true},
+                predmet:{required: true},
+                katedre: {required: true}
+            },
+            messages: {
+                tip: {
+                    required: "Morate da odaberete tip vežbe"
+                },
+                opis: {
+                    required: "Morate da upišete opis vežbe"
+                },
+                naziv: {
+                    required: "Morate da upišete naziv vežbe"
+                },
+                predmet:{
+                    required: "Morate da odaberete predmet"
+                },
+                katedre: {
+                    required: "Morate da odaberete katedre"
+                }
+
+            }
+        });
+
+
+    });
+
+
+
 
 });
