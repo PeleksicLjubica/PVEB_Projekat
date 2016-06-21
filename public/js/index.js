@@ -6,6 +6,7 @@ function idiNaKarton(){
 $(document).ready(function(){
 
 
+
     var film = [];
     var godina=[];
     var trajanje = [];
