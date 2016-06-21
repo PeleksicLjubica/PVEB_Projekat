@@ -325,7 +325,6 @@ class FilmController extends Controller {
 
             $this->premestiFajlove($request, $film->id);
 
-
         return view('forma', ['admin' => 1]);
 
     }
@@ -371,20 +370,78 @@ class FilmController extends Controller {
 
     private function premestiFajlove(Request $request, $id_filma) {
 
-        for ($i = 1; $i <= 7; $i++) {
+        for ($i = 1; $i <= 6; $i++) {
+
             if ($request->hasFile('fileToUpload' . $i)) {
                 $file = $request->file('fileToUpload' . $i);
+
                 if ($file->isValid()) {
+
                     $filename = $file->getClientOriginalName();
                     try {
+                        $tipovi = ['DVD','Blu-ray','fajl','rolna filma','verzija sa i bez engleskog titla',
+                            'srpska i engleska dijalog listu','fotografija student','fotografija iz filma'];
                         $destinationPath = 'filmovi/' . $request->input('naziv_filma') . '_' . $id_filma;
                         $file->move($destinationPath, $filename);
+
+
+                        $karton_prilog = new Karton_prilog();
+                        $karton_prilog->Film_id_filma = $id_filma;
+                        $karton_prilog->putanja = $destinationPath . "/" .$filename;
+                        $karton_prilog->tip_priloga = $tipovi[$i-1];
+
+                        $karton_prilog->save();
+
+
+
                     } catch (FileException $e) {
                         echo $e->getMessage();
                     }
                 }
             }
         }
+
+
+        $duzina = count($request->file('fileToUpload8'));
+
+        if($duzina !== 1) {
+            for ($i = 0; $i < $duzina; $i++) {
+
+
+                $file = $request->file('fileToUpload8')[$i];
+
+
+
+                if ($file->isValid()) {
+
+                    $filename = $file->getClientOriginalName();
+                    try {
+
+                        $destinationPath = 'filmovi/' . $request->input('naziv_filma') . '_' . $id_filma;
+                        $file->move($destinationPath, $filename);
+
+
+                        $karton_prilog = new Karton_prilog();
+                        $karton_prilog->Film_id_filma = $id_filma;
+                        $karton_prilog->putanja = $destinationPath . "/" . $filename;
+                        $karton_prilog->tip_priloga = 'fotografija iz filma';
+
+                        $karton_prilog->save();
+
+                        echo $karton_prilog->putanja . " " . $karton_prilog->putanja . " \n";
+
+
+                    } catch (FileException $e) {
+                        echo $e->getMessage();
+                    }
+                }
+
+            }
+        }
+
+
+
+
 
     }
     public function pretrazi(Request $request) {

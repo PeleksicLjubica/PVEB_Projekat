@@ -9,7 +9,7 @@ include 'header.php';
         <div class="col-md-4"><img src="img/movie.jpg" width="300px" height="300px"></div>
 
         <div class="col-md-4">
-            <label id="naziv_filma"> OVO JE NAZIV </label>
+            <label id="naziv_filma1"> OVO JE NAZIV </label>
             <p>Godina proizvodnje: <label id="godina_proizvodnje"> 2006 </label> </p>
             <p>Trajanje: <label id="trajanje"> 12:12:12 </label> </p>
             <p>Katedra: <label id="katedra"> rezija </label> </p>

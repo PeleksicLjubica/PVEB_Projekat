@@ -408,7 +408,7 @@ a:hover {
     margin-bottom: 20px;
 }
 
-#naziv_filma{
+#naziv_filma1{
     font-family: Goudy Old Style;
     font-size: 35px;
 }
@@ -471,5 +471,32 @@ a:hover {
     border-radius: 5px;
     margin-left: 188px;
     margin-bottom:10px;;
+}
+
+#fileToUpload1{
+    display: none;
+}
+#fileToUpload2{
+    display: none;
+}
+#fileToUpload3{
+    display: none;
+}
+#fileToUpload4{
+    display: none;
+}
+#fileToUpload5{
+    display: none;
+}#fileToUpload6{
+     display: none;
+ }
+#fileToUpload7{
+    display: none;
+}
+#fileToUpload8{
+    display: none;
+}
+.form-horizontal .checkbox {
+    padding: 0px;
 }
 

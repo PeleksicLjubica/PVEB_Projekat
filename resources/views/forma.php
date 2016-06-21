@@ -196,7 +196,7 @@ include 'header.php';
         </div>
 
 
-        <div class="form-group">
+        <div class="form-group" id="cb">
             <label class="control-label col-md-2" for="dodatno1"> Uz karton filma predajem i sledeće: </label>
             <div class="col-md-10">
 
@@ -205,7 +205,7 @@ include 'header.php';
                         <label><input type="checkbox" value="" id="dodatno1" name="dodatno1"> DVD </label>
                     </div>
                     <div class="col-md-8">
-                        <input type="file" name="fileToUpload1" id="fileToUpload1">
+                        <input type="file" name="fileToUpload1" id="fileToUpload1" >
                     </div>
                 </div>
 
@@ -269,7 +269,7 @@ include 'header.php';
                         <label><input type="checkbox" value="" id="dodatno8" name="dodatno8"> fotografije iz filma (3 komada) </label>
                     </div>
                     <div class="col-md-8">
-                        <input type="file" name="fileToUpload8" id="fileToUpload8">
+                        <input type="file" name="fileToUpload8[]" id="fileToUpload8" multiple>
                     </div>
                 </div>
 
