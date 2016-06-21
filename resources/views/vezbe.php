@@ -40,7 +40,7 @@ include 'header.php';
 
                                 <div class="form-group">
                                     <label>Katedre kojima vežba pripada:</label>
-                                    <select class="js-example-data-array katedre" name="katedre" style="width: 100%">
+                                    <select class="js-example-data-array katedre" name="katedre[]" style="width: 100%">
                                     </select>
                                 </div>
 

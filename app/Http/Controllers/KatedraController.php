@@ -23,7 +23,13 @@ class KatedraController extends Controller{
     public function getAll() {
 
         $year=date('Y');
-        $katedre = Katedra::where('skolska_godina', $year)->get();
+
+        $katedre = Katedra::query()
+        ->join('profesor', 'profesor.id_profesora', '=', 'katedra.Profesor_id_profesora')
+        ->where('skolska_godina', $year)
+        ->select('katedra.id_katedre as id_katedre', 'katedra.naziv', 'godina_studija', 'skolska_godina', 'profesor.ime_prezime as ime_prezime' )
+        ->get();
+
         return response()->json(['data'=>$katedre]);
 
     }
