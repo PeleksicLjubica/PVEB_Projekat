@@ -56,7 +56,26 @@ include 'header.php';
                                     </select>
                                 </div>
 
-                                <button type="submit" class="btn btn-default" id="dugme_vezbe">Potvrdi</button>
+                                <button type="button" class="btn btn-default" id="dugme_vezbe" data-toggle="modal" data-target="#potvrda_vezba">Potvrdi</button>
+
+                                <div class="modal fade" id="potvrda_vezba" role="dialog">
+                                    <div class="modal-dialog modal-sm">
+                                        <div class="modal-content" id="modal_vezba">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Upozorenje</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>Da li ste sigurni da zelite da unesete novu vezbu?</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal" id="odbaci_forma_vezba">Odustani</button>
+                                                <button type="button" class="btn btn-default" id="salji_forma_vezba">Potvrdi</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
 
                             </form>
                         </div>
