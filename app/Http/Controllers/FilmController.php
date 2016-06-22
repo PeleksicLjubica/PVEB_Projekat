@@ -439,10 +439,6 @@ class FilmController extends Controller {
             }
         }
 
-
-
-
-
     }
     public function pretrazi(Request $request) {
 
@@ -715,8 +711,30 @@ class FilmController extends Controller {
     /*kupi sve filmove*/
     public function getAll() {
         $film = Film::all();
+
         return response()->json(['data'=>$film]);
     }
+
+    public function getAllDistinctGodina() {
+
+        $film = Film::query()
+            ->select('godina_proizvodnje')
+            ->distinct()
+            ->get();
+
+        return response()->json(['data'=>$film]);
+    }
+
+    public function getAllDistinctTrajanje() {
+
+        $film = Film::query()
+            ->select('trajanje')
+            ->distinct()
+            ->get();
+
+        return response()->json(['data'=>$film]);
+    }
+
 
     public function getFilm (Request $request, $id) {
         $film = new \stdClass();

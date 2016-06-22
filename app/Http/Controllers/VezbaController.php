@@ -33,6 +33,19 @@ class VezbaController extends Controller{
 
     }
 
+
+    public function getAllDistinct(){
+
+        $vezbe = Vezba::query()
+            ->select('naziv as naziv_vezbe')
+            ->distinct()
+            ->get();
+
+        return response()->json(['data'=>$vezbe]);
+
+    }
+
+
     public function obradi(Request $request){
 
         $vezba = new Vezba;

@@ -111,7 +111,7 @@ $(document).ready(function(){
         for (var i = 0; i < data.data.length; i++) {
             var a = {};
             a.id = data.data[i].id_vezbe;
-            a.text = data.data[i].naziv;
+            a.text = data.data[i].naziv_vezbe;
 
             vezbe.push(a);
         }
