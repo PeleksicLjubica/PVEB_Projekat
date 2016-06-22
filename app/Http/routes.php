@@ -55,9 +55,15 @@ $app->group(['middleware' => 'jwt.auth'], function($app)
 
 $app->post('/filmPretraga', 'FilmController@pretrazi');
 $app->get('/filmPodaci', 'FilmController@getAll');
+$app->get('/filmPodaciTrajanje', 'FilmController@getAllDistinctTrajanje');
+$app->get('/filmPodaciGodina', 'FilmController@getAllDistinctGodina');
 
 $app->get('/katedraPodaci', 'KatedraController@getAll');
+$app->get('/katedraPodaciGodina', 'KatedraController@getAllGodina');
+$app->get('/katedraPodaciNazivGodina', 'KatedraController@getAllNazivGodina');
+
 $app->get('/vezbePodaci', 'VezbaController@getAll');
+$app->get('/vezbePodaciRazlicito', 'VezbaController@getAllDistinct');
 $app->get('/predmetPodaci', 'PredmetController@getAll');
 $app->get('/profesorPodaci', 'ProfesorController@getAll');
 $app->get('/producentPodaci', 'ProducentController@getAll');
@@ -70,7 +76,7 @@ $app->get('/podrskaPodaci', 'PodrskaController@getAll');
 $app->get('/film','FilmController@prikaziFilm');
 
 $app->get('/film_{id}', 'FilmController@getFilm');
-
+$app->get('/file_{id}', 'FilmController@downloadPrilog');
 
 
 

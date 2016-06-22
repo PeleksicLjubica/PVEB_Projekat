@@ -58,7 +58,6 @@ $(document).ready(function(){
 
 
 
-
     $.when(
 
         $.ajax({
@@ -68,54 +67,100 @@ $(document).ready(function(){
             success : function(data){
 
                 film.push({ id: 0, text: '' });
-                godina.push({ id: 0, text: '' });
-                trajanje.push({ id: 0, text: '' });
 
 
                 for (var i = 0; i < data.data.length; i++) {
                     var a = {}; //naziv filma
-                    var b = {}; //godina
-                    var c = {};
+
 
                     a.id = data.data[i].id_filma;
                     a.text = data.data[i].naziv_filma;
 
-                    b.id = data.data[i].godina_proizvodnje;
-                    b.text = data.data[i].godina_proizvodnje;
-
-                    c.id = data.data[i].trajanje;
-                    c.text = data.data[i].trajanje;
-
                     film.push(a);
-                    godina.push(b);
-                    trajanje.push(c);
 
                 }
             }
         }),
 
 
+
         $.ajax({
-            url : "katedraPodaci",
+            url : "filmPodaciTrajanje",
+            type : "get",
+            async: false,
+            success : function(data){
+
+                trajanje.push({ id: 0, text: '' });
+
+
+                for (var i = 0; i < data.data.length; i++) {
+                    var c = {};
+
+                    c.id = data.data[i].trajanje;
+                    c.text = data.data[i].trajanje;
+
+                    trajanje.push(c);
+                }
+            }
+        }),
+
+
+        $.ajax({
+            url : "filmPodaciGodina",
+            type : "get",
+            async: false,
+            success : function(data){
+
+                godina.push({ id: 0, text: '' });
+
+                for (var i = 0; i < data.data.length; i++) {
+                    var a = {}; //naziv filma
+
+                    a.id = data.data[i].godina_proizvodnje;
+                    a.text = data.data[i].godina_proizvodnje;
+
+                    godina.push(a);
+                }
+            }
+        }),
+
+
+        $.ajax({
+
+            url : "katedraPodaciNazivGodina",
             type : "get",
             async: false,
             success : function(data){
 
                 katedra.push({ id: 0, text: '' });
-                godina.push({ id: 0, text: '' });
-
 
                 for (var i = 0; i < data.data.length; i++) {
                     var a = {}; //naziv katedre
-                    var b = {};
 
                     a.id = data.data[i].naziv;
                     a.text = data.data[i].naziv;
 
+                    katedra.push(a);
+                }
+            }
+        }),
+
+        $.ajax({
+            url : "katedraPodaciGodina",
+            type : "get",
+            async: false,
+            success : function(data){
+
+                //katedra.push({ id: 0, text: '' });
+                godina.push({ id: 0, text: '' });
+
+                for (var i = 0; i < data.data.length; i++) {
+
+                    var b = {};
+
                     b.id = data.data[i].godina_studija;
                     b.text = data.data[i].godina_studija;
 
-                    katedra.push(a);
                     godina.push(b);
                 }
 
@@ -142,7 +187,7 @@ $(document).ready(function(){
         }),
 
         $.ajax({
-            url : "vezbePodaci",
+            url : "vezbePodaciRazlicito",
             type : "get",
             async: false,
             success :  function(data){
@@ -152,8 +197,8 @@ $(document).ready(function(){
                 for (var i = 0; i < data.data.length; i++) {
                     var a = {}; //naziv vezbe
 
-                    a.id = data.data[i].id_vezbe;
-                    a.text = data.data[i].naziv;
+                    a.id = data.data[i].naziv_vezbe;
+                    a.text = data.data[i].naziv_vezbe;
 
                     vezbe.push(a);
                 }
@@ -352,7 +397,7 @@ $(document).ready(function(){
                         animacija.push(f);
                     }
 
-                    else if(data.data[i].tip_podrske == "�minker") {
+                    else if(data.data[i].tip_podrske == "sminker") {
                         g.id = data.data[i];
                         g.text = data.data[i].ime_prezime;
                         sminker.push(g);

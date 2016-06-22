@@ -16,6 +16,7 @@ use App\Models\Student;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use DB;
 
 class PodrskaController
 {
@@ -25,18 +26,19 @@ class PodrskaController
     {
 
         $results1 = Podrska::query()
-            ->get(['tip_podrske',
-                'ime_prezime'
-            ]);
+            ->select('tip_podrske',
+                'ime_prezime')
+            ->distinct();
+
 
         $results = Podrska_student::query()
             ->leftjoin('student as st', 'st.id_studenta', '=', 'podrska_student.Student_id_studenta')
             ->distinct()
-            ->get([
-                'podrska_student.tip_podrske',
-                'st.ime_prezime as ime_prezime'
-            ])
-            ->union($results1);
+            ->select('podrska_student.tip_podrske',
+                DB::raw('CONCAT(st.ime_prezime, " ", st.indeks) AS ime_prezime'))
+            ->union($results1)
+            ->get();
+
 
         return response()->json(['data' => $results]);
 
