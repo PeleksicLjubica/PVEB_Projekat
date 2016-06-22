@@ -309,13 +309,12 @@ a {
 }
 
 #unos_vezbe {
-    height: 50px;
-    margin-top: 55px;
-    padding: 13px;
+    margin-bottom: 24px;
+    padding: 20px;
 }
 
 #dugme_vezbe {
-    margin-top: 3px;
+    margin-top: 9px;
     background-color: rgb(42, 1, 5);
     color:bisque; !important;
     border: 1px solid bisque;
@@ -388,11 +387,14 @@ a:hover {
 }
 
 
+#csv_div {
+    margin-top: 53px;
+}
 #praviVezbeCSV {
-    margin-bottom: 50px;
-    margin-left: 690px;
     background-color: rgb(42, 1, 5);
     color:bisque; !important;
+    width: 100%;
+    margin-bottom: 8px;
 }
 
 #praviVezbeCSV:hover {

@@ -38,8 +38,7 @@ $(document).ready(function(){
 
         $(".js-example-data-array.katedre").select2({
             data: katedre,
-            tags:true,
-            multiple:true
+            tags:true
         });
 
     });
@@ -72,6 +71,7 @@ $(document).ready(function(){
         data: dataTIP,
         tags:false
     });
+
 
 
     $('.js-example-data-array.tip').on('select2:select', function (evt) {
@@ -127,20 +127,35 @@ $(document).ready(function(){
     });
 
 
+    $.validator.addMethod(
+        "regex1",
+        function(value, element, regexp) {
+            var check = false;
+            return this.optional(element) || regexp.test(value);
+        }
+    );
+
+
     $(function() {
         $("#forma_vezbe").validate({
             errorClass: "my-error-class",
 
             rules: {
-                tip: {required: true},
+                tip: {required: true,
+                    regex1: /[^0].*/
+                     },
                 opis: {required: true},
                 naziv: {required: true},
-                predmet:{required: true},
-                katedre: {required: true}
+                predmet:{required: true,
+                         regex1: /[^0].*/
+                },
+                "katedre[]": {required: true,
+                            regex1: /[^0].*/
+                         }
             },
             messages: {
                 tip: {
-                    required: "Morate da odaberete tip vežbe"
+                   regex1: "Morate da odaberete tip vežbe"
                 },
                 opis: {
                     required: "Morate da upišete opis vežbe"
@@ -149,9 +164,9 @@ $(document).ready(function(){
                     required: "Morate da upišete naziv vežbe"
                 },
                 predmet:{
-                    required: "Morate da odaberete predmet"
+                    regex1: "Morate da odaberete predmet"
                 },
-                katedre: {
+                "katedre[]": {
                     required: "Morate da odaberete katedre"
                 }
 

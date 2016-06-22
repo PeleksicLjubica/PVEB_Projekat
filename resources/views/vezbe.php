@@ -12,12 +12,21 @@ include 'header.php';
     <section id="main">
         <div class="container-fluid">
             <div class="row">
+
                 <div class="col-md-9">
-                <h3> Sve vežbe: </h3>
-                <div id="exampleGrid"></div>
+                    <div class="row">
+                        <h3 class="col-md-8"> Sve vežbe: </h3>
+
+                    </div>
+                    <div id="exampleGrid"></div>
                 </div>
 
                 <div class="col-md-3">
+
+                        <div id="csv_div">
+                            <button class="btn btn-default" id="praviVezbeCSV"> Export vezbi u CSV </button>
+                        </div>
+
                         <div id="unos_vezbe" class="pasusi">
                             Unos nove vežbe <span class="glyphicon glyphicon-triangle-bottom glyphicon"></span>
                         </div>
@@ -40,7 +49,7 @@ include 'header.php';
 
                                 <div class="form-group">
                                     <label>Katedre kojima vežba pripada:</label>
-                                    <select class="js-example-data-array katedre" name="katedre[]" id="katedre[]" style="width: 100%">
+                                    <select class="js-example-data-array katedre" name="katedre[]" id="katedre" style="width: 100%">
                                     </select>
                                 </div>
 
@@ -58,7 +67,6 @@ include 'header.php';
                 </div> <!--kraj drugog diva-->
             </div>
 
-            <button class="btn btn-default" id="praviVezbeCSV">Export vezbi u CSV</button>
         </div>
     </section>
 </div>

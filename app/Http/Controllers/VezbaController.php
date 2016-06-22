@@ -48,13 +48,10 @@ class VezbaController extends Controller{
         $broj_katedri = count($request->input('katedre'));
         $katedre = $request->input('katedre');
 
-        //print_r ($vezba);
-        echo $vezba->id;
-
         foreach ($katedre as $value) {
 
             $vezba_katedra = new Vezba_katedra;
-            
+
             $vezba_katedra->Vezba_id_vezbe = $vezba->id;
             $vezba_katedra->Katedra_id_katedre = $value;
 
