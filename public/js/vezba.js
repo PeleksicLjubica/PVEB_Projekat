@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    var colNames = ["ID vežbe", "Naziv", "Opis", "Tip", "ID predmeta"];
+    var colNames = ["ID vežbe", "Naziv", "Opis", "Tip", "Naziv predmeta"];
     var podaci = [];
 
     $($('#navbar-lista').children()[2]).addClass('active');
@@ -13,7 +13,7 @@ $(document).ready(function(){
     $.get(pathWithToken("vezbePodaci"), function(data){
         $("#exampleGrid").simplePagingGrid({
             columnNames: colNames,
-            columnKeys: ["id_vezbe", "naziv", "opis", "tip", "Predmet_id_predmeta"],
+            columnKeys: ["id_vezbe", "naziv_vezbe", "opis", "tip", "predmet_naziv"],
             columnWidths: ["10%", "30%", "30%","20", "10"],
             data: data.data
         });
@@ -30,7 +30,7 @@ $(document).ready(function(){
 
         for (var i = 0; i < data.data.length; i++) {
             var a = {};
-            a.id = i;
+            a.id = data.data[i].id_katedre;
             a.text=data.data[i].naziv + " , godina studija: " + data.data[i].godina_studija;
 
             katedre.push(a);
@@ -38,8 +38,7 @@ $(document).ready(function(){
 
         $(".js-example-data-array.katedre").select2({
             data: katedre,
-            tags:true,
-            multiple:true
+            tags:true
         });
 
     });
@@ -65,11 +64,34 @@ $(document).ready(function(){
 
     });
 
+
     var dataTIP = [{ id: 0, text: '' }, { id: 'individualna', text: 'individualna' }, { id: 'zajednicka', text: 'zajednicka' }];
+
     $(".js-example-data-array.tip").select2({
         data: dataTIP,
-        tags:true
+        tags:false
     });
+
+
+
+    $('.js-example-data-array.tip').on('select2:select', function (evt) {
+        if($('.js-example-data-array.tip').val() === 'individualna') {
+
+            $(".js-example-data-array.katedre").select2({
+                multiple: false
+            });
+        }
+
+        else  if($('.js-example-data-array.tip').val() === 'zajednicka') {
+
+            $(".js-example-data-array.katedre").select2({
+                multiple: true
+            });
+        }
+
+    });
+
+
 
     $("#praviVezbeCSV").click(function(){
         var csvRows = [];
@@ -105,5 +127,59 @@ $(document).ready(function(){
     });
 
 
+    $.validator.addMethod(
+        "regex1",
+        function(value, element, regexp) {
+            var check = false;
+            return this.optional(element) || regexp.test(value);
+        }
+    );
+
+
+    $(function() {
+        $("#forma_vezbe").validate({
+            errorClass: "my-error-class",
+
+            rules: {
+                tip: {required: true,
+                    regex1: /[^0].*/
+                     },
+                opis: {required: true},
+                naziv: {required: true},
+                predmet:{required: true,
+                         regex1: /[^0].*/
+                },
+                "katedre[]": {required: true,
+                            regex1: /[^0].*/
+                         }
+            },
+            messages: {
+                tip: {
+                   regex1: "Morate da odaberete tip vežbe"
+                },
+                opis: {
+                    required: "Morate da upišete opis vežbe"
+                },
+                naziv: {
+                    required: "Morate da upišete naziv vežbe"
+                },
+                predmet:{
+                    regex1: "Morate da odaberete predmet"
+                },
+                "katedre[]": {
+                    required: "Morate da odaberete katedre",
+                    regex1: "Morate da odaberete katedre"
+                }
+
+            }
+        });
+
+
+    });
+
+
+    $("#salji_forma_vezba").on('click', function() {
+        $("#forma_vezbe").submit();
+    });
 
 });

@@ -9,6 +9,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Karton_prilog;
+use App\Models\Predmet;
 use Assetic\Cache\ArrayCache;
 use Illuminate\Http\Request;
 use App\Models\Film;
@@ -303,7 +304,7 @@ class FilmController extends Controller {
             $this->obradiPodrsku($dizajner_zvuka_indeks,"dizajner zvuka",$film);
 
             $specijalni_efekti_indeks = $request->input('specijalni_efekti');
-            $this->obradiPodrsku($specijalni_efekti_indeks,"specijalni efeti",$film);
+            $this->obradiPodrsku($specijalni_efekti_indeks,"specijalni efekti",$film);
 
             $snimatelj_zvuka_indeks = $request->input('snimatelj_zvuka');
             $this->obradiPodrsku($snimatelj_zvuka_indeks,"snimatelj zvuka",$film);
@@ -324,7 +325,6 @@ class FilmController extends Controller {
             $this->obradiPodrsku($sminker_indeks,"sminker",$film);
 
             $this->premestiFajlove($request, $film->id);
-
 
         return view('forma', ['admin' => 1]);
 
@@ -371,14 +371,30 @@ class FilmController extends Controller {
 
     private function premestiFajlove(Request $request, $id_filma) {
 
-        for ($i = 1; $i <= 7; $i++) {
+        for ($i = 1; $i <= 6; $i++) {
+
             if ($request->hasFile('fileToUpload' . $i)) {
                 $file = $request->file('fileToUpload' . $i);
+
                 if ($file->isValid()) {
+
                     $filename = $file->getClientOriginalName();
                     try {
+                        $tipovi = ['DVD','Blu-ray','fajl','rolna filma','verzija sa i bez engleskog titla',
+                            'srpska i engleska dijalog listu','fotografija student','fotografija iz filma'];
                         $destinationPath = 'filmovi/' . $request->input('naziv_filma') . '_' . $id_filma;
                         $file->move($destinationPath, $filename);
+
+
+                        $karton_prilog = new Karton_prilog();
+                        $karton_prilog->Film_id_filma = $id_filma;
+                        $karton_prilog->putanja = $destinationPath . "/" .$filename;
+                        $karton_prilog->tip_priloga = $tipovi[$i-1];
+
+                        $karton_prilog->save();
+
+
+
                     } catch (FileException $e) {
                         echo $e->getMessage();
                     }
@@ -386,8 +402,47 @@ class FilmController extends Controller {
             }
         }
 
+
+        $duzina = count($request->file('fileToUpload8'));
+
+        if($duzina !== 1) {
+            for ($i = 0; $i < $duzina; $i++) {
+
+
+                $file = $request->file('fileToUpload8')[$i];
+
+
+
+                if ($file->isValid()) {
+
+                    $filename = $file->getClientOriginalName();
+                    try {
+
+                        $destinationPath = 'filmovi/' . $request->input('naziv_filma') . '_' . $id_filma;
+                        $file->move($destinationPath, $filename);
+
+
+                        $karton_prilog = new Karton_prilog();
+                        $karton_prilog->Film_id_filma = $id_filma;
+                        $karton_prilog->putanja = $destinationPath . "/" . $filename;
+                        $karton_prilog->tip_priloga = 'fotografija iz filma';
+
+                        $karton_prilog->save();
+
+                    } catch (FileException $e) {
+                        echo $e->getMessage();
+                    }
+                }
+
+            }
+        }
+
     }
+
     public function pretrazi(Request $request) {
+
+        global $tehnicka_ind;
+        $tehnicka_ind = 0;
 
         $film=Film::query();
 
@@ -501,150 +556,218 @@ class FilmController extends Controller {
                 print_r(json_encode($film));
             }
 
-            /*TEHNICKA SPEC*/
+
+            /***************************************TEHNICKA SPEC***************************************/
 
 
             $osnovni_format = $request->input('osnovni_format');
             if(strcmp('0',$osnovni_format) != 0) {
 
-                $film = $film
-                    ->join('tehnicka_specifikacija','tehnicka_specifikacija.Film_id_filma', '=', 'film.id_filma')
-                    ->where('tehnicka_specifikacija.osnovni_format', $osnovni_format)
-                    ->get();
+                if($tehnicka_ind === 0){
+                    echo "USAO!";
+                    $film = $film
+                        ->join('tehnicka_specifikacija','tehnicka_specifikacija.Film_id_filma', '=', 'film.id_filma')
+                        ->where('tehnicka_specifikacija.osnovni_format', $osnovni_format);
+                    $tehnicka_ind = 1;
+                }
+                else{
+                    echo "USAO2";
+                    $film = $film
+                        ->where('tehnicka_specifikacija.osnovni_format', $osnovni_format);
+                }
 
-                print_r(json_encode($film));
             }
+
 
             $filmski_format = $request->input('filmski_format');
             if(strcmp('0',$filmski_format) != 0) {
 
-                $film = $film
-                    ->join('tehnicka_specifikacija','tehnicka_specifikacija.Film_id_filma', '=', 'film.id_filma')
-                    ->where('tehnicka_specifikacija.filmski_format', $filmski_format)
-                    ->get();
 
-                print_r(json_encode($film));
+                if($tehnicka_ind === 0){
+                    echo "USAO!";
+                    $film = $film
+                        ->join('tehnicka_specifikacija','tehnicka_specifikacija.Film_id_filma', '=', 'film.id_filma')
+                        ->where('tehnicka_specifikacija.filmski_format', $filmski_format);
+                    $tehnicka_ind = 1;
+                }
+                else{
+                    echo "USAO2";
+                    $film = $film
+                        ->where('tehnicka_specifikacija.filmski_format', $filmski_format);
+                }
+
             }
 
 
             $video_format = $request->input('video_format');
             if(strcmp('0',$video_format) != 0) {
 
-                $film = $film
-                    ->join('tehnicka_specifikacija','tehnicka_specifikacija.Film_id_filma', '=', 'film.id_filma')
-                    ->where('tehnicka_specifikacija.video_format', $video_format)
-                    ->get();
+                if($tehnicka_ind === 0){
+                    $film = $film
+                        ->join('tehnicka_specifikacija','tehnicka_specifikacija.Film_id_filma', '=', 'film.id_filma')
+                        ->where('tehnicka_specifikacija.video_format', $video_format);
+                    $tehnicka_ind = 1;
+                }
+                else{
+                    $film = $film
+                        ->where('tehnicka_specifikacija.video_format', $video_format);
+                }
 
-                print_r(json_encode($film));
             }
 
 
             $tel_standard = $request->input('tel_standard');
             if(strcmp('0',$tel_standard ) != 0) {
 
-                $film = $film
-                    ->join('tehnicka_specifikacija','tehnicka_specifikacija.Film_id_filma', '=', 'film.id_filma')
-                    ->where('tehnicka_specifikacija.tel_standard', $tel_standard)
-                    ->get();
+                if($tehnicka_ind === 0){
+                    $film = $film
+                        ->join('tehnicka_specifikacija','tehnicka_specifikacija.Film_id_filma', '=', 'film.id_filma')
+                        ->where('tehnicka_specifikacija.tel_standard', $tel_standard);
+                    $tehnicka_ind = 1;
+                }
+                else{
+                    $film = $film
+                        ->where('tehnicka_specifikacija.tel_standard', $tel_standard);
+                }
 
-                print_r(json_encode($film));
             }
 
 
             $analiza_slike = $request->input('analiza_slike');
             if(strcmp('0', $analiza_slike) != 0) {
 
-                $film = $film
-                    ->join('tehnicka_specifikacija','tehnicka_specifikacija.Film_id_filma', '=', 'film.id_filma')
-                    ->where('tehnicka_specifikacija.analiza_slike', $analiza_slike)
-                    ->get();
+                if($tehnicka_ind === 0){
+                    $film = $film
+                        ->join('tehnicka_specifikacija','tehnicka_specifikacija.Film_id_filma', '=', 'film.id_filma')
+                        ->where('tehnicka_specifikacija.analiza_slike', $analiza_slike);
+                    $tehnicka_ind = 1;
+                }
+                else{
+                    $film = $film
+                        ->where('tehnicka_specifikacija.analiza_slike', $analiza_slike);
+                }
 
-                print_r(json_encode($film));
             }
 
 
             $format_slike = $request->input('format_slike');
             if(strcmp('0', $format_slike) != 0) {
 
-                $film = $film
-                    ->join('tehnicka_specifikacija','tehnicka_specifikacija.Film_id_filma', '=', 'film.id_filma')
-                    ->where('tehnicka_specifikacija.format_slike', $format_slike)
-                    ->get();
+                if($tehnicka_ind === 0){
+                    $film = $film
+                        ->join('tehnicka_specifikacija','tehnicka_specifikacija.Film_id_filma', '=', 'film.id_filma')
+                        ->where('tehnicka_specifikacija.format_slike', $format_slike);
+                    $tehnicka_ind = 1;
+                }
+                else{
+                    $film = $film
+                        ->where('tehnicka_specifikacija.format_slike', $format_slike);
+                }
 
-                print_r(json_encode($film));
             }
 
             $slicice_sekund = $request->input('slicice_sekund');
             if(strcmp('0', $slicice_sekund) != 0) {
 
-                $film = $film
-                    ->join('tehnicka_specifikacija','tehnicka_specifikacija.Film_id_filma', '=', 'film.id_filma')
-                    ->where('tehnicka_specifikacija.br_sl_sek', $slicice_sekund)
-                    ->get();
+                if($tehnicka_ind === 0){
+                    $film = $film
+                        ->join('tehnicka_specifikacija','tehnicka_specifikacija.Film_id_filma', '=', 'film.id_filma')
+                        ->where('tehnicka_specifikacija.br_sl_sek', $slicice_sekund);
+                    $tehnicka_ind = 1;
+                }
+                else{
+                    $film = $film
+                        ->where('tehnicka_specifikacija.br_sl_sek', $slicice_sekund);
+                }
 
-                print_r(json_encode($film));
             }
 
 
             $video_nosac = $request->input('video_nosac');
             if(strcmp('0', $video_nosac) != 0) {
 
-                $film = $film
-                    ->join('tehnicka_specifikacija','tehnicka_specifikacija.Film_id_filma', '=', 'film.id_filma')
-                    ->where('tehnicka_specifikacija.video_nosac', $video_nosac)
-                    ->get();
+                if($tehnicka_ind === 0){
+                    $film = $film
+                        ->join('tehnicka_specifikacija','tehnicka_specifikacija.Film_id_filma', '=', 'film.id_filma')
+                        ->where('tehnicka_specifikacija.video_nosac', $video_nosac);
+                    $tehnicka_ind = 1;
+                }
+                else{
+                    $film = $film
+                        ->where('tehnicka_specifikacija.video_nosac', $video_nosac);
+                }
 
-                print_r(json_encode($film));
             }
 
             $vrsta_fajla = $request->input('vrsta_fajla');
             if(strcmp('0', $vrsta_fajla) != 0) {
 
-                $film = $film
-                    ->join('tehnicka_specifikacija','tehnicka_specifikacija.Film_id_filma', '=', 'film.id_filma')
-                    ->where('tehnicka_specifikacija.vrsta_fajla', $vrsta_fajla)
-                    ->get();
+                if($tehnicka_ind === 0){
+                    $film = $film
+                        ->join('tehnicka_specifikacija','tehnicka_specifikacija.Film_id_filma', '=', 'film.id_filma')
+                        ->where('tehnicka_specifikacija.vrsta_fajla', $vrsta_fajla);
+                    $tehnicka_ind = 1;
+                }
+                else{
+                    $film = $film
+                        ->where('tehnicka_specifikacija.vrsta_fajla', $vrsta_fajla);
+                }
 
-                print_r(json_encode($film));
             }
 
             $vrsta_zvuka = $request->input('vrsta_zvuka');
             if(strcmp('0', $vrsta_zvuka) != 0) {
 
-                $film = $film
-                    ->join('tehnicka_specifikacija','tehnicka_specifikacija.Film_id_filma', '=', 'film.id_filma')
-                    ->where('tehnicka_specifikacija.zvuk', $vrsta_zvuka)
-                    ->get();
+                if($tehnicka_ind === 0){
+                    $film = $film
+                        ->join('tehnicka_specifikacija','tehnicka_specifikacija.Film_id_filma', '=', 'film.id_filma')
+                        ->where('tehnicka_specifikacija.zvuk', $vrsta_zvuka);
+                    $tehnicka_ind = 1;
+                }
+                else{
+                    $film = $film
+                        ->where('tehnicka_specifikacija.zvuk', $vrsta_zvuka);
+                }
 
-                print_r(json_encode($film));
             }
 
 
             $broj_kanala = $request->input('broj_kanala');
             if(strcmp('0', $broj_kanala) != 0) {
 
-                $film = $film
-                    ->join('tehnicka_specifikacija','tehnicka_specifikacija.Film_id_filma', '=', 'film.id_filma')
-                    ->where('tehnicka_specifikacija.broj_kanala', $broj_kanala)
-                    ->get();
+                if($tehnicka_ind === 0){
+                    $film = $film
+                        ->join('tehnicka_specifikacija','tehnicka_specifikacija.Film_id_filma', '=', 'film.id_filma')
+                        ->where('tehnicka_specifikacija.broj_kanala', $broj_kanala);
+                    $tehnicka_ind = 1;
+                }
+                else{
+                    $film = $film
+                        ->where('tehnicka_specifikacija.broj_kanala', $broj_kanala);
+                }
 
-                print_r(json_encode($film));
             }
 
 
             $redukcija_suma = $request->input('redukcija_suma');
             if(strcmp('0', $redukcija_suma) != 0) {
 
-                $film = $film
-                    ->join('tehnicka_specifikacija','tehnicka_specifikacija.Film_id_filma', '=', 'film.id_filma')
-                    ->where('tehnicka_specifikacija.redukcija_suma', $redukcija_suma)
-                    ->get();
+                if($tehnicka_ind === 0){
+                    $film = $film
+                        ->join('tehnicka_specifikacija','tehnicka_specifikacija.Film_id_filma', '=', 'film.id_filma')
+                        ->where('tehnicka_specifikacija.redukcija_suma', $redukcija_suma);
+                    $tehnicka_ind = 1;
+                }
+                else{
+                    $film = $film
+                        ->where('tehnicka_specifikacija.redukcija_suma', $redukcija_suma);
+                }
 
-                print_r(json_encode($film));
             }
 
+            $film = $film->get();
 
-
+            print_r(json_encode($film));
 
             if ($request->query('token')) {
                 return view('index', ['admin' => 1, 'result' => json_encode($film)]);
@@ -658,16 +781,53 @@ class FilmController extends Controller {
     /*kupi sve filmove*/
     public function getAll() {
         $film = Film::all();
+
         return response()->json(['data'=>$film]);
     }
+
+    public function getAllDistinctGodina() {
+
+        $film = Film::query()
+            ->select('godina_proizvodnje')
+            ->distinct()
+            ->get();
+
+        return response()->json(['data'=>$film]);
+    }
+
+    public function getAllDistinctTrajanje() {
+
+        $film = Film::query()
+            ->select('trajanje')
+            ->distinct()
+            ->get();
+
+        return response()->json(['data'=>$film]);
+    }
+
 
     public function getFilm (Request $request, $id) {
         $film = new \stdClass();
 
         $film->informacije = Film::query()
-            ->leftjoin('tehnicka_specifikacija', 'tehnicka_specifikacija.Film_id_filma', '=', 'film.id_filma')
-            ->leftjoin('osnovne_informacije', 'osnovne_informacije.Film_id_filma', '=', 'film.id_filma')
             ->where('id_filma', $id)
+            ->get();
+
+        $film->tehnicka = Tehnicka_spacifikacija::query()
+            ->where('Film_id_filma', $id)
+            ->get();
+
+        $film->osnovne = Osnovne_informacije::query()
+            ->where('Film_id_filma', $id)
+            ->get();
+
+        $film->vezba = Vezba::query()
+            ->where('id_vezbe', $film->informacije[0]->Vezba_id_vezbe)
+            ->get();
+
+        //katedre i profesor
+        $film->predmet = Predmet::query()
+            ->where('id_predmeta', $film->vezba[0]->Predmet_id_predmeta)
             ->get();
 
         $film->glumci = Glumac::query()
@@ -696,10 +856,86 @@ class FilmController extends Controller {
             ->where('Film_id_filma', $id)
             ->get();
 
+        $film->kompozitori = [];
+        $film->dizajneri_zvuka = [];
+        $film->snimatelji_zvuka = [];
+        $film->scenografi = [];
+        $film->kostimografi = [];
+        $film->animacije = [];
+        $film->sminkeri = [];
+        $film->spec_efekti = [];
+
+        foreach ($film->podrske as $podrska) {
+            switch($podrska->tip_podrske) {
+                case 'kompozitor':
+                    array_push($film->kompozitori, $podrska);
+                    break;
+                case 'dizajner zvuka':
+                    array_push($film->dizajneri_zvuka, $podrska);
+                    break;
+                case 'snimatelj zvuka':
+                    array_push($film->snimatelji_zvuka, $podrska);
+                    break;
+                case 'scenograf':
+                    array_push($film->scenografi, $podrska);
+                    break;
+                case 'kostimograf':
+                    array_push($film->kostimografi, $podrska);
+                    break;
+                case 'animacija':
+                    array_push($film->animacije, $podrska);
+                    break;
+                case 'sminker':
+                    array_push($film->sminkeri, $podrska);
+                    break;
+                case 'specijalni efekti':
+                    array_push($film->spec_efekti, $podrska);
+                    break;
+            }
+        }
+
         $film->podrske_studenti = Podrska_student::query()
             ->join('student', 'student.id_studenta', '=', 'podrska_student.Student_id_studenta')
             ->where('Film_id_filma', $id)
             ->get();
+
+        $film->kompozitori_studenti = [];
+        $film->dizajneri_zvuka_studenti = [];
+        $film->snimatelji_zvuka_studenti = [];
+        $film->scenografi_studenti = [];
+        $film->kostimografi_studenti = [];
+        $film->animacije_studenti = [];
+        $film->sminkeri_studenti = [];
+        $film->spec_efekti_studenti = [];
+
+        foreach ($film->podrske_studenti as $podrska_student) {
+            switch($podrska_student->tip_podrske) {
+                case 'kompozitor':
+                    array_push($film->kompozitori_studenti, $podrska_student);
+                    break;
+                case 'dizajner zvuka':
+                    array_push($film->dizajneri_zvuka_studenti, $podrska_student);
+                    break;
+                case 'snimatelj zvuka':
+                    array_push($film->snimatelji_zvuka_studenti, $podrska_student);
+                    break;
+                case 'scenograf':
+                    array_push($film->scenografi_studenti, $podrska_student);
+                    break;
+                case 'kostimograf':
+                    array_push($film->kostimografi_studenti, $podrska_student);
+                    break;
+                case 'animacija':
+                    array_push($film->animacije_studenti, $podrska_student);
+                    break;
+                case 'sminker':
+                    array_push($film->sminkeri_studenti, $podrska_student);
+                    break;
+                case 'specijalni efekti':
+                    array_push($film->spec_efekti_studenti, $podrska_student);
+                    break;
+            }
+        }
 
         $film->producenti = Producent::query()
             ->join('student', 'student.id_studenta', '=', 'producent.Student_id_studenta')
@@ -727,6 +963,14 @@ class FilmController extends Controller {
             return view('film', ['admin' => 0, 'film' => $film]);
         }
 
+    }
+
+    public function downloadPrilog(Request $request, $id) {
+        $prilog = Karton_prilog::query()
+                    ->where('id_priloga', $id)
+                    ->get();
+
+        return response()->download($prilog[0]->putanja);
     }
 
 }

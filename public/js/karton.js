@@ -5,6 +5,71 @@
 
 $(document).ready(function(){
 
+
+    $('#dodatno1').click(function() {
+        if( $(this).is(':checked')) {
+            $("#fileToUpload1").show();
+        } else {
+            $("#fileToUpload1").hide();
+        }
+    });
+
+    $('#dodatno2').click(function() {
+        if( $(this).is(':checked')) {
+            $("#fileToUpload2").show();
+        } else {
+            $("#fileToUpload2").hide();
+        }
+    });
+
+    $('#dodatno3').click(function() {
+        if( $(this).is(':checked')) {
+            $("#fileToUpload3").show();
+        } else {
+            $("#fileToUpload3").hide();
+        }
+    });
+
+    $('#dodatno4').click(function() {
+        if( $(this).is(':checked')) {
+            $("#fileToUpload4").show();
+        } else {
+            $("#fileToUpload4").hide();
+        }
+    });
+
+    $('#dodatno5').click(function() {
+        if( $(this).is(':checked')) {
+            $("#fileToUpload5").show();
+        } else {
+            $("#fileToUpload5").hide();
+        }
+    });
+
+    $('#dodatno6').click(function() {
+        if( $(this).is(':checked')) {
+            $("#fileToUpload6").show();
+        } else {
+            $("#fileToUpload6").hide();
+        }
+    });
+
+    $('#dodatno7').click(function() {
+        if( $(this).is(':checked')) {
+            $("#fileToUpload7").show();
+        } else {
+            $("#fileToUpload7").hide();
+        }
+    });
+
+    $('#dodatno8').click(function() {
+        if( $(this).is(':checked')) {
+            $("#fileToUpload8").show();
+        } else {
+            $("#fileToUpload8").hide();
+        }
+    });
+
     $($('#navbar-lista').children()[3]).addClass('active');
 
     $.get(pathWithToken("studentiPodaci"), function(data){
@@ -46,7 +111,7 @@ $(document).ready(function(){
         for (var i = 0; i < data.data.length; i++) {
             var a = {};
             a.id = data.data[i].id_vezbe;
-            a.text = data.data[i].naziv;
+            a.text = data.data[i].naziv_vezbe;
 
             vezbe.push(a);
         }
@@ -68,6 +133,15 @@ $(document).ready(function(){
         "Ispravan format je brojsati:brojminuta:brojsekundi"
     );
 
+    $.validator.addMethod(
+        "regex2",
+        function(value, element, regexp) {
+            var check = false;
+            return this.optional(element) || regexp.test(value);
+        },
+        "Upišite naziv vežbe"
+    );
+
 
 
     $(function() {
@@ -77,7 +151,10 @@ $(document).ready(function(){
             rules: {
                 godina: {required: true, number: true},
                 naziv_filma: {required: true},
-                naziv_vezbe: {required: true},
+                naziv_vezbe: {
+                    required: true,
+                    regex2: /[1-9][0-9]*/
+                },
                 trajanje:{
                     required: true,
                     regex: /([0-1]?\d|2[0-3]):([0-5]?\d):([0-5]?\d)/,

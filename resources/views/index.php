@@ -4,35 +4,40 @@ include 'header.php';
 
 <div class="container">
 
-    <div class="row">
-
-        <div class="col-md-6" id="levi_div">
+        <div id="levi_div">
             <form id="pretragaForma" role="form" method="post">
-
 
             <div class="naslov">
                         <h1>Pretraga fimova:</h1>
-                    </div>
+            </div>
 
-                    <div class="row">
-                        <div id="flip" class="col-md-12">
-                            <div class="form-group row">
-                                <label class="col-md-3" for="naziv_filma">Naziv filma: </label>
-                                <div class="col-md-9">
-                                    <select class="js-example-data-array naziv_filma col-md-12" name="naziv_filma">
-                                    </select>
-                                </div>
+                <div class="row">
+                    <div id="flip" class="col-md-12">
+                        <div class="form-group row">
+                            <label class="col-md-2" for="naziv_filma">Naziv filma: </label>
 
+                            <div class="col-md-5">
+                                <select class="js-example-data-array naziv_filma col-md-12" name="naziv_filma">
+                                </select>
                             </div>
-                            <div id="napredna_pretraga">
+
+                            <div class="col-md-2">
+                                <button type="submit" class="btn btn-default btn-sm" id="pretrazi">Pretraži</button>
+                            </div>
+
+                            <div id="napredna_pretraga" class="col-md-3">
                                 Napredna pretraga <span class="glyphicon glyphicon-triangle-bottom glyphicon"></span>
                             </div>
+
                         </div>
-                    </div> <!--osnovno-->
+                    </div>
+
+                </div> <!--osnovno-->
 
                     <div class="row">
-                        <div id="sekcija1" class="col-md-12">
-                            <p class="pasusi" id="pasusi1"> Osnovne informacije <span class="glyphicon glyphicon-triangle-bottom glyphicon"></span> </p>
+                        <div id="sekcija1">
+                            <div class="col-md-6">
+                            <p class="pasusi" id="pasusi1"> Osnovne informacije </p>
                             <div class="row">
                             <div id="osnovno" class="col-md-12">
                                     <div class="row redovi_u_pretrazi">
@@ -238,9 +243,12 @@ include 'header.php';
                                     </div><!-- row-->
 
                                 </div> <!--osnovno-->
+
+                                </div>
                                 </div>
 
-                            <p class="pasusi" id="pasusi2"> Tehnička specifikacija<span class="glyphicon glyphicon-triangle-bottom glyphicon"></span> </p>
+                            <div class="col-md-6">
+                            <p class="pasusi" id="pasusi2"> Tehnička specifikacija </p>
                             <div class="row">
                                 <div id="tehnicka" class="col-md-12">
                                     <div class="row redovi_u_pretrazi">
@@ -356,7 +364,13 @@ include 'header.php';
                                         </div>
 
                                     </div><!-- row-->
+                                    <div class="row redovi_u_pretrazi"> <!--dugme-->
+                                        <div class="col-md-3 col-md-offset-9">
+                                            <button type="submit" class="btn btn-default btn-sm" id="pretrazi1">Pretraži</button>
+                                        </div>
+                                    </div>
 
+                                    </div>
                                 </div> <!--kraj sekcije2-->
                             </div> <!--kraj reda tehnickih spec-->
 
@@ -365,58 +379,10 @@ include 'header.php';
                         </div> <!--sekcija1-->
                     </div> <!--kraj row-a sekcija1-->
 
-                    <div class="row redovi_u_pretrazi"> <!--dugme-->
-                        <div class="col-md-2">
-                            <button type="submit" class="btn btn-default btn-sm" id="pretrazi">Pretraži</button>
-                        </div>
-                        </div>
+
 
                 </form>
-        </div> <!--najveci div-->
-
-        <div class="col-md-6" id="vrteska">
-            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                    <li data-target="#myCarousel" data-slide-to="3"></li>
-                </ol>
-
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner" role="listbox">
-                    <div class="item active">
-                        <img src="img/ljuba.jpg" alt="Chania">
-                    </div>
-
-                    <div class="item">
-                        <img src="img/ivan.jpg" alt="Chania">
-                    </div>
-
-                    <div class="item">
-                        <img src="img/milica.jpg" alt="Flower">
-                    </div>
-
-                    <div class="item">
-                        <img src="img/jelena.jpg" alt="Flower">
-                    </div>
-                </div>
-
-                <!-- Left and right controls -->
-                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-
-        </div>
-
-    </div><!-- div red-->
+        </div> <!--levi najveci div-->
 
 </div> <!--container-->
 
