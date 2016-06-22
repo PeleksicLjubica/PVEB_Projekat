@@ -429,9 +429,6 @@ class FilmController extends Controller {
 
                         $karton_prilog->save();
 
-                        echo $karton_prilog->putanja . " " . $karton_prilog->putanja . " \n";
-
-
                     } catch (FileException $e) {
                         echo $e->getMessage();
                     }
@@ -876,6 +873,14 @@ class FilmController extends Controller {
             return view('film', ['admin' => 0, 'film' => $film]);
         }
 
+    }
+
+    public function downloadPrilog(Request $request, $id) {
+        $prilog = Karton_prilog::query()
+                    ->where('id_priloga', $id)
+                    ->get();
+
+        return response()->download($prilog[0]->putanja);
     }
 
 }
