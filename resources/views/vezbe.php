@@ -20,7 +20,7 @@ include 'header.php';
 
                 <div class="col-md-3">
 
-                        <div id="csv_div">
+                        <div class="csv_div">
                             <button class="btn btn-default" id="praviVezbeCSV"> Export vezbi u CSV </button>
                         </div>
 

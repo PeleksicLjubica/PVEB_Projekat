@@ -98,7 +98,45 @@ $(document).ready(function() {
     });
 
 
+    $.validator.addMethod(
+        "regex1",
+        function(value, element, regexp) {
+            var check = false;
+            return this.optional(element) || regexp.test(value);
+        }
+    );
+
+    $(function() {
+        $("#forma_katedre").validate({
+            errorClass: "my-error-class",
+
+            rules: {
+                naziv_katedre: {required: true,
+                    regex1: /[^0].*/
+                },
+                god_studija_katedra: {required: true,
+                    regex1: /[^0].*/},
+                profesor_katedre: {required: true,
+                    regex1: /[^0].*/}
+            },
+            messages: {
+                naziv_katedre: {
+                    regex1: "Morate da odaberete katedru"
+                },
+                god_studija_katedra: {
+                    required: "Morate da odaberete godinu studija",
+                    regex1: "Morate da odaberete godinu studija"
+                },
+                profesor_katedre: {
+                    required: "Morate da odaberete profesora",
+                    regex1: "Morate da odaberete  profesora"
+                }
+
+            }
+        });
 
 
 
+
+});
 });

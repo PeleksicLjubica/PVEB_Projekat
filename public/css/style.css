@@ -384,7 +384,7 @@ a:hover {
 #praviKatedreCSV{
     background-color: rgb(42, 1, 5);
     color:bisque; !important;
-    margin-top: 30px;
+    margin-top: 4px;
 }
 
 #praviKatedreCSV:hover {
@@ -392,7 +392,7 @@ a:hover {
 }
 
 
-#csv_div {
+.csv_div {
     margin-top: 53px;
 }
 #praviVezbeCSV {

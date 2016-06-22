@@ -167,7 +167,8 @@ $(document).ready(function(){
                     regex1: "Morate da odaberete predmet"
                 },
                 "katedre[]": {
-                    required: "Morate da odaberete katedre"
+                    required: "Morate da odaberete katedre",
+                    regex1: "Morate da odaberete katedre"
                 }
 
             }

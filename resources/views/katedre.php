@@ -14,19 +14,22 @@ include 'header.php';
 
                 <div class="row">
                     <div class="col-md-9">
-                        <p> Sve katedre: </p>
+                        <h3> Sve katedre: </h3>
                         <div id="exampleGrid"></div>
                     </div>
 
                     <div class="col-md-3">
-                        <button class="btn btn-default" id="praviKatedreCSV" style="width: 100%">Export katedri u CSV</button>
+
+                        <div class="csv_div">
+                            <button class="btn btn-default" id="praviKatedreCSV" style="width: 100%">Export katedri u CSV</button>
+                        </div>
 
                         <div id="unos_katedre" class="pasusi">
                             Unos nove katedre <span class="glyphicon glyphicon-triangle-bottom glyphicon"></span>
                         </div>
 
                         <div id="katedre_forma">
-                            <form role="form" method="post" enctype="multipart/form-data" action="" onsubmit="pathWithToken('katedra')">
+                            <form id = "forma_katedre" role="form" method="post" enctype="multipart/form-data" action="" onsubmit="pathWithToken('katedra')">
                                 <div class="form-group">
                                     <label for="naziv">Naziv katedre: </label>
                                     <select class="js-example-data-array naziv_katedre" name="naziv_katedre" style="width: 100%">
