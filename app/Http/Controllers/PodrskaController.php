@@ -38,7 +38,6 @@ class PodrskaController
             ])
             ->union($results1);
 
-
         return response()->json(['data' => $results]);
 
 

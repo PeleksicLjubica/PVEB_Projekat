@@ -6,6 +6,7 @@ function idiNaKarton(){
 $(document).ready(function(){
 
 
+
     var film = [];
     var godina=[];
     var trajanje = [];
@@ -597,12 +598,4 @@ $(document).ready(function(){
     $("#pretragaForma").attr("action", pathWithToken('filmPretraga'));
 
 
-    $("#pasusi1").click(function(){
-        $("#osnovno").slideToggle("slow");
-    });
-
-
-    $("#pasusi2").click(function(){
-        $("#tehnicka").slideToggle("slow");
-    });
 });
