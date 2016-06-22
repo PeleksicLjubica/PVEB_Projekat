@@ -351,7 +351,7 @@ $(document).ready(function(){
                         animacija.push(f);
                     }
 
-                    else if(data.data[i].tip_podrske == "�minker") {
+                    else if(data.data[i].tip_podrske == "sminker") {
                         g.id = data.data[i];
                         g.text = data.data[i].ime_prezime;
                         sminker.push(g);

@@ -9,6 +9,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Karton_prilog;
+use App\Models\Predmet;
 use Assetic\Cache\ArrayCache;
 use Illuminate\Http\Request;
 use App\Models\Film;
@@ -303,7 +304,7 @@ class FilmController extends Controller {
             $this->obradiPodrsku($dizajner_zvuka_indeks,"dizajner zvuka",$film);
 
             $specijalni_efekti_indeks = $request->input('specijalni_efekti');
-            $this->obradiPodrsku($specijalni_efekti_indeks,"specijalni efeti",$film);
+            $this->obradiPodrsku($specijalni_efekti_indeks,"specijalni efekti",$film);
 
             $snimatelj_zvuka_indeks = $request->input('snimatelj_zvuka');
             $this->obradiPodrsku($snimatelj_zvuka_indeks,"snimatelj zvuka",$film);
@@ -665,9 +666,24 @@ class FilmController extends Controller {
         $film = new \stdClass();
 
         $film->informacije = Film::query()
-            ->leftjoin('tehnicka_specifikacija', 'tehnicka_specifikacija.Film_id_filma', '=', 'film.id_filma')
-            ->leftjoin('osnovne_informacije', 'osnovne_informacije.Film_id_filma', '=', 'film.id_filma')
             ->where('id_filma', $id)
+            ->get();
+
+        $film->tehnicka = Tehnicka_spacifikacija::query()
+            ->where('Film_id_filma', $id)
+            ->get();
+
+        $film->osnovne = Osnovne_informacije::query()
+            ->where('Film_id_filma', $id)
+            ->get();
+
+        $film->vezba = Vezba::query()
+            ->where('id_vezbe', $film->informacije[0]->Vezba_id_vezbe)
+            ->get();
+
+        //katedre i profesor
+        $film->predmet = Predmet::query()
+            ->where('id_predmeta', $film->vezba[0]->Predmet_id_predmeta)
             ->get();
 
         $film->glumci = Glumac::query()
@@ -696,10 +712,86 @@ class FilmController extends Controller {
             ->where('Film_id_filma', $id)
             ->get();
 
+        $film->kompozitori = [];
+        $film->dizajneri_zvuka = [];
+        $film->snimatelji_zvuka = [];
+        $film->scenografi = [];
+        $film->kostimografi = [];
+        $film->animacije = [];
+        $film->sminkeri = [];
+        $film->spec_efekti = [];
+
+        foreach ($film->podrske as $podrska) {
+            switch($podrska->tip_podrske) {
+                case 'kompozitor':
+                    array_push($film->kompozitori, $podrska);
+                    break;
+                case 'dizajner zvuka':
+                    array_push($film->dizajneri_zvuka, $podrska);
+                    break;
+                case 'snimatelj zvuka':
+                    array_push($film->snimatelji_zvuka, $podrska);
+                    break;
+                case 'scenograf':
+                    array_push($film->scenografi, $podrska);
+                    break;
+                case 'kostimograf':
+                    array_push($film->kostimografi, $podrska);
+                    break;
+                case 'animacija':
+                    array_push($film->animacije, $podrska);
+                    break;
+                case 'sminker':
+                    array_push($film->sminkeri, $podrska);
+                    break;
+                case 'specijalni efekti':
+                    array_push($film->spec_efekti, $podrska);
+                    break;
+            }
+        }
+
         $film->podrske_studenti = Podrska_student::query()
             ->join('student', 'student.id_studenta', '=', 'podrska_student.Student_id_studenta')
             ->where('Film_id_filma', $id)
             ->get();
+
+        $film->kompozitori_studenti = [];
+        $film->dizajneri_zvuka_studenti = [];
+        $film->snimatelji_zvuka_studenti = [];
+        $film->scenografi_studenti = [];
+        $film->kostimografi_studenti = [];
+        $film->animacije_studenti = [];
+        $film->sminkeri_studenti = [];
+        $film->spec_efekti_studenti = [];
+
+        foreach ($film->podrske_studenti as $podrska_student) {
+            switch($podrska_student->tip_podrske) {
+                case 'kompozitor':
+                    array_push($film->kompozitori_studenti, $podrska_student);
+                    break;
+                case 'dizajner zvuka':
+                    array_push($film->dizajneri_zvuka_studenti, $podrska_student);
+                    break;
+                case 'snimatelj zvuka':
+                    array_push($film->snimatelji_zvuka_studenti, $podrska_student);
+                    break;
+                case 'scenograf':
+                    array_push($film->scenografi_studenti, $podrska_student);
+                    break;
+                case 'kostimograf':
+                    array_push($film->kostimografi_studenti, $podrska_student);
+                    break;
+                case 'animacija':
+                    array_push($film->animacije_studenti, $podrska_student);
+                    break;
+                case 'sminker':
+                    array_push($film->sminkeri_studenti, $podrska_student);
+                    break;
+                case 'specijalni efekti':
+                    array_push($film->spec_efekti_studenti, $podrska_student);
+                    break;
+            }
+        }
 
         $film->producenti = Producent::query()
             ->join('student', 'student.id_studenta', '=', 'producent.Student_id_studenta')
