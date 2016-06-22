@@ -42,11 +42,14 @@ $app->group(['middleware' => 'jwt.auth'], function($app)
 	$app->post('/vezba', 'App\Http\Controllers\VezbaController@obradi');
 
 	$app->get('/katedra', 'App\Http\Controllers\KatedraController@getView');
+	$app->post('/katedra', 'App\Http\Controllers\KatedraController@dodajKatedre') ;
+
 
 	$app->get('/studentiPodaci', 'App\Http\Controllers\StudentController@getAll');
 	$app->get('/studenti', 'App\Http\Controllers\StudentController@getView');
 	$app->post('/studenti', 'App\Http\Controllers\StudentController@obradi');
 	$app->post('/studentInkrement', 'App\Http\Controllers\StudentController@inkrementGodine');
+
 
 });
 

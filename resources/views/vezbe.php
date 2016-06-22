@@ -13,8 +13,8 @@ include 'header.php';
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-9">
-                <h3> Sve vežbe: </h3>
-                <div id="exampleGrid"></div>
+                    <h3> Sve vežbe: </h3>
+                    <div id="exampleGrid"></div>
                 </div>
 
                 <div class="col-md-3">
