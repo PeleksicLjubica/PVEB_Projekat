@@ -178,6 +178,8 @@ $(document).ready(function(){
     });
 
 
-
+    $("#salji_forma_vezba").on('click', function() {
+        $("#forma_vezbe").submit();
+    });
 
 });
