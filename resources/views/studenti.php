@@ -29,7 +29,7 @@ include 'header.php';
                         </div>
 
                         <div id="studenti_forma">
-                            <form role="form" method="post" enctype="multipart/form-data" id="student_forma">
+                            <form role="form" method="post" enctype="multipart/form-data" action="" onsubmit="pathWithToken('studenti')">
                                 <div class="row">
                                     <div class="form-group col-md-12">
                                         <label for="indeks">Indeks studenta:</label>
@@ -48,20 +48,8 @@ include 'header.php';
                                     <input type="text" class="form-control" id="e_mail" name="e_mail">
                                 </div>
 
-<!--                                <div class="row">-->
-<!--                                    <div class="form-group">-->
-<!--                                        <div class="col-md-12">-->
-<!--                                            <label for="godina_studija"> Godina studija: </label>-->
-<!--                                        </div>-->
-<!--                                        <div class="col-md-12" id="student_god_studija">-->
-<!--                                            <select class="js-example-data-array col-md-12 godina_studija" name="godina_studija">-->
-<!--                                            </select>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-
                                 <div class="form-group">
-                                    <label>Katedra_id_katedre:</label>
+                                    <label>Katedra:</label>
                                     <select class="js-example-data-array katedre"  name="katedra" style="width: 100%">
                                     </select>
                                 </div>

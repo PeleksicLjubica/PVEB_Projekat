@@ -18,7 +18,7 @@ $(document).ready(function(){
     $.get(pathWithToken("studentiPodaci"), function(data){
         $("#exampleGrid").simplePagingGrid({
             columnNames: ["ID studenta", "Indeks", "Ime_prezime", "Email", "Id katedre", "Uvecanje godine"],
-            columnKeys: ["id_studenta", "indeks", "ime_prezime", "e_mail","Katedra_id_katedre", "uvecanje"],
+            columnKeys: ["id_studenta", "indeks", "ime_prezime", "e_mail","katedra_id_katedre", "uvecanje"],
             columnWidths: ["15%", "15%", "20%","20", "20", "10"],
             cellTemplates: [null, null, null, null, null,
                 "<input type='button' onclick='uvecajGodinu()' value='Uvecaj' />" ],
@@ -33,15 +33,17 @@ $(document).ready(function(){
 
         var katedre = [];
 
-        katedre.push({ id: 0, text: '' });
+        katedre.push({id: 0,  text: '' });
 
         for (var i = 0; i < data.data.length; i++) {
             var a = {};
             a.id = data.data[i].id_katedre;
+            a.text = data.data[i].naziv;
 
             katedre.push(a);
-        }
 
+        }
+        console.log(katedre);
         $(".js-example-data-array.katedre").select2({
             data: katedre,
             tags:true,

@@ -1,17 +1,14 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Ljubica
- * Date: 22.5.2016
- * Time: 22:19
- * kontroler koji se odnosi na uzimanje podataka o vežbama iz baze
- */
+
 
 namespace App\Http\Controllers;
 
 use App\Models\Student;
+use App\Models\Katedra;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Builder;
+
 
 class StudentController extends Controller{
 
@@ -23,14 +20,17 @@ class StudentController extends Controller{
     }
     
     public function obradi(Request $request){
-
         $student = new Student;
         $student->indeks= $request->input('indeks');
         $student->ime_prezime = $request->input('ime_prezime');
         $student->e_mail = $request->input('e_mail');
-        $student->Katedra_id_katedre = $request->input('katedra');
-
-
+        $naziv_katedre = $request->input('katedra');
+        echo($request->input('katedra'));
+        $year=date('Y');
+        $katedre = Katedra::where('naziv', $naziv_katedre)
+            ->where('godina_studija', $year)->take(1)->get();
+        echo($katedre[0]);
+        $student->Katedra_id_katedre = $katedre[0]->id_katedre;
 
         $student->save();
 
