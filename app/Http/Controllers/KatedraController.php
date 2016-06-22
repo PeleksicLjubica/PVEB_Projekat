@@ -12,6 +12,7 @@ use App\Models\Katedra;
 use App\Http\Controllers\Controller;
 use Illuminate\Auth\Access\Response;
 use Illuminate\Http\Request;
+use DB;
 
 
 class KatedraController extends Controller{
@@ -30,6 +31,31 @@ class KatedraController extends Controller{
         ->where('skolska_godina', $year)
         ->select('katedra.id_katedre as id_katedre', 'katedra.naziv', 'godina_studija', 'skolska_godina', 'profesor.ime_prezime as ime_prezime' )
         ->get();
+
+        return response()->json(['data'=>$katedre]);
+
+    }
+
+
+    public function getAllNazivGodina() {
+
+
+        $katedre = Katedra::query()
+            ->select(DB::raw('CONCAT(naziv, " ", skolska_godina) AS naziv'))
+            ->distinct()
+            ->get();
+
+        return response()->json(['data'=>$katedre]);
+
+    }
+
+
+    public function getAllGodina() {
+
+        $katedre = Katedra::query()
+            ->select('godina_studija')
+            ->distinct()
+            ->get();
 
         return response()->json(['data'=>$katedre]);
 

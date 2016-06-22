@@ -9,6 +9,7 @@
 namespace App\Http\Controllers;
 
 
+
 use App\Models\Glumac;
 use App\Models\Glumac_student;
 
@@ -16,6 +17,8 @@ use App\Models\Student;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use DB;
+
 
 class GlumacController
 {
@@ -23,20 +26,18 @@ class GlumacController
     public function getAll()
     {
 
+
         $results1 = Glumac::query()
-            ->get([
-                'ime_prezime'
-            ]);
+            ->select('ime_prezime')
+            ->distinct();
+
 
         $results = Glumac_student::query()
             ->leftjoin('student as st', 'st.id_studenta', '=', 'glumac_student.Student_id_studenta')
             ->distinct()
-            ->get([
-                'st.ime_prezime as ime_prezime',
-                'st.id_studenta as id_studenta'
-
-            ])
-           ->union($results1);
+            ->select(DB::raw('CONCAT(st.ime_prezime, " ", st.indeks) AS ime_prezime'))
+            ->union($results1)
+            ->get();
 
 
         return response()->json(['data' => $results]);

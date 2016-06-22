@@ -333,6 +333,66 @@ a {
     background-color: rgba(42, 1, 5, 0.4);
 }
 
+#dugme_katedra {
+    margin-top: 9px;
+    background-color: rgb(42, 1, 5);
+    color:bisque; !important;
+    border: 1px solid bisque;
+    border-radius: 5px;
+    margin-left: 188px;
+    margin-bottom:10px;;
+}
+
+#dugme_katedra:hover {
+    background-color: rgba(42, 1, 5, 0.4);
+}
+
+#salji_forma_katedra{
+    background-color: rgb(42, 1, 5);
+    color:bisque; !important;
+    border: 1px solid bisque;
+    border-radius: 5px;
+}
+
+#salji_forma_katedra:hover{
+    background-color: rgba(42, 1, 5, 0.4);
+}
+
+#odbaci_forma_katedra{
+    background-color: rgb(42, 1, 5);
+    color:bisque; !important;
+    border: 1px solid bisque;
+    border-radius: 5px;
+    float: left;
+}
+
+#odbaci_forma_katedra:hover{
+    background-color: rgba(42, 1, 5, 0.4);
+}
+
+#salji_forma_vezba{
+    background-color: rgb(42, 1, 5);
+    color:bisque; !important;
+    border: 1px solid bisque;
+    border-radius: 5px;
+}
+
+#salji_forma_vezba:hover{
+    background-color: rgba(42, 1, 5, 0.4);
+}
+
+#odbaci_forma_vezba{
+    background-color: rgb(42, 1, 5);
+    color:bisque; !important;
+    border: 1px solid bisque;
+    border-radius: 5px;
+    float: left;
+}
+
+#odbaci_forma_vezba:hover{
+    background-color: rgba(42, 1, 5, 0.4);
+}
+
 a:hover {
     cursor: pointer;
 }
@@ -522,4 +582,12 @@ a:hover {
 #katedre_forma{
     margin-top:10px;
     display:none;
+}
+
+#modal_katedra{
+    background-color: bisque;
+}
+
+#modal_vezba{
+    background-color: bisque;
 }

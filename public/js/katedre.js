@@ -138,5 +138,12 @@ $(document).ready(function() {
 
 
 
+
 });
+
+
+    $("#salji_forma_katedra").on('click', function() {
+        $("#forma_katedre").submit();
+    });
+
 });
