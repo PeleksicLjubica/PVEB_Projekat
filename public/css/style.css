@@ -313,6 +313,12 @@ a {
     padding: 20px;
 }
 
+#unos_katedre{
+    height: 50px;
+    margin-top: 10px;
+    padding: 13px;
+}
+
 #dugme_vezbe {
     margin-top: 9px;
     background-color: rgb(42, 1, 5);
@@ -376,10 +382,9 @@ a:hover {
 }
 
 #praviKatedreCSV{
-    margin-bottom: 50px;
-    margin-left: 805px;
     background-color: rgb(42, 1, 5);
     color:bisque; !important;
+    margin-top: 30px;
 }
 
 #praviKatedreCSV:hover {
@@ -489,9 +494,10 @@ a:hover {
 }
 #fileToUpload5{
     display: none;
-}#fileToUpload6{
+}
+#fileToUpload6{
      display: none;
- }
+}
 #fileToUpload7{
     display: none;
 }
@@ -502,3 +508,18 @@ a:hover {
     padding: 0px;
 }
 
+#unesiKatedre{
+    margin-bottom: 50px;
+    margin-left: 805px;
+    background-color: rgb(42, 1, 5);
+    color:bisque; !important;
+}
+
+#unesiKatedre:hover {
+    background-color: rgba(42, 1, 5, 0.4);
+}
+
+#katedre_forma{
+    margin-top:10px;
+    display:none;
+}

@@ -10,6 +10,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Katedra;
 use App\Http\Controllers\Controller;
+use Illuminate\Auth\Access\Response;
 use Illuminate\Http\Request;
 
 
@@ -32,6 +33,23 @@ class KatedraController extends Controller{
 
         return response()->json(['data'=>$katedre]);
 
+    }
+
+    public function dodajKatedre(Request $request){
+
+        $naziv =  $request->input("naziv_katedre");
+        $godina = $request->input("god_studija_katedra");
+        $profesor =  $request->input("profesor_katedre");
+
+        $katedra = new Katedra();
+        $katedra->godina_studija = $godina;
+        $katedra->skolska_godina = date('Y');
+        $katedra->naziv = $naziv . $godina;
+        $katedra->Profesor_id_profesora = $profesor;
+
+        $katedra->save();
+
+        return view('katedre', ['admin' => 1]);
     }
 
 

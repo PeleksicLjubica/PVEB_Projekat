@@ -14,10 +14,7 @@ include 'header.php';
             <div class="row">
 
                 <div class="col-md-9">
-                    <div class="row">
-                        <h3 class="col-md-8"> Sve vežbe: </h3>
-
-                    </div>
+                    <h3> Sve vežbe: </h3>
                     <div id="exampleGrid"></div>
                 </div>
 
