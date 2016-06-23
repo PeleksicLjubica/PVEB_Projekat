@@ -3,44 +3,67 @@ include 'header.php';
 ?>
 
 <div class="container">
+    <h2 id="naziv_filma"><?php echo $film->informacije[0]->naziv_filma ?></h2>
 
     <div class="row" id="proba">
-        <div class="col-md-4"><img src="img/movie.jpg" width="300px" height="300px"></div>
+        <div class="col-md-6" id="vrteska">
+            <!--karusel-->
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                        <li data-target="#myCarousel" data-slide-to="3"></li>
+                    </ol>
 
-        <div class="col-md-4">
-            <label id="naziv_filma"><?php echo $film->informacije[0]->naziv_filma ?></label>
-            <p>Godina proizvodnje: <label id="godina_proizvodnje"> <?php echo $film->informacije[0]->godina_proizvodnje ?> </label> </p>
-            <p>Trajanje: <label id="trajanje"> <?php echo $film->informacije[0]->trajanje ?> </label> </p>
-            <p>Katedra: <label id="katedra"> rezija </label> </p>
-            <p>Profesor: <label id="profesor"> Andjelka </label> </p>
-            <p>Godina studija: <label id="godina_studija"> 2 </label></p>
-            <p>Naziv vezbe: <label id="naziv_vezbe"> <?php echo $film->vezba[0]->naziv ?> </label> </p>
-            <p>Predmet: <label id="predmet"> <?php echo $film->predmet[0]->naziv ?> </label> </p>
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <img src="img/ljuba.jpg" alt="Chania">
+                        </div>
+
+                        <div class="item">
+                            <img src="img/ivan.jpg" alt="Chania">
+                        </div>
+
+                        <div class="item">
+                            <img src="img/milica.jpg" alt="Flower">
+                        </div>
+
+                        <div class="item">
+                            <img src="img/jelena.jpg" alt="Flower">
+                        </div>
+                    </div>
+
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
 
         </div>
 
-
-
-        <div class="col-md-4">
-            <div class="row">
-                <div class="col-md-12">
-                    <button type="button" id="oi" class="btn btn-default btn-block" data-toggle="collapse" data-target="#osn_informacije">
-                       Detalji
-                    </button>
-                </div>
-            </div>
-
-
-            <div class="row">
-                <div class="col-md-12">
-                    <button type="button" id="pusti_film" class="btn btn-default btn-block" data-toggle="collapse" data-target="#prikaz_filma">
-                        Prikaz filma
-                    </button>
-                </div>
-            </div>
-
+        <div class="col-md-3" id="osn_info">
+            <p><span  style="font-style: italic;">Godina proizvodnje: </span> <label id="godina_proizvodnje">  </span> <?php echo $film->informacije[0]->godina_proizvodnje ?> </label> </p>
+            <p><span style="font-style: italic;">Trajanje: </span> <label id="trajanje"> <?php echo $film->informacije[0]->trajanje ?> </label> </p>
+            <p><span style="font-style: italic;">Katedra: </span> <label id="katedra"> rezija </label> </p>
+            <p><span style="font-style: italic;">Profesor: </span> <label id="profesor"> Andjelka </label> </p>
+            <p><span style="font-style: italic;">Godina studija: </span> <label id="godina_studija"> 2 </label></p>
+            <p><span style="font-style: italic;">Naziv vežbe:</span> <label id="naziv_vezbe"> <?php echo $film->vezba[0]->naziv ?> </label> </p>
+            <p><span style="font-style: italic;">Predmet:</span><label id="predmet"> <?php echo $film->predmet[0]->naziv ?> </label> </p>
 
         </div>
+
+        <div class="col-md-3" id="sinopsis">
+           <p><span style="font-style: italic;">Sinopsis:</span> </br><?php echo $film->osnovne[0]->sinopsis ?></p>
+        </div>
+
     </div>
 
     <div class="row">
@@ -48,8 +71,8 @@ include 'header.php';
         <div class="row" id="opcije">
 
             <div class="col-md-6">
-            <div class="collapse" id="osn_informacije">
-                <h3 id="oi_naslov"> Osnovne informacije:</h3>
+            <div  id="osn_informacije">
+                <h3 class="pasusi1"> Osnovne informacije:</h3>
                         <div class="row">
 
                             <div class="col-md-12">
@@ -222,7 +245,7 @@ include 'header.php';
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Sminker</td>
+                                        <td>Šminker</td>
                                         <td>
                                             <ul>
                                                 <?php
@@ -255,65 +278,97 @@ include 'header.php';
                                 </table>
 
 
-                                <h3 id="ts_naslov"> Tehnicka specifikacija:</h3>
+                                <h3 class="pasusi1"> Tehnička specifikacija:</h3>
 
                                 <div class="row" >
-                                    <div class="col-md-6">
-                                        <p>Osnovni format: <label id="osnovni_format"> <?php echo $film->tehnicka[0]->osnovni_format ?> </label> </p>
-                                        <p>Video format: <label id="video_format"> <?php echo $film->tehnicka[0]->video_format ?> </label> </p>
-                                        <p>Analiza slike: <label id="analiza_slike"> <?php echo $film->tehnicka[0]->analiza_slike ?> </label> </p>
-                                        <p>Format slike: <label id="format_slicice"> <?php echo $film->tehnicka[0]->format_slike ?> </label> </p>
-                                        <p>Video nosač: <label id="video_nosac"> <?php echo $film->tehnicka[0]->video_nosac ?> </label> </p>
-                                        <p>Zvuk: <label id="zvuk"> <?php echo $film->tehnicka[0]->zvuk ?> </label> </p>
-                                        <p>Varijacije zvuka: <label id="varijacije_zvuka"> <?php echo $film->tehnicka[0]->varijacije_zvuka ?> </label> </p>
-                                    </div>
+                                    <div class="col-md-12">
 
-                                    <div class="col-md-6">
-                                        <p>Filmski format: <label id="filmski_format"> <?php echo $film->tehnicka[0]->filmski_format ?> </label> </p>
-                                        <p>Televizijski standard: <label id="televizijski_standard"> <?php echo $film->tehnicka[0]->tel_standard ?> </label> </p>
-                                        <p>Broj sličica u sekundi: <label id="slicice_u_sekundi"> <?php echo $film->tehnicka[0]->br_sl_sek ?> </label> </p>
-                                        <p>Vrsta fajla: <label id="vrsta_fajla"> <?php echo $film->tehnicka[0]->vrsta_fajla ?> </label> </p>
-                                        <p>Broj kanala: <label id="broj_kanala"> <?php echo $film->tehnicka[0]->broj_kanala ?> </label> </p>
-                                        <p>Redukcija šuma: <label id="redukcija_suma"> <?php echo $film->tehnicka[0]->redukcija_suma ?> </label> </p>
-                                        <p>Napomene: <label id="napomeneTehnicke"> <?php echo $film->tehnicka[0]->napomene ?> </label> </p>
-                                    </div>
-                                </div>
-
-                                <h3 id="os_naslov"> Detalji:</h3>
-
-                                <div class="row" >
-                                    <div class="col-md-6">
-                                        <p>Sinopsis: <label id="sinopsis"> <?php echo $film->osnovne[0]->sinopsis ?> </label> </p>
-                                        <p>Arhivska muzika: <label id="arhivska_muzika"> <?php echo $film->osnovne[0]->arhivska_muzika ?> </label> </p>
-                                        <p>Biografija rezisera: <label id="biografija_rezisera"> <?php echo $film->osnovne[0]->biografija_rezisera ?> </label> </p>
-                                        <p>Napomene: <label id="napomeneOsnovne"> <?php echo $film->osnovne[0]->napomene ?> </label> </p>
-                                    </div>
-                                </div>
-
-                                <?php
-                                    if (count($film->prilozi)> 0) {
-                                        echo '<h3 id="prilog_naslov"> Prilozeno uz film:</h3>';
-                                    }
-                                ?>
-
-                                <div class="row" >
-                                    <div class="col-md-6">
                                         <table class="table table-striped">
+
                                             <tbody>
-                                            <?php
-                                                $index = 1;
-                                                foreach ($film->prilozi as $prilog) {
-                                                    echo '<tr>';
-                                                    if ($prilog->tip_priloga == 'fotografija iz filma') {
-                                                        echo '<td style="vertical-align: middle">' . $prilog->tip_priloga . ' (' . $index . ')</td>';
-                                                        $index++;
-                                                    } else {
-                                                        echo '<td style="vertical-align: middle">' . $prilog->tip_priloga . '</td>';
-                                                    }
-                                                    echo '<td>' . '<a class="btn btn-default" href="file_' . $prilog->id_priloga . '">Download</a></td>';
-                                                    echo '</tr>';
-                                                }
-                                            ?>
+                                            <tr>
+                                                <td>Osnovni format:</td>
+                                                <td>
+                                                    <?php echo $film->tehnicka[0]->osnovni_format ?>
+                                                </td>
+                                                <td>Filmski format:</td>
+                                                <td>
+                                                    <?php echo $film->tehnicka[0]->filmski_format ?>
+                                                </td>
+
+                                            </tr>
+
+                                            <tr>
+                                                <td>Video format:</td>
+                                                <td>
+                                                    <?php echo $film->tehnicka[0]->video_format ?>
+                                                </td>
+                                                <td>Televizijski standard: </td>
+                                                <td>
+                                                    <?php echo $film->tehnicka[0]->tel_standard ?>
+                                                </td>
+
+                                            </tr>
+
+                                            <tr>
+                                                <td>Analiza slike: </td>
+                                                <td>
+                                                    <?php echo $film->tehnicka[0]->analiza_slike ?>
+                                                </td>
+                                                <td>Format slike: </td>
+                                                <td>
+                                                    <?php echo $film->tehnicka[0]->format_slike ?>
+                                                </td>
+
+                                            </tr>
+
+                                            <tr>
+                                                <td>Video nosač:  </td>
+                                                <td>
+                                                    <?php echo $film->tehnicka[0]->video_nosac ?>
+                                                </td>
+                                                <td>Zvuk: </td>
+                                                <td>
+                                                    <?php echo $film->tehnicka[0]->zvuk ?>
+                                                </td>
+
+                                            </tr>
+
+                                            <tr>
+                                                <td>Varijacije zvuka: </td>
+                                                <td>
+                                                    <?php echo $film->tehnicka[0]->varijacije_zvuka ?>
+                                                </td>
+                                                <td>Broj sličica u sekundi: </td>
+                                                <td>
+                                                    <?php echo $film->tehnicka[0]->br_sl_sek ?>
+                                                </td>
+
+                                            </tr>
+
+                                            <tr>
+                                                <td>Vrsta fajla: </td>
+                                                <td>
+                                                    <?php echo $film->tehnicka[0]->vrsta_fajla ?>
+                                                </td>
+                                                <td>Broj kanala: </td>
+                                                <td>
+                                                    <?php echo $film->tehnicka[0]->broj_kanala ?>
+                                                </td>
+
+                                            </tr>
+
+                                            <tr>
+                                                <td>Redukcija šuma:  </td>
+                                                <td>
+                                                    <?php echo $film->tehnicka[0]->redukcija_suma ?>
+                                                </td>
+                                                <td>Napomene: </td>
+                                                <td>
+                                                    <?php echo $film->tehnicka[0]->napomene ?>
+                                                </td>
+
+                                            </tr>
                                             </tbody>
                                         </table>
                                     </div>
@@ -324,20 +379,76 @@ include 'header.php';
 
                         </div>
             </div>
-            </div>
+            </div> <!--kraj leve strane-->
 
 
-            <div class="col-md-6 collapse" id="prikaz_filma">
-                <video id="video1" width="600" controls>
-                    <source src="filmovi/TOM.mp4" type="video/mp4">
-                    Your browser does not support HTML5 video.
-                </video>
-            </div>
+            <div class="col-md-6" id="prikaz_filma">
 
-        </div>
+                <div>
+                    <video id="video1" width="600" controls>
+                        <source src="filmovi/TOM.mp4" type="video/mp4">
+                        Your browser does not support HTML5 video.
+                    </video>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <h3 class="pasusi1"> Detalji:</h3>
+
+                        <p class="pasusi">Arhivska muzika: <label id="arhivska_muzika"> <?php echo $film->osnovne[0]->arhivska_muzika ?> </label> </p>
+                        <p class="pasusi">Biografija rezisera: <label id="biografija_rezisera"> <?php echo $film->osnovne[0]->biografija_rezisera ?> </label> </p>
+                        <p class="pasusi">Napomene: <label id="napomeneOsnovne"> <?php echo $film->osnovne[0]->napomene ?> </label> </p>
 
 
-    </div>
+
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <?php
+                        if (count($film->prilozi)> 0) {
+                            echo '<h3 class="pasusi1"> Prilozeno uz film:</h3>';
+                        }
+                        ?>
+
+                        <table class="table table-striped">
+                            <tbody>
+                            <?php
+                            $index = 1;
+                            foreach ($film->prilozi as $prilog) {
+                                echo '<tr>';
+                                if ($prilog->tip_priloga == 'fotografija iz filma') {
+                                    echo '<td style="vertical-align: middle">' . $prilog->tip_priloga . ' (' . $index . ')</td>';
+                                    $index++;
+                                } else {
+                                    echo '<td style="vertical-align: middle">' . $prilog->tip_priloga . '</td>';
+                                }
+                                echo '<td>' . '<a class="btn btn-default" href="file_' . $prilog->id_priloga . '">Download</a></td>';
+                                echo '</tr>';
+                            }
+                            ?>
+                            </tbody>
+                        </table>
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+            </div> <!--kraj leve strane-->
+
+
+
+        </div> <!--row-->
+
+
+    </div> <!--container-->
 
 </div>
 
