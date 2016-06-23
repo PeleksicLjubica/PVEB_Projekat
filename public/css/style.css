@@ -501,10 +501,11 @@ a:hover {
     margin-bottom: 20px;
     background-color: rgb(42,1,5);
     color:bisque;
+    font-size: 16px;
 }
 
 #prikaz_filma{
-    text-align: center;
+
     margin-top: 20px;
 }
 
@@ -619,4 +620,17 @@ a:hover {
     border-radius: 5px;
     text-align: center;
 }
+
+
+
+.pasusi_manji {
+    background-color: rgb(42, 1, 5);
+    color:bisque;
+    padding: 2px;
+    height: 30px;
+    border: 1px solid bisque;
+    border-radius: 5px;
+    text-align: center;
+}
+
 

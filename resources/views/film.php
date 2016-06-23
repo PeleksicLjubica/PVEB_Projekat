@@ -8,46 +8,83 @@ include 'header.php';
     <div class="row" id="proba">
         <div class="col-md-6" id="vrteska">
             <!--karusel-->
-                <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                    <!-- Indicators -->
-                    <ol class="carousel-indicators">
-                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#myCarousel" data-slide-to="1"></li>
-                        <li data-target="#myCarousel" data-slide-to="2"></li>
-                        <li data-target="#myCarousel" data-slide-to="3"></li>
-                    </ol>
 
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner" role="listbox">
-                        <div class="item active">
-                            <img src="img/ljuba.jpg" alt="Chania">
-                        </div>
 
-                        <div class="item">
-                            <img src="img/ivan.jpg" alt="Chania">
-                        </div>
+          <?php
+                    $brojac = 0;
+                    foreach ($film->prilozi as $prilog) {
+                        if ($prilog->tip_priloga == 'fotografija iz filma')
+                            $brojac++;
+                    }
 
-                        <div class="item">
-                            <img src="img/milica.jpg" alt="Flower">
-                        </div>
 
-                        <div class="item">
-                            <img src="img/jelena.jpg" alt="Flower">
-                        </div>
-                    </div>
 
-                    <!-- Left and right controls -->
-                    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
+                    if ($brojac > 0) {
+
+                        echo '<div id = "myCarousel" class="carousel slide" data-ride= "carousel" >';
+
+                        echo '<ol class="carousel-indicators" >';
+
+                        $index = 0;
+                        foreach ($film->prilozi as $prilog) {
+                            if ($prilog->tip_priloga == 'fotografija iz filma') {
+                                if ($index == 0) {
+                                    echo '<li data-target = "#myCarousel" data-slide-to =  ' .".  $index  .". ' class="active" ></li >';
+                                }
+
+                                else {
+                                    echo '<li data-target = "#myCarousel" data-slide-to =  ' .".  $index  .". '></li >';
+                                }
+
+                                $index++;
+                            }
+
+                            //echo $index;
+                        }
+
+                        echo '</ol>';
+
+                        $indeks = 1;
+                        echo '<div class="carousel-inner" role = "listbox" >';
+                            foreach($film->prilozi as $prilog) {
+                                if ($prilog->tip_priloga == 'fotografija iz filma') {
+                                    if ($indeks == 1) {
+                                        echo '<div class="item active" >';
+                                            echo '<img src = "' .$prilog->putanja. ' " alt = "Chania" >';
+                                        echo '</div >';
+                                    }
+
+                                    else {
+                                        echo '<div class="item" >';
+                                        echo '<img src = "' .$prilog->putanja. ' " alt = "Chania" >';
+                                        echo '</div >';
+                                    }
+
+                                    $indeks++;
+                                }
+                        }
+                        echo '</div >';
+
+                        echo '<a class="left carousel-control" href = "#myCarousel" role = "button" data - slide = "prev" >';
+                            echo '<span class="glyphicon glyphicon-chevron-left" aria - hidden = "true" ></span >';
+                            echo '<span class="sr-only" > Previous</span >';
+                        echo '</a >';
+
+                        echo '<a class="right carousel-control" href = "#myCarousel" role = "button" data - slide = "next" >';
+                            echo '<span class="glyphicon glyphicon-chevron-right" aria - hidden = "true" ></span >';
+                            echo ' <span class="sr-only" > Next</span >';
+                        echo '</a >';
+
+                     echo '</div >'; /*karusel */
+
+                    }
+
+          else
+                echo ' <div><img src="img/movie.jpg" width="70%" height="50%"></div>';
+          ?>
 
         </div>
+
 
         <div class="col-md-3" id="osn_info">
             <p><span  style="font-style: italic;">Godina proizvodnje: </span> <label id="godina_proizvodnje">  </span> <?php echo $film->informacije[0]->godina_proizvodnje ?> </label> </p>
@@ -384,28 +421,34 @@ include 'header.php';
 
             <div class="col-md-6" id="prikaz_filma">
 
-                <div>
-                    <video id="video1" width="600" controls>
-                        <source src="filmovi/TOM.mp4" type="video/mp4">
-                        Your browser does not support HTML5 video.
-                    </video>
+                <div class="row">
+
+                    <?php
+                    foreach ($film->prilozi as $prilog) {
+                        if ($prilog->tip_priloga == 'Blu-ray') {
+                        echo '<div>';
+                            echo '<video width = "600" controls >';
+                               echo '<source src="' .$prilog->putanja. ' " type = "video/mp4" >';
+                               echo  'Your browser does not support HTML5 video.';
+                            echo '</video >';
+                        echo '</div >';
+                        }
+                        if ($prilog->tip_priloga == 'DVD') {
+                            echo '<div>';
+                                echo '<video width = "600" controls >';
+                                    echo '<source src="' .$prilog->putanja. ' " type = "video/mp4" >';
+                                    echo  'Your browser does not support HTML5 video.';
+                                echo '</video >';
+                            echo '</div >';
+                        }
+                    }
+                    ?>
                 </div>
 
                 <div class="row">
-                    <div class="col-md-6">
-
-                        <h3 class="pasusi1"> Detalji:</h3>
-
-                        <p class="pasusi">Arhivska muzika: <label id="arhivska_muzika"> <?php echo $film->osnovne[0]->arhivska_muzika ?> </label> </p>
-                        <p class="pasusi">Biografija rezisera: <label id="biografija_rezisera"> <?php echo $film->osnovne[0]->biografija_rezisera ?> </label> </p>
-                        <p class="pasusi">Napomene: <label id="napomeneOsnovne"> <?php echo $film->osnovne[0]->napomene ?> </label> </p>
 
 
-
-
-                    </div>
-
-                    <div class="col-md-6">
+                    <div>
 
                         <?php
                         if (count($film->prilozi)> 0) {
@@ -434,6 +477,31 @@ include 'header.php';
 
 
                     </div>
+
+
+                    <div>
+                        
+                        <?php if($film->osnovne[0]->arhivska_muzika != "") {
+                                echo '<p class="pasusi_manji">Arhivska muzika: </p>';
+                                echo $film->osnovne[0]->arhivska_muzika;
+                            }
+
+                            if($film->osnovne[0]->biografija_rezisera != "") {
+                                echo  '<p class="pasusi_manji">Biografija rezisera:  </p>';
+                                echo $film->osnovne[0]->biografija_rezisera;
+                            }
+
+                        if($film->osnovne[0]->napomene != "") {
+                            echo   '<p class="pasusi_manji">Napomene: </p>';
+                            echo $film->osnovne[0]->napomene;
+                        }
+
+                        ?>
+
+
+                    </div>
+
+
 
 
 
