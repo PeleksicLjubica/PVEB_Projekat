@@ -328,7 +328,7 @@ $(document).ready(function(){
 
                 for (var i = 0; i < data.data.length; i++) {
                     var a = {};
-                    a.id = data.data[i];
+                    a.id = data.data[i].ime_prezime;
                     a.text=data.data[i].ime_prezime;
                     glumci.push(a);
                 }
@@ -363,48 +363,48 @@ $(document).ready(function(){
                     var h = {};
 
                     if(data.data[i].tip_podrske == "kompozitor") {
-                        a.id = data.data[i];
+                        a.id = data.data[i].ime_prezime;
                         a.text = data.data[i].ime_prezime;
                         kompozitori.push(a);
                     }
                     else if(data.data[i].tip_podrske == "dizajner zvuka") {
-                        b.id = data.data[i];
+                        b.id = data.data[i].ime_prezime;
                         b.text = data.data[i].ime_prezime;
                         dizajner_zvuka.push(b);
                     }
 
                     else if(data.data[i].tip_podrske == "snimatelj zvuka") {
-                        c.id = data.data[i];
+                        c.id = data.data[i].ime_prezime;
                         c.text = data.data[i].ime_prezime;
                         snimatelj_zvuka.push(c);
                     }
 
                     else if(data.data[i].tip_podrske == "scenograf") {
-                        d.id = data.data[i];
+                        d.id = data.data[i].ime_prezime;
                         d.text = data.data[i].ime_prezime;
                         scenograf.push(d);
                     }
 
                     else if(data.data[i].tip_podrske == "kostimograf") {
-                        e.id = data.data[i];
+                        e.id = data.data[i].ime_prezime;
                         e.text = data.data[i].ime_prezime;
                         kostimograf.push(e);
                     }
 
                     else if(data.data[i].tip_podrske == "animacija") {
-                        f.id = data.data[i];
+                        f.id = data.data[i].ime_prezime;
                         f.text = data.data[i].ime_prezime;
                         animacija.push(f);
                     }
 
                     else if(data.data[i].tip_podrske == "sminker") {
-                        g.id = data.data[i];
+                        g.id = data.data[i].ime_prezime;
                         g.text = data.data[i].ime_prezime;
                         sminker.push(g);
                     }
 
                     else {
-                        h.id = data.data[i];
+                        h.id = data.data[i].ime_prezime;
                         h.text = data.data[i].ime_prezime;
                         spec_efekti.push(h);
                     }
