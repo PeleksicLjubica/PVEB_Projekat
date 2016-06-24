@@ -16,7 +16,7 @@ include 'header.php';
 
 </script>
 
-<div class="container">
+<div class="container" id ="pocetnaContainer">
 
         <div id="levi_div">
             <form id="pretragaForma" role="form" method="post">
