@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "dc599e5884067238a3a28e0eb5b78897",
+    "hash": "053d0b4ad29db0d57828c03a2ce868e3",
     "content-hash": "695d9f4060282f84ab589621fb2229f0",
     "packages": [
         {
@@ -940,16 +940,16 @@
         },
         {
             "name": "illuminate/queue",
-            "version": "v5.2.37",
+            "version": "v5.2.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/queue.git",
-                "reference": "4e05c2184618e08273e8c159a6345a85bcff7b1a"
+                "reference": "4426e6df25facdc603b7e6d999142e78b8255843"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/queue/zipball/4e05c2184618e08273e8c159a6345a85bcff7b1a",
-                "reference": "4e05c2184618e08273e8c159a6345a85bcff7b1a",
+                "url": "https://api.github.com/repos/illuminate/queue/zipball/4426e6df25facdc603b7e6d999142e78b8255843",
+                "reference": "4426e6df25facdc603b7e6d999142e78b8255843",
                 "shasum": ""
             },
             "require": {
@@ -959,7 +959,6 @@
                 "illuminate/support": "5.2.*",
                 "nesbot/carbon": "~1.20",
                 "php": ">=5.5.9",
-                "symfony/debug": "2.8.*|3.0.*",
                 "symfony/process": "2.8.*|3.0.*"
             },
             "suggest": {
@@ -993,7 +992,7 @@
             ],
             "description": "The Illuminate Queue package.",
             "homepage": "http://laravel.com",
-            "time": "2016-06-09 01:50:28"
+            "time": "2016-03-21 14:59:35"
         },
         {
             "name": "illuminate/session",
@@ -1198,16 +1197,16 @@
         },
         {
             "name": "illuminate/view",
-            "version": "v5.2.37",
+            "version": "v5.2.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/view.git",
-                "reference": "459795e5ba447d674eae03bfb2f9bc3c6206d424"
+                "reference": "a0e77662f06eaae851469ebf132868c9024a259d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/view/zipball/459795e5ba447d674eae03bfb2f9bc3c6206d424",
-                "reference": "459795e5ba447d674eae03bfb2f9bc3c6206d424",
+                "url": "https://api.github.com/repos/illuminate/view/zipball/a0e77662f06eaae851469ebf132868c9024a259d",
+                "reference": "a0e77662f06eaae851469ebf132868c9024a259d",
                 "shasum": ""
             },
             "require": {
@@ -1216,8 +1215,7 @@
                 "illuminate/events": "5.2.*",
                 "illuminate/filesystem": "5.2.*",
                 "illuminate/support": "5.2.*",
-                "php": ">=5.5.9",
-                "symfony/debug": "2.8.*|3.0.*"
+                "php": ">=5.5.9"
             },
             "type": "library",
             "extra": {
@@ -1242,7 +1240,7 @@
             ],
             "description": "The Illuminate View package.",
             "homepage": "http://laravel.com",
-            "time": "2016-05-28 21:20:12"
+            "time": "2016-03-28 15:19:10"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -1876,16 +1874,16 @@
         },
         {
             "name": "symfony/debug",
-            "version": "v3.0.7",
+            "version": "v3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
-                "reference": "e67e1552dd7313df1cf6535cb606751899e0e727"
+                "reference": "26786e21ee0344f99629215ead5f0d6f18cdc267"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/debug/zipball/e67e1552dd7313df1cf6535cb606751899e0e727",
-                "reference": "e67e1552dd7313df1cf6535cb606751899e0e727",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/26786e21ee0344f99629215ead5f0d6f18cdc267",
+                "reference": "26786e21ee0344f99629215ead5f0d6f18cdc267",
                 "shasum": ""
             },
             "require": {
@@ -1902,7 +1900,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "dev-master": "3.1-dev"
                 }
             },
             "autoload": {
@@ -1929,7 +1927,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2016-06-06 15:08:35"
+            "time": "2016-06-06 15:08:54"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -2461,12 +2459,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/tymondesigns/jwt-auth.git",
-                "reference": "7a4a5bc69f045830dfa786839ce6d203ec3edbc7"
+                "reference": "a82685c0d2c0bccd0a00b3ebe5c2cf0890509202"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tymondesigns/jwt-auth/zipball/7a4a5bc69f045830dfa786839ce6d203ec3edbc7",
-                "reference": "7a4a5bc69f045830dfa786839ce6d203ec3edbc7",
+                "url": "https://api.github.com/repos/tymondesigns/jwt-auth/zipball/a82685c0d2c0bccd0a00b3ebe5c2cf0890509202",
+                "reference": "a82685c0d2c0bccd0a00b3ebe5c2cf0890509202",
                 "shasum": ""
             },
             "require": {
@@ -2519,7 +2517,7 @@
                 "jwt",
                 "laravel"
             ],
-            "time": "2016-06-20 21:03:47"
+            "time": "2016-06-23 19:27:01"
         },
         {
             "name": "vlucas/phpdotenv",
