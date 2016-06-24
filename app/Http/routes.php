@@ -78,6 +78,8 @@ $app->get('/film','FilmController@prikaziFilm');
 
 $app->get('/film_{id}', 'FilmController@getFilm');
 $app->get('/file_{id}', 'FilmController@downloadPrilog');
+$app->post('/studentInkrement_{id}','StudentController@inkrementGodine');
+
 
 
 

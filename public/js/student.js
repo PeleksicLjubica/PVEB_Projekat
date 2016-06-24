@@ -19,7 +19,7 @@ $(document).ready(function(){
     $("#inkrement_godine").click(function(){
         $("#studenti_forma1").slideToggle("slow");
     });
-    // "<input type='button' onclick='uvecajGodinu(${indeks})' value='Uvecaj godinu' />" ],
+
     $.get(pathWithToken("studentiPodaci"), function(data){
         $token=localStorage.getItem('token');
         $("#exampleGrid").simplePagingGrid({
@@ -27,7 +27,8 @@ $(document).ready(function(){
             columnKeys: ["id_studenta", "indeks", "ime_prezime", "e_mail","katedra_id_katedre", "uvecanje"],
             columnWidths: ["15%", "15%", "20%","20", "20", "10"],
             cellTemplates: [null, null, null, null, null,
-                "<a class='btn btn-default' href='studentInkrement_{{id_studenta}}?token={{$token}}' > Uvecaj godinu</a>"],
+              '<input type="button" onclick="goToPageWithToken(\'studentInkrement_{{id_studenta}}\')" value="Uvecaj" />'],
+
         data: data.data
         });
 
@@ -55,6 +56,48 @@ $(document).ready(function(){
             data: katedre,
             tags:true
         });
+
+    });
+
+    $.validator.addMethod(
+           "regex1",
+           function(value, element, regexp) {
+               var check = false;
+               return this.optional(element) || regexp.test(value);
+           }
+       );
+
+    $(function() {
+        $("#studenti_forma").validate({
+            errorClass: "my-error-class",
+
+            rules: {
+                indeks: {required: true,
+                    regex1: /[0-9]*/
+                     },
+                ime_prezime: {required: true},
+                e_mail: {required: true},
+                katedre:{required: true,
+                         regex1: /[^0].*/
+                }
+            },
+            messages: {
+                indeks: {
+                   regex1: "Morate da unesete indeks"
+                },
+                ime_prezime: {
+                    required: "Morate da unesete ime i prezime"
+                },
+                e_mail: {
+                    required: "Morate da unesete email"
+                },
+                katedre:{
+                    regex1: "Morate da odaberete katedru"
+                }
+
+            }
+        });
+
 
     });
 

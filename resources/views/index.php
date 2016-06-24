@@ -16,10 +16,10 @@ include 'header.php';
 
 </script>
 
-<div class="container">
+<div class="container" id ="pocetnaContainer">
 
         <div id="levi_div">
-            <form id="pretragaForma" role="form" method="post">
+            <form id="pretragaForma">
 
             <div class="naslov">
                         <h1>Pretraga fimova:</h1>
@@ -380,7 +380,7 @@ include 'header.php';
                                     </div><!-- row-->
                                     <div class="row redovi_u_pretrazi"> <!--dugme-->
                                         <div class="col-md-3 col-md-offset-9">
-                                            <button type="submit" class="btn btn-default btn-sm" id="pretrazi1">Pretraži</button>
+                                            <button type="button" class="btn btn-default btn-sm" id="pretrazi1">Pretrazi</button>
                                         </div>
                                     </div>
 

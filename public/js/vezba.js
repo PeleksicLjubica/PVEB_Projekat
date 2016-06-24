@@ -14,7 +14,7 @@ $(document).ready(function(){
         $("#exampleGrid").simplePagingGrid({
             columnNames: colNames,
             columnKeys: ["id_vezbe", "naziv_vezbe", "opis", "tip", "predmet_naziv"],
-            columnWidths: ["10%", "30%", "30%","20", "10"],
+            columnWidths: ["10%", "20%", "40%","15%", "15%"],
             data: data.data
         });
 

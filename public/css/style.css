@@ -610,7 +610,6 @@ a:hover {
     padding: 10px;
 }
 
-
 .pasusi1 {
     background-color: rgb(42, 1, 5);
     color:bisque;
@@ -620,8 +619,6 @@ a:hover {
     border-radius: 5px;
     text-align: center;
 }
-
-
 
 .pasusi_manji {
     background-color: rgb(42, 1, 5);
@@ -641,7 +638,10 @@ a:hover {
     color:rgb(42,1,5);
 }
 
-
 .link:hover {
     color:black;
+}
+
+#pocetnaContainer {
+    min-height: 600px;
 }
