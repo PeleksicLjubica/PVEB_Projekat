@@ -29,7 +29,7 @@ include 'header.php';
                         </div>
 
                         <div id="studenti_forma">
-                            <form role="form" method="post" enctype="multipart/form-data" id="student_forma">
+                            <form role="form" method="post" enctype="multipart/form-data" action="" onsubmit="pathWithToken('studenti')">
                                 <div class="row">
                                     <div class="form-group col-md-12">
                                         <label for="indeks">Indeks studenta:</label>
@@ -38,37 +38,22 @@ include 'header.php';
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-12">
-                                        <label for="ime">Ime:</label>
-                                        <input type="text" class="form-control" id="ime" name="ime">
+                                        <label for="ime">Ime i prezime:</label>
+                                        <input type="text" class="form-control" id="ime_prezime" name="ime_prezime">
                                     </div>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="indeks">Prezime:</label>
-                                    <input type="text" class="form-control" id="prezime" name="prezime">
-                                </div>
                                 <div class="form-group">
                                     <label for="email">Email studenta:</label>
-                                    <input type="text" class="form-control" id="email" name="email">
-                                </div>
-
-                                <div class="row">
-                                    <div class="form-group">
-                                        <div class="col-md-12">
-                                            <label for="godina_studija"> Godina studija: </label>
-                                        </div>
-                                        <div class="col-md-12" id="student_god_studija">
-                                            <select class="js-example-data-array col-md-12 godina_studija" name="godina_studija">
-                                            </select>
-                                        </div>
-                                    </div>
+                                    <input type="text" class="form-control" id="e_mail" name="e_mail">
                                 </div>
 
                                 <div class="form-group">
                                     <label>Katedra:</label>
-                                    <select class="js-example-data-array katedre"  name="katedra" style="width: 100%">
+                                    <select class="js-example-data-array katedre" id="katedre" name="katedre" style="width: 100%">
                                     </select>
                                 </div>
+
 
                                 <button type="submit" class="btn btn-default" id="dugme_studenti">Potvrdi</button>
 

@@ -447,6 +447,7 @@ class FilmController extends Controller
     //funkcija koja pretrazuje filmove i vraca filmove koji zadovoljavaju pretragu u JSON formatu
     public function pretrazi(Request $request)
     {
+
         //indikatori da li je radjeno spajanje sa odredjenom tabelom
         $tehnicka_ind = 0;
         $vezba_ind = 0;
@@ -477,13 +478,13 @@ class FilmController extends Controller
                 ->get();
 
             if ($request->query('token')) {
-               // return response()->json(['result' => json_encode($film)]);
+                return response()->json(['result' => json_encode($film)]);
 
-                return view('index', ['admin' => 1, 'result' => json_encode($film)]);
+                //return view('index', ['admin' => 1, 'result' => json_encode($film)]);
             } else {
 
-                //return response()->json(['result' => json_encode($film)]);
-                return view('index', ['admin' => 0, 'result' => json_encode($film)]);
+                return response()->json(['result' => json_encode($film)]);
+                //return view('index', ['admin' => 0, 'result' => json_encode($film)]);
             }
 
         } else {
@@ -1040,13 +1041,13 @@ class FilmController extends Controller
                 ->get();
 
             if ($request->query('token')) {
-                //return response()->json(['result' => json_encode($film)]);
+                return response()->json(['result' => json_encode($film)]);
 
-                return view('index', ['admin' => 1, 'result' => json_encode($film)]);
+                //return view('index', ['admin' => 1, 'result' => json_encode($film)]);
             } else {
 
-               // return response()->json(['result' => json_encode($film)]);
-                return view('index', ['admin' => 0, 'result' => json_encode($film)]);
+                return response()->json(['result' => json_encode($film)]);
+                //return view('index', ['admin' => 0, 'result' => json_encode($film)]);
             }
 
 

@@ -5,6 +5,20 @@ function idiNaKarton(){
 //ovo se odnosi na formu
 $(document).ready(function(){
 
+    $("#pretrazi1").click(function(){
+        console.log("USAO U JS-OKIDAM ZAHTEV");
+
+        var str = $("#pretragaForma").serialize();
+        console.log(str);
+
+        $.post("filmPretraga", str,
+            function(data, status){
+                console.log(data);
+            });
+
+    });
+
+
     var film = [];
     var godina_studija=[];
     var trajanje = [];

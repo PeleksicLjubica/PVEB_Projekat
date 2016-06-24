@@ -1,9 +1,14 @@
-function uvecajGodinu(){
-    // location.href='karton?'+$token;
-    $token=localStorage.getItem('token');
-    location.href='karton?token='+$token;
+function uvecajGodinu(id){
+//    $token=localStorage.getItem('token');
+//    location.href='karton?token='+$token;
+    console.log("cao");
+    $.post(pathWithToken("studentInkrement"),id);
 }
+
 $(document).ready(function(){
+    $token=localStorage.getItem('token');
+    var colNames = ["id_studenta", "Indeks", "Ime_prezime", "Email", "Id katedre", "Uvecanje godine"];
+    var podaci = [];
     $("#student_forma").attr("action", pathWithToken('student'));
 
     $($('#navbar-lista').children()[4]).addClass('active');
@@ -14,14 +19,16 @@ $(document).ready(function(){
     $("#inkrement_godine").click(function(){
         $("#studenti_forma1").slideToggle("slow");
     });
-    // "<input type='button' onclick='uvecajGodinu(${indeks})' value='Uvecaj godinu' />" ],
+
     $.get(pathWithToken("studentiPodaci"), function(data){
+        $token=localStorage.getItem('token');
         $("#exampleGrid").simplePagingGrid({
-            columnNames: ["ID studenta", "Indeks", "Ime", "Prezime", "Email", "Godina studija", "Naziv katedre", "Uvecanje godine"],
-            columnKeys: ["id_studenta", "indeks", "ime", "prezime", "email","godina_studija","Katedra_naziv", "uvecanje"],
-            columnWidths: ["10%", "15%", "15%","15", "20", "10", "10", "5"],
-            cellTemplates: [null, null, null, null, null, null, null,
-                "<input type='button' onclick='uvecajGodinu()' value='Uvecaj' />" ],
+            columnNames: colNames,
+            columnKeys: ["id_studenta", "indeks", "ime_prezime", "e_mail","katedra_id_katedre", "uvecanje"],
+            columnWidths: ["15%", "15%", "20%","20", "20", "10"],
+            cellTemplates: [null, null, null, null, null,
+              '<input type="button" onclick="goToPageWithToken(\'studentInkrement_{{id_studenta}}\')" value="Uvecaj" />'],
+
         data: data.data
         });
 
@@ -29,27 +36,71 @@ $(document).ready(function(){
 
     });
 
+
     $.get(pathWithToken("katedraPodaci"), function(data){
 
         var katedre = [];
 
-        katedre.push({ id: 0, text: '' });
+        katedre.push({id: 0,  text: '' });
 
         for (var i = 0; i < data.data.length; i++) {
             var a = {};
-            a.id = data.data[i].id_katedre;
-            a.text=data.data[i].naziv ;
+            a.id = data.data[i].naziv;
+            a.text = data.data[i].naziv;
 
             katedre.push(a);
-        }
 
+        }
+        console.log(katedre);
         $(".js-example-data-array.katedre").select2({
             data: katedre,
-            tags:true,
-            multiple:true
+            tags:true
         });
 
     });
+
+    $.validator.addMethod(
+           "regex1",
+           function(value, element, regexp) {
+               var check = false;
+               return this.optional(element) || regexp.test(value);
+           }
+       );
+
+    $(function() {
+        $("#studenti_forma").validate({
+            errorClass: "my-error-class",
+
+            rules: {
+                indeks: {required: true,
+                    regex1: /[0-9]*/
+                     },
+                ime_prezime: {required: true},
+                e_mail: {required: true},
+                katedre:{required: true,
+                         regex1: /[^0].*/
+                }
+            },
+            messages: {
+                indeks: {
+                   regex1: "Morate da unesete indeks"
+                },
+                ime_prezime: {
+                    required: "Morate da unesete ime i prezime"
+                },
+                e_mail: {
+                    required: "Morate da unesete email"
+                },
+                katedre:{
+                    regex1: "Morate da odaberete katedru"
+                }
+
+            }
+        });
+
+
+    });
+
 
     var dataGodSt = [{ id: 1, text: '1' }, { id: 2, text: '2' }, { id: 3, text: '3' },
         { id: 4, text: '4' }, { id: 5, text: 'master' }, { id: 5, text: 'doktorske' }];
