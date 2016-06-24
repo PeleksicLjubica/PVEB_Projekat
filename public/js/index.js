@@ -6,10 +6,10 @@ function idiNaKarton(){
 $(document).ready(function(){
 
     var film = [];
-    var godina=[];
+    var godina_studija=[];
     var trajanje = [];
     var katedra = [];
-    var godina = [];
+    var godina_proizvodnje = [];
     var predmeti = [];
     var vezbe = [];
     var profesori = [];
@@ -109,7 +109,7 @@ $(document).ready(function(){
             async: false,
             success : function(data){
 
-                godina.push({ id: 0, text: '' });
+                godina_proizvodnje.push({ id: 0, text: '' });
 
                 for (var i = 0; i < data.data.length; i++) {
                     var a = {}; //naziv filma
@@ -117,7 +117,7 @@ $(document).ready(function(){
                     a.id = data.data[i].godina_proizvodnje;
                     a.text = data.data[i].godina_proizvodnje;
 
-                    godina.push(a);
+                    godina_proizvodnje.push(a);
                 }
             }
         }),
@@ -150,7 +150,7 @@ $(document).ready(function(){
             success : function(data){
 
                 //katedra.push({ id: 0, text: '' });
-                godina.push({ id: 0, text: '' });
+                godina_studija.push({ id: 0, text: '' });
 
                 for (var i = 0; i < data.data.length; i++) {
 
@@ -159,7 +159,7 @@ $(document).ready(function(){
                     b.id = data.data[i].godina_studija;
                     b.text = data.data[i].godina_studija;
 
-                    godina.push(b);
+                    godina_studija.push(b);
                 }
 
             }
@@ -419,7 +419,7 @@ $(document).ready(function(){
         });
 
         $(".js-example-data-array.godina_proizvodnje").select2({
-            data: godina
+            data: godina_proizvodnje
         });
 
 
@@ -432,7 +432,7 @@ $(document).ready(function(){
         });
 
         $(".js-example-data-array.godina_studija").select2({
-            data: godina
+            data: godina_studija
         });
 
         $(".js-example-data-array.predmet").select2({
@@ -580,8 +580,8 @@ $(document).ready(function(){
             columnNames: ["Naziv filma", "Trajanje", "Godina proizvodnje", "Detalji"],
             columnKeys: ["naziv_filma", "trajanje", "godina_proizvodnje", "detalji"],
             columnWidths: ["30%", "20%", "30%", "20%"],
-            cellTemplates: ["<span style='font-size:17px;'>{{naziv_filma}}</span>", null, null,
-                "<a class='link' href='film_{{id_filma}}'>Vidi detalje</a>"],
+            cellTemplates: [null, null, null,
+                "<a class='btn btn-default'  href='film_{{id_filma}}'>Idi na detalje o filmu</a>"],
             data: data
         });
 

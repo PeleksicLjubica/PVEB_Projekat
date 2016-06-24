@@ -101,7 +101,8 @@ include 'header.php';
            <p><span style="font-style: italic;">Sinopsis:</span> </br><?php echo $film->osnovne[0]->sinopsis ?></p>
         </div>
 
-    </div>
+    </div> <!--prvi red, header-->
+
 
     <div class="row">
 
@@ -411,49 +412,57 @@ include 'header.php';
                                     </div>
                                 </div>
 
-                            </div>
+                            </div> <!--col md 12-->
 
 
-                        </div>
-            </div>
+                        </div> <!--row-->
+            </div> <!--osnovne info-->
             </div> <!--kraj leve strane-->
 
 
-            <div class="col-md-6" id="prikaz_filma">
+            <div class="col-md-6">
 
-                <div class="row">
+                            <?php
+                            if(count($film->prilozi) >0) {
+                                echo '<div>';
+                                echo '<h3 class="pasusi1"> Prikaz filmova: </h3>';
 
-                    <?php
-                    foreach ($film->prilozi as $prilog) {
-                        if ($prilog->tip_priloga == 'Blu-ray') {
-                        echo '<div>';
-                            echo '<video width = "600" controls >';
-                               echo '<source src="' .$prilog->putanja. ' " type = "video/mp4" >';
-                               echo  'Your browser does not support HTML5 video.';
-                            echo '</video >';
-                        echo '</div >';
-                        }
-                        if ($prilog->tip_priloga == 'DVD') {
-                            echo '<div>';
-                                echo '<video width = "600" controls >';
-                                    echo '<source src="' .$prilog->putanja. ' " type = "video/mp4" >';
-                                    echo  'Your browser does not support HTML5 video.';
-                                echo '</video >';
-                            echo '</div >';
-                        }
-                    }
-                    ?>
-                </div>
+                                foreach ($film->prilozi as $prilog) {
+                                if ($prilog->tip_priloga == 'Blu-ray') {
+                                        echo '<div class="row">';
+                                        echo '<div class="col-md-12">';
+                                        echo '<video width = "100%" controls >';
+                                               echo '<source src="' .$prilog->putanja. ' " type = "video/mp4" >';
+                                               echo  'Your browser does not support HTML5 video.';
+                                            echo '</video >';
+                                    echo '</div>';
+                                    echo '</div>';
 
-                <div class="row">
+                                }
 
+                                if ($prilog->tip_priloga == 'DVD') {
+                                    echo '<div class="row">';
+                                    echo '<div class="col-md-12">';
+                                    echo '<video width = "100%" controls >';
+                                                echo '<source src="' .$prilog->putanja. ' " type = "video/mp4" >';
+                                                echo  'Your browser does not support HTML5 video.';
+                                        echo '</div >';
+                                    echo '</div >';
 
-                    <div>
+                                }
+                            }echo '</div >';
+
+                            }
+                            ?>
+
 
                         <?php
                         if (count($film->prilozi)> 0) {
-                            echo '<h3 class="pasusi1"> Prilozeno uz film:</h3>';
-                        }
+                            echo '<div id="prilog">';
+                                echo '<h3 class="pasusi1"> Prilozeno uz film:</h3>';
+                                    echo '<div class="row">';
+                                    echo '<div class="col-md-12">';
+                            }
                         ?>
 
                         <table class="table table-striped">
@@ -476,47 +485,56 @@ include 'header.php';
                         </table>
 
 
-                    </div>
-
-
-                    <div>
-                        
+                <?php if (count($film->prilozi)> 0) {
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</div>';
+                }
+                ?>
                         <?php if($film->osnovne[0]->arhivska_muzika != "") {
-                                echo '<p class="pasusi_manji">Arhivska muzika: </p>';
-                                echo $film->osnovne[0]->arhivska_muzika;
+                            echo '<div>';
+                                 echo '<p class="pasusi_manji">Arhivska muzika: </p>';
+                                 echo '<div class="row">';
+                                    echo '<div class="col-md-12">';
+                                    echo $film->osnovne[0]->arhivska_muzika;
+                                 echo '</div>';
+                                echo '</div>';
+                            echo '</div>';
                             }
 
                             if($film->osnovne[0]->biografija_rezisera != "") {
-                                echo  '<p class="pasusi_manji">Biografija rezisera:  </p>';
-                                echo $film->osnovne[0]->biografija_rezisera;
+                                echo '<div>';
+                                    echo  '<p class="pasusi_manji">Biografija rezisera:  </p>';
+                                        echo '<div class="row">';
+                                            echo '<div class="col-md-12">';
+                                                echo $film->osnovne[0]->biografija_rezisera;
+                                        echo '</div>';
+                                    echo '</div>';
+                                echo '</div>';
                             }
 
                         if($film->osnovne[0]->napomene != "") {
-                            echo   '<p class="pasusi_manji">Napomene: </p>';
+                            echo '<div>';
+                                echo   '<p class="pasusi_manji">Napomene: </p>';
+                                    echo '<div class="row">';
+                                        echo '<div class="col-md-12">';
                             echo $film->osnovne[0]->napomene;
+                            echo '</div>';
+                            echo '</div>';
+                            echo '</div>';
                         }
-
                         ?>
 
 
-                    </div>
 
-
-
-
-
-                </div>
-
-
-
-            </div> <!--kraj leve strane-->
+            </div> <!--kraj desne col md strane-->
 
 
 
         </div> <!--row-->
 
 
-    </div> <!--container-->
+    </div> <!--row-->
 
 </div>
 
