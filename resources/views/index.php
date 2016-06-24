@@ -36,7 +36,7 @@ include 'header.php';
                             </div>
 
                             <div class="col-md-2">
-                                <button type="submit" class="btn btn-default btn-sm" id="pretrazi">Pretraži</button>
+                                <button type="button" class="btn btn-default btn-sm" id="pretrazi">Pretraži</button>
                             </div>
 
                             <div id="napredna_pretraga" class="col-md-3">
@@ -402,19 +402,22 @@ include 'header.php';
 <div id="prikaz">
     <!--ako je nesto vratio-->
 
-    <?php if(isset($result)) {
+    <h3 class="pasusi1"> Rezultat pretrage: </h3>
+    <div id="exampleGrid"> </div>
 
-        $array = json_decode($result);
-        if (count($array) > 0){
-            echo '<h3 class="pasusi1"> Rezultat pretrage: </h3>';
-            echo '<div id="exampleGrid"> </div>';
-          }
-        else {
-            echo "<h2>Nije pronadjen nijedan film koji zadovoljava zadate kriterijume. Pokusajte ponovo. </h2>";
-        }
-
-    }
-    ?>
+<!--    --><?php //if(isset($result)) {
+//
+//        $array = json_decode($result);
+//        if (count($array) > 0){
+//            echo '<h3 class="pasusi1"> Rezultat pretrage: </h3>';
+//            echo '<div id="exampleGrid"> </div>';
+//          }
+//        else {
+//            echo "<h2>Nije pronadjen nijedan film koji zadovoljava zadate kriterijume. Pokusajte ponovo. </h2>";
+//        }
+//
+//    }
+//    ?>
 </div>
 
 

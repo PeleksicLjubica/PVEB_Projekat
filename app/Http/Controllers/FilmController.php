@@ -476,16 +476,9 @@ class FilmController extends Controller
                 ->select('film.id_filma','film.trajanje','film.godina_proizvodnje','film.naziv_filma','student.ime_prezime'
                 ,'osnovne_informacije.sinopsis')
                 ->get();
+            
+            return response()->json($film);
 
-            if ($request->query('token')) {
-                return response()->json(['result' => json_encode($film)]);
-
-                //return view('index', ['admin' => 1, 'result' => json_encode($film)]);
-            } else {
-
-                return response()->json(['result' => json_encode($film)]);
-                //return view('index', ['admin' => 0, 'result' => json_encode($film)]);
-            }
 
         } else {
             //ako naziv nije unesen,trazi se po ostalim parametrima
@@ -1040,16 +1033,8 @@ class FilmController extends Controller
                 ,'osnovne_informacije.sinopsis')
                 ->get();
 
-            if ($request->query('token')) {
-                return response()->json(['result' => json_encode($film)]);
 
-                //return view('index', ['admin' => 1, 'result' => json_encode($film)]);
-            } else {
-
-                return response()->json(['result' => json_encode($film)]);
-                //return view('index', ['admin' => 0, 'result' => json_encode($film)]);
-            }
-
+            return response()->json($film);
 
 
         } //kraj else-a

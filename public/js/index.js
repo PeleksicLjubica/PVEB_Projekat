@@ -14,6 +14,35 @@ $(document).ready(function(){
         $.post("filmPretraga", str,
             function(data, status){
                 console.log(data);
+                $("#exampleGrid").simplePagingGrid({
+                    columnNames: ["Naziv filma", "Trajanje", "Godina proizvodnje", "Detalji"],
+                    columnKeys: ["naziv_filma", "trajanje", "godina_proizvodnje", "detalji"],
+                    columnWidths: ["30%", "20%", "30%", "20%"],
+                    cellTemplates: [null, null, null,
+                        '<a class="btn btn-default"  onclick="goToPageWithToken(\'film_{{id_filma}}\')">Idi na detalje o filmu</a>'],
+                    data: data
+                });
+            });
+
+    });
+
+    $("#pretrazi").click(function(){
+        console.log("USAO U JS-OKIDAM ZAHTEV");
+
+        var str = $("#pretragaForma").serialize();
+        console.log(str);
+
+        $.post("filmPretraga", str,
+            function(data, status){
+                console.log(data);
+                $("#exampleGrid").simplePagingGrid({
+                    columnNames: ["Naziv filma", "Trajanje", "Godina proizvodnje", "Detalji"],
+                    columnKeys: ["naziv_filma", "trajanje", "godina_proizvodnje", "detalji"],
+                    columnWidths: ["30%", "20%", "30%", "20%"],
+                    cellTemplates: [null, null, null,
+                        '<a class="btn btn-default"  onclick="goToPageWithToken(\'film_{{id_filma}}\')">Idi na detalje o filmu</a>'],
+                    data: data
+                });
             });
 
     });
@@ -590,14 +619,6 @@ $(document).ready(function(){
     $("#pretragaForma").attr("action", pathWithToken('filmPretraga'));
 
 
-        $("#exampleGrid").simplePagingGrid({
-            columnNames: ["Naziv filma", "Trajanje", "Godina proizvodnje", "Detalji"],
-            columnKeys: ["naziv_filma", "trajanje", "godina_proizvodnje", "detalji"],
-            columnWidths: ["30%", "20%", "30%", "20%"],
-            cellTemplates: [null, null, null,
-                '<a class="btn btn-default"  onclick="goToPageWithToken(\'film_{{id_filma}}\')">Idi na detalje o filmu</a>'],
-            data: data
-        });
 
 
 });
