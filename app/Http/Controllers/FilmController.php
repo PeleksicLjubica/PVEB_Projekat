@@ -449,19 +449,25 @@ class FilmController extends Controller
         $katedra_ind = 0;
         $vezba_katedra_ind = 0;
         $profesor_ind = 0;
+        $podrska_ind = 0;
+        $podrska_student_ind = 0;
 
         $film = Film::query();
 
         $naziv = $request->input('naziv_filma');
-
-
         if (strcmp('0', $naziv) != 0) {
 
             $naziv = $request->input('naziv_filma');
 
-            $film = $film->where('id_filma', $naziv)->get();
+            $film = $film
+                ->leftJoin('reziser', 'reziser.Film_id_filma', '=', 'Film.id_filma')
+                ->where('id_filma', $naziv)
+                ->select('film.id_filma','film.trajanje','film.godina_proizvodnje','film.naziv_filma',
+                    'reziser.Student_id_studenta')
+                ->get();
 
-            print_r(json_encode($film));
+            $result = json_encode($film);
+            print_r($result);
 
             if ($request->query('token')) {
                 return view('index', ['admin' => 1, 'result' => json_encode($film)]);
@@ -470,6 +476,8 @@ class FilmController extends Controller
             }
 
         } else {
+
+            $film = $film->leftJoin('reziser', 'reziser.Film_id_filma', '=', 'film.id_filma');
 
             /***************************************OSNOVNE INF***************************************/
             $glumci = $request->input("glumci");
@@ -487,22 +495,6 @@ class FilmController extends Controller
                         ->where('student.indeks',$arr[1]);
                 }
 
-            }
-
-            $kompozitor=$request->input("kompozitor");
-            if(strcmp('0',$kompozitor) != 0){
-                $arr = explode(' ',$kompozitor);
-                $duzina =count($arr);
-                if($duzina === 1){
-                    $film = $film->join('podrska','film.id_filma','=','podrska.Film_id_filma')
-                        ->where('podrska.ime_prezime',$arr[0]);
-                }
-                elseif($duzina === 2){
-                    $film = $film->join('podrska_student','film.id_filma','=','podrska_student.Film_id_filma')
-                        ->join('student','student.id_studenta','=','podrska_student.Student_id_studenta')
-                        ->where('student.indeks',$arr[1])
-                        ->where('podrska_student.tip_podrske',"kompozitor");
-                }
             }
 
             $godina_proizvodnje = $request->input('godina_proizvodnje');
@@ -525,7 +517,7 @@ class FilmController extends Controller
                 }
 
             $film = $film->where('vezba.id_vezbe', $vezbe);
-        }
+            }
 
             $god_studija = $request->input('godina_studija');
             if(strcmp('0', $god_studija) != 0){
@@ -590,7 +582,6 @@ class FilmController extends Controller
             if (strcmp('0', $reziser) != 0) {
 
                 $film = $film
-                    ->join('reziser', 'reziser.Film_id_filma', '=', 'film.id_filma')
                     ->where('reziser.Student_id_studenta', $reziser);
 
             }
@@ -624,6 +615,240 @@ class FilmController extends Controller
                     ->where('snimatelj.Student_id_studenta', $snimatelj);
             }
 
+            $kompozitor=$request->input("kompozitor");
+            if(strcmp('0',$kompozitor) != 0){
+                $arr = explode(' ',$kompozitor);
+                $duzina =count($arr);
+
+                if($duzina === 1){
+
+                    if($podrska_ind === 0){
+                        $film = $film->join('podrska','film.id_filma','=','podrska.Film_id_filma');
+                        $podrska_ind = 1;
+                    }
+
+                    $film = $film->where('podrska.ime_prezime',$arr[0])
+                        ->where('podrska.tip_podrske',"kompozitor");
+                }
+                elseif($duzina === 2){
+                    if($podrska_student_ind === 0){
+                        $film = $film->join('podrska_student','film.id_filma','=','podrska_student.Film_id_filma')
+                            ->join('student','student.id_studenta','=','podrska_student.Student_id_studenta');
+
+                        $podrska_student_ind = 1;
+                    }
+
+                    $film = $film
+                        ->where('student.indeks',$arr[1])
+                        ->where('podrska_student.tip_podrske',"kompozitor");
+                }
+            }
+
+            $dizajner_zvuka=$request->input("dizajner_zvuka");
+            if(strcmp('0',$dizajner_zvuka) != 0){
+
+                $arr = explode(' ',$dizajner_zvuka);
+                $duzina =count($arr);
+
+                if($duzina === 1){
+
+                    if($podrska_ind === 0){
+                        $film = $film->join('podrska','film.id_filma','=','podrska.Film_id_filma');
+                        $podrska_ind = 1;
+                    }
+
+                    $film = $film->where('podrska.ime_prezime',$arr[0])
+                        ->where('podrska.tip_podrske',"dizajner zvuka");
+                }
+                elseif($duzina === 2){
+                    if($podrska_student_ind === 0){
+                        $film = $film->join('podrska_student','film.id_filma','=','podrska_student.Film_id_filma')
+                            ->join('student','student.id_studenta','=','podrska_student.Student_id_studenta');
+
+                        $podrska_student_ind = 1;
+                    }
+
+                    $film = $film
+                        ->where('student.indeks',$arr[1])
+                        ->where('podrska_student.tip_podrske',"dizajner zvuka");
+                }
+            }
+
+            $snimatelj_zvuka=$request->input("snimatelj_zvuka");
+            if(strcmp('0',$snimatelj_zvuka) != 0){
+                $arr = explode(' ',$snimatelj_zvuka);
+                $duzina =count($arr);
+
+                if($duzina === 1){
+
+                    if($podrska_ind === 0){
+                        $film = $film->join('podrska','film.id_filma','=','podrska.Film_id_filma');
+                        $podrska_ind = 1;
+                    }
+
+                    $film = $film->where('podrska.ime_prezime',$arr[0])
+                        ->where('podrska.tip_podrske',"snimatelj zvuka");
+                }
+                elseif($duzina === 2){
+                    if($podrska_student_ind === 0){
+                        $film = $film->join('podrska_student','film.id_filma','=','podrska_student.Film_id_filma')
+                            ->join('student','student.id_studenta','=','podrska_student.Student_id_studenta');
+
+                        $podrska_student_ind = 1;
+                    }
+
+                    $film = $film
+                        ->where('student.indeks',$arr[1])
+                        ->where('podrska_student.tip_podrske',"snimatelj zvuka");
+                }
+            }
+
+            $scenograf=$request->input("scenograf");
+            if(strcmp('0',$scenograf) != 0){
+                $arr = explode(' ',$scenograf);
+                $duzina =count($arr);
+
+                if($duzina === 1){
+
+                    if($podrska_ind === 0){
+                        $film = $film->join('podrska','film.id_filma','=','podrska.Film_id_filma');
+                        $podrska_ind = 1;
+                    }
+
+                    $film = $film->where('podrska.ime_prezime',$arr[0])
+                        ->where('podrska.tip_podrske',"scenograf");
+                }
+                elseif($duzina === 2){
+                    if($podrska_student_ind === 0){
+                        $film = $film->join('podrska_student','film.id_filma','=','podrska_student.Film_id_filma')
+                            ->join('student','student.id_studenta','=','podrska_student.Student_id_studenta');
+
+                        $podrska_student_ind = 1;
+                    }
+
+                    $film = $film
+                        ->where('student.indeks',$arr[1])
+                        ->where('podrska_student.tip_podrske',"scenograf");
+                }
+            }
+
+            $kostimograf=$request->input("kostimograf");
+            if(strcmp('0',$kostimograf) != 0){
+                $arr = explode(' ',$kostimograf);
+                $duzina =count($arr);
+
+                if($duzina === 1){
+
+                    if($podrska_ind === 0){
+                        $film = $film->join('podrska','film.id_filma','=','podrska.Film_id_filma');
+                        $podrska_ind = 1;
+                    }
+
+                    $film = $film->where('podrska.ime_prezime',$arr[0])
+                        ->where('podrska.tip_podrske',"kostimograf");
+                }
+                elseif($duzina === 2){
+                    if($podrska_student_ind === 0){
+                        $film = $film->join('podrska_student','film.id_filma','=','podrska_student.Film_id_filma')
+                            ->join('student','student.id_studenta','=','podrska_student.Student_id_studenta');
+
+                        $podrska_student_ind = 1;
+                    }
+
+                    $film = $film
+                        ->where('student.indeks',$arr[1])
+                        ->where('podrska_student.tip_podrske',"kostimograf");
+                }
+            }
+
+            $animacija=$request->input("animacija");
+            if(strcmp('0',$animacija) != 0){
+                $arr = explode(' ',$animacija);
+                $duzina =count($arr);
+
+                if($duzina === 1){
+
+                    if($podrska_ind === 0){
+                        $film = $film->join('podrska','film.id_filma','=','podrska.Film_id_filma');
+                        $podrska_ind = 1;
+                    }
+
+                    $film = $film->where('podrska.ime_prezime',$arr[0])
+                        ->where('podrska.tip_podrske',"animacija");
+                }
+                elseif($duzina === 2){
+                    if($podrska_student_ind === 0){
+                        $film = $film->join('podrska_student','film.id_filma','=','podrska_student.Film_id_filma')
+                            ->join('student','student.id_studenta','=','podrska_student.Student_id_studenta');
+
+                        $podrska_student_ind = 1;
+                    }
+
+                    $film = $film
+                        ->where('student.indeks',$arr[1])
+                        ->where('podrska_student.tip_podrske',"animacija");
+                }
+            }
+
+            $sminker=$request->input("sminker");
+            if(strcmp('0',$sminker) != 0){
+                $arr = explode(' ',$sminker);
+                $duzina =count($arr);
+
+                if($duzina === 1){
+
+                    if($podrska_ind === 0){
+                        $film = $film->join('podrska','film.id_filma','=','podrska.Film_id_filma');
+                        $podrska_ind = 1;
+                    }
+
+                    $film = $film->where('podrska.ime_prezime',$arr[0])
+                        ->where('podrska.tip_podrske',"sminker");
+                }
+                elseif($duzina === 2){
+                    if($podrska_student_ind === 0){
+                        $film = $film->join('podrska_student','film.id_filma','=','podrska_student.Film_id_filma')
+                            ->join('student','student.id_studenta','=','podrska_student.Student_id_studenta');
+
+                        $podrska_student_ind = 1;
+                    }
+
+                    $film = $film
+                        ->where('student.indeks',$arr[1])
+                        ->where('podrska_student.tip_podrske',"sminker");
+                }
+            }
+
+            $specijani_efekti=$request->input("specijani_efekti");
+            if(strcmp('0',$specijani_efekti) != 0){
+
+                $arr = explode(' ',$specijani_efekti);
+                $duzina =count($arr);
+
+                if($duzina === 1){
+
+                    if($podrska_ind === 0){
+                        $film = $film->join('podrska','film.id_filma','=','podrska.Film_id_filma');
+                        $podrska_ind = 1;
+
+                    }
+
+                    $film = $film->where('podrska.ime_prezime',$arr[0])
+                        ->where('podrska.tip_podrske',"specijalni efekti");
+                }
+                elseif($duzina === 2){
+                    if($podrska_student_ind === 0){
+                        $film = $film->join('podrska_student','film.id_filma','=','podrska_student.Film_id_filma')
+                            ->join('student','student.id_studenta','=','podrska_student.Student_id_studenta');
+
+                        $podrska_student_ind = 1;
+                    }
+
+                    $film = $film
+                        ->where('student.indeks',$arr[1])
+                        ->where('podrska_student.tip_podrske',"specijani efekti");
+                }
+            }
 
             /***************************************TEHNICKA SPEC***************************************/
 
@@ -643,7 +868,6 @@ class FilmController extends Controller
 
             }
 
-
             $filmski_format = $request->input('filmski_format');
             if (strcmp('0', $filmski_format) != 0) {
 
@@ -656,7 +880,6 @@ class FilmController extends Controller
 
 
             }
-
 
             $video_format = $request->input('video_format');
             if (strcmp('0', $video_format) != 0) {
@@ -672,7 +895,6 @@ class FilmController extends Controller
 
             }
 
-
             $tel_standard = $request->input('tel_standard');
             if (strcmp('0', $tel_standard) != 0) {
 
@@ -687,7 +909,6 @@ class FilmController extends Controller
 
             }
 
-
             $analiza_slike = $request->input('analiza_slike');
             if (strcmp('0', $analiza_slike) != 0) {
 
@@ -701,7 +922,6 @@ class FilmController extends Controller
                 $film = $film->where('tehnicka_specifikacija.analiza_slike', $analiza_slike);
 
             }
-
 
             $format_slike = $request->input('format_slike');
             if (strcmp('0', $format_slike) != 0) {
@@ -730,7 +950,6 @@ class FilmController extends Controller
 
 
             }
-
 
             $video_nosac = $request->input('video_nosac');
             if (strcmp('0', $video_nosac) != 0) {
@@ -802,15 +1021,24 @@ class FilmController extends Controller
 
             }
 
-            $film = $film->get();
+            $film = $film->select('film.id_filma','film.trajanje','film.godina_proizvodnje','film.naziv_filma',
+                'reziser.Student_id_studenta')
+                ->get();
 
-            print_r(json_encode($film));
+            $result = json_encode($film);
+
+            print_r($result);
 
             if ($request->query('token')) {
                 return view('index', ['admin' => 1, 'result' => json_encode($film)]);
             } else {
                 return view('index', ['admin' => 0, 'result' => json_encode($film)]);
             }
+
+
+
+
+
     } //kraj else-a
 
 
@@ -842,7 +1070,6 @@ class FilmController extends Controller
 
         return response()->json(['data'=>$film]);
     }
-
 
     public function getFilm (Request $request, $id) {
         $film = new \stdClass();
