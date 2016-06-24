@@ -2,6 +2,20 @@
 include 'header.php';
 ?>
 
+
+<script>
+        var data = <?php
+        if(isset($result)){
+            echo $result;
+        }
+        else{
+            echo 0;
+        }
+        ?>;
+        console.log(data);
+
+</script>
+
 <div class="container">
 
         <div id="levi_div">
@@ -178,7 +192,7 @@ include 'header.php';
                                         <div class="col-md-4">
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <select class="js-example-data-array dizajner_zvuka col-md-12" style="width: 100%">
+                                                    <select class="js-example-data-array dizajner_zvuka col-md-12" name="dizajner_zvuka" style="width: 100%">
                                                     </select>
                                                 </div>
                                             </div>
@@ -186,7 +200,7 @@ include 'header.php';
 
                                         <label class="col-md-2">Snimatelj zvuka:</label>
                                         <div class="col-md-4">
-                                            <select class="js-example-data-array snimatelj_zvuka col-md-12" style="width: 100%">
+                                            <select class="js-example-data-array snimatelj_zvuka col-md-12" name="snimatelj_zvuka" style="width: 100%">
                                             </select>
                                         </div>
 
@@ -197,7 +211,7 @@ include 'header.php';
                                         <div class="col-md-4">
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <select class="js-example-data-array scenograf col-md-12" style="width: 100%">
+                                                    <select class="js-example-data-array scenograf col-md-12" name="scenograf" style="width: 100%">
                                                     </select>
                                                 </div>
                                             </div>
@@ -205,7 +219,7 @@ include 'header.php';
 
                                         <label class="col-md-2">Kostimograf:</label>
                                         <div class="col-md-4">
-                                            <select class="js-example-data-array kostimograf col-md-12" style="width: 100%">
+                                            <select class="js-example-data-array kostimograf col-md-12" name="kostimograf" style="width: 100%">
                                             </select>
                                         </div>
 
@@ -216,7 +230,7 @@ include 'header.php';
                                         <div class="col-md-4">
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <select class="js-example-data-array animacija col-md-12" style="width: 100%">
+                                                    <select class="js-example-data-array animacija col-md-12" name="animacija" style="width: 100%">
                                                     </select>
                                                 </div>
                                             </div>
@@ -224,7 +238,7 @@ include 'header.php';
 
                                         <label class="col-md-2">Šminker:</label>
                                         <div class="col-md-4">
-                                            <select class="js-example-data-array sminker col-md-12" style="width: 100%">
+                                            <select class="js-example-data-array sminker col-md-12" name="sminker" style="width: 100%">
                                             </select>
                                         </div>
 
@@ -235,7 +249,7 @@ include 'header.php';
                                         <div class="col-md-4">
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <select class="js-example-data-array spec_efekti col-md-12" style="width: 100%">
+                                                    <select class="js-example-data-array spec_efekti col-md-12" name="specijani_efekti" style="width: 100%">
                                                     </select>
                                                 </div>
                                             </div>
@@ -383,6 +397,26 @@ include 'header.php';
 
                 </form>
         </div> <!--levi najveci div-->
+
+
+<div id="prikaz">
+    <!--ako je nesto vratio-->
+
+    <?php if(isset($result)) {
+
+        $array = json_decode($result);
+        if (count($array) > 0){
+            echo '<h3 class="pasusi1"> Rezultat pretrage: </h3>';
+            echo '<div id="exampleGrid"> </div>';
+          }
+        else {
+            echo "<h2>Nije pronadjen nijedan film koji zadovoljava zadate kriterijume. Pokusajte ponovo. </h2>";
+        }
+
+    }
+    ?>
+</div>
+
 
 </div> <!--container-->
 

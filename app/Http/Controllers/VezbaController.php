@@ -27,7 +27,6 @@ class VezbaController extends Controller{
             ->select('vezba.id_vezbe', 'vezba.naziv as naziv_vezbe', 'vezba.opis', 'vezba.tip', 'predmet.naziv as predmet_naziv')
             ->get();
 
-
         return response()->json(['data'=>$vezbe]);
 
 

@@ -54,6 +54,7 @@ $app->group(['middleware' => 'jwt.auth'], function($app)
 });
 
 $app->post('/filmPretraga', 'FilmController@pretrazi');
+
 $app->get('/filmPodaci', 'FilmController@getAll');
 $app->get('/filmPodaciTrajanje', 'FilmController@getAllDistinctTrajanje');
 $app->get('/filmPodaciGodina', 'FilmController@getAllDistinctGodina');

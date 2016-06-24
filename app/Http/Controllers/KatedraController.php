@@ -70,7 +70,7 @@ class KatedraController extends Controller{
         $katedra = new Katedra();
         $katedra->godina_studija = $godina;
         $katedra->skolska_godina = date('Y');
-        $katedra->naziv = $naziv . $godina;
+        $katedra->naziv = $naziv;
         $katedra->Profesor_id_profesora = $profesor;
 
         $katedra->save();

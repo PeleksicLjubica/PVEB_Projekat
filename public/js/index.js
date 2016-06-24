@@ -5,8 +5,6 @@ function idiNaKarton(){
 //ovo se odnosi na formu
 $(document).ready(function(){
 
-
-
     var film = [];
     var godina=[];
     var trajanje = [];
@@ -328,7 +326,7 @@ $(document).ready(function(){
 
                 for (var i = 0; i < data.data.length; i++) {
                     var a = {};
-                    a.id = data.data[i];
+                    a.id = data.data[i].ime_prezime;
                     a.text=data.data[i].ime_prezime;
                     glumci.push(a);
                 }
@@ -363,48 +361,48 @@ $(document).ready(function(){
                     var h = {};
 
                     if(data.data[i].tip_podrske == "kompozitor") {
-                        a.id = data.data[i];
+                        a.id = data.data[i].ime_prezime;
                         a.text = data.data[i].ime_prezime;
                         kompozitori.push(a);
                     }
                     else if(data.data[i].tip_podrske == "dizajner zvuka") {
-                        b.id = data.data[i];
+                        b.id = data.data[i].ime_prezime;
                         b.text = data.data[i].ime_prezime;
                         dizajner_zvuka.push(b);
                     }
 
                     else if(data.data[i].tip_podrske == "snimatelj zvuka") {
-                        c.id = data.data[i];
+                        c.id = data.data[i].ime_prezime;
                         c.text = data.data[i].ime_prezime;
                         snimatelj_zvuka.push(c);
                     }
 
                     else if(data.data[i].tip_podrske == "scenograf") {
-                        d.id = data.data[i];
+                        d.id = data.data[i].ime_prezime;
                         d.text = data.data[i].ime_prezime;
                         scenograf.push(d);
                     }
 
                     else if(data.data[i].tip_podrske == "kostimograf") {
-                        e.id = data.data[i];
+                        e.id = data.data[i].ime_prezime;
                         e.text = data.data[i].ime_prezime;
                         kostimograf.push(e);
                     }
 
                     else if(data.data[i].tip_podrske == "animacija") {
-                        f.id = data.data[i];
+                        f.id = data.data[i].ime_prezime;
                         f.text = data.data[i].ime_prezime;
                         animacija.push(f);
                     }
 
                     else if(data.data[i].tip_podrske == "sminker") {
-                        g.id = data.data[i];
+                        g.id = data.data[i].ime_prezime;
                         g.text = data.data[i].ime_prezime;
                         sminker.push(g);
                     }
 
                     else {
-                        h.id = data.data[i];
+                        h.id = data.data[i].ime_prezime;
                         h.text = data.data[i].ime_prezime;
                         spec_efekti.push(h);
                     }
@@ -417,215 +415,150 @@ $(document).ready(function(){
     ).done( function() {
 
         $(".js-example-data-array.naziv_filma").select2({
-            data: film,
-            theme: 'classic'
+            data: film
         });
 
         $(".js-example-data-array.godina_proizvodnje").select2({
-            data: godina,
-            theme: 'classic'
+            data: godina
         });
 
 
         $(".js-example-data-array.trajanje").select2({
-            data: trajanje,
-            theme: 'classic'
+            data: trajanje
         });
 
         $(".js-example-data-array.katedra").select2({
-            data: katedra,
-            theme: 'classic'
+            data: katedra
         });
 
         $(".js-example-data-array.godina_studija").select2({
-            data: godina,
-            theme: 'classic'
+            data: godina
         });
 
         $(".js-example-data-array.predmet").select2({
-            data: predmeti,
-            theme: 'classic',
-            tags: true
+            data: predmeti
         });
 
         $(".js-example-data-array.vezbe").select2({
-            data: vezbe,
-            theme: 'classic'
+            data: vezbe
         });
 
         $(".js-example-data-array.profesor").select2({
-            data: profesori,
-            theme: 'classic',
-            theme: 'classic'
+            data: profesori
         });
 
         $(".js-example-data-array.producenti").select2({
-            data: producenti,
-            theme: 'classic',
-            tags: true
+            data: producenti
         });
 
         $(".js-example-data-array.reziser").select2({
-            data: reziseri,
-            theme: 'classic',
-            tags: true
+            data: reziseri
         });
 
         $(".js-example-data-array.montazer").select2({
-            data: montazeri,
-            theme: 'classic',
-            tags: true
+            data: montazeri
         });
 
         $(".js-example-data-array.kompozitori").select2({
-            data: kompozitori,
-            theme: 'classic',
-            tags: true
+            data: kompozitori
         });
 
 
         $(".js-example-data-array.scenograf").select2({
-            data: scenograf,
-            theme: 'classic',
-            tags: true
+            data: scenograf
         });
 
 
         $(".js-example-data-array.kostimograf").select2({
-            data: kostimograf,
-            theme: 'classic',
-            tags: true
+            data: kostimograf
         });
 
         $(".js-example-data-array.dizajner_zvuka").select2({
-            data: dizajner_zvuka,
-            theme: 'classic',
-            tags: true
+            data: dizajner_zvuka
         });
 
 
         $(".js-example-data-array.snimatelj_zvuka").select2({
-            data: snimatelj_zvuka,
-            theme: 'classic',
-            tags: true
+            data: snimatelj_zvuka
         });
 
 
         $(".js-example-data-array.animacija").select2({
-            data: animacija,
-            theme: 'classic',
-            tags: true
+            data: animacija
         });
 
 
         $(".js-example-data-array.spec_efekti").select2({
-            data: spec_efekti,
-            theme: 'classic',
-            tags: true
+            data: spec_efekti
         });
 
 
         $(".js-example-data-array.sminker").select2({
-            data: sminker,
-            theme: 'classic',
-            tags: true
+            data: sminker
         });
 
         $(".js-example-data-array.scenaristi").select2({
-            data: scenaristi,
-            theme: 'classic',
-            tags: true
+            data: scenaristi
         });
 
         $(".js-example-data-array.snimatelj").select2({
-            data: snimatelji,
-            theme: 'classic',
-            tags: true
+            data: snimatelji
         });
 
 
         $(".js-example-data-array.glumci").select2({
-            data: glumci,
-            theme: 'classic',
-            tags: true
+            data: glumci
         });
 
 
         $(".js-example-data-array.osnovni_format").select2({
-            data: dataOF,
-            tags:true,
-            theme: 'classic'
+            data: dataOF
 
         });
         $(".js-example-data-array.filmski_format").select2({
-            data: dataFF,
-            tags:true,
-            theme: 'classic'
+            data: dataFF
 
         });
         $(".js-example-data-array.video_format").select2({
-            data: dataVIF,
-            tags:true,
-            theme: 'classic'
+            data: dataVIF
 
         });
         $(".js-example-data-array.tel_standard").select2({
-            data: dataTS,
-            tags:true,
-            theme: 'classic'
+            data: dataTS
 
         });
         $(".js-example-data-array.analiza_slike").select2({
-            data: dataAS,
-            tags:true,
-            theme: 'classic'
+            data: dataAS
 
         });
         $(".js-example-data-array.format_slike").select2({
-            data: dataFS,
-            tags:true,
-            theme: 'classic'
+            data: dataFS
 
         });
         $(".js-example-data-array.slicice_sekund").select2({
-            data: dataSS,
-            tags:true,
-            theme: 'classic'
+            data: dataSS
 
         });
         $(".js-example-data-array.video_nosac").select2({
-            data: dataVN,
-            tags:true,
-            theme: 'classic'
+            data: dataVN
 
         });
         $(".js-example-data-array.vrsta_fajla").select2({
-            data: dataVF,
-            tags:true,
-            theme: 'classic'
-
+            data: dataVF
         });
         $(".js-example-data-array.broj_kanala").select2({
-            data: dataBK,
-            tags:true,
-            theme: 'classic'
+            data: dataBK
 
         });
         $(".js-example-data-array.vrsta_zvuka").select2({
-            data: dataVZ,
-            tags:true,
-            theme: 'classic'
+            data: dataVZ
 
         });
         $(".js-example-data-array.redukcija_suma").select2({
-            data: dataRS,
-            tags:true,
-            theme: 'classic'
+            data: dataRS
         });
         $(".js-example-data-array.nagrade").select2({
-            data: nagrade,
-            tags:true,
-            multiple:true
+            data: nagrade
         });
 
     }).fail(function() {
@@ -641,6 +574,16 @@ $(document).ready(function(){
     });
 
     $("#pretragaForma").attr("action", pathWithToken('filmPretraga'));
+
+
+        $("#exampleGrid").simplePagingGrid({
+            columnNames: ["Naziv filma", "Trajanje", "Godina proizvodnje", "Detalji"],
+            columnKeys: ["naziv_filma", "trajanje", "godina_proizvodnje", "detalji"],
+            columnWidths: ["30%", "20%", "30%", "20%"],
+            cellTemplates: [null, null, null,
+                "<a class='link' href='film_{{id_filma}}'>Vidi detalje</a>"],
+            data: data
+        });
 
 
 });
