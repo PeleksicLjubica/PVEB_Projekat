@@ -633,4 +633,15 @@ a:hover {
     text-align: center;
 }
 
+#prikaz {
+    margin-bottom:50px;
+}
 
+.link {
+    color:rgb(42,1,5);
+}
+
+
+.link:hover {
+    color:black;
+}

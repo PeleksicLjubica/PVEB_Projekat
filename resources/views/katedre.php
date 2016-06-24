@@ -13,6 +13,7 @@ include 'header.php';
             <div class="container-fluid">
 
                 <div class="row">
+
                     <div class="col-md-9">
                         <h3> Sve katedre: </h3>
                         <div id="exampleGrid"></div>

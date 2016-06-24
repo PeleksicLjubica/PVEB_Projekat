@@ -467,7 +467,6 @@ class FilmController extends Controller
                 ->get();
 
             $result = json_encode($film);
-            print_r($result);
 
             if ($request->query('token')) {
                 return view('index', ['admin' => 1, 'result' => json_encode($film)]);
@@ -1026,8 +1025,7 @@ class FilmController extends Controller
                 ->get();
 
             $result = json_encode($film);
-
-            print_r($result);
+            
 
             if ($request->query('token')) {
                 return view('index', ['admin' => 1, 'result' => json_encode($film)]);
