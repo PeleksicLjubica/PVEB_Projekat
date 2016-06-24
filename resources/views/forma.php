@@ -79,6 +79,7 @@ include 'header.php';
 
 
             </div><!-- LEVO -->
+
             <div class="col-md-6">
                 <div class="form-group">
                     <label class="control-label col-md-2" for="godina">Godina proizvodnje:</label>
@@ -167,11 +168,14 @@ include 'header.php';
     <div class="col-md-6">
 
         <div class="form-group">
+            <div class = "form-horizontal">
             <label class="control-label col-md-2" for="arhivska_muzika">Arhivska muzika:</label>
             <div class="col-md-9">
                 <textarea rows="5" cols="5" class="form-control" id="arhivska_muzika" name="arhivska_muzika"></textarea>
             </div>
         </div>
+        </div>
+
 
         <div class="form-group">
             <label class="control-label col-md-2" for="sinopsis"> Sinopsis: </label>
@@ -198,7 +202,7 @@ include 'header.php';
 
         <div class="form-group" id="cb">
             <label class="control-label col-md-2" for="dodatno1"> Uz karton filma predajem i sledeće: </label>
-            <div class="col-md-10">
+            <div class="col-md-9">
 
                 <div class="row">
                     <div class="checkbox col-md-4">
@@ -283,11 +287,15 @@ include 'header.php';
         <h3 class="centriran_naslov">Tehnička specifikacija: </h3> <br/>
 
         <div class="form-group">
+            <div class = "form-horizontal">
+
             <label class="control-label col-md-2" for="osnovni_format"> Osnovni format: </label>
             <div class="col-md-9">
                 <select class="js-example-data-array col-md-12 osnovni_format" name="osnovni_format">
                 </select>
             </div>
+            </div>
+
         </div>
 
         <div class="form-group">
