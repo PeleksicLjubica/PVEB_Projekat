@@ -24,11 +24,11 @@ class StudentController extends Controller{
         $student->indeks= $request->input('indeks');
         $student->ime_prezime = $request->input('ime_prezime');
         $student->e_mail = $request->input('e_mail');
-        $naziv_katedre = $request->input('katedra');
-        echo($request->input('katedra'));
+        $naziv_katedre = $request->input('katedre');
         $year=date('Y');
-        $katedre = Katedra::where('naziv', $naziv_katedre)
-            ->where('godina_studija', $year)->take(1)->get();
+        $katedre = Katedra::where('skolska_godina', $year)
+            ->where('naziv', $naziv_katedre)
+            ->take(1)->get();
         echo($katedre[0]);
         $student->Katedra_id_katedre = $katedre[0]->id_katedre;
 
@@ -37,17 +37,22 @@ class StudentController extends Controller{
         return view('studenti',['admin' => 1]);
     }
 
-    public function inkrementGodine(Request $request){
-        $indeks = $request->input('indeks');
-        $studenti = Student::where('indeks', $indeks)
-            ->take(1)
-            ->get();
-        $id_studenta = $studenti[0]->id_studenta;
-        Student::where('id_studenta', $id_studenta)
-            ->increment('godina_studija');
-          
-        return view('studenti',['admin' => 1]);
-    }
+
+    public function inkrementGodine(Request $request,$id){
+            $student  = Student::query()->where('id_studenta',$id)->take(1)->get();
+            $id_katedre = $student[0]->katedra_id_katedre;
+            $katedre = Katedra::query()->where('id_katedre', $id_katedre)->take(1)->get();
+            $year=date('Y')+1;
+            $naziv = $katedre[0]->naziv;
+            $katedre_n = Katedra::query()->where('naziv', $naziv)
+                ->where('skolska_godina', $year)->take(1)->get();
+            $id_katedren = $katedre_n[0]->id_katedre;
+            echo($id_katedren);
+            $student->id_katedre = $id_katedren;
+            $student->save();
+            return view('studenti',['admin' => 1]);
+        }
+
 
     public function getView() {
         return view('studenti',['admin' => 1]);

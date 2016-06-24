@@ -50,9 +50,10 @@ include 'header.php';
 
                                 <div class="form-group">
                                     <label>Katedra:</label>
-                                    <select class="js-example-data-array katedre"  name="katedra" style="width: 100%">
+                                    <select class="js-example-data-array katedre" id="katedre" name="katedre" style="width: 100%">
                                     </select>
                                 </div>
+
 
                                 <button type="submit" class="btn btn-default" id="dugme_studenti">Potvrdi</button>
 
