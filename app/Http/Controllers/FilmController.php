@@ -31,10 +31,9 @@ use App\Models\Podrska_student;
 
 class FilmController extends Controller
 {
-
+    //funkcija koja unosi u bazu sa katrona filma
     public function obradi(Request $request)
     {
-
         $greska = "";
 
         //instanciranje modela u koje smestamo podatke za unos u bazu
@@ -299,7 +298,7 @@ class FilmController extends Controller
             }
         }
 
-
+        //pozivom funkcije obradi podrsku se dodaje podrska u bazu podataka
         $dizajner_zvuka_indeks = $request->input('dizajner_zvuka');
         $this->obradiPodrsku($dizajner_zvuka_indeks, "dizajner zvuka", $film);
 
@@ -330,11 +329,14 @@ class FilmController extends Controller
 
     }
 
+    //funkcija koja vraca pogled za karton filma
     public function getKartonView(Request $request)
     {
         return view('forma', ['admin' => 1]);
     }
 
+    //funckcija kojom se unosi u tabelu podrska ili podrska_student u zavisnosti od toga
+    //da li je unet student ili neko ko to nije
     public function obradiPodrsku($input, $uloga, $film)
     {
         $duzina = count($input);
@@ -348,6 +350,7 @@ class FilmController extends Controller
                 $studenti = Student::where('indeks', $value)
                     ->get();
 
+                //ako takav student ne postoji,unosi se u tabelu PODRSKA
                 if (!$studenti->first()) {
 
                     $podrska = new Podrska();
@@ -356,7 +359,7 @@ class FilmController extends Controller
                     $podrska->ime_prezime = $value;
                     $podrska->save();
 
-                } //ako smo nasli indeks,to znaci da je taj glumac student i upisujemo ga u tabelu GLUMAC_STUDENT
+                } //ako smo nasli indeks,to znaci da je taj glumac student i upisujemo ga u tabelu PODRSKA_STUDENT
                 else {
                     $podrska_student = new Podrska_student();
                     $podrska_student->Film_id_filma = $film->id;
@@ -370,6 +373,8 @@ class FilmController extends Controller
 
     }
 
+    //funkcija koja fajlove koji se prilazu uz film smesta u direktorijum PUBLIC/FILMOVI
+    //i unosi u tabelu KARTON_PRLOG putanju za svaki prilozeni fajl
     private function premestiFajlove(Request $request, $id_filma)
     {
 
@@ -439,10 +444,10 @@ class FilmController extends Controller
 
     }
 
+    //funkcija koja pretrazuje filmove i vraca filmove koji zadovoljavaju pretragu u JSON formatu
     public function pretrazi(Request $request)
     {
-
-        global $tehnicka_ind;
+        //indikatori da li je radjeno spajanje sa odredjenom tabelom
         $tehnicka_ind = 0;
         $vezba_ind = 0;
         $predmet_ind = 0;
@@ -454,11 +459,14 @@ class FilmController extends Controller
 
         $film = Film::query();
 
+        //ako je izabran naziv filma,to jednoznacno odredjuje film,pa se vraca taj film
         $naziv = $request->input('naziv_filma');
         if (strcmp('0', $naziv) != 0) {
 
+            //uzima se naziv iz forme
             $naziv = $request->input('naziv_filma');
 
+            //upit gde se pretrazuje baza podataka
             $film = $film
                 ->leftJoin('reziser', 'reziser.Film_id_filma', '=', 'Film.id_filma')
                 ->where('id_filma', $naziv)
@@ -466,7 +474,6 @@ class FilmController extends Controller
                     'reziser.Student_id_studenta')
                 ->get();
 
-            $result = json_encode($film);
 
             if ($request->query('token')) {
                 return view('index', ['admin' => 1, 'result' => json_encode($film)]);
@@ -475,20 +482,28 @@ class FilmController extends Controller
             }
 
         } else {
+            //ako naziv nije unesen,trazi se po ostalim parametrima
 
+            //dodaje se tabela reziser zbog prikaza u rezultatima
+            //left join se koristi zato sto nema svaki film unesenog rezisera
             $film = $film->leftJoin('reziser', 'reziser.Film_id_filma', '=', 'film.id_filma');
 
             /***************************************OSNOVNE INF***************************************/
+            //pretraga po osnovnim informacijama
+
             $glumci = $request->input("glumci");
             if(strcmp('0',$glumci) != 0){
+                //ako je unesen podatak o glumcu gledamo da li smo dobili ime_prezime ili ime_prezime indeks
                 $arr = explode(' ',$glumci);
                 $duzina =count($arr);
                 if($duzina === 1){
+                    //ako smo dobili ime_prezime spaja se sa tabelom GLUMAC
                     $film = $film->join('glumac','film.id_filma','=','glumac.Film_id_filma')
                         ->where('glumac.ime_prezime',$arr[0]);
 
                 }
                 elseif($duzina === 2){
+                    //inace se trazi u tabeli GLUMAC_STUDENT
                     $film = $film->join('glumac_student','film.id_filma','=','glumac_student.Film_id_filma')
                         ->join('student','student.id_studenta','=','glumac_student.Student_id_studenta')
                         ->where('student.indeks',$arr[1]);
@@ -509,12 +524,13 @@ class FilmController extends Controller
             $vezbe = $request->input('vezbe');
             if (strcmp('0', $vezbe) != 0){
 
+                //ako nije spojena tabela vezba,ona se dodaje u upit
                 if ($vezba_ind === 0) {
                     $film = $film
                         ->join('vezba', 'vezba.id_vezbe', '=', 'Vezba_id_vezbe');
                     $vezba_ind = 1;
                 }
-
+            //pretrazuje se po unetoj vezbi
             $film = $film->where('vezba.id_vezbe', $vezbe);
             }
 
@@ -616,11 +632,12 @@ class FilmController extends Controller
 
             $kompozitor=$request->input("kompozitor");
             if(strcmp('0',$kompozitor) != 0){
+                //ako je unesen kompozitor,gleda se da li smo dobili ime_prezime ili ime_prezime_indeks
                 $arr = explode(' ',$kompozitor);
                 $duzina =count($arr);
 
                 if($duzina === 1){
-
+                    //ako smo dobili ime_prezime,pretrazuje se po tabeli PODRSKA
                     if($podrska_ind === 0){
                         $film = $film->join('podrska','film.id_filma','=','podrska.Film_id_filma');
                         $podrska_ind = 1;
@@ -630,6 +647,7 @@ class FilmController extends Controller
                         ->where('podrska.tip_podrske',"kompozitor");
                 }
                 elseif($duzina === 2){
+                    //inace se pretrazuje po tabeli PODRSKA_STUDENT
                     if($podrska_student_ind === 0){
                         $film = $film->join('podrska_student','film.id_filma','=','podrska_student.Film_id_filma')
                             ->join('student','student.id_studenta','=','podrska_student.Student_id_studenta');
@@ -850,7 +868,7 @@ class FilmController extends Controller
             }
 
             /***************************************TEHNICKA SPEC***************************************/
-
+            //pretraga po tehnickoj specifikaciji
 
             $osnovni_format = $request->input('osnovni_format');
             if (strcmp('0', $osnovni_format) != 0) {
@@ -991,7 +1009,6 @@ class FilmController extends Controller
 
             }
 
-
             $broj_kanala = $request->input('broj_kanala');
             if (strcmp('0', $broj_kanala) != 0) {
 
@@ -1004,7 +1021,6 @@ class FilmController extends Controller
                 $film = $film->where('tehnicka_specifikacija.broj_kanala', $broj_kanala);
 
             }
-
 
             $redukcija_suma = $request->input('redukcija_suma');
             if (strcmp('0', $redukcija_suma) != 0) {
@@ -1020,21 +1036,16 @@ class FilmController extends Controller
 
             }
 
+            //biramo kolone koje zelimo da se salju i izvrsavamo upit
             $film = $film->select('film.id_filma','film.trajanje','film.godina_proizvodnje','film.naziv_filma',
                 'reziser.Student_id_studenta')
                 ->get();
-
-            $result = json_encode($film);
-            
 
             if ($request->query('token')) {
                 return view('index', ['admin' => 1, 'result' => json_encode($film)]);
             } else {
                 return view('index', ['admin' => 0, 'result' => json_encode($film)]);
             }
-
-
-
 
 
     } //kraj else-a

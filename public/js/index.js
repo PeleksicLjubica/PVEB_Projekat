@@ -5,7 +5,6 @@ function idiNaKarton(){
 //ovo se odnosi na formu
 $(document).ready(function(){
 
-
     var film = [];
     var godina=[];
     var trajanje = [];
@@ -580,7 +579,7 @@ $(document).ready(function(){
         $("#exampleGrid").simplePagingGrid({
             columnNames: ["Naziv filma", "Trajanje", "Godina proizvodnje", "Detalji"],
             columnKeys: ["naziv_filma", "trajanje", "godina_proizvodnje", "detalji"],
-            columnWidths: ["30%", "10%", "20%", "40%"],
+            columnWidths: ["30%", "20%", "30%", "20%"],
             cellTemplates: [null, null, null,
                 "<a class='link' href='film_{{id_filma}}'>Vidi detalje</a>"],
             data: data
