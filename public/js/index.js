@@ -610,9 +610,11 @@ $(document).ready(function(){
             columnKeys: ["naziv_filma", "trajanje", "godina_proizvodnje", "detalji"],
             columnWidths: ["30%", "20%", "30%", "20%"],
             cellTemplates: [null, null, null,
-                "<a class='btn btn-default'  href='film_{{id_filma}}'>Idi na detalje o filmu</a>"],
+                '<a class="btn btn-default"  onclick="goToPageWithToken(\'film_{{id_filma}}\')">Idi na detalje o filmu</a>'],
             data: data
         });
 
 
 });
+
+
