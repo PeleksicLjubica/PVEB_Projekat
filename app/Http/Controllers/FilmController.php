@@ -461,7 +461,7 @@ class FilmController extends Controller
 
             $film = $film->where('id_filma', $naziv)->get();
 
-            print_r(json_encode($film));
+            //print_r(json_encode($film));
 
             if ($request->query('token')) {
                 return view('index', ['admin' => 1, 'result' => json_encode($film)]);
@@ -804,7 +804,7 @@ class FilmController extends Controller
 
             $film = $film->get();
 
-            print_r(json_encode($film));
+            //print_r(json_encode($film));
 
             if ($request->query('token')) {
                 return view('index', ['admin' => 1, 'result' => json_encode($film)]);
