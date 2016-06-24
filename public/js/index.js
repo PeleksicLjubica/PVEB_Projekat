@@ -575,17 +575,15 @@ $(document).ready(function(){
 
     $("#pretragaForma").attr("action", pathWithToken('filmPretraga'));
 
-
         $("#exampleGrid").simplePagingGrid({
-            columnNames: ["Naziv filma", "Trajanje", "Godina proizvodnje", "Detalji"],
-            columnKeys: ["naziv_filma", "trajanje", "godina_proizvodnje", "detalji"],
-            columnWidths: ["30%", "20%", "30%", "20%"],
-            cellTemplates: [null, null, null,
+            columnNames: ["Naziv filma", "Trajanje", "Godina proizvodnje", "Reziser", "Sinopsis","Detalji"],
+            columnKeys: ["naziv_filma", "trajanje", "godina_proizvodnje", "ime_prezime", "sinopsis", "detalji"],
+            columnWidths: ["20%", "10%", "10%",  "20%", "20%"],
+            cellTemplates: [null, null, null, null, null,
                 '<a class="btn btn-default"  onclick="goToPageWithToken(\'film_{{id_filma}}\')">Idi na detalje o filmu</a>'],
             data: data
         });
 
-
-});
+    });
 
 

@@ -468,16 +468,21 @@ class FilmController extends Controller
 
             //upit gde se pretrazuje baza podataka
             $film = $film
-                ->leftJoin('reziser', 'reziser.Film_id_filma', '=', 'Film.id_filma')
+                ->leftJoin('reziser', 'reziser.Film_id_filma', '=', 'film.id_filma')
+                ->leftJoin('student','student.id_studenta','=','reziser.Student_id_studenta')
+                ->leftJoin('osnovne_informacije','osnovne_informacije.film_id_filma','=','film.id_filma')
                 ->where('id_filma', $naziv)
-                ->select('film.id_filma','film.trajanje','film.godina_proizvodnje','film.naziv_filma',
-                    'reziser.Student_id_studenta')
+                ->select('film.id_filma','film.trajanje','film.godina_proizvodnje','film.naziv_filma','student.ime_prezime'
+                ,'osnovne_informacije.sinopsis')
                 ->get();
 
-
             if ($request->query('token')) {
+               // return response()->json(['result' => json_encode($film)]);
+
                 return view('index', ['admin' => 1, 'result' => json_encode($film)]);
             } else {
+
+                //return response()->json(['result' => json_encode($film)]);
                 return view('index', ['admin' => 0, 'result' => json_encode($film)]);
             }
 
@@ -486,7 +491,9 @@ class FilmController extends Controller
 
             //dodaje se tabela reziser zbog prikaza u rezultatima
             //left join se koristi zato sto nema svaki film unesenog rezisera
-            $film = $film->leftJoin('reziser', 'reziser.Film_id_filma', '=', 'film.id_filma');
+            $film = $film->leftJoin('reziser', 'reziser.Film_id_filma', '=', 'film.id_filma')
+                ->leftJoin('student','student.id_studenta','=','reziser.Student_id_studenta')
+                ->leftJoin('osnovne_informacije','osnovne_informacije.film_id_filma','=','film.id_filma');
 
             /***************************************OSNOVNE INF***************************************/
             //pretraga po osnovnim informacijama
@@ -505,7 +512,6 @@ class FilmController extends Controller
                 elseif($duzina === 2){
                     //inace se trazi u tabeli GLUMAC_STUDENT
                     $film = $film->join('glumac_student','film.id_filma','=','glumac_student.Film_id_filma')
-                        ->join('student','student.id_studenta','=','glumac_student.Student_id_studenta')
                         ->where('student.indeks',$arr[1]);
                 }
 
@@ -649,8 +655,7 @@ class FilmController extends Controller
                 elseif($duzina === 2){
                     //inace se pretrazuje po tabeli PODRSKA_STUDENT
                     if($podrska_student_ind === 0){
-                        $film = $film->join('podrska_student','film.id_filma','=','podrska_student.Film_id_filma')
-                            ->join('student','student.id_studenta','=','podrska_student.Student_id_studenta');
+                        $film = $film->join('podrska_student','film.id_filma','=','podrska_student.Film_id_filma');
 
                         $podrska_student_ind = 1;
                     }
@@ -679,8 +684,7 @@ class FilmController extends Controller
                 }
                 elseif($duzina === 2){
                     if($podrska_student_ind === 0){
-                        $film = $film->join('podrska_student','film.id_filma','=','podrska_student.Film_id_filma')
-                            ->join('student','student.id_studenta','=','podrska_student.Student_id_studenta');
+                        $film = $film->join('podrska_student','film.id_filma','=','podrska_student.Film_id_filma');
 
                         $podrska_student_ind = 1;
                     }
@@ -708,8 +712,7 @@ class FilmController extends Controller
                 }
                 elseif($duzina === 2){
                     if($podrska_student_ind === 0){
-                        $film = $film->join('podrska_student','film.id_filma','=','podrska_student.Film_id_filma')
-                            ->join('student','student.id_studenta','=','podrska_student.Student_id_studenta');
+                        $film = $film->join('podrska_student','film.id_filma','=','podrska_student.Film_id_filma');
 
                         $podrska_student_ind = 1;
                     }
@@ -737,8 +740,7 @@ class FilmController extends Controller
                 }
                 elseif($duzina === 2){
                     if($podrska_student_ind === 0){
-                        $film = $film->join('podrska_student','film.id_filma','=','podrska_student.Film_id_filma')
-                            ->join('student','student.id_studenta','=','podrska_student.Student_id_studenta');
+                        $film = $film->join('podrska_student','film.id_filma','=','podrska_student.Film_id_filma');
 
                         $podrska_student_ind = 1;
                     }
@@ -766,8 +768,7 @@ class FilmController extends Controller
                 }
                 elseif($duzina === 2){
                     if($podrska_student_ind === 0){
-                        $film = $film->join('podrska_student','film.id_filma','=','podrska_student.Film_id_filma')
-                            ->join('student','student.id_studenta','=','podrska_student.Student_id_studenta');
+                        $film = $film->join('podrska_student','film.id_filma','=','podrska_student.Film_id_filma');
 
                         $podrska_student_ind = 1;
                     }
@@ -795,8 +796,7 @@ class FilmController extends Controller
                 }
                 elseif($duzina === 2){
                     if($podrska_student_ind === 0){
-                        $film = $film->join('podrska_student','film.id_filma','=','podrska_student.Film_id_filma')
-                            ->join('student','student.id_studenta','=','podrska_student.Student_id_studenta');
+                        $film = $film->join('podrska_student','film.id_filma','=','podrska_student.Film_id_filma');
 
                         $podrska_student_ind = 1;
                     }
@@ -824,8 +824,7 @@ class FilmController extends Controller
                 }
                 elseif($duzina === 2){
                     if($podrska_student_ind === 0){
-                        $film = $film->join('podrska_student','film.id_filma','=','podrska_student.Film_id_filma')
-                            ->join('student','student.id_studenta','=','podrska_student.Student_id_studenta');
+                        $film = $film->join('podrska_student','film.id_filma','=','podrska_student.Film_id_filma');
 
                         $podrska_student_ind = 1;
                     }
@@ -855,8 +854,7 @@ class FilmController extends Controller
                 }
                 elseif($duzina === 2){
                     if($podrska_student_ind === 0){
-                        $film = $film->join('podrska_student','film.id_filma','=','podrska_student.Film_id_filma')
-                            ->join('student','student.id_studenta','=','podrska_student.Student_id_studenta');
+                        $film = $film->join('podrska_student','film.id_filma','=','podrska_student.Film_id_filma');
 
                         $podrska_student_ind = 1;
                     }
@@ -1037,18 +1035,23 @@ class FilmController extends Controller
             }
 
             //biramo kolone koje zelimo da se salju i izvrsavamo upit
-            $film = $film->select('film.id_filma','film.trajanje','film.godina_proizvodnje','film.naziv_filma',
-                'reziser.Student_id_studenta')
+            $film = $film->select('film.id_filma','film.trajanje','film.godina_proizvodnje','film.naziv_filma','student.ime_prezime'
+                ,'osnovne_informacije.sinopsis')
                 ->get();
 
             if ($request->query('token')) {
+                //return response()->json(['result' => json_encode($film)]);
+
                 return view('index', ['admin' => 1, 'result' => json_encode($film)]);
             } else {
+
+               // return response()->json(['result' => json_encode($film)]);
                 return view('index', ['admin' => 0, 'result' => json_encode($film)]);
             }
 
 
-    } //kraj else-a
+
+        } //kraj else-a
 
 
     } //kraj fje
