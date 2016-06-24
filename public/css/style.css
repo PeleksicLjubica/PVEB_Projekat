@@ -646,3 +646,6 @@ a:hover {
     color:black;
 }
 
+#pocetnaContainer {
+    min-height: 600px;
+}

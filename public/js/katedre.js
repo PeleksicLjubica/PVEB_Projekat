@@ -58,7 +58,7 @@ $(document).ready(function() {
            $("#exampleGrid").simplePagingGrid({
                columnNames: colNames,
                columnKeys: ["godina_studija", "skolska_godina", "naziv", "ime_prezime"],
-               columnWidths: ["30%", "30%", "30%", "30%"],
+               columnWidths: ["20%", "20%", "30%", "50%"],
                data: podaci
            });
 

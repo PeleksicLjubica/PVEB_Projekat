@@ -183,30 +183,30 @@ $(document).ready(function(){
     });
 
 
-    var dataOF = [{ id: 0, text: '' }, { id: 'VIDEO', text: 'VIDEO' }, { id: 'FILM', text: 'FILM' }];
-    var dataFF = [{ id: 0, text: '' }, { id: '8 mm', text: '8mm' }, { id: '16 mm', text: '16mm' },{ id: '35 mm', text: '35mm' }];
-    var dataVIF = [{ id: 0, text: '' }, { id: 'SD', text: 'SD' }, { id: 'HD', text: 'HD' },{ id: '2K', text: '2K' }
+    var dataOF = [{ id: '', text: '' }, { id: 'VIDEO', text: 'VIDEO' }, { id: 'FILM', text: 'FILM' }];
+    var dataFF = [{ id: '', text: '' }, { id: '8 mm', text: '8mm' }, { id: '16 mm', text: '16mm' },{ id: '35 mm', text: '35mm' }];
+    var dataVIF = [{ id: '', text: '' }, { id: 'SD', text: 'SD' }, { id: 'HD', text: 'HD' },{ id: '2K', text: '2K' }
         ,{ id: '4K', text: '4K' }];
-    var dataTS = [{ id: 0, text: '' }, { id: 'PAL', text: 'PAL' }, { id: 'NTSC', text: 'NTSC' }];
-    var dataAS = [{ id: 0, text: '' }, { id: 'Sa proredom / Interlace', text: 'Sa proredom / Interlace' },
+    var dataTS = [{ id: '', text: '' }, { id: 'PAL', text: 'PAL' }, { id: 'NTSC', text: 'NTSC' }];
+    var dataAS = [{ id: '', text: '' }, { id: 'Sa proredom / Interlace', text: 'Sa proredom / Interlace' },
         { id: 'Progresivna / Progressive', text: 'Progresivna / Progressive' }];
-    var dataFS = [{ id: 0, text: '' }, { id: '4:3', text: '4:3' }, { id: '4:3L', text: '4:3 Letterbox' },
+    var dataFS = [{ id: '', text: '' }, { id: '4:3', text: '4:3' }, { id: '4:3L', text: '4:3 Letterbox' },
         { id: '16:9', text: '16:9'}, { id: '16:9 Letterbox', text: '16:9 Letterbox'}, { id: '1:1,66', text: '1:1,66'},
         { id: '1:1,85', text: '1:1,58'}, { id: 'Scope', text: 'Scope'}];
-    var dataSS = [{ id: 0, text: '' }, { id: '18', text: '18' }, { id: '23,976', text: '23,976' },
+    var dataSS = [{ id: '', text: '' }, { id: '18', text: '18' }, { id: '23,976', text: '23,976' },
         { id: '24', text: '24' }, { id: '25', text: '25' }, { id: '29,97', text: '29,97' },
         { id: '30', text: '30' }];
-    var dataVN = [{ id: 0, text: '' }, { id: 'Blu-ray', text: 'Blu-ray' }, { id: 'DVD', text: 'DVD' },
+    var dataVN = [{ id: '', text: '' }, { id: 'Blu-ray', text: 'Blu-ray' }, { id: 'DVD', text: 'DVD' },
         { id: 'Fajl / File', text: 'Fajl / File' }];
-    var dataVF = [{ id: 0, text: '' }, { id: 'mp4 H.264', text: 'mp4 H.264' },
+    var dataVF = [{ id: '', text: '' }, { id: 'mp4 H.264', text: 'mp4 H.264' },
         { id: 'Quick Time DV / ProRes / DNxHD', text: 'Quick Time DV / ProRes / DNxHD' },
         { id: 'AVI - DV', text: 'AVI - DV' }];
-    var dataVZ = [{ id: 0, text: '' }, { id: 'Zvucni / With sound', text: 'Zvucni / With sound' },
+    var dataVZ = [{ id: '', text: '' }, { id: 'Zvucni / With sound', text: 'Zvucni / With sound' },
         { id: 'Nemi / Silent', text: 'Nemi / Silent' }];
-    var dataBK = [{ id: 0, text: '' }, { id: 'Mono', text: 'Mono' }, { id: 'Stereo', text: 'Stereo' },
+    var dataBK = [{ id: '', text: '' }, { id: 'Mono', text: 'Mono' }, { id: 'Stereo', text: 'Stereo' },
         { id: '5.1', text: '5.1' }];
-    var dataRS = [{ id: 0, text: '' }, { id: 'Bez / None', text: 'Bez / None' }, { id: 'Dolby', text: 'Dolby' }];
-    var nagrade = [{ id: 0, text: ''}];
+    var dataRS = [{ id: '', text: '' }, { id: 'Bez / None', text: 'Bez / None' }, { id: 'Dolby', text: 'Dolby' }];
+    var nagrade = [{ id: '', text: ''}];
 
 
     $(".js-example-data-array.osnovni_format").select2({
