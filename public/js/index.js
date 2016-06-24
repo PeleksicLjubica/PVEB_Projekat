@@ -580,7 +580,7 @@ $(document).ready(function(){
             columnNames: ["Naziv filma", "Trajanje", "Godina proizvodnje", "Detalji"],
             columnKeys: ["naziv_filma", "trajanje", "godina_proizvodnje", "detalji"],
             columnWidths: ["30%", "20%", "30%", "20%"],
-            cellTemplates: [null, null, null,
+            cellTemplates: ["<span style='font-size:17px;'>{{naziv_filma}}</span>", null, null,
                 "<a class='link' href='film_{{id_filma}}'>Vidi detalje</a>"],
             data: data
         });
