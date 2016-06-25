@@ -10,6 +10,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Katedra;
 use App\Http\Controllers\Controller;
+use App\Models\Profesor;
 use Illuminate\Auth\Access\Response;
 use Illuminate\Http\Request;
 use DB;
@@ -67,11 +68,23 @@ class KatedraController extends Controller{
         $godina = $request->input("god_studija_katedra");
         $profesor =  $request->input("profesor_katedre");
 
+        $profesorId = Profesor::where('id_profesora', $profesor)
+            ->get();
+
+        $profesorUnos = new Profesor();
+
+        if (!$profesorId->first()) {
+
+            $profesorUnos->ime_prezime = $profesor;
+            $profesorUnos->save();
+
+        }
+
         $katedra = new Katedra();
         $katedra->godina_studija = $godina;
         $katedra->skolska_godina = date('Y');
         $katedra->naziv = $naziv;
-        $katedra->Profesor_id_profesora = $profesor;
+        $katedra->Profesor_id_profesora = $profesorUnos->id;
 
         $katedra->save();
 

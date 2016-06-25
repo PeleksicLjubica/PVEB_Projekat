@@ -46,7 +46,7 @@ $(document).ready(function() {
 
         $(".js-example-data-array.profesor_katedre").select2({
             data: nizProfesor,
-            tags:false
+            tags:true
         });
 
     });
