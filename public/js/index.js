@@ -6,10 +6,9 @@ function idiNaKarton(){
 $(document).ready(function(){
 
     $("#pretrazi1").click(function(){
-        console.log("USAO U JS-OKIDAM ZAHTEV");
 
         var str = $("#pretragaForma").serialize();
-        console.log(str);
+        document.getElementById("prikaz").style.display = "inherit";
 
         $.post("filmPretraga", str,
             function(data, status){

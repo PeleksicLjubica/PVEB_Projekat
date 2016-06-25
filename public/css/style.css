@@ -645,3 +645,7 @@ a:hover {
 #pocetnaContainer {
     min-height: 600px;
 }
+
+#prikaz{
+    display:none;
+}

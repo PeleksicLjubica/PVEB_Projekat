@@ -405,19 +405,6 @@ include 'header.php';
     <h3 class="pasusi1"> Rezultat pretrage: </h3>
     <div id="exampleGrid"> </div>
 
-<!--    --><?php //if(isset($result)) {
-//
-//        $array = json_decode($result);
-//        if (count($array) > 0){
-//            echo '<h3 class="pasusi1"> Rezultat pretrage: </h3>';
-//            echo '<div id="exampleGrid"> </div>';
-//          }
-//        else {
-//            echo "<h2>Nije pronadjen nijedan film koji zadovoljava zadate kriterijume. Pokusajte ponovo. </h2>";
-//        }
-//
-//    }
-//    ?>
 </div>
 
 
