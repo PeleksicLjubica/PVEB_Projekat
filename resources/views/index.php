@@ -3,19 +3,6 @@ include 'header.php';
 ?>
 
 
-<script>
-        var data = <?php
-        if(isset($result)){
-            echo $result;
-        }
-        else{
-            echo 0;
-        }
-        ?>;
-        console.log(data);
-
-</script>
-
 <div class="container" id ="pocetnaContainer">
 
         <div id="levi_div">
@@ -404,9 +391,10 @@ include 'header.php';
 
     <h3 class="pasusi1"> Rezultat pretrage: </h3>
     <div id="exampleGrid"> </div>
-    <div id="nema"> </div>
 
 </div>
+
+    <h3 id="nema" style="margin-bottom: 50px;"> </h3>
 
 
 </div> <!--container-->
