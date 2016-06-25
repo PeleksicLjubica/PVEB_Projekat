@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.2
+-- version 4.1.14
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 21, 2016 at 06:21 PM
--- Server version: 5.7.9
--- PHP Version: 5.6.16
+-- Generation Time: Jun 25, 2016 at 06:06 PM
+-- Server version: 5.6.17
+-- PHP Version: 5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `mydb`
@@ -26,9 +26,8 @@ SET time_zone = "+00:00";
 -- Table structure for table `administrator`
 --
 
-DROP TABLE IF EXISTS `administrator`;
 CREATE TABLE IF NOT EXISTS `administrator` (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -37,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `administrator` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `administrator`
@@ -51,7 +50,7 @@ INSERT INTO `administrator` (`id`, `name`, `email`, `password`, `remember_token`
 --
 -- Table structure for table `film`
 --
-DROP TABLE IF EXISTS `film`;
+
 CREATE TABLE IF NOT EXISTS `film` (
   `id_filma` int(11) NOT NULL AUTO_INCREMENT,
   `Vezba_id_vezbe` int(11) NOT NULL,
@@ -60,174 +59,18 @@ CREATE TABLE IF NOT EXISTS `film` (
   `trajanje` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_filma`),
   KEY `fk_Film_Vezba1_idx` (`Vezba_id_vezbe`)
-) ENGINE=InnoDB AUTO_INCREMENT=163 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=186 ;
 
 --
 -- Dumping data for table `film`
 --
 
 INSERT INTO `film` (`id_filma`, `Vezba_id_vezbe`, `godina_proizvodnje`, `naziv_filma`, `trajanje`) VALUES
-(1, 1, 2015, 'FILM', '60'),
-(2, 1, 345, 'film proba bla', '54'),
-(3, 1, 265, 'film proba bla', '256'),
-(4, 1, 2006, 'ljubicin film', '52'),
-(5, 1, 2006, 'ljubicin film', '52'),
-(6, 1, 2016, 'ajdihfvjud', '54'),
-(7, 1, 52, 'anksjd', '0'),
-(8, 1, 2016, 'jiaehfksdu', '545'),
-(9, 1, 2016, 'jiaehfksdu', '545'),
-(10, 1, 52, 'anksjd', '0'),
-(11, 1, 52, 'anksjd', '0'),
-(12, 1, 52, 'anksjd', '0'),
-(13, 1, 52, 'anksjd', '0'),
-(14, 1, 52, 'anksjd', '0'),
-(15, 1, 52, 'anksjd', '0'),
-(16, 1, 52, 'anksjd', '0'),
-(17, 1, 52, 'anksjd', '0'),
-(18, 1, 52, 'anksjd', '0'),
-(19, 1, 52, 'anksjd', '0'),
-(20, 1, 52, 'anksjd', '0'),
-(21, 1, 52, 'anksjd', '0'),
-(22, 1, 2016, 'ajdihfvjud', '54'),
-(23, 1, 2016, 'ajdihfvjud', '54'),
-(24, 1, 2016, 'ajdihfvjud', '54'),
-(25, 1, 2016, 'ajdihfvjud', '54'),
-(26, 1, 2016, 'ajdihfvjud', '54'),
-(27, 1, 2016, 'ajdihfvjud', '54'),
-(28, 1, 2016, 'ajdihfvjud', '54'),
-(29, 1, 2016, 'ajdihfvjud', '54'),
-(30, 1, 2016, 'ajdihfvjud', '54'),
-(31, 1, 2016, 'ajdihfvjud', '54'),
-(32, 1, 2016, 'ajdihfvjud', '54'),
-(33, 1, 2016, 'ajdihfvjud', '54'),
-(34, 1, 2016, 'ajdihfvjud', '54'),
-(35, 1, 2016, 'ajdihfvjud', '54'),
-(36, 1, 1996, 'GOTOVO AJAJA', '52'),
-(37, 1, 1996, 'GOTOVO AJAJA', '52'),
-(38, 1, 1996, 'GOTOVO AJAJA', '52'),
-(39, 1, 5546, 'ahfsiuvd', '56'),
-(40, 1, 5546, 'ahfsiuvd', '56'),
-(41, 1, 5546, 'ahfsiuvd', '56'),
-(42, 1, 5546, 'ahfsiuvd', '56'),
-(43, 1, 20016, 'proba rez.. i glumac', '205'),
-(44, 1, 20016, 'proba rez.. i glumac', '205'),
-(45, 1, 2006, 'PROBA1', '25'),
-(46, 1, 2006, 'PROBA2', '52'),
-(47, 1, 2006, 'PROBA2', '52'),
-(48, 1, 2006, 'PROBA2', '52'),
-(49, 1, 2006, 'PROBA3', '52'),
-(50, 1, 2006, 'PROBA3', '52'),
-(51, 1, 2006, 'PROBA3', '52'),
-(52, 1, 2006, 'PROBA3', '52'),
-(53, 1, 2006, 'PROBA3', '52'),
-(54, 1, 20116, 'PROBA4', '648'),
-(55, 1, 2009, 'PROBA5', '25'),
-(56, 1, 2016, 'ljubajdj', '56'),
-(57, 1, 2016, 'ljubajdj', '56'),
-(58, 1, 2016, 'ljubajdj', '56'),
-(59, 1, 2016, 'POVERA praznih', '52'),
-(60, 1, 2016, 'POVERA praznih', '52'),
-(61, 1, 2006, 'PROBA FINALNA', '0'),
-(62, 1, 2006, 'PROBA FINALNA', '95'),
-(63, 1, 206, 'fr', '52'),
-(64, 1, 206, 'fr', '52'),
-(65, 1, 206, 'fr', '52'),
-(66, 1, 206, 'fr', '52'),
-(67, 1, 22005, 'jdcfnvdj', '58'),
-(68, 1, 22005, 'jdcfnvdj', '58'),
-(69, 1, 22005, 'jdcfnvdj', '58'),
-(70, 1, 22005, 'jdcfnvdj', '58'),
-(71, 1, 22005, 'jdcfnvdj', '58'),
-(72, 1, 22005, 'jdcfnvdj', '58'),
-(73, 1, 2058, 'ljubica', '84'),
-(74, 1, 22005, 'jdcfnvdj', '58'),
-(75, 1, 22005, 'jdcfnvdj', '58'),
-(76, 1, 22005, 'jdcfnvdj', '58'),
-(77, 1, 22005, 'jdcfnvdj', '58'),
-(78, 1, 84, 'huguk', '84'),
-(79, 1, 22005, 'jdcfnvdj', '58'),
-(80, 1, 22005, 'jdcfnvdj', '58'),
-(81, 1, 2015, 'jaidvfd', '48'),
-(82, 1, 2015, 'jaidvfd', '48'),
-(83, 1, 2015, 'jaidvfd', '48'),
-(84, 1, 585, 'ovo nece da radi', '578'),
-(85, 1, 5821, 'vfd', '56'),
-(86, 1, 5821, 'vfd', '56'),
-(87, 1, 258, 'cd', '258'),
-(88, 1, 258, 'dsf', '258'),
-(89, 1, 258, 'csdfv', '258'),
-(90, 1, 258, 'csdfv', '258'),
-(91, 1, 258, 'ljubica ja ne mogu vise', '258'),
-(92, 1, 2016, 'ljubca', '2016'),
-(93, 1, 256, 'ksodjlaikfsud', '0'),
-(94, 1, 256, 'ksodjlaikfsud', '0'),
-(95, 1, 256, 'ksodjlaikfsud', '0'),
-(96, 1, 80, 'knkn', '0'),
-(97, 1, 80, 'knkn', '0'),
-(98, 1, 80, 'knkn', '0'),
-(99, 1, 80, 'knkn', '0'),
-(100, 1, 80, 'knkn', '0'),
-(101, 1, 80, 'knkn', '0'),
-(102, 1, 80, 'knkn', '0'),
-(103, 1, 80, 'knkn', '0'),
-(104, 1, 80, 'knkn', '0'),
-(105, 1, 80, 'knkn', '0'),
-(106, 1, 2005, 'ovo je proba1', '12'),
-(107, 1, 2005, 'ovo je proba1', '12'),
-(108, 1, 2005, 'ovo je proba1', '12:12:12'),
-(109, 2, 2005, 'ovo je proba2', '15:14:32'),
-(110, 2, 1993, 'OVO JE PROBA 3', '15:20:46'),
-(111, 3, 2005, 'proba za rezisera', '14:02:58'),
-(112, 3, 2005, 'proba za rezisera', '14:02:58'),
-(113, 3, 2005, 'proba za rezisera', '14:02:58'),
-(114, 3, 2005, 'proba za rezisera', '14:02:58'),
-(115, 3, 2005, 'proba za rezisera', '14:02:58'),
-(116, 3, 2005, 'proba za rezisera', '14:02:58'),
-(117, 3, 2005, 'proba za rezisera', '14:02:58'),
-(118, 3, 2005, 'proba za rezisera', '14:02:58'),
-(119, 3, 2005, 'proba za rezisera', '14:02:58'),
-(120, 3, 2006, 'ovo je proba za rezisra', '12:12:12'),
-(121, 3, 2006, 'ovo je proba za rezisra', '12:12:12'),
-(122, 3, 2006, 'ovo je proba za rezisra', '12:12:12'),
-(123, 3, 2006, 'ovo je proba za rezisra', '12:12:12'),
-(124, 3, 2006, 'ovo je proba za rezisra', '12:12:12'),
-(125, 3, 2006, 'ovo je proba za rezisra', '12:12:12'),
-(126, 1, 1958, 'bla bla', '12:12:12'),
-(127, 1, 1958, 'bla bla', '12:12:12'),
-(128, 1, 1958, 'bla bla', '12:12:12'),
-(129, 1, 1958, 'bla bla', '12:12:12'),
-(130, 3, 1857, 'vbla bla bla ', '12:12:12'),
-(131, 3, 1857, 'vbla bla bla ', '12:12:12'),
-(132, 3, 1956, 'bla vla bla', '12:12:12'),
-(133, 3, 1756, 'MONTAZER', '12:12:12'),
-(134, 3, 1756, 'MONTAZER', '12:12:12'),
-(135, 3, 1756, 'MONTAZER', '12:12:12'),
-(136, 3, 1756, 'MONTAZER', '12:12:12'),
-(137, 1, 206, 'MONTAZER', '12:12:12'),
-(138, 1, 1985, 'PRODUCENT', '12:12:12'),
-(139, 1, 2589, 'SNIMATELJ ', '12:12:12'),
-(140, 1, 2016, 'NAGRADE', '12:12:12'),
-(141, 1, 2016, 'NAGRADE', '12:12:12'),
-(142, 3, 1985, 'NAGRADE', '12:12:12'),
-(143, 3, 4758, 'NAGRADE', '12:12:12'),
-(144, 3, 1985, 'GLUMAC PROBA', '12:12:12'),
-(145, 3, 15, 'GLUMAC PROBA', '12:12:12'),
-(146, 3, 15, 'GLUMAC PROBA', '12:12:12'),
-(147, 3, 205, 'GLUMAC STUDENT', '12:12:12'),
-(148, 3, 205, 'GLUMAC STUDENT', '12:12:12'),
-(149, 3, 2056, 'PODRSKA', '12:12:12'),
-(150, 1, 2056, 'PODRSKA STUDENT', '12:12:12'),
-(151, 1, 2056, 'PODRSKA STUDENT', '12:12:12'),
-(152, 3, 2056, 'TEST FJA', '12:12:12'),
-(153, 3, 2056, 'jaiofuss', '12:12:12'),
-(154, 1, 2015, 'kdoALJKJSV', '12:12:12'),
-(155, 1, 2015, 'kdoALJKJSV', '12:12:12'),
-(156, 1, 2016, 'ttyrttr', '12:12:12'),
-(157, 1, 256, 'afsdgfhgjh', '12:12:12'),
-(158, 5, 2056, 'gujhgfd', '12:12:12'),
-(159, 2, 185, 'rgetrhy', '12:12:12'),
-(160, 1, 1985, 'dsfgnhg', '12:12:12'),
-(161, 1, 1985, 'dsfgnhg', '12:12:12');
+(181, 15, 2008, 'Gnev', '00:04:21'),
+(182, 15, 2011, 'Autobiografija', '00:11:11'),
+(183, 13, 2016, 'Loš dan', '00:11:11'),
+(184, 14, 2015, 'Razmisli', '00:23:14'),
+(185, 14, 2014, 'Pocetak kraja', '00:22:16');
 
 -- --------------------------------------------------------
 
@@ -235,39 +78,27 @@ INSERT INTO `film` (`id_filma`, `Vezba_id_vezbe`, `godina_proizvodnje`, `naziv_f
 -- Table structure for table `glumac`
 --
 
-DROP TABLE IF EXISTS `glumac`;
 CREATE TABLE IF NOT EXISTS `glumac` (
   `id_glumca` int(11) NOT NULL AUTO_INCREMENT,
   `Film_id_filma` int(11) NOT NULL,
   `ime_prezime` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_glumca`),
   KEY `fk_Film_has_Student_Film5_idx` (`Film_id_filma`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `glumac`
 --
 
 INSERT INTO `glumac` (`id_glumca`, `Film_id_filma`, `ime_prezime`) VALUES
-(1, 36, 'ljubica'),
-(2, 50, 'ljubica'),
-(3, 51, 'ljubica'),
-(4, 52, 'ljubica'),
-(5, 53, 'ljubica'),
-(6, 54, 'ljubica'),
-(7, 59, 'ljubica'),
-(8, 62, 'snimatelj_zvuka'),
-(9, 63, ''),
-(10, 64, ''),
-(11, 65, ''),
-(12, 66, ''),
-(13, 73, ''),
-(14, 145, 'lkubica'),
-(15, 146, 'ljubica'),
-(16, 146, 'milica'),
-(17, 148, 'GLUMAC !'),
-(18, 154, 'MILICA'),
-(19, 155, 'adsmknvbf');
+(1, 183, 'Anica Marković'),
+(2, 183, 'Luka Popović'),
+(3, 184, 'Nadica Marković'),
+(4, 184, 'Ljubiša Ristić'),
+(5, 184, 'Nikola Šešić'),
+(6, 185, 'Nemanja Subotić'),
+(7, 185, 'Miloš Marković'),
+(8, 185, 'Ana Stojanović');
 
 -- --------------------------------------------------------
 
@@ -275,7 +106,6 @@ INSERT INTO `glumac` (`id_glumca`, `Film_id_filma`, `ime_prezime`) VALUES
 -- Table structure for table `glumac_student`
 --
 
-DROP TABLE IF EXISTS `glumac_student`;
 CREATE TABLE IF NOT EXISTS `glumac_student` (
   `Film_id_filma` int(11) NOT NULL,
   `Student_id_studenta` int(11) NOT NULL,
@@ -289,11 +119,10 @@ CREATE TABLE IF NOT EXISTS `glumac_student` (
 --
 
 INSERT INTO `glumac_student` (`Film_id_filma`, `Student_id_studenta`) VALUES
-(38, 1),
-(49, 1),
-(148, 1),
-(155, 1),
-(154, 2);
+(183, 5),
+(181, 19),
+(181, 20),
+(181, 21);
 
 -- --------------------------------------------------------
 
@@ -301,7 +130,6 @@ INSERT INTO `glumac_student` (`Film_id_filma`, `Student_id_studenta`) VALUES
 -- Table structure for table `karton_prilog`
 --
 
-DROP TABLE IF EXISTS `karton_prilog`;
 CREATE TABLE IF NOT EXISTS `karton_prilog` (
   `id_priloga` int(11) NOT NULL AUTO_INCREMENT,
   `Film_id_filma` int(11) NOT NULL,
@@ -309,7 +137,24 @@ CREATE TABLE IF NOT EXISTS `karton_prilog` (
   `putanja` varchar(600) DEFAULT NULL,
   PRIMARY KEY (`id_priloga`),
   KEY `fk_Karton_prilog_Film1` (`Film_id_filma`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=23 ;
+
+--
+-- Dumping data for table `karton_prilog`
+--
+
+INSERT INTO `karton_prilog` (`id_priloga`, `Film_id_filma`, `tip_priloga`, `putanja`) VALUES
+(12, 181, 'DVD', 'filmovi/Gnev_181/Gnev - 2008 - Studentski Film - FDU.mp4'),
+(13, 181, 'fotografija iz filma', 'filmovi/Gnev_181/Klasici.jpg'),
+(14, 182, 'DVD', 'filmovi/Autobiografija_182/AUTOBIOGRAFIJA 2011 FDU.mp4'),
+(15, 182, 'fotografija iz filma', 'filmovi/Autobiografija_182/snimanje-kamerom.jpg'),
+(16, 183, 'DVD', 'filmovi/Losdan_183/Los Dan.mp4'),
+(17, 183, 'fotografija iz filma', 'filmovi/Losdan_183/a.jpg'),
+(18, 183, 'fotografija iz filma', 'filmovi/Losdan_183/ovih-dana.jpg'),
+(19, 184, 'DVD', 'filmovi/Razmisli_184/Razmisli - Ispitni film prve godine.mp4'),
+(20, 184, 'fotografija iz filma', 'filmovi/Razmisli_184/leto-bez-meseca.jpg'),
+(21, 185, 'DVD', 'filmovi/Pocetak kraja_185/Pocetakkraja,FDU2015.mp4'),
+(22, 185, 'fotografija iz filma', 'filmovi/Pocetak kraja_185/maxresdefault.jpg');
 
 -- --------------------------------------------------------
 
@@ -317,7 +162,6 @@ CREATE TABLE IF NOT EXISTS `karton_prilog` (
 -- Table structure for table `katedra`
 --
 
-DROP TABLE IF EXISTS `katedra`;
 CREATE TABLE IF NOT EXISTS `katedra` (
   `id_katedre` int(11) NOT NULL AUTO_INCREMENT,
   `godina_studija` int(11) NOT NULL,
@@ -326,14 +170,43 @@ CREATE TABLE IF NOT EXISTS `katedra` (
   `Profesor_id_profesora` int(11) NOT NULL,
   PRIMARY KEY (`id_katedre`),
   KEY `fk_Katedra_Profesor1_idx` (`Profesor_id_profesora`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=45 ;
 
 --
 -- Dumping data for table `katedra`
 --
 
 INSERT INTO `katedra` (`id_katedre`, `godina_studija`, `skolska_godina`, `naziv`, `Profesor_id_profesora`) VALUES
-(1, 2, 2016, 'rezija', 1);
+(1, 1, 2016, 'rezija', 1),
+(2, 2, 2016, 'rezija', 1),
+(3, 3, 2016, 'rezija', 1),
+(4, 4, 2016, 'rezija', 1),
+(5, 5, 2016, 'rezija', 1),
+(6, 6, 2016, 'rezija', 1),
+(7, 1, 2016, 'montaza', 2),
+(8, 2, 2016, 'montaza', 2),
+(9, 3, 2016, 'montaza', 2),
+(10, 4, 2016, 'montaza', 2),
+(11, 5, 2016, 'montaza', 2),
+(12, 6, 2016, 'montaza', 2),
+(13, 1, 2016, 'kamera', 3),
+(14, 2, 2016, 'kamera', 3),
+(15, 3, 2016, 'kamera', 3),
+(16, 4, 2016, 'kamera', 3),
+(17, 5, 2016, 'kamera', 3),
+(18, 6, 2016, 'kamera', 3),
+(19, 1, 2016, 'zvuk', 4),
+(20, 2, 2016, 'zvuk', 4),
+(21, 3, 2016, 'zvuk', 4),
+(22, 4, 2016, 'zvuk', 4),
+(23, 5, 2016, 'zvuk', 4),
+(24, 6, 2016, 'zvuk', 4),
+(25, 1, 2016, 'produkcija', 5),
+(26, 2, 2016, 'produkcija', 5),
+(27, 3, 2016, 'produkcija', 5),
+(28, 4, 2016, 'produkcija', 5),
+(29, 5, 2016, 'produkcija', 5),
+(30, 6, 2016, 'produkcija', 5);
 
 -- --------------------------------------------------------
 
@@ -341,7 +214,6 @@ INSERT INTO `katedra` (`id_katedre`, `godina_studija`, `skolska_godina`, `naziv`
 -- Table structure for table `montazer`
 --
 
-DROP TABLE IF EXISTS `montazer`;
 CREATE TABLE IF NOT EXISTS `montazer` (
   `Film_id_filma` int(11) NOT NULL,
   `Student_id_studenta` int(11) NOT NULL,
@@ -354,18 +226,11 @@ CREATE TABLE IF NOT EXISTS `montazer` (
 --
 
 INSERT INTO `montazer` (`Film_id_filma`, `Student_id_studenta`) VALUES
-(5, 1),
-(6, 1),
-(7, 2),
-(36, 1),
-(38, 1),
-(39, 1),
-(55, 2),
-(137, 1),
-(137, 2),
-(154, 1),
-(154, 2),
-(155, 1);
+(181, 3),
+(182, 16),
+(183, 18),
+(184, 15),
+(185, 10);
 
 -- --------------------------------------------------------
 
@@ -373,125 +238,13 @@ INSERT INTO `montazer` (`Film_id_filma`, `Student_id_studenta`) VALUES
 -- Table structure for table `nagrada`
 --
 
-DROP TABLE IF EXISTS `nagrada`;
 CREATE TABLE IF NOT EXISTS `nagrada` (
   `id_nagrade` int(11) NOT NULL AUTO_INCREMENT,
   `Film_id_filma` int(11) NOT NULL,
   `naziv` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_nagrade`),
   KEY `fk_Nagrada_Film1_idx` (`Film_id_filma`)
-) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `nagrada`
---
-
-INSERT INTO `nagrada` (`id_nagrade`, `Film_id_filma`, `naziv`) VALUES
-(1, 5, 'NAGRADAA'),
-(2, 6, ''),
-(3, 7, ''),
-(4, 8, ''),
-(5, 9, ''),
-(6, 10, ''),
-(7, 11, ''),
-(8, 12, ''),
-(9, 13, ''),
-(10, 14, ''),
-(11, 15, ''),
-(12, 16, ''),
-(13, 17, ''),
-(14, 18, ''),
-(15, 19, ''),
-(16, 20, ''),
-(17, 21, ''),
-(18, 22, ''),
-(19, 23, ''),
-(20, 24, ''),
-(21, 25, ''),
-(22, 26, ''),
-(23, 27, ''),
-(24, 28, ''),
-(25, 29, ''),
-(26, 30, ''),
-(27, 31, ''),
-(28, 32, ''),
-(29, 33, ''),
-(30, 34, ''),
-(31, 35, ''),
-(32, 36, 'OVO JE NAGRADA KONACNO'),
-(33, 38, 'OVO JE NAGRADA KONACNO'),
-(34, 39, 'gdf'),
-(35, 40, 'gdf'),
-(36, 41, 'gdf'),
-(37, 42, 'gdf'),
-(38, 43, ''),
-(39, 44, ''),
-(40, 45, ''),
-(41, 46, ''),
-(42, 47, ''),
-(43, 48, ''),
-(44, 49, ''),
-(45, 50, ''),
-(46, 51, ''),
-(47, 52, ''),
-(48, 53, ''),
-(49, 54, ''),
-(50, 55, ''),
-(51, 56, ''),
-(52, 57, ''),
-(53, 58, ''),
-(54, 59, 'ljubica'),
-(55, 60, 'ljubica'),
-(56, 61, ''),
-(57, 62, 'snimatelj_zvuka'),
-(58, 63, ''),
-(59, 64, ''),
-(60, 65, ''),
-(61, 66, ''),
-(62, 67, ''),
-(63, 68, ''),
-(64, 69, ''),
-(65, 70, ''),
-(66, 71, ''),
-(67, 72, ''),
-(68, 73, ''),
-(69, 74, ''),
-(70, 75, ''),
-(71, 76, ''),
-(72, 77, ''),
-(73, 78, ''),
-(74, 79, ''),
-(75, 80, ''),
-(76, 81, ''),
-(77, 82, ''),
-(78, 83, ''),
-(79, 84, ''),
-(80, 85, ''),
-(81, 86, ''),
-(82, 87, ''),
-(83, 88, ''),
-(84, 89, ''),
-(85, 90, ''),
-(86, 91, ''),
-(87, 92, ''),
-(88, 93, ''),
-(89, 94, ''),
-(90, 95, ''),
-(91, 96, ''),
-(92, 97, ''),
-(93, 98, ''),
-(94, 99, ''),
-(95, 100, ''),
-(96, 101, ''),
-(97, 102, ''),
-(98, 103, ''),
-(99, 104, ''),
-(100, 105, ''),
-(101, 143, 'ljubica'),
-(102, 143, 'bla'),
-(103, 143, 'dhuesfv'),
-(104, 154, 'NAGRADA'),
-(105, 155, 'maijdcsnvfjd');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -499,7 +252,6 @@ INSERT INTO `nagrada` (`id_nagrade`, `Film_id_filma`, `naziv`) VALUES
 -- Table structure for table `osnovne_informacije`
 --
 
-DROP TABLE IF EXISTS `osnovne_informacije`;
 CREATE TABLE IF NOT EXISTS `osnovne_informacije` (
   `Film_id_filma` int(11) NOT NULL,
   `sinopsis` text,
@@ -515,163 +267,11 @@ CREATE TABLE IF NOT EXISTS `osnovne_informacije` (
 --
 
 INSERT INTO `osnovne_informacije` (`Film_id_filma`, `sinopsis`, `arhivska_muzika`, `biografija_rezisera`, `napomene`) VALUES
-(2, '', '', '', ''),
-(3, '', '', '', ''),
-(4, '', '', '', ''),
-(5, '', '', '', ''),
-(6, '', '', '', ''),
-(7, '', '', '', ''),
-(8, '', '', '', ''),
-(9, '', '', '', ''),
-(10, '', '', '', ''),
-(11, '', '', '', ''),
-(12, '', '', '', ''),
-(13, '', '', '', ''),
-(14, '', '', '', ''),
-(15, '', '', '', ''),
-(16, '', '', '', ''),
-(17, '', '', '', ''),
-(18, '', '', '', ''),
-(19, '', '', '', ''),
-(20, '', '', '', ''),
-(21, '', '', '', ''),
-(22, '', '', '', ''),
-(23, '', '', '', ''),
-(24, '', '', '', ''),
-(25, '', '', '', ''),
-(26, '', '', '', ''),
-(27, '', '', '', ''),
-(28, '', '', '', ''),
-(29, '', '', '', ''),
-(30, '', '', '', ''),
-(31, '', '', '', ''),
-(32, '', '', '', ''),
-(33, '', '', '', ''),
-(34, '', '', '', ''),
-(35, '', '', '', ''),
-(36, 'GOTOVO', 'GOTOVO', 'GOTOVO', ''),
-(37, 'GOTOVO', 'GOTOVO', 'GOTOVO', ''),
-(38, 'GOTOVO', 'GOTOVO', 'GOTOVO', ''),
-(39, '', '', '', ''),
-(40, '', '', '', ''),
-(41, '', '', '', ''),
-(42, '', '', '', ''),
-(43, '', '', '', ''),
-(44, '', '', '', ''),
-(45, '', '', '', ''),
-(46, '', '', '', ''),
-(47, '', '', '', ''),
-(48, '', '', '', ''),
-(49, '', '', '', ''),
-(50, '', '', '', ''),
-(51, '', '', '', ''),
-(52, '', '', '', ''),
-(53, '', '', '', ''),
-(54, '', '', '', ''),
-(55, '', '', '', ''),
-(56, '', '', '', ''),
-(57, '', '', '', ''),
-(58, '', '', '', ''),
-(59, '', '', '', ''),
-(60, '', '', '', ''),
-(61, '', '', '', ''),
-(62, '', '', '', ''),
-(63, '', '', '', ''),
-(64, '', '', '', ''),
-(65, '', '', '', ''),
-(66, '', '', '', ''),
-(67, '', '', '', ''),
-(68, '', '', '', ''),
-(69, '', '', '', ''),
-(70, '', '', '', ''),
-(71, '', '', '', ''),
-(72, '', '', '', ''),
-(73, '', '', '', ''),
-(74, '', '', '', ''),
-(75, '', '', '', ''),
-(76, '', '', '', ''),
-(77, '', '', '', ''),
-(78, '', '', '', ''),
-(79, '', '', '', ''),
-(80, '', '', '', ''),
-(81, '', '', '', ''),
-(82, '', '', '', ''),
-(83, '', '', '', ''),
-(84, '', '', '', ''),
-(85, '', '', '', ''),
-(86, '', '', '', ''),
-(87, '', '', '', ''),
-(88, '', '', '', ''),
-(89, '', '', '', ''),
-(90, '', '', '', ''),
-(91, '', '', '', ''),
-(92, '', '', '', ''),
-(93, '', '', '', ''),
-(94, '', '', '', ''),
-(95, '', '', '', ''),
-(96, '', '', '', ''),
-(97, '', '', '', ''),
-(98, '', '', '', ''),
-(99, '', '', '', ''),
-(100, '', '', '', ''),
-(101, '', '', '', ''),
-(102, '', '', '', ''),
-(103, '', '', '', ''),
-(104, '', '', '', ''),
-(105, '', '', '', ''),
-(109, '', '', '', ''),
-(110, 'Molim vas za pomoc. Pocela sam sa hrono ishranom i nekako uklopila satnicu,i sta se kada jede. ali mi je potrebna pomoc tj da mi neko uprosti sta koliko puta nedeljno ili nedeljnu kolicinu,i sta se sa cim ne kombinuje u sva tri broka. nemojte me upucivati na start,iscitala sam i vise od toga,ali imam bebu,i izmedju hrane z', 'Molim vas za pomoc. Pocela sam sa hrono ishranom i nekako uklopila satnicu,i sta se kada jede. ali mi je potrebna pomoc tj da mi neko uprosti sta koliko puta nedeljno ili nedeljnu kolicinu,i sta se sa cim ne kombinuje u sva tri broka. nemojte me upucivati na start,iscitala sam i vise od toga,ali imam bebu,i izmedju hrane z', 'Molim vas za pomoc. Pocela sam sa hrono ishranom i nekako uklopila satnicu,i sta se kada jede. ali mi je potrebna pomoc tj da mi neko uprosti sta koliko puta nedeljno ili nedeljnu kolicinu,i sta se sa cim ne kombinuje u sva tri broka. nemojte me upucivati na start,iscitala sam i vise od toga,ali imam bebu,i izmedju hrane z', 'Molim vas za pomoc. Pocela sam sa hrono ishranom i nekako uklopila satnicu,i sta se kada jede. ali mi je potrebna pomoc tj da mi neko uprosti sta koliko puta nedeljno ili nedeljnu kolicinu,i sta se sa cim ne kombinuje u sva tri broka. nemojte me upucivati na start,iscitala sam i vise od toga,ali imam bebu,i izmedju hrane z'),
-(111, '', '', '', ''),
-(112, '', '', '', ''),
-(113, '', '', '', ''),
-(114, '', '', '', ''),
-(115, '', '', '', ''),
-(116, '', '', '', ''),
-(117, '', '', '', ''),
-(118, '', '', '', ''),
-(119, '', '', '', ''),
-(120, '', '', '', ''),
-(121, '', '', '', ''),
-(122, '', '', '', ''),
-(123, '', '', '', ''),
-(124, '', '', '', ''),
-(125, '', '', '', ''),
-(126, '', '', '', ''),
-(127, '', '', '', ''),
-(128, '', '', '', ''),
-(129, '', '', '', ''),
-(130, '', '', '', ''),
-(131, '', '', '', ''),
-(132, '', '', '', ''),
-(133, '', '', '', ''),
-(134, '', '', '', ''),
-(135, '', '', '', ''),
-(136, '', '', '', ''),
-(137, '', '', '', ''),
-(138, '', '', '', ''),
-(139, '', '', '', ''),
-(140, '', '', '', ''),
-(141, '', '', '', ''),
-(142, '', '', '', ''),
-(143, '', '', '', ''),
-(144, '', '', '', ''),
-(145, '', '', '', ''),
-(146, '', '', '', ''),
-(147, '', '', '', ''),
-(148, '', '', '', ''),
-(149, '', '', '', ''),
-(150, '', '', '', ''),
-(151, '', '', '', ''),
-(152, '', '', '', ''),
-(153, '', '', '', ''),
-(154, '', '', '', ''),
-(155, '', '', '', ''),
-(156, '', '', '', ''),
-(157, '', '', '', ''),
-(158, '', '', '', ''),
-(159, '', '', '', ''),
-(160, '', '', '', ''),
-(161, '', '', '', '');
+(181, 'Zbog cega se ne razmislja? Ne reaguju svi ljudi isto u gnevu. I ne mora uvek da postoji direktan povod za gnev. ', '', 'Rođen sam  23.12.1989. u Šapcu. Osnovnu školu sam završio u O.Š."Mika Mitrović" u Bogatiću. Iako nisam išao na takmičenja dobitnik sam Vukove diplome. Gimnaziju sam pohađao u Šapcu.\r\nKao maturant dobijam diplomu od svoje gimnazije "za zalaganje u dramskoj sekciji", koja, u stvari nije ni postojala. 2008 upisujem Fakultet dramskih umetnosti i ovo je moj prvi film.', ''),
+(182, '', '', 'Obrazovanje:\r\nOsnovna skola Dragica Pravica, Beograd;\r\nElektrotehnicka skola Nikola Tesla, Beograd;\r\nFaku;tet Dramskih Umetnosti, Beograd\r\nSlobodnog vremena imam jako malo zbog posla i fakulteta. Bavim se spasilastvom. Ono vremena sto mi ostaje slobodno provodim sa mojom devojkom. Na fakultetu\r\nse trudim da budem redovan mada mi to ponekad ne uspeva ali i dalje istrajavam i redovno zavrsavam 2 godinu studija. Hobi mi je stolarstvo.', ''),
+(183, 'Student glume Filip pada ispit u poslednjem roku i zbog toga ne može da učestvuje u ispitnoj predstavi svoje klase, a ni da nastavi školovanje za koje mu treba velika svota novca. Njegove kolege će učiniti sve što je u njihovoj moći da mu pomognu, ali da li je to dovoljno da spasu Filipa i svoju predstavu?', '', 'Obrazovanje:\r\nOsnovna skola Sonja Marinkovic, Zemun;\r\nKrusevačka gimnazija;\r\nFakultet dramskih umetnosti, smer režija;\r\nJos u sestom razredu osnovne skole sam odlucio cime hocu da se bavim.\r\nMoja druga ljubav su jezici i cilj mi je da do kraja studija govorim cetiri. Veliki sam fan tenisa od 12. godine. Ovo je moj treci film.', ''),
+(184, 'U svojoj poslednjoj noći u Beogradu Ivana se oprašta sa bratom i najbližim prijateljima. \n', '', 'Obrazovanje:\r\nOsnovna skola Zivko Ljujic, Nova Varos;\r\nGimnazija Pivo Karamatijevic, Nova Varos;\r\nFakultet Dramskih Umetnosti, Beograd;\r\nDruzeljubiv i komunikativan. U slobodno vreme izlazim sa drustvom, idem na\r\nplivanje, igram basket, igrice... Ovo je moj prvi studentski film.', ''),
+(185, 'Pred odlazak u inostranstvo, šesnaestogodišnja Isidora provodi nekoliko dana u vikendici sa svojom starijom sestrom. Izgubljena u letnjoj tišini, strepi da će se sve oko nje promeniti. ', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -679,7 +279,6 @@ INSERT INTO `osnovne_informacije` (`Film_id_filma`, `sinopsis`, `arhivska_muzika
 -- Table structure for table `podrska`
 --
 
-DROP TABLE IF EXISTS `podrska`;
 CREATE TABLE IF NOT EXISTS `podrska` (
   `id_podrske` int(11) NOT NULL AUTO_INCREMENT,
   `Film_id_filma` int(11) NOT NULL,
@@ -687,37 +286,32 @@ CREATE TABLE IF NOT EXISTS `podrska` (
   `ime_prezime` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_podrske`),
   KEY `fk_Podrska_Film1` (`Film_id_filma`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=27 ;
 
 --
 -- Dumping data for table `podrska`
 --
 
 INSERT INTO `podrska` (`id_podrske`, `Film_id_filma`, `tip_podrske`, `ime_prezime`) VALUES
-(1, 55, 'dizajner_zvuka', 'ljubica'),
-(2, 56, 'snimatelj_zvuka', 'ljubica'),
-(3, 58, 'specijalni_efekti', 'ljubica'),
-(4, 59, 'dizajner_zvuka', 'ljubica'),
-(5, 60, 'snimatelj_zvuka', 'ljubica'),
-(6, 62, 'dizajner_zvuka', 'snimatelj_zvuka'),
-(7, 63, 'dizajner_zvuka', ''),
-(8, 64, 'dizajner_zvuka', ''),
-(9, 65, 'dizajner_zvuka', ''),
-(10, 66, 'dizajner_zvuka', ''),
-(11, 73, 'dizajner_zvuka', ''),
-(12, 89, 'specijalni_efekti', 'ljubica'),
-(13, 90, 'specijalni_efekti', 'ljubica'),
-(14, 149, NULL, 'ljubica'),
-(15, 150, 'dizajner zvuka', 'DZ'),
-(16, 151, 'dizajner zvuka', 'DZ@'),
-(17, 151, 'dizajner zvuka', 'DZ#'),
-(18, 153, 'specijalni efeti', 'IVAN'),
-(19, 153, 'specijalni efeti', 'IVICA'),
-(20, 154, 'dizajner zvuka', 'ivan'),
-(21, 155, 'specijalni efeti', 'mdfvndj'),
-(22, 155, 'snimatelj zvuka', 'cnjdsnfjkm'),
-(23, 155, 'animacija', 'dwmecsndfjh'),
-(24, 155, 'sminker', 'vfdgf');
+(8, 181, 'snimatelj zvuka', 'Angelina Ivetić'),
+(9, 181, 'animacija', 'Siniša Radović'),
+(10, 181, 'kostimograf', 'Sara Popović'),
+(11, 181, 'sminker', 'Aleksandra Peleksić'),
+(12, 182, 'animacija', 'Milutin Dragić'),
+(13, 182, 'sminker', 'Jana Vasić'),
+(14, 183, 'specijalni efekti', 'Maksim Djurdjevac'),
+(15, 183, 'snimatelj zvuka', 'Momčilo Lukić'),
+(16, 183, 'kostimograf', 'Žarko Kosanić'),
+(17, 183, 'sminker', 'Jelena Andrić'),
+(18, 184, 'specijalni efekti', 'Tamara Djurić'),
+(19, 184, 'animacija', 'Nataša Popadić'),
+(20, 184, 'scenograf', 'Tanja Opačić'),
+(21, 184, 'sminker', 'Ivan Matić'),
+(22, 185, 'specijalni efekti', 'Aleksandra Djurić'),
+(23, 185, 'snimatelj zvuka', 'Jana Milutinović'),
+(24, 185, 'animacija', 'Igor Rodić'),
+(25, 185, 'kostimograf', 'Ana Djordjević'),
+(26, 185, 'sminker', 'Ana Milošević');
 
 -- --------------------------------------------------------
 
@@ -725,7 +319,6 @@ INSERT INTO `podrska` (`id_podrske`, `Film_id_filma`, `tip_podrske`, `ime_prezim
 -- Table structure for table `podrska_student`
 --
 
-DROP TABLE IF EXISTS `podrska_student`;
 CREATE TABLE IF NOT EXISTS `podrska_student` (
   `Film_id_filma` int(11) NOT NULL,
   `Student_id_studenta` int(11) NOT NULL,
@@ -740,10 +333,27 @@ CREATE TABLE IF NOT EXISTS `podrska_student` (
 --
 
 INSERT INTO `podrska_student` (`Film_id_filma`, `Student_id_studenta`, `tip_podrske`) VALUES
-(155, 1, 'kompozitor'),
-(155, 1, 'kostimograf'),
-(155, 2, 'dizajner zvuka'),
-(155, 2, 'scenograf');
+(181, 1, 'dizajner zvuka'),
+(181, 3, 'kompozitor'),
+(182, 3, 'snimatelj zvuka'),
+(183, 4, 'animacija'),
+(182, 5, 'kompozitor'),
+(183, 5, 'dizajner zvuka'),
+(181, 6, 'specijalni efekti'),
+(182, 6, 'specijalni efekti'),
+(185, 6, 'scenograf'),
+(182, 12, 'kostimograf'),
+(185, 13, 'kompozitor'),
+(184, 14, 'snimatelj zvuka'),
+(184, 15, 'kostimograf'),
+(183, 17, 'kompozitor'),
+(185, 17, 'dizajner zvuka'),
+(182, 18, 'dizajner zvuka'),
+(183, 18, 'scenograf'),
+(181, 19, 'scenograf'),
+(184, 20, 'dizajner zvuka'),
+(182, 21, 'scenograf'),
+(184, 21, 'kompozitor');
 
 -- --------------------------------------------------------
 
@@ -751,19 +361,26 @@ INSERT INTO `podrska_student` (`Film_id_filma`, `Student_id_studenta`, `tip_podr
 -- Table structure for table `predmet`
 --
 
-DROP TABLE IF EXISTS `predmet`;
 CREATE TABLE IF NOT EXISTS `predmet` (
   `id_predmeta` int(11) NOT NULL AUTO_INCREMENT,
   `naziv` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_predmeta`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `predmet`
 --
 
 INSERT INTO `predmet` (`id_predmeta`, `naziv`) VALUES
-(1, 'uvit');
+(1, 'Teorija filma'),
+(2, 'Uvod u studije filma'),
+(3, 'Osnovi pozorišne režije'),
+(4, 'Osnovi audio tehnike'),
+(5, 'Tehnologija televizije'),
+(6, 'Istorija svetskog pozorišta i drame'),
+(7, 'Filmska montaža'),
+(8, 'TV produkcija'),
+(9, 'Filmska produkcija');
 
 -- --------------------------------------------------------
 
@@ -771,7 +388,6 @@ INSERT INTO `predmet` (`id_predmeta`, `naziv`) VALUES
 -- Table structure for table `producent`
 --
 
-DROP TABLE IF EXISTS `producent`;
 CREATE TABLE IF NOT EXISTS `producent` (
   `Film_id_filma` int(11) NOT NULL,
   `Student_id_studenta` int(11) NOT NULL,
@@ -784,14 +400,11 @@ CREATE TABLE IF NOT EXISTS `producent` (
 --
 
 INSERT INTO `producent` (`Film_id_filma`, `Student_id_studenta`) VALUES
-(5, 1),
-(6, 1),
-(7, 2),
-(39, 1),
-(138, 1),
-(138, 2),
-(154, 1),
-(155, 1);
+(181, 2),
+(182, 3),
+(183, 4),
+(184, 18),
+(185, 14);
 
 -- --------------------------------------------------------
 
@@ -799,19 +412,27 @@ INSERT INTO `producent` (`Film_id_filma`, `Student_id_studenta`) VALUES
 -- Table structure for table `profesor`
 --
 
-DROP TABLE IF EXISTS `profesor`;
 CREATE TABLE IF NOT EXISTS `profesor` (
   `id_profesora` int(11) NOT NULL AUTO_INCREMENT,
   `ime_prezime` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_profesora`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `profesor`
 --
 
 INSERT INTO `profesor` (`id_profesora`, `ime_prezime`) VALUES
-(1, 'Andjelka');
+(1, 'Marko Mladenović'),
+(2, 'Nikola Marković'),
+(3, 'Milutin Popović'),
+(4, 'Nenad Maljković'),
+(5, 'Ivan Lukić'),
+(6, 'Srdjan Ninković'),
+(7, 'Nikola Sretenović'),
+(8, 'Mirko Dragojević'),
+(9, 'Saša Marković'),
+(10, 'Bogdan Milošević');
 
 -- --------------------------------------------------------
 
@@ -819,7 +440,6 @@ INSERT INTO `profesor` (`id_profesora`, `ime_prezime`) VALUES
 -- Table structure for table `reziser`
 --
 
-DROP TABLE IF EXISTS `reziser`;
 CREATE TABLE IF NOT EXISTS `reziser` (
   `Film_id_filma` int(11) NOT NULL,
   `Student_id_studenta` int(11) NOT NULL,
@@ -832,30 +452,11 @@ CREATE TABLE IF NOT EXISTS `reziser` (
 --
 
 INSERT INTO `reziser` (`Film_id_filma`, `Student_id_studenta`) VALUES
-(3, 1),
-(5, 1),
-(36, 1),
-(37, 1),
-(38, 1),
-(39, 1),
-(45, 1),
-(64, 2),
-(78, 1),
-(81, 1),
-(82, 1),
-(83, 1),
-(117, 1),
-(123, 1),
-(126, 1),
-(128, 1),
-(131, 1),
-(131, 2),
-(132, 1),
-(136, 1),
-(136, 2),
-(154, 1),
-(154, 2),
-(155, 1);
+(181, 5),
+(182, 19),
+(183, 6),
+(184, 1),
+(185, 18);
 
 -- --------------------------------------------------------
 
@@ -863,7 +464,6 @@ INSERT INTO `reziser` (`Film_id_filma`, `Student_id_studenta`) VALUES
 -- Table structure for table `scenarista`
 --
 
-DROP TABLE IF EXISTS `scenarista`;
 CREATE TABLE IF NOT EXISTS `scenarista` (
   `Film_id_filma` int(11) NOT NULL,
   `Student_id_studenta` int(11) NOT NULL,
@@ -876,11 +476,11 @@ CREATE TABLE IF NOT EXISTS `scenarista` (
 --
 
 INSERT INTO `scenarista` (`Film_id_filma`, `Student_id_studenta`) VALUES
-(132, 1),
-(132, 2),
-(154, 1),
-(154, 2),
-(155, 2);
+(181, 2),
+(182, 2),
+(183, 13),
+(184, 17),
+(185, 7);
 
 -- --------------------------------------------------------
 
@@ -888,7 +488,6 @@ INSERT INTO `scenarista` (`Film_id_filma`, `Student_id_studenta`) VALUES
 -- Table structure for table `snimatelj`
 --
 
-DROP TABLE IF EXISTS `snimatelj`;
 CREATE TABLE IF NOT EXISTS `snimatelj` (
   `Film_id_filma` int(11) NOT NULL,
   `Student_id_studenta` int(11) NOT NULL,
@@ -901,16 +500,11 @@ CREATE TABLE IF NOT EXISTS `snimatelj` (
 --
 
 INSERT INTO `snimatelj` (`Film_id_filma`, `Student_id_studenta`) VALUES
-(5, 1),
-(6, 2),
-(7, 2),
-(36, 1),
-(38, 1),
-(39, 1),
-(139, 1),
-(139, 2),
-(154, 2),
-(155, 2);
+(181, 2),
+(182, 17),
+(183, 11),
+(184, 12),
+(185, 15);
 
 -- --------------------------------------------------------
 
@@ -918,7 +512,6 @@ INSERT INTO `snimatelj` (`Film_id_filma`, `Student_id_studenta`) VALUES
 -- Table structure for table `student`
 --
 
-DROP TABLE IF EXISTS `student`;
 CREATE TABLE IF NOT EXISTS `student` (
   `id_studenta` int(11) NOT NULL AUTO_INCREMENT,
   `indeks` mediumtext,
@@ -927,15 +520,34 @@ CREATE TABLE IF NOT EXISTS `student` (
   `katedra_id_katedre` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_studenta`),
   KEY `fk_student_katedra_kljuc_idx` (`katedra_id_katedre`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
 
 --
 -- Dumping data for table `student`
 --
 
 INSERT INTO `student` (`id_studenta`, `indeks`, `ime_prezime`, `e_mail`, `katedra_id_katedre`) VALUES
-(1, '123456', 'Mika', 'mika.mikic@gmail.com', 1),
-(2, '123457', 'Pera', 'pera.peric@gmail.com', 1);
+(1, '1052012', 'Marko Popović', 'markopopovic@gmail.com', 1),
+(2, '10882014', 'Rade Vasić', 'radevasic@gmail.com', 2),
+(3, '562013', 'Petra Anić', 'petraa@gmail.com', 28),
+(4, '332016', 'Robert Mihailović', 'rokim@gmail.com', 15),
+(5, '232014', 'Mirela Prusac', 'mirelap@gmail.com', 30),
+(6, '32015', 'Mina Pantelić', 'minapantelic@gmail.com', 25),
+(7, '52011', 'Vojislav Živanović', 'vojislavziv@gmail.com', 30),
+(8, '62014', 'Mateja Vujanović', 'matejavujanovic@gmail.com', 4),
+(9, '122015', 'Vladica Marković', 'vladicam@gmail.com', 17),
+(10, '102012', 'Radiša Matić', 'radisamatic@gmail.com', 21),
+(11, '92015', 'Irena Marković', 'irenamarkov@gmail.com', 14),
+(12, '332014', 'Djenadija Šujić', 'djenasujic@gmail.com', 24),
+(13, '222014', 'Gordana Lukić', 'gordanalu@gmail.com', 2),
+(14, '22013', 'Jasmina Djurdjević', 'jasminadju@gmail.com', 9),
+(15, '32011', 'Branislav Kojičić', 'branislavkojicic@gmail.com', 13),
+(16, '72013', 'Vladimir Kukoleča', 'vladkukol@gmail.com', 27),
+(17, '212015', 'Isidora Matić', 'isidoramatic@gmail.com', 25),
+(18, '522010', 'Aron Sekelj', 'arons@gmail.com', 11),
+(19, '522013', 'Nemanja Milunovic', 'milun@gmail.com', 15),
+(20, '342016', 'Milena Zivanovic', 'milenazivanov@gmail.com', 29),
+(21, '272016', 'Aleksandar Andjelic', 'andjelica@gmail.com', 16);
 
 -- --------------------------------------------------------
 
@@ -943,7 +555,6 @@ INSERT INTO `student` (`id_studenta`, `indeks`, `ime_prezime`, `e_mail`, `katedr
 -- Table structure for table `tehnicka_specifikacija`
 --
 
-DROP TABLE IF EXISTS `tehnicka_specifikacija`;
 CREATE TABLE IF NOT EXISTS `tehnicka_specifikacija` (
   `Film_id_filma` int(11) NOT NULL,
   `osnovni_format` varchar(255) DEFAULT NULL,
@@ -969,163 +580,11 @@ CREATE TABLE IF NOT EXISTS `tehnicka_specifikacija` (
 --
 
 INSERT INTO `tehnicka_specifikacija` (`Film_id_filma`, `osnovni_format`, `filmski_format`, `video_format`, `tel_standard`, `analiza_slike`, `format_slike`, `br_sl_sek`, `video_nosac`, `vrsta_fajla`, `zvuk`, `broj_kanala`, `redukcija_suma`, `varijacije_zvuka`, `napomene`) VALUES
-(2, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(3, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(4, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(5, 'VIDEO', '16 mm', 'HD', 'PAL', 'Sa proredom / Interlace', '4:3', '29,97', 'Blu-ray', 'Quick Time DV / ProRes / DNxHD', 'Zvucni / With sound', 'Stereo', 'Bez / None', '', ''),
-(6, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(7, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(8, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(9, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(10, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(11, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(12, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(13, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(14, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(15, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(16, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(17, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(18, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(19, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(20, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(21, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(22, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(23, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(24, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(25, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(26, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(27, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(28, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(29, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(30, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(31, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(32, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(33, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(34, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(35, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(36, 'VIDEO', '16 mm', 'HD', 'NTSC', 'Progresivna / Progressive', '4:3L', '23,976', 'Fajl / File', 'Quick Time DV / ProRes / DNxHD', 'Zvucni / With sound', 'Mono', 'Bez / None', 'GOTOVO', ''),
-(37, 'VIDEO', '16 mm', 'HD', 'NTSC', 'Sa proredom / Interlace', '4:3L', '18', 'Fajl / File', 'Quick Time DV / ProRes / DNxHD', 'Nemi / Silent', 'Stereo', 'Bez / None', 'GOTOVO', ''),
-(38, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'GOTOVO', ''),
-(39, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(40, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(41, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(42, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(43, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(44, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(45, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(46, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(47, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(48, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(49, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(50, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(51, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(52, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(53, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(54, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(55, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(56, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(57, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(58, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(59, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(60, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(61, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(62, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(63, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(64, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(65, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(66, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(67, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(68, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(69, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(70, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(71, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(72, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(73, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(74, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(75, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(76, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(77, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(78, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(79, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(80, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(81, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(82, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(83, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(84, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(85, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(86, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(87, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(88, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(89, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(90, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(91, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(92, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(93, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(94, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(95, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(96, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(97, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(98, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(99, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(100, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(101, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(102, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(103, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(104, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(105, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(109, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(110, 'VIDEO', '8 mm', 'HD', 'PAL', 'Sa proredom / Interlace', '4:3L', '23,976', 'Blu-ray', 'Quick Time DV / ProRes / DNxHD', 'Zvucni / With sound', 'Stereo', 'Bez / None', 'Molim vas za pomoc. Pocela sam sa hrono ishranom i nekako uklopila satnicu,i sta se kada jede. ali mi je potrebna pomoc tj da mi neko uprosti sta koliko puta nedeljno ili nedeljnu kolicinu,i sta se sa cim ne kombinuje u sva tri broka. nemojte me upucivati na start,iscitala sam i vise od toga,ali imam bebu,i izmedju hrane z', 'Molim vas za pomoc. Pocela sam sa hrono ishranom i nekako uklopila satnicu,i sta se kada jede. ali mi je potrebna pomoc tj da mi neko uprosti sta koliko puta nedeljno ili nedeljnu kolicinu,i sta se sa cim ne kombinuje u sva tri broka. nemojte me upucivati na start,iscitala sam i vise od toga,ali imam bebu,i izmedju hrane z'),
-(111, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(112, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(113, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(114, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(115, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(116, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(117, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(118, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(119, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(120, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(121, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(122, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(123, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(124, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(125, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(126, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(127, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(128, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(129, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(130, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(131, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(132, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(133, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(134, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(135, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(136, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(137, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(138, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(139, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(140, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(141, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(142, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(143, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(144, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(145, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(146, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(147, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(148, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(149, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(150, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(151, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(152, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(153, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(154, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(155, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(156, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(157, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(158, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(159, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(160, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', ''),
-(161, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', '');
+(181, 'VIDEO', '16 mm', '2K', 'PAL', 'Sa proredom / Interlace', '1:1,85', '30', 'DVD', 'Quick Time DV / ProRes / DNxHD', 'Nemi / Silent', 'Stereo', 'Bez / None', '', ''),
+(182, 'VIDEO', '16 mm', '2K', 'NTSC', 'Progresivna / Progressive', '1:1,85', '24', 'DVD', 'Quick Time DV / ProRes / DNxHD', 'Nemi / Silent', 'Mono', 'Dolby', '', ''),
+(183, 'VIDEO', '16 mm', '2K', 'NTSC', 'Progresivna / Progressive', '16:9', '24', 'DVD', 'AVI - DV', 'Zvucni / With sound', 'Mono', 'Dolby', '', ''),
+(184, 'FILM', '16 mm', '2K', 'NTSC', 'Sa proredom / Interlace', '1:1,66', '25', 'Fajl / File', 'Quick Time DV / ProRes / DNxHD', 'Nemi / Silent', '5.1', 'Dolby', '', ''),
+(185, 'FILM', '16 mm', '2K', 'NTSC', 'Progresivna / Progressive', '1:1,66', '29,97', 'Blu-ray', 'mp4 H.264', 'Nemi / Silent', 'Stereo', 'Bez / None', '', '');
 
 -- --------------------------------------------------------
 
@@ -1133,7 +592,6 @@ INSERT INTO `tehnicka_specifikacija` (`Film_id_filma`, `osnovni_format`, `filmsk
 -- Table structure for table `vezba`
 --
 
-DROP TABLE IF EXISTS `vezba`;
 CREATE TABLE IF NOT EXISTS `vezba` (
   `id_vezbe` int(11) NOT NULL AUTO_INCREMENT,
   `naziv` varchar(255) DEFAULT NULL,
@@ -1142,21 +600,22 @@ CREATE TABLE IF NOT EXISTS `vezba` (
   `Predmet_id_predmeta` int(11) NOT NULL,
   PRIMARY KEY (`id_vezbe`),
   KEY `fk_Vezba_Predmet1_idx` (`Predmet_id_predmeta`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
 
 --
 -- Dumping data for table `vezba`
 --
 
 INSERT INTO `vezba` (`id_vezbe`, `naziv`, `opis`, `tip`, `Predmet_id_predmeta`) VALUES
-(1, 'vezba1', 'ovo je vezba1 ', '1', 1),
-(2, 'Vezba2', 'ovo je vrzba 2', 'individualna', 1),
-(3, 'vezba3', 'ovo je vrzba 3', 'individualna', 1),
-(4, 'vezba3', 'ovo je vrzba 3', 'individualna', 1),
-(5, 'vezba3', 'ovo je vrzba 3', 'individualna', 1),
-(6, 'vezba7', 'OVO JE VEZBA', 'individualna', 1),
-(7, 'vezba7', 'OVO JE VEZBA', 'individualna', 1),
-(10, 'vezba6', 'kdaosjfkj', 'individualna', 1);
+(12, 'Potera ', ' 2RD, bez rasvete ', 'individualna', 5),
+(13, ' Dijalog 3 lica za stolom', ' 2RD, Edirol R4 Pro, dizajn zvuka, bez budžeta (osim troškova prevoza - 2 000,00din), studio \r\n', 'zajednicka', 2),
+(14, ' Dokumentarni i namenski film 1 ', 'Scenario se razvija celog semestra, 2 RD, Canon 5D, Sony XDCAM EX1,\r\nrasveta FDU – po sp', 'individualna', 3),
+(15, 'Mizankadar ', 'Scenario do 1.12.2015, 2 RD, BlackMagic Cinema Camera, Canon 5D, rasveta\r\nFDU – po specifikaciji projekta, zvučno, bez budžeta. Ispit: februar 2016. ', 'zajednicka', 7),
+(16, 'TELEVIZIJSKA REŽIJA 1', 'Scenario i realizacija pojedinih reklama prema internoj dinamici, 2 RD,\r\nBlackMagic Cinema Camera, Canon 5D, rasveta FDU – po specifikaciji\r\nprojekta, zvučno, budžet: 5 000,00 din. Ispit: februar 2016. ', 'individualna', 5),
+(17, 'FILMSKA REŽIJA 5 ', 'Scenario se razvija celog semestra, 2 RD, Canon 5D, Sony XDCAM EX1,\r\nrasveta FDU – po specifikaciji projekta, zvučno, bez budžeta. Ispit: februar\r\n2016. \r\n', 'individualna', 7),
+(18, 'FILMSKA REŽIJA 2', 'Scenario do 15.3.2016, 3 RD, BlackMagic Cinema Camera, Canon 5D, rasveta\r\nFDU - po specifikaciji projekta, nemo, budžet: 20.000,00 dinara, Ispit: jun\r\n2016.g. ', 'zajednicka', 9),
+(19, 'TV drama ', 'Scenario do decembra 2015, (2)+1+2RD, BlackMagic Cinema Camera, Canon\r\n5D, rasveta FDU – po specifikaciji projekta, zvučno, budžet: 20.000,00 dinara\r\n+ ukupni teh.trošak 4.000,00 din. Ispit: jun 2016. ', 'individualna', 8),
+(20, ' Sitcom ', 'Scenario do 25.02.2016, 2 RD, rasveta FDU – po specifikaciji projekta,\r\nzvučno, bez budžeta (samo troškovi prevoza - 2 000,00 din). Ispit: jun 2016.', 'individualna', 8);
 
 -- --------------------------------------------------------
 
@@ -1164,7 +623,6 @@ INSERT INTO `vezba` (`id_vezbe`, `naziv`, `opis`, `tip`, `Predmet_id_predmeta`) 
 -- Table structure for table `vezba_katedra`
 --
 
-DROP TABLE IF EXISTS `vezba_katedra`;
 CREATE TABLE IF NOT EXISTS `vezba_katedra` (
   `Vezba_id_vezbe` int(11) NOT NULL,
   `Katedra_id_katedre` int(11) NOT NULL,

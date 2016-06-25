@@ -20,13 +20,11 @@ $(document).ready(function(){
             });
 
         console.log(promenljiva.length);
-        if (promenljiva.length == 0) {
+        if (promenljiva.length === 0) {
             document.getElementById("nema").innerHTML = "Ne postoji film koji zadovoljava kriterijume pretrage. Pokušajte ponovo.";
-            document.getElementById("nema").style.display = "inherit";
             document.getElementById("prikaz").style.display = "none";
-
         }
-            
+
         else {
             document.getElementById("prikaz").style.display = "inherit";
 
@@ -42,8 +40,6 @@ $(document).ready(function(){
 
 
     });
-
-
 
 
     $("#pretrazi").click(function(){
