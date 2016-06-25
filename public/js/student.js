@@ -27,7 +27,7 @@ $(document).ready(function(){
             columnKeys: ["id_studenta", "indeks", "ime_prezime", "e_mail","katedra_id_katedre", "uvecanje"],
             columnWidths: ["15%", "15%", "20%","20", "20", "10"],
             cellTemplates: [null, null, null, null, null,
-              '<input type="button" onclick="goToPageWithToken(\'studentInkrement_{{id_studenta}}\')" value="Uvecaj" />'],
+              '<input type="button" class="btn btn-default" onclick="goToPageWithToken(\'studentInkrement_{{id_studenta}}\')" value="Uvecaj" />'],
 
         data: data.data
         });
