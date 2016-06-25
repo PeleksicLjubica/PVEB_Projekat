@@ -36,7 +36,7 @@ $(document).ready(function(){
     });
 
 
-    $.get(pathWithToken("katedraPodaci"), function(data){
+    $.get(pathWithToken("katedraPrva"), function(data){
 
         var katedre = [];
 
