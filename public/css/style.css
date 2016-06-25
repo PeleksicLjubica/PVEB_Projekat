@@ -313,8 +313,15 @@ a {
     display: none;
 }
 
+
 #unos_vezbe {
     margin-bottom: 24px;
+    padding: 20px;
+}
+
+#unos_studenta {
+    margin-bottom: 24px;
+    margin-top: 10px;
     padding: 20px;
 }
 
@@ -335,6 +342,20 @@ a {
 }
 
 #dugme_vezbe:hover {
+    background-color: rgba(42, 1, 5, 0.4);
+}
+
+#dugme_studenti {
+    margin-top: 9px;
+    background-color: rgb(42, 1, 5);
+    color:bisque; !important;
+    border: 1px solid bisque;
+    border-radius: 5px;
+    margin-left: 188px;
+    margin-bottom:10px;;
+}
+
+#dugme_studenti:hover {
     background-color: rgba(42, 1, 5, 0.4);
 }
 
@@ -394,7 +415,30 @@ a {
     float: left;
 }
 
-#odbaci_forma_vezba:hover{
+#odbaci_forma_student:hover{
+    background-color: rgba(42, 1, 5, 0.4);
+}
+
+#salji_forma_student{
+    background-color: rgb(42, 1, 5);
+    color:bisque; !important;
+    border: 1px solid bisque;
+    border-radius: 5px;
+}
+
+#salji_forma_student:hover{
+    background-color: rgba(42, 1, 5, 0.4);
+}
+
+#odbaci_forma_student{
+    background-color: rgb(42, 1, 5);
+    color:bisque; !important;
+    border: 1px solid bisque;
+    border-radius: 5px;
+    float: left;
+}
+
+#odbaci_forma_student:hover{
     background-color: rgba(42, 1, 5, 0.4);
 }
 
@@ -471,6 +515,16 @@ a:hover {
     background-color: rgba(42, 1, 5, 0.4);
 }
 
+#praviStudentiCSV {
+    background-color: rgb(42, 1, 5);
+    color:bisque; !important;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+#praviStudentiCSV:hover {
+    background-color: rgba(42, 1, 5, 0.4);
+}
 
 #oi_naslov{
     margin-bottom: 20px;
@@ -597,6 +651,10 @@ a:hover {
 }
 
 #modal_vezba{
+    background-color: bisque;
+}
+
+#modal_student{
     background-color: bisque;
 }
 
