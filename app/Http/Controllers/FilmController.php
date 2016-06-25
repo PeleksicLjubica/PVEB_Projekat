@@ -411,37 +411,46 @@ class FilmController extends Controller
 
         $duzina = count($request->file('fileToUpload8'));
 
-        if ($duzina !== 1) {
-            for ($i = 0; $i < $duzina; $i++) {
+        echo "DUZINA" . $duzina;
 
+        for ($i = 0; $i < $duzina; $i++) {
 
-                $file = $request->file('fileToUpload8')[$i];
+            $file = $request->file('fileToUpload8')[$i];
 
+            if ($file !== NULL) {
 
                 if ($file->isValid()) {
 
                     $filename = $file->getClientOriginalName();
-                    try {
 
-                        $destinationPath = 'filmovi/' . $request->input('naziv_filma') . '_' . $id_filma;
-                        $file->move($destinationPath, $filename);
+                    echo "IME FAJLA" . $filename;
+
+                    if (strcmp($filename, "") !== 0) {
+
+                        echo "UNOSIM FILM";
+
+                        try {
+
+                            $destinationPath = 'filmovi/' . $request->input('naziv_filma') . '_' . $id_filma;
+                            $file->move($destinationPath, $filename);
 
 
-                        $karton_prilog = new Karton_prilog();
-                        $karton_prilog->Film_id_filma = $id_filma;
-                        $karton_prilog->putanja = $destinationPath . "/" . $filename;
-                        $karton_prilog->tip_priloga = 'fotografija iz filma';
+                            $karton_prilog = new Karton_prilog();
+                            $karton_prilog->Film_id_filma = $id_filma;
+                            $karton_prilog->putanja = $destinationPath . "/" . $filename;
+                            $karton_prilog->tip_priloga = 'fotografija iz filma';
 
-                        $karton_prilog->save();
+                            $karton_prilog->save();
 
-                    } catch (FileException $e) {
-                        echo $e->getMessage();
+                        } catch (FileException $e) {
+                            echo $e->getMessage();
+                        }
                     }
+
                 }
 
             }
         }
-
     }
 
     //funkcija koja pretrazuje filmove i vraca filmove koji zadovoljavaju pretragu u JSON formatu
