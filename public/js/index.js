@@ -618,9 +618,6 @@ $(document).ready(function(){
 
     $("#pretragaForma").attr("action", pathWithToken('filmPretraga'));
 
-
-
-
-});
+    });
 
 
