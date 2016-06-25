@@ -168,12 +168,12 @@ include 'header.php';
     <div class="col-md-6">
 
         <div class="form-group">
-            <div class = "form-horizontal">
-            <label class="control-label col-md-2" for="arhivska_muzika">Arhivska muzika:</label>
-            <div class="col-md-9">
-                <textarea rows="5" cols="5" class="form-control" id="arhivska_muzika" name="arhivska_muzika"></textarea>
-            </div>
-        </div>
+
+                <label class="control-label col-md-2" for="arhivska_muzika">Arhivska muzika:</label>
+                <div class="col-md-9">
+                    <textarea rows="5" cols="5" class="form-control" id="arh" name="arh"></textarea>
+                </div>
+
         </div>
 
 
