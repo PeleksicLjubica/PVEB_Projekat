@@ -321,7 +321,6 @@ a {
 
 #unos_studenta {
     margin-bottom: 24px;
-    margin-top: 10px;
     padding: 20px;
 }
 
@@ -578,9 +577,9 @@ a:hover {
 }
 
 #unos_studenta{
-    height: 50px;
-    margin-top: 55px;
-    padding: 13px;
+    padding: 20px;
+    height: 60px;
+
 }
 
 #studenti_forma{
