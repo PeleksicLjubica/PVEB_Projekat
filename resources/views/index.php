@@ -394,7 +394,11 @@ include 'header.php';
 
 </div>
 
-    <h3 id="nema" style="margin-bottom: 50px;"> </h3>
+<div id="nema">
+    <h3 style="margin-bottom: 50px;">Ne postoji film koji zadovoljava kriterijume pretrage. Pokušajte ponovo.</h3>
+</div>
+
+
 
 
 </div> <!--container-->

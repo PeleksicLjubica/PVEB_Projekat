@@ -705,3 +705,7 @@ a:hover {
 #prikaz{
     display:none;
 }
+
+#nema {
+    display: none;
+}
