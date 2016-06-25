@@ -56,7 +56,7 @@ class FilmController extends Controller
         //unos informacija u tabelu OSNOVNE_INFORMACIJE koje je korisnik uneo
         $osnovne_informacije->Film_id_filma = $film->id;
         $osnovne_informacije->sinopsis = $request->input('sinopsis');
-        $osnovne_informacije->arhivska_muzika = $request->input('arhivska_muzika');
+        $osnovne_informacije->arhivska_muzika = $request->input('arh');
         $osnovne_informacije->biografija_rezisera = $request->input('bio_rezisera');
         $osnovne_informacije->napomene = $request->input('napomene');
         $osnovne_informacije->save();
@@ -411,8 +411,6 @@ class FilmController extends Controller
 
         $duzina = count($request->file('fileToUpload8'));
 
-        echo "DUZINA" . $duzina;
-
         for ($i = 0; $i < $duzina; $i++) {
 
             $file = $request->file('fileToUpload8')[$i];
@@ -423,11 +421,8 @@ class FilmController extends Controller
 
                     $filename = $file->getClientOriginalName();
 
-                    echo "IME FAJLA" . $filename;
 
                     if (strcmp($filename, "") !== 0) {
-
-                        echo "UNOSIM FILM";
 
                         try {
 
