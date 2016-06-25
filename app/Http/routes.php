@@ -60,6 +60,7 @@ $app->get('/filmPodaciTrajanje', 'FilmController@getAllDistinctTrajanje');
 $app->get('/filmPodaciGodina', 'FilmController@getAllDistinctGodina');
 
 $app->get('/katedraPodaci', 'KatedraController@getAll');
+$app->get('/katedraPrva', 'KatedraController@getPrva');
 $app->get('/katedraPodaciGodina', 'KatedraController@getAllGodina');
 $app->get('/katedraPodaciNazivGodina', 'KatedraController@getAllNazivGodina');
 
