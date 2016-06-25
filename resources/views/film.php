@@ -240,8 +240,20 @@
         <div class="col-md-3" id="osn_info">
             <p><span  style="font-style: italic;">Godina proizvodnje: </span> <label id="godina_proizvodnje">  </span> <?php echo $film->informacije[0]->godina_proizvodnje ?> </label> </p>
             <p><span style="font-style: italic;">Trajanje: </span> <label id="trajanje"> <?php echo $film->informacije[0]->trajanje ?> </label> </p>
-            <p><span style="font-style: italic;">Katedra: </span> <label id="katedra"> rezija </label> </p>
-            <p><span style="font-style: italic;">Profesor: </span> <label id="profesor"> Andjelka </label> </p>
+            <p><span style="font-style: italic;">Katedra: </span> <label id="katedra">
+                    <?php
+                    foreach ($film->katedre as $kat) {
+                        echo $kat->naziv .' ';
+                    }
+
+                    ?></label> </p>
+            <p><span style="font-style: italic;">Profesor: </span> <label id="profesor"> <?php
+
+                    foreach ($film->profesori as $prof) {
+                        echo $prof->ime_prezime .' ';
+                    }
+
+                    ?> </label> </p>
             <p><span style="font-style: italic;">Godina studija: </span> <label id="godina_studija"> 2 </label></p>
             <p><span style="font-style: italic;">Naziv vežbe:</span> <label id="naziv_vezbe"> <?php echo $film->vezba[0]->naziv ?> </label> </p>
             <p><span style="font-style: italic;">Predmet:</span><label id="predmet"> <?php echo $film->predmet[0]->naziv ?> </label> </p>
