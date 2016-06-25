@@ -2,45 +2,71 @@ function idiNaKarton(){
     location.href='karton';
 }
 
+
 //ovo se odnosi na formu
 $(document).ready(function(){
 
     $("#pretrazi1").click(function(){
 
         var str = $("#pretragaForma").serialize();
-        document.getElementById("prikaz").style.display = "inherit";
 
         $.post("filmPretraga", str,
             function(data, status){
+                $("#sekcija1").slideUp("slow");
                 console.log(data);
-                $("#exampleGrid").simplePagingGrid({
-                    columnNames: ["Naziv filma", "Trajanje", "Godina proizvodnje", "Detalji"],
-                    columnKeys: ["naziv_filma", "trajanje", "godina_proizvodnje", "detalji"],
-                    columnWidths: ["30%", "20%", "30%", "20%"],
-                    cellTemplates: [null, null, null,
-                        '<a class="btn btn-default"  onclick="goToPageWithToken(\'film_{{id_filma}}\')">Idi na detalje o filmu</a>'],
-                    data: data
-                });
+                console.log(data.length);
+                if (data.length === 0) {
+                    $("#nema").show();
+                    $("#prikaz").hide();
+                }
+
+                else {
+
+                    $("#exampleGrid").simplePagingGrid({
+                        columnNames: ["Naziv filma", "Trajanje", "Godina proizvodnje", "Detalji"],
+                        columnKeys: ["naziv_filma", "trajanje", "godina_proizvodnje", "detalji"],
+                        columnWidths: ["30%", "20%", "30%", "20%"],
+                        cellTemplates: [null, null, null,
+                            '<a class="btn btn-default"  onclick="goToPageWithToken(\'film_{{id_filma}}\')">Idi na detalje o filmu</a>'],
+                        data: data
+                    });
+
+                    $("#nema").hide();
+                    $("#prikaz").show();
+                }
             });
 
     });
 
+
     $("#pretrazi").click(function(){
 
         var str = $("#pretragaForma").serialize();
-        document.getElementById("prikaz").style.display = "inherit";
 
         $.post("filmPretraga", str,
             function(data, status){
+                $("#sekcija1").slideUp("fast");
                 console.log(data);
-                $("#exampleGrid").simplePagingGrid({
-                    columnNames: ["Naziv filma", "Trajanje", "Godina proizvodnje", "Detalji"],
-                    columnKeys: ["naziv_filma", "trajanje", "godina_proizvodnje", "detalji"],
-                    columnWidths: ["30%", "20%", "30%", "20%"],
-                    cellTemplates: [null, null, null,
-                        '<a class="btn btn-default"  onclick="goToPageWithToken(\'film_{{id_filma}}\')">Idi na detalje o filmu</a>'],
-                    data: data
-                });
+                console.log(data.length);
+                if (data.length === 0) {
+                    $("#nema").show();
+                    $("#prikaz").hide();
+                }
+
+                else {
+
+                    $("#exampleGrid").simplePagingGrid({
+                        columnNames: ["Naziv filma", "Trajanje", "Godina proizvodnje", "Detalji"],
+                        columnKeys: ["naziv_filma", "trajanje", "godina_proizvodnje", "detalji"],
+                        columnWidths: ["30%", "20%", "30%", "20%"],
+                        cellTemplates: [null, null, null,
+                            '<a class="btn btn-default"  onclick="goToPageWithToken(\'film_{{id_filma}}\')">Idi na detalje o filmu</a>'],
+                        data: data
+                    });
+
+                    $("#nema").hide();
+                    $("#prikaz").show();
+                }
             });
 
     });

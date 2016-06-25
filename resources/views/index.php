@@ -3,19 +3,6 @@ include 'header.php';
 ?>
 
 
-<script>
-        var data = <?php
-        if(isset($result)){
-            echo $result;
-        }
-        else{
-            echo 0;
-        }
-        ?>;
-        console.log(data);
-
-</script>
-
 <div class="container" id ="pocetnaContainer">
 
         <div id="levi_div">
@@ -406,6 +393,12 @@ include 'header.php';
     <div id="exampleGrid"> </div>
 
 </div>
+
+<div id="nema">
+    <h3 style="margin-bottom: 50px;">Ne postoji film koji zadovoljava kriterijume pretrage. Pokušajte ponovo.</h3>
+</div>
+
+
 
 
 </div> <!--container-->

@@ -55,7 +55,7 @@
         </div>
 
         <div class="col-md-8" >
-            <h1 id="naslov_header">Fakultet Dramskih Umetnosti </h1>
+            <h1 id="naslov_header">Arhiv filmova Fakulteta Dramskih Umetnosti u Beogradu </h1>
         </div>
 
         <div class="col-md-2" id="admin">
@@ -576,7 +576,7 @@
                             <?php
                             if(count($film->prilozi) >0) {
                                 echo '<div>';
-                                echo '<h3 class="pasusi1"> Prikaz filmova: </h3>';
+                                echo '<h3 class="pasusi1"> Prikaz filma: </h3>';
 
                                 foreach ($film->prilozi as $prilog) {
                                 if ($prilog->tip_priloga == 'Blu-ray') {
