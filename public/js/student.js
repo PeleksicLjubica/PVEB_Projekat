@@ -31,8 +31,7 @@ $(document).ready(function(){
 
         data: data.data
         });
-
-        console.log(data.data[0]);
+        podaci = data.data;
 
     });
 
@@ -58,6 +57,41 @@ $(document).ready(function(){
         });
 
     });
+
+   $("#praviStudentiCSV").click(function(){
+        var csvRows = [];
+        var csvRowCol = [];
+        csvRowCol.push(colNames.toString());
+        csvRows.push(csvRowCol);
+
+
+        for (var i = 0; i < podaci.length; i++) {
+            var rowCSV = podaci[i];
+
+            var a = [];
+            a.push(rowCSV.id_studenta);
+            a.push(rowCSV.indeks);
+            a.push(rowCSV.ime_prezime);
+            a.push(rowCSV.e_mail);
+            a.push(rowCSV.katedra_id_katedre);
+
+            var row = [];
+            row.push(a.toString());
+            csvRows.push(row);
+        }
+
+        var csvString = csvRows.join("\r\n");
+        var a         = document.createElement('a');
+        a.href        = 'data:attachment/csv,' +  encodeURIComponent(csvString);
+        a.target      = '_blank';
+        a.download    = 'myFile.csv';
+
+        document.body.appendChild(a);
+        a.click();
+
+    });
+
+
 
     $.validator.addMethod(
            "regex1",
@@ -109,4 +143,9 @@ $(document).ready(function(){
         data: dataGodSt,
         tags:true
     });
+
+    $("#salji_forma_student").on('click', function() {
+        $("#studenti_forma").submit();
+    });
+
 });
