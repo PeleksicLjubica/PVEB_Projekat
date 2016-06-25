@@ -404,6 +404,7 @@ include 'header.php';
 
     <h3 class="pasusi1"> Rezultat pretrage: </h3>
     <div id="exampleGrid"> </div>
+    <div id="nema"> </div>
 
 </div>
 

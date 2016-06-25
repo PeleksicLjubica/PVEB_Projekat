@@ -576,7 +576,7 @@
                             <?php
                             if(count($film->prilozi) >0) {
                                 echo '<div>';
-                                echo '<h3 class="pasusi1"> Prikaz filmova: </h3>';
+                                echo '<h3 class="pasusi1"> Prikaz filma: </h3>';
 
                                 foreach ($film->prilozi as $prilog) {
                                 if ($prilog->tip_priloga == 'Blu-ray') {
