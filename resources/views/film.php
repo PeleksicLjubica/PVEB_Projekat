@@ -1,7 +1,3 @@
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,8 +8,8 @@
 
     <!-- jQuery library -->
     <script src="components/jquery/jquery.min.js"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/additional-methods.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/additional-methods.js"></script>
 
 
     <!-- Latest compiled and minified Bootstrap CSS -->
@@ -31,8 +27,8 @@
 
 
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.min.js"></script>
+    <link href="css/select2.min.css" rel="stylesheet" />
+    <script src="js/select2.min.js"></script>
 
     <link rel="stylesheet" href="css/style.css">
     <script src="js/shared.js"></script>
@@ -241,17 +237,17 @@
         <div class="col-md-3" id="osn_info">
             <p><span  style="font-style: italic;">Godina proizvodnje: </span> <label id="godina_proizvodnje">  </span> <?php echo $film->informacije[0]->godina_proizvodnje ?> </label> </p>
             <p><span style="font-style: italic;">Trajanje: </span> <label id="trajanje"> <?php echo $film->informacije[0]->trajanje ?> </label> </p>
-            <p><span style="font-style: italic;">Katedra: </span> <label id="katedra">
+            <p><span style="font-style: italic;">Katedre: </span> <label id="katedra">
                     <?php
                     foreach ($film->katedre as $kat) {
-                        echo $kat->naziv .' ';
+                        echo $kat->naziv .'<br>';
                     }
 
                     ?></label> </p>
-            <p><span style="font-style: italic;">Profesor: </span> <label id="profesor"> <?php
+            <p><span style="font-style: italic;">Profesori: </span> <label id="profesor"> <?php
 
                     foreach ($film->profesori as $prof) {
-                        echo $prof->ime_prezime .' ';
+                        echo $prof->ime_prezime .'<br>';
                     }
 
                     ?> </label> </p>

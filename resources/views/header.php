@@ -8,8 +8,8 @@
 
     <!-- jQuery library -->
     <script src="components/jquery/jquery.min.js"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/additional-methods.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/additional-methods.js"></script>
 
 
     <!-- Latest compiled and minified Bootstrap CSS -->
@@ -27,8 +27,8 @@
 
 
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.min.js"></script>
+    <link href="css/select2.min.css" rel="stylesheet" />
+    <script src="js/select2.min.js"></script>
 
     <link rel="stylesheet" href="css/style.css">
 	<script src="js/shared.js"></script>
