@@ -117,7 +117,8 @@ $(document).ready(function(){
             },
             messages: {
                 indeks: {
-                   regex1: "Morate da unesete indeks"
+                   regex1: "Morate da unesete indeks",
+                    required: "Morate da unesete indeks"
                 },
                 ime_prezime: {
                     required: "Morate da unesete ime i prezime"
@@ -126,7 +127,8 @@ $(document).ready(function(){
                     required: "Morate da unesete email"
                 },
                 katedre:{
-                    regex1: "Morate da odaberete katedru"
+                    regex1: "Morate da odaberete katedru",
+                    required: "Morate da odaberete katedru"
                 }
 
             }

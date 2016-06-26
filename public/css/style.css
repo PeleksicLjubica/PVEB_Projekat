@@ -396,6 +396,31 @@ a {
     background-color: rgba(42, 1, 5, 0.4);
 }
 
+
+
+#salji_forma_film{
+    background-color: rgb(42, 1, 5);
+    color:bisque; !important;
+    border: 1px solid bisque;
+    border-radius: 5px;
+}
+
+#salji_forma_film:hover{
+    background-color: rgba(42, 1, 5, 0.4);
+}
+
+#odbaci_forma_film{
+    background-color: rgb(42, 1, 5);
+    color:bisque; !important;
+    border: 1px solid bisque;
+    border-radius: 5px;
+    float: left;
+}
+
+#odbaci_forma_film:hover{
+    background-color: rgba(42, 1, 5, 0.4);
+}
+
 #salji_forma_vezba{
     background-color: rgb(42, 1, 5);
     color:bisque; !important;
@@ -649,6 +674,10 @@ a:hover {
     background-color: bisque;
 }
 
+#modal_film{
+    background-color: bisque;
+}
+
 #modal_vezba{
     background-color: bisque;
 }
@@ -713,4 +742,12 @@ a:hover {
 
 .carousel-control.left, .carousel-control.right {
     background-image: none
+}
+
+.checkbox label, .radio label {
+    min-height: 20px;
+    padding-left: 34px;
+    margin-bottom: 0;
+    font-weight: 400;
+    cursor: pointer;
 }
