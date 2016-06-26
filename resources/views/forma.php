@@ -411,10 +411,31 @@ include 'header.php';
         </div>
 
         <div id="dugme_potvrdi">
-        <button type="submit" class="btn btn-default btn-lg" id="forma_potvrdi" name="forma_potvrdi">
+        <button type="button" class="btn btn-default btn-lg" id="forma_potvrdi" name="forma_potvrdi" data-toggle="modal" data-target="#potvrda_film">
             Potvrdi
         </button>
         </div>
+
+
+        <div class="modal fade" id="potvrda_film" role="dialog">
+             <div class="modal-dialog modal-sm">
+                  <div class="modal-content" id="modal_film">
+                       <div class="modal-header">
+                             <button type="button" class="close" data-dismiss="modal">&times;</button>
+                             <h4 class="modal-title">Upozorenje</h4>
+                        </div>
+                              <div class="modal-body">
+                                    <p>Da li ste sigurni da zelite da unesete novi film?</p>
+                              </div>
+                              <div class="modal-footer">
+                                   <button type="button" class="btn btn-default" data-dismiss="modal" id="odbaci_forma_film">Odustani</button>
+                                   <button type="button" class="btn btn-default" id="salji_forma_film">Potvrdi</button>
+                              </div>
+                        </div>
+                   </div>
+             </div>
+
+
 
     </div> <!--kraj drugog diva-->
 
