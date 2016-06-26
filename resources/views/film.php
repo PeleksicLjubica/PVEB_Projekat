@@ -181,11 +181,11 @@
                         foreach ($film->prilozi as $prilog) {
                             if ($prilog->tip_priloga == 'fotografija iz filma') {
                                 if ($index == 0) {
-                                    echo '<li data-target = "#myCarousel" data-slide-to =  ' .".  $index  .". ' class="active" ></li >';
+                                    echo '<li data-target = "#myCarousel" data-slide-to =  ' .  $index  . ' class="active" ></li >';
                                 }
 
                                 else {
-                                    echo '<li data-target = "#myCarousel" data-slide-to =  ' .".  $index  .". '></li >';
+                                    echo '<li data-target = "#myCarousel" data-slide-to =  ' . $index  . '></li >';
                                 }
 
                                 $index++;
@@ -217,13 +217,13 @@
                         }
                         echo '</div >';
 
-                        echo '<a class="left carousel-control" href = "#myCarousel" role = "button" data - slide = "prev" >';
-                            echo '<span class="glyphicon glyphicon-chevron-left" aria - hidden = "true" ></span >';
+                        echo '<a class="left carousel-control" href = "#myCarousel" role = "button" data-slide = "prev" >';
+                            echo '<span class="glyphicon glyphicon-chevron-left" aria-hidden = "true" ></span >';
                             echo '<span class="sr-only" > Previous</span >';
                         echo '</a >';
 
-                        echo '<a class="right carousel-control" href = "#myCarousel" role = "button" data - slide = "next" >';
-                            echo '<span class="glyphicon glyphicon-chevron-right" aria - hidden = "true" ></span >';
+                        echo '<a class="right carousel-control" href = "#myCarousel" role = "button" data-slide = "next" >';
+                            echo '<span class="glyphicon glyphicon-chevron-right" aria-hidden = "true" ></span >';
                             echo ' <span class="sr-only" > Next</span >';
                         echo '</a >';
 
