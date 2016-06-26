@@ -22,9 +22,9 @@ $(document).ready(function(){
 
     });
 
-    $.get(pathWithToken("katedraPodaci"), function(data){
+    var katedre = [];
 
-        var katedre = [];
+    $.get(pathWithToken("katedraPodaci"), function(data){
 
         katedre.push({ id: 0, text: '' });
 
@@ -38,7 +38,7 @@ $(document).ready(function(){
 
         $(".js-example-data-array.katedre").select2({
             data: katedre,
-            tags:true
+            tags:true,
         });
 
     });
@@ -78,15 +78,21 @@ $(document).ready(function(){
         if($('.js-example-data-array.tip').val() === 'individualna') {
 
             $(".js-example-data-array.katedre").select2({
+                data: katedre,
                 multiple: false
             });
+            $(".js-example-data-array.katedre").select2().val('');
+            $(".js-example-data-array.katedre").select2().val()
         }
 
         else  if($('.js-example-data-array.tip').val() === 'zajednicka') {
 
             $(".js-example-data-array.katedre").select2({
+                data: katedre,
                 multiple: true
             });
+            $(".js-example-data-array.katedre").select2().val('');
+            $(".js-example-data-array.katedre").select2().val()
         }
 
     });
