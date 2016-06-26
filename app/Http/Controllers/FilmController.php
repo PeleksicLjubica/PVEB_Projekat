@@ -1121,7 +1121,7 @@ class FilmController extends Controller
                 ->get();
         }
 
-        
+
         $film->glumci = Glumac::query()
             ->where('Film_id_filma', $id)
             ->get();

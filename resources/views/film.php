@@ -154,7 +154,8 @@
 
 
 <div class="container">
-    <h2 id="naziv_filma"><?php echo $film->informacije[0]->naziv_filma ?></h2>
+
+    <h1 id="naziv_filma" style="font-style: italic; text-align: center; font-size: 500%; margin-bottom: 30px;"><?php echo $film->informacije[0]->naziv_filma ?></h1>
 
     <div class="row" id="proba">
         <div class="col-md-6" id="vrteska">
@@ -180,11 +181,11 @@
                         foreach ($film->prilozi as $prilog) {
                             if ($prilog->tip_priloga == 'fotografija iz filma') {
                                 if ($index == 0) {
-                                    echo '<li data-target = "#myCarousel" data-slide-to =  ' .".  $index  .". ' class="active" ></li >';
+                                    echo '<li data-target = "#myCarousel" data-slide-to =  ' .  $index  . ' class="active" ></li >';
                                 }
 
                                 else {
-                                    echo '<li data-target = "#myCarousel" data-slide-to =  ' .".  $index  .". '></li >';
+                                    echo '<li data-target = "#myCarousel" data-slide-to =  ' . $index  . '></li >';
                                 }
 
                                 $index++;
@@ -216,13 +217,13 @@
                         }
                         echo '</div >';
 
-                        echo '<a class="left carousel-control" href = "#myCarousel" role = "button" data - slide = "prev" >';
-                            echo '<span class="glyphicon glyphicon-chevron-left" aria - hidden = "true" ></span >';
+                        echo '<a class="left carousel-control" href = "#myCarousel" role = "button" data-slide = "prev" >';
+                            echo '<span class="glyphicon glyphicon-chevron-left" aria-hidden = "true" ></span >';
                             echo '<span class="sr-only" > Previous</span >';
                         echo '</a >';
 
-                        echo '<a class="right carousel-control" href = "#myCarousel" role = "button" data - slide = "next" >';
-                            echo '<span class="glyphicon glyphicon-chevron-right" aria - hidden = "true" ></span >';
+                        echo '<a class="right carousel-control" href = "#myCarousel" role = "button" data-slide = "next" >';
+                            echo '<span class="glyphicon glyphicon-chevron-right" aria-hidden = "true" ></span >';
                             echo ' <span class="sr-only" > Next</span >';
                         echo '</a >';
 
