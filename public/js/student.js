@@ -7,8 +7,8 @@ function uvecajGodinu(id){
 
 $(document).ready(function(){
     $token=localStorage.getItem('token');
-    var colNames = ["id_studenta", "Indeks", "Ime_prezime", "Email", "Id katedre", "Uvecanje godine"];
-    var podaci = [];
+    var colNames = ["id_studenta", "Indeks", "Ime i prezime", "Email", "Katedra", "Godina studija",  "Uvecanje godine"];
+    var podaci;
     $("#student_forma").attr("action", pathWithToken('student'));
 
     $($('#navbar-lista').children()[4]).addClass('active');
@@ -21,17 +21,17 @@ $(document).ready(function(){
     });
 
     $.get(pathWithToken("studentiPodaci"), function(data){
-        $token=localStorage.getItem('token');
+        podaci = data.data;
         $("#exampleGrid").simplePagingGrid({
             columnNames: colNames,
-            columnKeys: ["id_studenta", "indeks", "ime_prezime", "e_mail","katedra_id_katedre", "uvecanje"],
-            columnWidths: ["15%", "15%", "20%","20", "20", "10"],
-            cellTemplates: [null, null, null, null, null,
+            columnKeys: ["id_studenta", "indeks", "ime_prezime", "e_mail","naziv", "godina_studija", "uvecanje"],
+            columnWidths: ["15%", "15%", "20%","20", "10", "10", "10"],
+            cellTemplates: [null, null, null, null, null, null,
               '<input type="button" class="btn btn-default" onclick="goToPageWithToken(\'studentInkrement_{{id_studenta}}\')" value="Uvecaj" />'],
 
-        data: data.data
+            data: podaci
         });
-        podaci = data.data;
+
 
     });
 

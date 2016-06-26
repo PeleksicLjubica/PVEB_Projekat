@@ -13,8 +13,15 @@ use Illuminate\Database\Eloquent\Builder;
 class StudentController extends Controller{
 
     public function getAll(){
+        $year=date('Y');
+        $studenti = Student::query()
+                ->join('katedra', 'katedra.id_katedre', '=', 'student.katedra_id_katedre')
+                ->where('skolska_godina', $year)
+                ->select('student.id_studenta as id_studenta', 'student.indeks as indeks', 'student.ime_prezime as ime_prezime',
+                 'student.e_mail as e_mail', 'katedra.naziv as naziv', 'katedra.godina_studija as godina_studija' )
+                ->get();
 
-        $studenti = Student::all();
+
         return response()->json(['data'=>$studenti]);
 
     }
