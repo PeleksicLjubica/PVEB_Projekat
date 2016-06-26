@@ -7,7 +7,7 @@ function uvecajGodinu(id){
 
 $(document).ready(function(){
     $token=localStorage.getItem('token');
-    var colNames = ["id_studenta", "Indeks", "Ime i prezime", "Email", "Katedra", "Godina studija",  "Uvecanje godine"];
+    var colNames = ["Id studenta", "Indeks", "Ime i prezime", "Email", "Katedra", "Godina studija",  "Uvecanje godine"];
     var podaci;
     $("#student_forma").attr("action", pathWithToken('student'));
 
@@ -73,8 +73,8 @@ $(document).ready(function(){
             a.push(rowCSV.indeks);
             a.push(rowCSV.ime_prezime);
             a.push(rowCSV.e_mail);
-            a.push(rowCSV.katedra_id_katedre);
-
+            a.push(rowCSV.naziv);
+            a.push(rowCSV.godina_studija);
             var row = [];
             row.push(a.toString());
             csvRows.push(row);
