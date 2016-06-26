@@ -154,7 +154,8 @@
 
 
 <div class="container">
-    <h2 id="naziv_filma"><?php echo $film->informacije[0]->naziv_filma ?></h2>
+
+    <h1 id="naziv_filma" style="font-style: italic; text-align: center; font-size: 500%; margin-bottom: 30px;"><?php echo $film->informacije[0]->naziv_filma ?></h1>
 
     <div class="row" id="proba">
         <div class="col-md-6" id="vrteska">
