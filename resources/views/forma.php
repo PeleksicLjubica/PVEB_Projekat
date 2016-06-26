@@ -429,7 +429,7 @@ include 'header.php';
                               </div>
                               <div class="modal-footer">
                                    <button type="button" class="btn btn-default" data-dismiss="modal" id="odbaci_forma_film">Odustani</button>
-                                   <button type="button" class="btn btn-default" id="salji_forma_film">Potvrdi</button>
+                                   <button type="submit" class="btn btn-default" id="salji_forma_film">Potvrdi</button>
                               </div>
                         </div>
                    </div>
