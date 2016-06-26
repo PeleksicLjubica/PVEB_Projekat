@@ -1095,7 +1095,6 @@ class FilmController extends Controller
             ->where('id_vezbe', $film->informacije[0]->Vezba_id_vezbe)
             ->get();
 
-        //katedre i profesor
         $film->predmet = Predmet::query()
             ->where('id_predmeta', $film->vezba[0]->Predmet_id_predmeta)
             ->get();
@@ -1105,20 +1104,21 @@ class FilmController extends Controller
             ->where('vezba_katedra.Vezba_id_vezbe', '=', $film->informacije[0]->Vezba_id_vezbe)
             ->get();
 
-        $film->katedre = Katedra::query();
+        $film->katedre = [];
         foreach($film->vezba_katedre as $vk) {
-            $film->katedre = $film->katedre
-                ->where('katedra.id_katedre', "=", $vk->Katedra_id_katedre)
-                ->get();
+            $katedra = Katedra::query()
+                        ->where('katedra.id_katedre', "=", $vk->Katedra_id_katedre)
+                        ->get();
+            array_push($film->katedre, $katedra[0]);
         }
 
 
-        $film->profesori = Profesor::query();
-
+        $film->profesori = [];
         foreach ($film->katedre as $katedra) {
-            $film->profesori =  $film->profesori
-                ->where('profesor.id_profesora', '=', $katedra->Profesor_id_profesora)
-                ->get();
+            $profesor = Profesor::query()
+                        ->where('profesor.id_profesora', '=', $katedra->Profesor_id_profesora)
+                        ->get();
+            array_push($film->profesori, $profesor[0]);
         }
 
 

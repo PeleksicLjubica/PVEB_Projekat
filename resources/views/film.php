@@ -1,7 +1,3 @@
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -241,17 +237,17 @@
         <div class="col-md-3" id="osn_info">
             <p><span  style="font-style: italic;">Godina proizvodnje: </span> <label id="godina_proizvodnje">  </span> <?php echo $film->informacije[0]->godina_proizvodnje ?> </label> </p>
             <p><span style="font-style: italic;">Trajanje: </span> <label id="trajanje"> <?php echo $film->informacije[0]->trajanje ?> </label> </p>
-            <p><span style="font-style: italic;">Katedra: </span> <label id="katedra">
+            <p><span style="font-style: italic;">Katedre: </span> <label id="katedra">
                     <?php
                     foreach ($film->katedre as $kat) {
-                        echo $kat->naziv .' ';
+                        echo $kat->naziv .'<br>';
                     }
 
                     ?></label> </p>
-            <p><span style="font-style: italic;">Profesor: </span> <label id="profesor"> <?php
+            <p><span style="font-style: italic;">Profesori: </span> <label id="profesor"> <?php
 
                     foreach ($film->profesori as $prof) {
-                        echo $prof->ime_prezime .' ';
+                        echo $prof->ime_prezime .'<br>';
                     }
 
                     ?> </label> </p>
