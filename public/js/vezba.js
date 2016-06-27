@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    var colNames = ["ID vežbe", "Naziv", "Opis", "Tip", "Naziv predmeta"];
+    var colNames = ["Naziv", "Opis", "Tip", "Naziv predmeta"];
     var podaci = [];
 
     $($('#navbar-lista').children()[2]).addClass('active');
@@ -13,8 +13,8 @@ $(document).ready(function(){
     $.get(pathWithToken("vezbePodaci"), function(data){
         $("#exampleGrid").simplePagingGrid({
             columnNames: colNames,
-            columnKeys: ["id_vezbe", "naziv_vezbe", "opis", "tip", "predmet_naziv"],
-            columnWidths: ["10%", "20%", "40%","15%", "15%"],
+            columnKeys: ["naziv_vezbe", "opis", "tip", "predmet_naziv"],
+            columnWidths: ["20%", "40%","15%", "15%"],
             data: data.data
         });
 
@@ -110,11 +110,10 @@ $(document).ready(function(){
             var rowCSV = podaci[i];
 
             var a = [];
-            a.push(rowCSV.id_predmeta);
-            a.push(rowCSV.naziv);
-            a.push(rowCSV.opis);
-            a.push(rowCSV.tip);
-            a.push(rowCSV.Predmet_id_predmeta);
+            a.push('"' + rowCSV.naziv_vezbe + '"');
+            a.push('"' + rowCSV.opis + '"');
+            a.push('"' + rowCSV.tip + '"');
+            a.push('"' + rowCSV.predmet_naziv + '"');
 
             var row = [];
             row.push(a.toString());

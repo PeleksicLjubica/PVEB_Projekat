@@ -81,10 +81,9 @@ class KatedraController extends Controller{
         $profesorId = Profesor::where('id_profesora', $profesor)
             ->get();
 
-        $profesorUnos = new Profesor();
-
         if (!$profesorId->first()) {
 
+            $profesorUnos = new Profesor();
             $profesorUnos->ime_prezime = $profesor;
             $profesorUnos->save();
 
@@ -94,7 +93,11 @@ class KatedraController extends Controller{
         $katedra->godina_studija = $godina;
         $katedra->skolska_godina = date('Y');
         $katedra->naziv = $naziv;
-        $katedra->Profesor_id_profesora = $profesorUnos->id;
+        if (!$profesorId->first()) {
+            $katedra->Profesor_id_profesora = $profesorUnos->id;
+        } else {
+            $katedra->Profesor_id_profesora = $profesor;
+        }
 
         $katedra->save();
 
