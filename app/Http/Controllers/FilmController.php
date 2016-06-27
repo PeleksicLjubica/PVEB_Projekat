@@ -392,7 +392,7 @@ class FilmController extends Controller
                     try {
                         $tipovi = ['DVD', 'Blu-ray', 'fajl', 'rolna filma', 'verzija sa i bez engleskog titla',
                             'srpska i engleska dijalog listu', 'fotografija student', 'fotografija iz filma'];
-                        $destinationPath = 'filmovi/' . $request->input('naziv_filma') . '_' . $id_filma;
+                        $destinationPath = 'filmovi/' . iconv('UTF-8', 'ASCII//TRANSLIT', $request->input('naziv_filma')) . '_' . $id_filma;
                         $file->move($destinationPath, $filename);
 
 

@@ -175,7 +175,7 @@ CREATE TABLE `katedra` (
   PRIMARY KEY (`id_katedre`),
   KEY `fk_Katedra_Profesor1_idx` (`Profesor_id_profesora`),
   CONSTRAINT `fk_Katedra_Profesor1` FOREIGN KEY (`Profesor_id_profesora`) REFERENCES `profesor` (`id_profesora`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -184,7 +184,7 @@ CREATE TABLE `katedra` (
 
 LOCK TABLES `katedra` WRITE;
 /*!40000 ALTER TABLE `katedra` DISABLE KEYS */;
-INSERT INTO `katedra` VALUES (1,1,2016,'rezija',1),(2,2,2016,'rezija',1),(3,3,2016,'rezija',1),(4,4,2016,'rezija',1),(5,5,2016,'rezija',1),(6,6,2016,'rezija',1),(7,1,2016,'montaza',2),(8,2,2016,'montaza',2),(9,3,2016,'montaza',2),(10,4,2016,'montaza',2),(11,5,2016,'montaza',2),(12,6,2016,'montaza',2),(13,1,2016,'kamera',3),(14,2,2016,'kamera',3),(15,3,2016,'kamera',3),(16,4,2016,'kamera',3),(17,5,2016,'kamera',3),(18,6,2016,'kamera',3),(19,1,2016,'zvuk',4),(20,2,2016,'zvuk',4),(21,3,2016,'zvuk',4),(22,4,2016,'zvuk',4),(23,5,2016,'zvuk',4),(24,6,2016,'zvuk',4),(25,1,2016,'produkcija',5),(26,2,2016,'produkcija',5),(27,3,2016,'produkcija',5),(28,4,2016,'produkcija',5),(29,5,2016,'produkcija',5),(30,6,2016,'produkcija',5);
+INSERT INTO `katedra` VALUES (1,1,2015,'rezija',1),(2,2,2015,'rezija',1),(3,3,2015,'rezija',1),(4,4,2015,'rezija',1),(5,5,2015,'rezija',1),(6,6,2015,'rezija',1),(7,1,2015,'montaza',2),(8,2,2015,'montaza',2),(9,3,2015,'montaza',2),(10,4,2015,'montaza',2),(11,5,2015,'montaza',2),(12,6,2015,'montaza',2),(13,1,2015,'kamera',3),(14,2,2015,'kamera',3),(15,3,2015,'kamera',3),(16,4,2015,'kamera',3),(17,5,2015,'kamera',3),(18,6,2015,'kamera',3),(19,1,2015,'zvuk',4),(20,2,2015,'zvuk',4),(21,3,2015,'zvuk',4),(22,4,2015,'zvuk',4),(23,5,2015,'zvuk',4),(24,6,2015,'zvuk',4),(25,1,2015,'produkcija',5),(26,2,2015,'produkcija',5),(27,3,2015,'produkcija',5),(28,4,2015,'produkcija',5),(29,5,2015,'produkcija',5),(30,6,2015,'produkcija',5),(45,1,2016,'rezija',1),(46,2,2016,'rezija',1),(47,3,2016,'rezija',1),(48,4,2016,'rezija',1),(49,5,2016,'rezija',1),(50,6,2016,'rezija',1),(51,1,2016,'montaza',2),(52,2,2016,'montaza',2),(53,3,2016,'montaza',2),(54,4,2016,'montaza',2),(55,5,2016,'montaza',2),(56,6,2016,'montaza',2),(57,1,2016,'kamera',3),(58,2,2016,'kamera',3),(59,3,2016,'kamera',3),(60,4,2016,'kamera',3),(61,5,2016,'kamera',3),(62,6,2016,'kamera',3),(63,1,2016,'zvuk',4),(64,2,2016,'zvuk',4),(65,3,2016,'zvuk',4),(66,4,2016,'zvuk',4),(67,5,2016,'zvuk',4),(68,6,2016,'zvuk',4),(69,1,2016,'produkcija',5),(70,2,2016,'produkcija',5),(71,3,2016,'produkcija',5),(72,4,2016,'produkcija',5),(73,5,2016,'produkcija',5),(74,6,2016,'produkcija',5);
 /*!40000 ALTER TABLE `katedra` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -614,4 +614,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-06-26 12:17:24
+-- Dump completed on 2016-06-27 13:09:30

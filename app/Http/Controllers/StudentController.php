@@ -51,19 +51,23 @@ class StudentController extends Controller{
 
             $katedre = Katedra::query()->where('id_katedre', $id_katedre)->take(1)->get();
 
-            $year=date('Y');
+            if ($katedre[0]->godina_studija < 6) {
+                $year=date('Y');
 
-            $naziv = $katedre[0]->naziv;
+                $naziv = $katedre[0]->naziv;
 
-            $katedre_n = Katedra::query()->where('naziv', $naziv)
-                ->where('skolska_godina', $year)->take(1)->get();
+                $godina = $katedre[0]->godina_studija + 1;
 
-            $id_katedren = $katedre_n[0]->id_katedre;
+                $katedre_n = Katedra::query()->where('naziv', $naziv)
+                    ->where('skolska_godina', $year)
+                    ->where('godina_studija', $godina)
+                    ->take(1)->get();
 
-            $student->id_katedre = $id_katedren;
-
-            Student::query()->where('id_studenta', $id)
-                        ->update(['katedra_id_katedre' => $id_katedren]);
+                $id_katedren = $katedre_n[0]->id_katedre;
+                $student->id_katedre = $id_katedren;
+                Student::query()->where('id_studenta', $id)
+                    ->update(['katedra_id_katedre' => $id_katedren]);
+            }
 
             return view('studenti',['admin' => 1]);
         }
