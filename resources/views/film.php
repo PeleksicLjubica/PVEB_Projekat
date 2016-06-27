@@ -656,7 +656,9 @@
                                  echo '<p class="pasusi_manji">Arhivska muzika: </p>';
                                  echo '<div class="row">';
                                     echo '<div class="col-md-12">';
+                            echo '<p style="background-color: whitesmoke; padding: 3px;">';
                                     echo $film->osnovne[0]->arhivska_muzika;
+                            echo '</p>';
                                  echo '</div>';
                                 echo '</div>';
                             echo '</div>';
@@ -667,7 +669,9 @@
                                     echo  '<p class="pasusi_manji">Biografija rezisera:  </p>';
                                         echo '<div class="row">';
                                             echo '<div class="col-md-12">';
-                                                echo $film->osnovne[0]->biografija_rezisera;
+                                                echo '<p style="background-color: whitesmoke; padding: 5px;">';
+                                echo $film->osnovne[0]->biografija_rezisera;
+                                echo '</p>';
                                         echo '</div>';
                                     echo '</div>';
                                 echo '</div>';
@@ -678,7 +682,10 @@
                                 echo   '<p class="pasusi_manji">Napomene: </p>';
                                     echo '<div class="row">';
                                         echo '<div class="col-md-12">';
+                            echo '<p style="background-color: whitesmoke; padding: 5px;">';
                             echo $film->osnovne[0]->napomene;
+                            echo '</p>';
+
                             echo '</div>';
                             echo '</div>';
                             echo '</div>';

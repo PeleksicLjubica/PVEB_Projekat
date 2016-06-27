@@ -38,7 +38,7 @@ include 'header.php';
                     <div class="row">
                         <div id="sekcija1">
                             <div class="col-md-6">
-                            <p class="pasusi" id="pasusi1"> Osnovne informacije </p>
+                            <p class="pasusi1" id="pasusi1"> Osnovne informacije </p>
                             <div class="row">
                             <div id="osnovno" class="col-md-12">
                                     <div class="row redovi_u_pretrazi">
@@ -249,7 +249,7 @@ include 'header.php';
                                 </div>
 
                             <div class="col-md-6">
-                            <p class="pasusi" id="pasusi2"> Tehnička specifikacija </p>
+                            <p class="pasusi1" id="pasusi2"> Tehnička specifikacija </p>
                             <div class="row">
                                 <div id="tehnicka" class="col-md-12">
                                     <div class="row redovi_u_pretrazi">
