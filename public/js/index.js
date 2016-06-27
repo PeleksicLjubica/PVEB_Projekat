@@ -10,6 +10,8 @@ $(document).ready(function(){
 
         var str = $("#pretragaForma").serialize();
 
+        console.log(str);
+
         $.post("filmPretraga", str,
             function(data, status){
                 $("#sekcija1").slideUp("slow");
@@ -42,6 +44,8 @@ $(document).ready(function(){
     $("#pretrazi").click(function(){
 
         var str = $("#pretragaForma").serialize();
+
+        console.log(str);
 
         $.post("filmPretraga", str,
             function(data, status){

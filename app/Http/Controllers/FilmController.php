@@ -463,12 +463,16 @@ class FilmController extends Controller
         $vezba_katedra_ind = 0;
         $profesor_ind = 0;
         $podrska_ind = 0;
+        $student_ind = 0;
         $podrska_student_ind = 0;
 
         $film = Film::query();
 
+
+
         //ako je izabran naziv filma,to jednoznacno odredjuje film,pa se vraca taj film
         $naziv = $request->input('naziv_filma');
+
         if (strcmp('0', $naziv) != 0) {
 
             //uzima se naziv iz forme
@@ -488,21 +492,27 @@ class FilmController extends Controller
 
 
         } else {
+
+
             //ako naziv nije unesen,trazi se po ostalim parametrima
 
             //dodaje se tabela reziser zbog prikaza u rezultatima
             //left join se koristi zato sto nema svaki film unesenog rezisera
+            /*
             $film = $film->leftJoin('reziser', 'reziser.Film_id_filma', '=', 'film.id_filma')
                 ->leftJoin('student','student.id_studenta','=','reziser.Student_id_studenta')
                 ->leftJoin('osnovne_informacije','osnovne_informacije.film_id_filma','=','film.id_filma');
-
+            */
             /***************************************OSNOVNE INF***************************************/
             //pretraga po osnovnim informacijama
 
             $glumci = $request->input("glumci");
+
+
             if(strcmp('0',$glumci) != 0){
                 //ako je unesen podatak o glumcu gledamo da li smo dobili ime_prezime ili ime_prezime indeks
                 $arr = explode(' ',$glumci);
+
                 $duzina =count($arr);
                 if($duzina === 1){
                     //ako smo dobili ime_prezime spaja se sa tabelom GLUMAC
@@ -510,10 +520,17 @@ class FilmController extends Controller
                         ->where('glumac.ime_prezime',$arr[0]);
 
                 }
-                elseif($duzina === 2){
+                else{
+
+                    if($student_ind === 0){
+                        $film->join('student','student.id_studenta','=','glumac_student.Student_id_studenta');
+
+                        $student_ind = 1;
+                    }
+
                     //inace se trazi u tabeli GLUMAC_STUDENT
                     $film = $film->join('glumac_student','film.id_filma','=','glumac_student.Film_id_filma')
-                        ->where('student.indeks',$arr[1]);
+                        ->where('student.indeks',$arr[2]);
                 }
 
             }
@@ -529,16 +546,17 @@ class FilmController extends Controller
             }
 
             $vezbe = $request->input('vezbe');
+
             if (strcmp('0', $vezbe) != 0){
 
                 //ako nije spojena tabela vezba,ona se dodaje u upit
                 if ($vezba_ind === 0) {
                     $film = $film
-                        ->join('vezba', 'vezba.id_vezbe', '=', 'Vezba_id_vezbe');
+                        ->join('vezba', 'vezba.id_vezbe', '=', 'film.Vezba_id_vezbe');
                     $vezba_ind = 1;
                 }
-            //pretrazuje se po unetoj vezbi
-            $film = $film->where('vezba.id_vezbe', $vezbe);
+                //pretrazuje se po unetoj vezbi
+                $film = $film->where('vezba.naziv', $vezbe);
             }
 
             $god_studija = $request->input('godina_studija');
@@ -604,6 +622,7 @@ class FilmController extends Controller
             if (strcmp('0', $reziser) != 0) {
 
                 $film = $film
+                    ->join('reziser', 'reziser.Film_id_filma', '=', 'film.id_filma')
                     ->where('reziser.Student_id_studenta', $reziser);
 
             }
@@ -643,26 +662,31 @@ class FilmController extends Controller
                 $arr = explode(' ',$kompozitor);
                 $duzina =count($arr);
 
-                if($duzina === 1){
-                    //ako smo dobili ime_prezime,pretrazuje se po tabeli PODRSKA
+                if($duzina === 2){
+
                     if($podrska_ind === 0){
                         $film = $film->join('podrska','film.id_filma','=','podrska.Film_id_filma');
                         $podrska_ind = 1;
                     }
 
-                    $film = $film->where('podrska.ime_prezime',$arr[0])
+                    $film = $film->where('podrska.ime_prezime',$arr[0]." " .$arr[1])
                         ->where('podrska.tip_podrske',"kompozitor");
                 }
-                elseif($duzina === 2){
-                    //inace se pretrazuje po tabeli PODRSKA_STUDENT
+                elseif($duzina === 3){
                     if($podrska_student_ind === 0){
                         $film = $film->join('podrska_student','film.id_filma','=','podrska_student.Film_id_filma');
+
+                        if($student_ind === 0){
+                            $film->join('student','student.id_studenta','=','podrska_student.Student_id_studenta');
+
+                            $student_ind = 1;
+                        }
 
                         $podrska_student_ind = 1;
                     }
 
                     $film = $film
-                        ->where('student.indeks',$arr[1])
+                        ->where('student.indeks',$arr[2])
                         ->where('podrska_student.tip_podrske',"kompozitor");
                 }
             }
@@ -673,25 +697,32 @@ class FilmController extends Controller
                 $arr = explode(' ',$dizajner_zvuka);
                 $duzina =count($arr);
 
-                if($duzina === 1){
+
+                if($duzina === 2){
 
                     if($podrska_ind === 0){
                         $film = $film->join('podrska','film.id_filma','=','podrska.Film_id_filma');
                         $podrska_ind = 1;
                     }
 
-                    $film = $film->where('podrska.ime_prezime',$arr[0])
+                    $film = $film->where('podrska.ime_prezime',$arr[0]." " .$arr[1])
                         ->where('podrska.tip_podrske',"dizajner zvuka");
                 }
-                elseif($duzina === 2){
+                elseif($duzina === 3){
                     if($podrska_student_ind === 0){
                         $film = $film->join('podrska_student','film.id_filma','=','podrska_student.Film_id_filma');
+
+                        if($student_ind === 0){
+                            $film->join('student','student.id_studenta','=','podrska_student.Student_id_studenta');
+
+                            $student_ind = 1;
+                        }
 
                         $podrska_student_ind = 1;
                     }
 
                     $film = $film
-                        ->where('student.indeks',$arr[1])
+                        ->where('student.indeks',$arr[2])
                         ->where('podrska_student.tip_podrske',"dizajner zvuka");
                 }
             }
@@ -701,25 +732,31 @@ class FilmController extends Controller
                 $arr = explode(' ',$snimatelj_zvuka);
                 $duzina =count($arr);
 
-                if($duzina === 1){
+                if($duzina === 2){
 
                     if($podrska_ind === 0){
                         $film = $film->join('podrska','film.id_filma','=','podrska.Film_id_filma');
                         $podrska_ind = 1;
                     }
 
-                    $film = $film->where('podrska.ime_prezime',$arr[0])
+                    $film = $film->where('podrska.ime_prezime',$arr[0]." " .$arr[1])
                         ->where('podrska.tip_podrske',"snimatelj zvuka");
                 }
-                elseif($duzina === 2){
+                elseif($duzina === 3){
                     if($podrska_student_ind === 0){
                         $film = $film->join('podrska_student','film.id_filma','=','podrska_student.Film_id_filma');
+
+                        if($student_ind === 0){
+                            $film->join('student','student.id_studenta','=','podrska_student.Student_id_studenta');
+
+                            $student_ind = 1;
+                        }
 
                         $podrska_student_ind = 1;
                     }
 
                     $film = $film
-                        ->where('student.indeks',$arr[1])
+                        ->where('student.indeks',$arr[2])
                         ->where('podrska_student.tip_podrske',"snimatelj zvuka");
                 }
             }
@@ -729,26 +766,32 @@ class FilmController extends Controller
                 $arr = explode(' ',$scenograf);
                 $duzina =count($arr);
 
-                if($duzina === 1){
+                if($duzina === 2){
 
                     if($podrska_ind === 0){
                         $film = $film->join('podrska','film.id_filma','=','podrska.Film_id_filma');
                         $podrska_ind = 1;
                     }
 
-                    $film = $film->where('podrska.ime_prezime',$arr[0])
-                        ->where('podrska.tip_podrske',"scenograf");
+                    $film = $film->where('podrska.ime_prezime',$arr[0]." " .$arr[1])
+                        ->where('podrska.tip_podrske',"scenarista");
                 }
-                elseif($duzina === 2){
+                elseif($duzina === 3){
                     if($podrska_student_ind === 0){
                         $film = $film->join('podrska_student','film.id_filma','=','podrska_student.Film_id_filma');
+
+                        if($student_ind === 0){
+                            $film->join('student','student.id_studenta','=','podrska_student.Student_id_studenta');
+
+                            $student_ind = 1;
+                        }
 
                         $podrska_student_ind = 1;
                     }
 
                     $film = $film
-                        ->where('student.indeks',$arr[1])
-                        ->where('podrska_student.tip_podrske',"scenograf");
+                        ->where('student.indeks',$arr[2])
+                        ->where('podrska_student.tip_podrske',"scenarista");
                 }
             }
 
@@ -757,25 +800,31 @@ class FilmController extends Controller
                 $arr = explode(' ',$kostimograf);
                 $duzina =count($arr);
 
-                if($duzina === 1){
+                if($duzina === 2){
 
                     if($podrska_ind === 0){
                         $film = $film->join('podrska','film.id_filma','=','podrska.Film_id_filma');
                         $podrska_ind = 1;
                     }
 
-                    $film = $film->where('podrska.ime_prezime',$arr[0])
+                    $film = $film->where('podrska.ime_prezime',$arr[0]." " .$arr[1])
                         ->where('podrska.tip_podrske',"kostimograf");
                 }
-                elseif($duzina === 2){
+                elseif($duzina === 3){
                     if($podrska_student_ind === 0){
                         $film = $film->join('podrska_student','film.id_filma','=','podrska_student.Film_id_filma');
+
+                        if($student_ind === 0){
+                            $film->join('student','student.id_studenta','=','podrska_student.Student_id_studenta');
+
+                            $student_ind = 1;
+                        }
 
                         $podrska_student_ind = 1;
                     }
 
                     $film = $film
-                        ->where('student.indeks',$arr[1])
+                        ->where('student.indeks',$arr[2])
                         ->where('podrska_student.tip_podrske',"kostimograf");
                 }
             }
@@ -785,25 +834,31 @@ class FilmController extends Controller
                 $arr = explode(' ',$animacija);
                 $duzina =count($arr);
 
-                if($duzina === 1){
+                if($duzina === 2){
 
                     if($podrska_ind === 0){
                         $film = $film->join('podrska','film.id_filma','=','podrska.Film_id_filma');
                         $podrska_ind = 1;
                     }
 
-                    $film = $film->where('podrska.ime_prezime',$arr[0])
+                    $film = $film->where('podrska.ime_prezime',$arr[0]." " .$arr[1])
                         ->where('podrska.tip_podrske',"animacija");
                 }
-                elseif($duzina === 2){
+                elseif($duzina === 3){
                     if($podrska_student_ind === 0){
                         $film = $film->join('podrska_student','film.id_filma','=','podrska_student.Film_id_filma');
+
+                        if($student_ind === 0){
+                            $film->join('student','student.id_studenta','=','podrska_student.Student_id_studenta');
+
+                            $student_ind = 1;
+                        }
 
                         $podrska_student_ind = 1;
                     }
 
                     $film = $film
-                        ->where('student.indeks',$arr[1])
+                        ->where('student.indeks',$arr[2])
                         ->where('podrska_student.tip_podrske',"animacija");
                 }
             }
@@ -813,25 +868,32 @@ class FilmController extends Controller
                 $arr = explode(' ',$sminker);
                 $duzina =count($arr);
 
-                if($duzina === 1){
+
+                if($duzina === 2){
 
                     if($podrska_ind === 0){
                         $film = $film->join('podrska','film.id_filma','=','podrska.Film_id_filma');
                         $podrska_ind = 1;
                     }
 
-                    $film = $film->where('podrska.ime_prezime',$arr[0])
+                    $film = $film->where('podrska.ime_prezime',$arr[0]." " .$arr[1])
                         ->where('podrska.tip_podrske',"sminker");
                 }
-                elseif($duzina === 2){
+                elseif($duzina === 3){
                     if($podrska_student_ind === 0){
                         $film = $film->join('podrska_student','film.id_filma','=','podrska_student.Film_id_filma');
+
+                        if($student_ind === 0){
+                            $film->join('student','student.id_studenta','=','podrska_student.Student_id_studenta');
+
+                            $student_ind = 1;
+                        }
 
                         $podrska_student_ind = 1;
                     }
 
                     $film = $film
-                        ->where('student.indeks',$arr[1])
+                        ->where('student.indeks',$arr[2])
                         ->where('podrska_student.tip_podrske',"sminker");
                 }
             }
@@ -842,27 +904,33 @@ class FilmController extends Controller
                 $arr = explode(' ',$specijani_efekti);
                 $duzina =count($arr);
 
-                if($duzina === 1){
+
+                if($duzina === 2){
 
                     if($podrska_ind === 0){
                         $film = $film->join('podrska','film.id_filma','=','podrska.Film_id_filma');
                         $podrska_ind = 1;
-
                     }
 
-                    $film = $film->where('podrska.ime_prezime',$arr[0])
+                    $film = $film->where('podrska.ime_prezime',$arr[0]." " .$arr[1])
                         ->where('podrska.tip_podrske',"specijalni efekti");
                 }
-                elseif($duzina === 2){
+                elseif($duzina === 3){
                     if($podrska_student_ind === 0){
                         $film = $film->join('podrska_student','film.id_filma','=','podrska_student.Film_id_filma');
+
+                        if($student_ind === 0){
+                            $film->join('student','student.id_studenta','=','podrska_student.Student_id_studenta');
+
+                            $student_ind = 1;
+                        }
 
                         $podrska_student_ind = 1;
                     }
 
                     $film = $film
-                        ->where('student.indeks',$arr[1])
-                        ->where('podrska_student.tip_podrske',"specijani efekti");
+                        ->where('student.indeks',$arr[2])
+                        ->where('podrska_student.tip_podrske',"specijalni efekti");
                 }
             }
 
@@ -1035,9 +1103,13 @@ class FilmController extends Controller
 
             }
 
-            //biramo kolone koje zelimo da se salju i izvrsavamo upit
-            $film = $film->select('film.id_filma','film.trajanje','film.godina_proizvodnje','film.naziv_filma','student.ime_prezime'
+            /*
+                ->select('film.id_filma','film.trajanje','film.godina_proizvodnje','film.naziv_filma','student.ime_prezime'
                 ,'osnovne_informacije.sinopsis')
+            */
+
+            //biramo kolone koje zelimo da se salju i izvrsavamo upit
+            $film = $film
                 ->get();
 
 

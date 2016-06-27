@@ -58,8 +58,10 @@ class StudentController extends Controller{
             $katedre_n = Katedra::query()->where('naziv', $naziv)
                 ->where('skolska_godina', $year)->take(1)->get();
 
-        $id_katedren = $katedre_n[0]->id_katedre;
+            $id_katedren = $katedre_n[0]->id_katedre;
+
             $student->id_katedre = $id_katedren;
+
             Student::query()->where('id_studenta', $id)
                         ->update(['katedra_id_katedre' => $id_katedren]);
 
