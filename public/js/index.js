@@ -28,6 +28,7 @@ $(document).ready(function(){
                         columnNames: ["Naziv filma", "Trajanje", "Godina proizvodnje", "Detalji"],
                         columnKeys: ["naziv_filma", "trajanje", "godina_proizvodnje", "detalji"],
                         columnWidths: ["30%", "20%", "30%", "20%"],
+                        sortable: [true, true, true, false],
                         cellTemplates: [null, null, null,
                             '<a class="btn btn-default"  onclick="goToPageWithToken(\'film_{{id_filma}}\')">Idi na detalje o filmu</a>'],
                         data: data
@@ -63,6 +64,7 @@ $(document).ready(function(){
                         columnNames: ["Naziv filma", "Trajanje", "Godina proizvodnje", "Detalji"],
                         columnKeys: ["naziv_filma", "trajanje", "godina_proizvodnje", "detalji"],
                         columnWidths: ["30%", "20%", "30%", "20%"],
+                        sortable: [true, true, true, false],
                         cellTemplates: [null, null, null,
                             '<a class="btn btn-default"  onclick="goToPageWithToken(\'film_{{id_filma}}\')">Idi na detalje o filmu</a>'],
                         data: data

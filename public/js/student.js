@@ -26,6 +26,7 @@ $(document).ready(function(){
             columnNames: colNames,
             columnKeys: ["indeks", "ime_prezime", "e_mail","naziv", "godina_studija", "uvecanje"],
             columnWidths: ["15%", "20%","20", "10", "10", "10"],
+            sortable: [true, true, true, true, true, false],
             cellTemplates: [null, null, null, null, null,
               '<input type="button" class="btn btn-default" onclick="goToPageWithToken(\'studentInkrement_{{id_studenta}}\')" value="Uvecaj" />'],
 

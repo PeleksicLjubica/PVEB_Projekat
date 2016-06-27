@@ -15,6 +15,7 @@ $(document).ready(function(){
             columnNames: colNames,
             columnKeys: ["naziv_vezbe", "opis", "tip", "predmet_naziv"],
             columnWidths: ["20%", "40%","15%", "15%"],
+            sortable: [true, false, true, true],
             data: data.data
         });
 
