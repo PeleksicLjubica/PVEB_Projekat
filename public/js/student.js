@@ -7,7 +7,7 @@ function uvecajGodinu(id){
 
 $(document).ready(function(){
     $token=localStorage.getItem('token');
-    var colNames = ["id_studenta", "Indeks", "Ime i prezime", "Email", "Katedra", "Godina studija",  "Uvecanje godine"];
+    var colNames = ["Id studenta", "Indeks", "Ime i prezime", "Email", "Katedra", "Godina studija",  "Uvecanje godine"];
     var podaci;
     $("#student_forma").attr("action", pathWithToken('student'));
 
@@ -73,8 +73,8 @@ $(document).ready(function(){
             a.push(rowCSV.indeks);
             a.push(rowCSV.ime_prezime);
             a.push(rowCSV.e_mail);
-            a.push(rowCSV.katedra_id_katedre);
-
+            a.push(rowCSV.naziv);
+            a.push(rowCSV.godina_studija);
             var row = [];
             row.push(a.toString());
             csvRows.push(row);
@@ -117,7 +117,8 @@ $(document).ready(function(){
             },
             messages: {
                 indeks: {
-                   regex1: "Morate da unesete indeks"
+                   regex1: "Morate da unesete indeks",
+                    required: "Morate da unesete indeks"
                 },
                 ime_prezime: {
                     required: "Morate da unesete ime i prezime"
@@ -126,7 +127,8 @@ $(document).ready(function(){
                     required: "Morate da unesete email"
                 },
                 katedre:{
-                    regex1: "Morate da odaberete katedru"
+                    regex1: "Morate da odaberete katedru",
+                    required: "Morate da odaberete katedru"
                 }
 
             }
