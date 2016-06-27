@@ -59,6 +59,7 @@ $(document).ready(function() {
                columnNames: colNames,
                columnKeys: ["godina_studija", "skolska_godina", "naziv", "ime_prezime"],
                columnWidths: ["20%", "20%", "30%", "50%"],
+               initialSortColumn: 'skolska_godina',
                data: podaci
            });
 
