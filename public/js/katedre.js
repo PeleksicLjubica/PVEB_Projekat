@@ -79,7 +79,7 @@ $(document).ready(function() {
             a.push(rowCSV.godina_studija);
             a.push(rowCSV.skolska_godina);
             a.push(rowCSV.naziv);
-            a.push(rowCSV.Profesor_id_profesora);
+            a.push(rowCSV.ime_prezime);
 
             var row = [];
             row.push(a.toString());

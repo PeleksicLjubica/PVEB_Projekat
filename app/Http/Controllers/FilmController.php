@@ -9,7 +9,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Karton_prilog;
+use App\Models\Katedra;
 use App\Models\Predmet;
+use App\Models\Profesor;
+use App\Models\Vezba_katedra;
 use Assetic\Cache\ArrayCache;
 use Illuminate\Http\Request;
 use App\Models\Film;
@@ -1092,10 +1095,32 @@ class FilmController extends Controller
             ->where('id_vezbe', $film->informacije[0]->Vezba_id_vezbe)
             ->get();
 
-        //katedre i profesor
         $film->predmet = Predmet::query()
             ->where('id_predmeta', $film->vezba[0]->Predmet_id_predmeta)
             ->get();
+
+
+        $film->vezba_katedre = Vezba_katedra::query()
+            ->where('vezba_katedra.Vezba_id_vezbe', '=', $film->informacije[0]->Vezba_id_vezbe)
+            ->get();
+
+        $film->katedre = [];
+        foreach($film->vezba_katedre as $vk) {
+            $katedra = Katedra::query()
+                        ->where('katedra.id_katedre', "=", $vk->Katedra_id_katedre)
+                        ->get();
+            array_push($film->katedre, $katedra[0]);
+        }
+
+
+        $film->profesori = [];
+        foreach ($film->katedre as $katedra) {
+            $profesor = Profesor::query()
+                        ->where('profesor.id_profesora', '=', $katedra->Profesor_id_profesora)
+                        ->get();
+            array_push($film->profesori, $profesor[0]);
+        }
+
 
         $film->glumci = Glumac::query()
             ->where('Film_id_filma', $id)

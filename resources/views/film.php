@@ -1,7 +1,3 @@
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,8 +8,8 @@
 
     <!-- jQuery library -->
     <script src="components/jquery/jquery.min.js"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/additional-methods.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/additional-methods.js"></script>
 
 
     <!-- Latest compiled and minified Bootstrap CSS -->
@@ -31,8 +27,8 @@
 
 
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.min.js"></script>
+    <link href="css/select2.min.css" rel="stylesheet" />
+    <script src="js/select2.min.js"></script>
 
     <link rel="stylesheet" href="css/style.css">
     <script src="js/shared.js"></script>
@@ -154,7 +150,8 @@
 
 
 <div class="container">
-    <h2 id="naziv_filma"><?php echo $film->informacije[0]->naziv_filma ?></h2>
+
+    <h1 id="naziv_filma" style="font-style: italic; text-align: center; font-size: 500%; margin-bottom: 30px;"><?php echo $film->informacije[0]->naziv_filma ?></h1>
 
     <div class="row" id="proba">
         <div class="col-md-6" id="vrteska">
@@ -180,11 +177,11 @@
                         foreach ($film->prilozi as $prilog) {
                             if ($prilog->tip_priloga == 'fotografija iz filma') {
                                 if ($index == 0) {
-                                    echo '<li data-target = "#myCarousel" data-slide-to =  ' .".  $index  .". ' class="active" ></li >';
+                                    echo '<li data-target = "#myCarousel" data-slide-to =  ' .  $index  . ' class="active" ></li >';
                                 }
 
                                 else {
-                                    echo '<li data-target = "#myCarousel" data-slide-to =  ' .".  $index  .". '></li >';
+                                    echo '<li data-target = "#myCarousel" data-slide-to =  ' . $index  . '></li >';
                                 }
 
                                 $index++;
@@ -216,13 +213,13 @@
                         }
                         echo '</div >';
 
-                        echo '<a class="left carousel-control" href = "#myCarousel" role = "button" data - slide = "prev" >';
-                            echo '<span class="glyphicon glyphicon-chevron-left" aria - hidden = "true" ></span >';
+                        echo '<a class="left carousel-control" href = "#myCarousel" role = "button" data-slide = "prev" >';
+                            echo '<span class="glyphicon glyphicon-chevron-left" aria-hidden = "true" ></span >';
                             echo '<span class="sr-only" > Previous</span >';
                         echo '</a >';
 
-                        echo '<a class="right carousel-control" href = "#myCarousel" role = "button" data - slide = "next" >';
-                            echo '<span class="glyphicon glyphicon-chevron-right" aria - hidden = "true" ></span >';
+                        echo '<a class="right carousel-control" href = "#myCarousel" role = "button" data-slide = "next" >';
+                            echo '<span class="glyphicon glyphicon-chevron-right" aria-hidden = "true" ></span >';
                             echo ' <span class="sr-only" > Next</span >';
                         echo '</a >';
 
@@ -240,8 +237,20 @@
         <div class="col-md-3" id="osn_info">
             <p><span  style="font-style: italic;">Godina proizvodnje: </span> <label id="godina_proizvodnje">  </span> <?php echo $film->informacije[0]->godina_proizvodnje ?> </label> </p>
             <p><span style="font-style: italic;">Trajanje: </span> <label id="trajanje"> <?php echo $film->informacije[0]->trajanje ?> </label> </p>
-            <p><span style="font-style: italic;">Katedra: </span> <label id="katedra"> rezija </label> </p>
-            <p><span style="font-style: italic;">Profesor: </span> <label id="profesor"> Andjelka </label> </p>
+            <p><span style="font-style: italic;">Katedre: </span> <label id="katedra">
+                    <?php
+                    foreach ($film->katedre as $kat) {
+                        echo $kat->naziv .'<br>';
+                    }
+
+                    ?></label> </p>
+            <p><span style="font-style: italic;">Profesori: </span> <label id="profesor"> <?php
+
+                    foreach ($film->profesori as $prof) {
+                        echo $prof->ime_prezime .'<br>';
+                    }
+
+                    ?> </label> </p>
             <p><span style="font-style: italic;">Godina studija: </span> <label id="godina_studija"> 2 </label></p>
             <p><span style="font-style: italic;">Naziv vežbe:</span> <label id="naziv_vezbe"> <?php echo $film->vezba[0]->naziv ?> </label> </p>
             <p><span style="font-style: italic;">Predmet:</span><label id="predmet"> <?php echo $film->predmet[0]->naziv ?> </label> </p>
